@@ -51,10 +51,10 @@ import androidx.compose.ui.unit.LayoutDirection
 
 /**
  *  Base class for a Squircle based [Shape] defined by four corners and smoothing factor.
- *  @param topStartCorner The top start corner radius defined as [CornerSize].
- *  @param topEndCorner The top end corner radius defined as [CornerSize].
- *  @param bottomStartCorner The bottom start corner radius defined as [CornerSize].
- *  @param bottomEndCorner The bottom end corner radius defined as [CornerSize].
+ *  @param topStart The top start corner radius defined as [CornerSize].
+ *  @param topEnd The top end corner radius defined as [CornerSize].
+ *  @param bottomStart The bottom start corner radius defined as [CornerSize].
+ *  @param bottomEnd The bottom end corner radius defined as [CornerSize].
  *  @param cornerSmoothing The corner smoothing (0.55f - perfectly round, 1f - pinched).
  **/
 abstract class SquircleBasedShape(

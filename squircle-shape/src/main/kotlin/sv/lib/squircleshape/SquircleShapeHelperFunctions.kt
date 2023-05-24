@@ -27,6 +27,7 @@ import androidx.compose.ui.geometry.Size
 /**
  *  Clamps the corner radius from 0.0f to the size of the smallest axis.
  *  @param cornerSize The corner radius in pixels.
+ *  @param size The size of the shape.
  **/
 @Stable
 internal fun clampedCornerRadius(
@@ -42,6 +43,4 @@ internal fun clampedCornerRadius(
  *  @param cornerSmoothing The corner smoothing (0.55f - perfectly round, 1f - pinched).
  **/
 @Stable
-internal fun clampedCornerSmoothing(
-    cornerSmoothing: Float
-) = cornerSmoothing.coerceIn(0.55f, 1f)
+internal fun clampedCornerSmoothing(cornerSmoothing: Float) = cornerSmoothing.coerceIn(0.55f, 1f)
