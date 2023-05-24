@@ -1,6 +1,7 @@
+@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.kotlinAndroid)
     `maven-publish`
 }
 
@@ -32,8 +33,7 @@ android {
 
     kotlinOptions.jvmTarget = "1.8"
     buildFeatures.compose = true
-    composeOptions.kotlinCompilerExtensionVersion = "1.4.7"
-
+    composeOptions.kotlinCompilerExtensionVersion = libs.versions.compose.compiler.version.get()
 }
 
 afterEvaluate {
@@ -42,7 +42,7 @@ afterEvaluate {
             register<MavenPublication>("release") {
                 groupId = "com.github.stoyan-vuchev"
                 artifactId = "squircle-shape"
-                version = "1.0.0"
+                version = "1.0.2"
 
                 afterEvaluate {
                     from(components["release"])
@@ -54,13 +54,14 @@ afterEvaluate {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.10.1")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("androidx.compose.foundation:foundation:1.4.3")
-    implementation("androidx.compose.runtime:runtime:1.4.3")
+    implementation(libs.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.compose.foundation)
+    implementation(libs.androidx.compose.runtime)
+    implementation(libs.androidx.compose.ui)
 
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.androidx.test.espresso.core)
 
 }
