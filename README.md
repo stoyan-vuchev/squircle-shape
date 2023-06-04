@@ -1,4 +1,4 @@
-# Squircle Shape
+# Squircle Shape [![](https://jitpack.io/v/stoyan-vuchev/squircle-shape.svg)](https://jitpack.io/#stoyan-vuchev/squircle-shape)
 
 > An Android Jetpack Compose library providing customizable Squircle shapes for UI components.
 
@@ -24,7 +24,7 @@
 
 ## Requirements
 
-- Project Min SDK version - `23`
+- Project minSdk version - `23`
 - Jetpack Compose version - `1.4.3`
 - Jetpack Compose Compiler version - `1.4.7`
 - Kotlin version - `1.8.21`
@@ -44,17 +44,17 @@ repositories {
 #### Step 2
 
 * Add the Squircle Shape dependency in your module `build.gradle.kts` file.
-* [![](https://jitpack.io/v/stoyan-vuchev/squircle-shape.svg)](https://jitpack.io/#stoyan-vuchev/squircle-shape)
+* Latest version: [![](https://jitpack.io/v/stoyan-vuchev/squircle-shape.svg)](https://jitpack.io/#stoyan-vuchev/squircle-shape)
 
 ```kotlin
-implementation("com.github.stoyan-vuchev:squircle-shape:1.0.2")
+implementation("com.github.stoyan-vuchev:squircle-shape:<version>")
 ```
 
 * Or if you're using a version catalog (e.g. `libs.versions.toml`), declare it there.
 
 ```toml
 [versions]
-squircle-shape = "1.0.2"
+squircle-shape = "<version>"
 
 [libraries]
 squircle-shape = { group = "com.github.stoyan-vuchev", name = "squircle-shape", version.ref = "squircle-shape" }
@@ -89,10 +89,10 @@ allprojects {
 #### Step 2
 
 * Add the Squircle Shape dependency in your module `build.gradle` file.
-* [![](https://jitpack.io/v/stoyan-vuchev/squircle-shape.svg)](https://jitpack.io/#stoyan-vuchev/squircle-shape)
+* Latest version: [![](https://jitpack.io/v/stoyan-vuchev/squircle-shape.svg)](https://jitpack.io/#stoyan-vuchev/squircle-shape)
 
 ```groovy
-implementation 'com.github.stoyan-vuchev:squircle-shape:1.0.2'
+implementation 'com.github.stoyan-vuchev:squircle-shape:<version>'
 ```
 
 #### Step 3
@@ -110,7 +110,7 @@ implementation 'com.github.stoyan-vuchev:squircle-shape:1.0.2'
   smoothness of the corners, the foundation of every squircle shape.
 
 
-* Take a look at the [SquircleShape.kt](/squircle-shape/src/main/kotlin/sv/lib/squircleshape/SquircleShape.kt) file for more information.
+* Take a look at the [SquircleShape.kt](/squircle-shape/src/main/kotlin/sv/lib/squircleshape/SquircleShape.kt) and [CornerSmoothing.kt](/squircle-shape/src/main/kotlin/sv/lib/squircleshape/CornerSmoothing.kt) files for more information.
 
 
 * For a single percent based corner radius, use the variant of `SquircleShape()` with `precent: Int`
@@ -119,7 +119,7 @@ implementation 'com.github.stoyan-vuchev:squircle-shape:1.0.2'
 ```kotlin
 SquircleShape(
     percent = 100,
-    cornerSmoothing = 0.72f
+    cornerSmoothing = CornerSmoothing.Medium
 )
 ```
 
@@ -136,7 +136,7 @@ SquircleShape(
     topEnd = 10,
     bottomStart = 50,
     bottomEnd = 10,
-    cornerSmoothing = 0.72f
+    cornerSmoothing = CornerSmoothing.Medium
 )
 ```
 

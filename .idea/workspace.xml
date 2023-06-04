@@ -9,8 +9,24 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07a63061-e1ac-4350-bf7c-a0f9e12acac5" name="Changes" comment="Increased default corner smoothing.&#10;- The default corner smoothing value is increased from 0.67f to 0.72f&#10;- Added MIT License references.">
+    <list default="true" id="07a63061-e1ac-4350-bf7c-a0f9e12acac5" name="Changes" comment="Added collection of commonly used corner smoothing values.&#10;- Added CornerSmoothing.kt&#10;- Modified README.md&#10;- Other minor improvements.">
+      <change afterPath="$PROJECT_DIR$/.idea/modules/squircle-shape/Squircle_Shape.squircle-shape.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/kotlin/sv/app/squircleshape/demo/core/ext/RoundDecimalCount.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/squircle-shape/src/main/kotlin/sv/lib/squircleshape/CornerSmoothing.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/sv/app/squircleshape/demo/presentation/preview/PreviewScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/sv/app/squircleshape/demo/presentation/preview/PreviewScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/sv/app/squircleshape/demo/presentation/preview/PreviewScreenState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/sv/app/squircleshape/demo/presentation/preview/PreviewScreenState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/sv/app/squircleshape/demo/presentation/preview/PreviewScreenViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/sv/app/squircleshape/demo/presentation/preview/PreviewScreenViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/squircle-shape/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/squircle-shape/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/squircle-shape/src/main/kotlin/sv/lib/squircleshape/SquircleBasedShape.kt" beforeDir="false" afterPath="$PROJECT_DIR$/squircle-shape/src/main/kotlin/sv/lib/squircleshape/SquircleBasedShape.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/squircle-shape/src/main/kotlin/sv/lib/squircleshape/SquircleShape.kt" beforeDir="false" afterPath="$PROJECT_DIR$/squircle-shape/src/main/kotlin/sv/lib/squircleshape/SquircleShape.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/squircle-shape/src/main/kotlin/sv/lib/squircleshape/SquircleShapeHelperFunctions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/squircle-shape/src/main/kotlin/sv/lib/squircleshape/SquircleShapeHelperFunctions.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/squircle-shape/src/main/kotlin/sv/lib/squircleshape/SquircleShapePath.kt" beforeDir="false" afterPath="$PROJECT_DIR$/squircle-shape/src/main/kotlin/sv/lib/squircleshape/SquircleShapePath.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,12 +42,12 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin Object" />
         <option value="valueResourceFile" />
         <option value="Kotlin Sealed Class" />
         <option value="Kotlin Class" />
         <option value="Kotlin Sealed Interface" />
         <option value="Kotlin Data Class" />
+        <option value="Kotlin Object" />
         <option value="Kotlin File" />
       </list>
     </option>
@@ -39,7 +55,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="1.0.2/lib-version-catalog" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -71,18 +87,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "cidr.known.project.marker": "true",
-    "last_opened_file_path": "D:/AndroidStudioProjects/SquircleShape",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/AndroidStudioProjects/SquircleShape&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\stfir\AndroidStudioProjects\SquircleShapeDemo\app\src\main\java\sv\app\squircleshape\demo" />
@@ -95,7 +112,7 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="Squircle_Shape.app.main" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
@@ -201,15 +218,33 @@
       <option name="project" value="LOCAL" />
       <updated>1684862009885</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added README.md">
+      <created>1684935758353</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1684935758353</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Implemented lib version catalog.&#10;- Added libs.versions.toml&#10;- Modified README.md&#10;- Other minor improvements">
+      <created>1684958872371</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1684958872371</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
     <MESSAGE value="Initial release." />
     <MESSAGE value="Increased default corner smoothing.&#10;- The default corner smoothing value is increased from 0.67f to 0.72f&#10;- Added MIT License references." />
-    <option name="LAST_COMMIT_MESSAGE" value="Increased default corner smoothing.&#10;- The default corner smoothing value is increased from 0.67f to 0.72f&#10;- Added MIT License references." />
+    <MESSAGE value="Added README.md" />
+    <MESSAGE value="Implemented lib version catalog.&#10;- Added libs.versions.toml&#10;- Modified README.md&#10;- Other minor improvements" />
+    <MESSAGE value="Added collection of commonly used corner smoothing values.&#10;- Added CornerSmoothing.kt&#10;- Modified README.md&#10;- Other minor improvements." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added collection of commonly used corner smoothing values.&#10;- Added CornerSmoothing.kt&#10;- Modified README.md&#10;- Other minor improvements." />
   </component>
 </project>

@@ -50,12 +50,15 @@ import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.LayoutDirection
 
 /**
- *  Base class for a Squircle based [Shape] defined by four corners and smoothing factor.
+ *
+ *  Base class for creating a Squircle based [Shape] defined by four corners and smoothing factor.
+ *
  *  @param topStart The top start corner radius defined as [CornerSize].
  *  @param topEnd The top end corner radius defined as [CornerSize].
  *  @param bottomStart The bottom start corner radius defined as [CornerSize].
  *  @param bottomEnd The bottom end corner radius defined as [CornerSize].
- *  @param cornerSmoothing The corner smoothing (0.55f - perfectly round, 1f - pinched).
+ *  @param cornerSmoothing (0.55f - rounded corner shape, 1f - fully pronounced squircle).
+ *
  **/
 abstract class SquircleBasedShape(
     val topStart: CornerSize,
@@ -107,6 +110,7 @@ abstract class SquircleBasedShape(
     }
 
     /**
+     *
      * Creates [Outline] of this shape for the given [size].
      *
      * @param size the size of the shape boundary.
@@ -116,6 +120,7 @@ abstract class SquircleBasedShape(
      * @param bottomStart the resolved size for the bottom start corner
      * @param cornerSmoothing the resolved smoothing factor for all corners
      * @param layoutDirection the current layout direction.
+     *
      */
     abstract fun createOutline(
         size: Size,
@@ -128,6 +133,7 @@ abstract class SquircleBasedShape(
     ): Outline
 
     /**
+     *
      * Creates a copy of this Shape with a new corner sizes.
      *
      * @param topStart a size of the top start corner
@@ -135,6 +141,7 @@ abstract class SquircleBasedShape(
      * @param bottomEnd a size of the bottom end corner
      * @param bottomStart a size of the bottom start corner
      * @param cornerSmoothing a factor for smoothing all corners
+     *
      */
     abstract fun copy(
         topStart: CornerSize = this.topStart,
@@ -145,9 +152,12 @@ abstract class SquircleBasedShape(
     ): SquircleBasedShape
 
     /**
+     *
      * Creates a copy of this Shape with a new corner size.
+     *
      * @param all a size to apply for all four corners
      * @param cornerSmoothing a factor for smoothing all corners
+     *
      */
     fun copy(
         all: CornerSize,
