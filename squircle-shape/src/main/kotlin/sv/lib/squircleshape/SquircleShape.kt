@@ -25,18 +25,20 @@ import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.geometry.toRect
 import androidx.compose.ui.graphics.Outline
-import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 
 /**
- *  Defines a Squircle based [Shape].
+ *
+ *  Creates a [SquircleBasedShape].
+ *
  *  @param topStartCorner The top start corner radius defined as [CornerSize].
  *  @param topEndCorner The top end corner radius defined as [CornerSize].
  *  @param bottomStartCorner The bottom start corner radius defined as [CornerSize].
  *  @param bottomEndCorner The bottom end corner radius defined as [CornerSize].
- *  @param cornerSmoothing The corner smoothing (0.55f - perfectly round, 1f - pinched).
+ *  @param cornerSmoothing (0.55f - rounded corner shape, 1f - fully pronounced squircle).
+ *
  **/
 class SquircleShape(
     topStartCorner: CornerSize,
@@ -101,13 +103,11 @@ class SquircleShape(
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SquircleShape) return false
-
         if (topStart != other.topStart) return false
         if (topEnd != other.topEnd) return false
         if (bottomStart != other.bottomStart) return false
         if (bottomEnd != other.bottomEnd) return false
         if (cornerSmoothing != other.cornerSmoothing) return false
-
         return true
     }
 
@@ -123,13 +123,16 @@ class SquircleShape(
 }
 
 /**
- *  Creates a [SquircleBasedShape] with corner radius percent defined as [Int] value.
+ *
+ *  Creates a [SquircleShape] with corner radius percent defined as [Int] value.
+ *
  *  @param percent The corner radius percent from 0 to 100.
- *  @param cornerSmoothing The corner smoothing (0.55f - perfectly round, 1f - pinched).
+ *  @param cornerSmoothing (0.55f - rounded corner shape, 1f - fully pronounced squircle).
+ *
  **/
 fun SquircleShape(
     percent: Int = 100,
-    cornerSmoothing: Float = 0.72f
+    cornerSmoothing: Float = CornerSmoothing.Medium
 ) = SquircleShape(
     topStartCorner = CornerSize(percent),
     topEndCorner = CornerSize(percent),
@@ -139,13 +142,16 @@ fun SquircleShape(
 )
 
 /**
- *  Creates a [SquircleBasedShape] with corner radius defined as [Dp] value.
+ *
+ *  Creates a [SquircleShape] with corner radius defined as [Dp] value.
+ *
  *  @param radius The corner radius.
- *  @param cornerSmoothing The corner smoothing (0.55f - perfectly round, 1f - pinched).
+ *  @param cornerSmoothing (0.55f - rounded corner shape, 1f - fully pronounced squircle).
+ *
  **/
 fun SquircleShape(
     radius: Dp,
-    cornerSmoothing: Float = 0.72f
+    cornerSmoothing: Float = CornerSmoothing.Medium
 ) = SquircleShape(
     topStartCorner = CornerSize(radius),
     topEndCorner = CornerSize(radius),
@@ -155,13 +161,16 @@ fun SquircleShape(
 )
 
 /**
- *  Creates a [SquircleBasedShape] with corner radius in pixels defined as [Float] value.
+ *
+ *  Creates a [SquircleShape] with corner radius in pixels defined as [Float] value.
+ *
  *  @param radius The corner radius in pixels.
- *  @param cornerSmoothing The corner smoothing (0.55f - perfectly round, 1f - pinched).
+ *  @param cornerSmoothing (0.55f - rounded corner shape, 1f - fully pronounced squircle).
+ *
  **/
 fun SquircleShape(
     radius: Float,
-    cornerSmoothing: Float = 0.72f
+    cornerSmoothing: Float = CornerSmoothing.Medium
 ) = SquircleShape(
     topStartCorner = CornerSize(radius),
     topEndCorner = CornerSize(radius),
@@ -171,19 +180,22 @@ fun SquircleShape(
 )
 
 /**
- *  Creates a [SquircleBasedShape] with corners percent defined as [Int] values.
+ *
+ *  Creates a [SquircleShape] with corners percent defined as [Int] values.
+ *
  *  @param topStart The top start corner radius percent from 0 to 100.
  *  @param topEnd The top end corner radius percent from 0 to 100.
  *  @param bottomStart The bottom start corner radius percent from 0 to 100.
  *  @param bottomEnd The bottom end corner radius percent from 0 to 100.
- *  @param cornerSmoothing The corner smoothing (0.55f - perfectly round, 1f - pinched).
+ *  @param cornerSmoothing (0.55f - rounded corner shape, 1f - fully pronounced squircle).
+ *
  **/
 fun SquircleShape(
     topStart: Int = 0,
     topEnd: Int = 0,
     bottomStart: Int = 0,
     bottomEnd: Int = 0,
-    cornerSmoothing: Float = 0.72f
+    cornerSmoothing: Float = CornerSmoothing.Medium
 ) = SquircleShape(
     topStartCorner = CornerSize(topStart),
     topEndCorner = CornerSize(topEnd),
@@ -193,19 +205,22 @@ fun SquircleShape(
 )
 
 /**
- *  Creates a [SquircleBasedShape] with corners defined as [Dp] values.
+ *
+ *  Creates a [SquircleShape] with corners defined as [Dp] values.
+ *
  *  @param topStart The top start corner radius.
  *  @param topEnd The top end corner radius.
  *  @param bottomStart The bottom start corner radius.
  *  @param bottomEnd The bottom end corner radius.
- *  @param cornerSmoothing The corner smoothing (0.55f - perfectly round, 1f - pinched).
+ *  @param cornerSmoothing (0.55f - rounded corner shape, 1f - fully pronounced squircle).
+ *
  **/
 fun SquircleShape(
     topStart: Dp = 0.dp,
     topEnd: Dp = 0.dp,
     bottomStart: Dp = 0.dp,
     bottomEnd: Dp = 0.dp,
-    cornerSmoothing: Float = 0.72f
+    cornerSmoothing: Float = CornerSmoothing.Medium
 ) = SquircleShape(
     topStartCorner = CornerSize(topStart),
     topEndCorner = CornerSize(topEnd),
@@ -215,19 +230,22 @@ fun SquircleShape(
 )
 
 /**
- *  Creates a [SquircleBasedShape] with pixel corners defined as [Float] values.
+ *
+ *  Creates a [SquircleShape] with pixel corners defined as [Float] values.
+ *
  *  @param topStart The top start corner radius in pixels.
  *  @param topEnd The top end corner radius.
  *  @param bottomStart The bottom start corner radius.
  *  @param bottomEnd The bottom end corner radius.
- *  @param cornerSmoothing The corner smoothing (0.55f - perfectly round, 1f - pinched).
+ *  @param cornerSmoothing (0.55f - rounded corner shape, 1f - fully pronounced squircle).
+ *
  **/
 fun SquircleShape(
     topStart: Float = 0f,
     topEnd: Float = 0f,
     bottomStart: Float = 0f,
     bottomEnd: Float = 0f,
-    cornerSmoothing: Float = 0.72f
+    cornerSmoothing: Float = CornerSmoothing.Medium
 ) = SquircleShape(
     topStartCorner = CornerSize(topStart),
     topEndCorner = CornerSize(topEnd),

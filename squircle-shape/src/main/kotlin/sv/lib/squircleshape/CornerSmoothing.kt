@@ -21,32 +21,24 @@
 
 package sv.lib.squircleshape
 
-import androidx.compose.runtime.Stable
-import androidx.compose.ui.geometry.Size
+import androidx.compose.foundation.shape.RoundedCornerShape
 
-/**
- *
- *  Clamps the corner radius from 0.0f to the size of the smallest axis.
- *
- *  @param cornerSize The corner radius in pixels.
- *  @param size The size of the shape.
- *
- **/
-@Stable
-internal fun clampedCornerRadius(
-    cornerSize: Float,
-    size: Size
-): Float {
-    val smallestAxis = size.minDimension / 2
-    return cornerSize.coerceIn(0.0f, smallestAxis)
+/** Collection of commonly used corner smoothing values for a [SquircleShape]. */
+object CornerSmoothing {
+
+    /** Does not apply corner smoothing. The result will be [RoundedCornerShape]. */
+    val None: Float get() = 0.55f
+
+    /** Applies a small amount of corner smoothing, resulting slightly pronounced [SquircleShape]. */
+    val Small: Float get() = 0.67f
+
+    /** Applies a medium amount of corner smoothing, resulting quite pronounced [SquircleShape]. */
+    val Medium: Float get() = 0.72f
+
+    /** Applies a high amount of corner smoothing, resulting highly pronounced [SquircleShape]. */
+    val High: Float get() = 0.8f
+
+    /** Applies a full amount of corner smoothing, resulting fully pronounced [SquircleShape]. */
+    val Full: Float get() = 1f
+
 }
-
-/**
- *
- *  Clamps the corner smoothing from 0.55f to 1f.
- *
- *  @param cornerSmoothing (0.55f - rounded corner shape, 1f - fully pronounced squircle).
- *
- **/
-@Stable
-internal fun clampedCornerSmoothing(cornerSmoothing: Float) = cornerSmoothing.coerceIn(0.55f, 1f)

@@ -43,7 +43,7 @@ import androidx.compose.ui.graphics.drawscope.translate
  *  @param topRightCorner The top right corner radius in pixels.
  *  @param bottomLeftCorner The bottom left corner radius in pixels.
  *  @param bottomRightCorner The bottom right corner radius in pixels.
- *  @param cornerSmoothing The corner smoothing (0f - cut, 0.55f - perfectly round, 1f - pinched).
+ *  @param cornerSmoothing (0.55f - rounded corner shape, 1f - fully pronounced squircle).
  *
  **/
 fun squircleShapePath(
@@ -148,21 +148,23 @@ fun squircleShapePath(
 }
 
 /**
+ *
  * Draws a Squircle with the given [Color]. Whether the Squircle is
  * filled or stroked (or both) is controlled by [Paint.style].
  *
- * @param color The color to be applied to the Squircle
- * @param topLeft Offset from the local origin of 0, 0 relative to the current translation
- * @param size Dimensions of the Squircle to draw
+ * @param color The color to be applied to the Squircle.
+ * @param topLeft Offset from the local origin of 0, 0 relative to the current translation.
+ * @param size Dimensions of the Squircle to draw.
  * @param topLeftCorner The top left corner radius in pixels.
  * @param topRightCorner The top right corner radius in pixels.
  * @param bottomLeftCorner The bottom left corner radius in pixels.
  * @param bottomRightCorner The bottom right corner radius in pixels.
- * @param cornerSmoothing The corner smoothing (0f - cut, 0.55f - perfectly round, 1f - pinched).
- * @param alpha Opacity to be applied to Squircle from 0.0f to 1.0f representing fully transparent to fully opaque respectively
- * @param style Specifies whether the Squircle is stroked or filled in
- * @param colorFilter ColorFilter to apply to the [color] when drawn into the destination
- * @param blendMode Blending algorithm to be applied to the color
+ * @param cornerSmoothing (0.55f - rounded corner shape, 1f - fully pronounced squircle).
+ * @param alpha Opacity to be applied to Squircle from 0.0f to 1.0f representing fully transparent to fully opaque respectively.
+ * @param style Specifies whether the Squircle is stroked or filled in.
+ * @param colorFilter ColorFilter to apply to the [color] when drawn into the destination.
+ * @param blendMode Blending algorithm to be applied to the color.
+ *
  */
 fun DrawScope.drawSquircle(
     color: Color,
@@ -207,21 +209,23 @@ fun DrawScope.drawSquircle(
 }
 
 /**
+ *
  * Draws a Squircle with the given [Brush]. Whether the Squircle is
  * filled or stroked (or both) is controlled by [Paint.style].
  *
- * @param brush The brush to be applied to the Squircle
- * @param topLeft Offset from the local origin of 0, 0 relative to the current translation
- * @param size Dimensions of the Squircle to draw
+ * @param brush The brush to be applied to the Squircle.
+ * @param topLeft Offset from the local origin of 0, 0 relative to the current translation.
+ * @param size Dimensions of the Squircle to draw.
  * @param topLeftCorner The top left corner radius in pixels.
  * @param topRightCorner The top right corner radius in pixels.
  * @param bottomLeftCorner The bottom left corner radius in pixels.
  * @param bottomRightCorner The bottom right corner radius in pixels.
- * @param cornerSmoothing The corner smoothing (0f - cut, 0.55f - perfectly round, 1f - pinched).
- * @param alpha Opacity to be applied to Squircle from 0.0f to 1.0f representing fully transparent to fully opaque respectively
- * @param style Specifies whether the Squircle is stroked or filled in
- * @param colorFilter ColorFilter to apply to the [brush] when drawn into the destination
- * @param blendMode Blending algorithm to be applied to the color
+ * @param cornerSmoothing (0.55f - rounded corner shape, 1f - fully pronounced squircle).
+ * @param alpha Opacity to be applied to Squircle from 0.0f to 1.0f representing fully transparent to fully opaque respectively.
+ * @param style Specifies whether the Squircle is stroked or filled in.
+ * @param colorFilter ColorFilter to apply to the [brush] when drawn into the destination.
+ * @param blendMode Blending algorithm to be applied to the color.
+ *
  */
 fun DrawScope.drawSquircle(
     brush: Brush,

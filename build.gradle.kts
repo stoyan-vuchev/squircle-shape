@@ -1,3 +1,18 @@
+buildscript {
+
+    repositories {
+        google()
+        mavenCentral()
+        maven(url = "https://jitpack.io")
+    }
+
+    dependencies {
+        classpath(libs.build.tools)
+        classpath(libs.kotlin.gradle.plugin)
+    }
+
+}
+
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     alias(libs.plugins.androidApplication) apply false

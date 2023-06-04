@@ -28,13 +28,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import sv.app.squircleshape.demo.R
+import sv.app.squircleshape.demo.core.ext.roundDecimalCountTo
 import sv.app.squircleshape.demo.core.theme.SquircleShapeDemoTheme
 import sv.app.squircleshape.demo.core.theme.swapBackgroundForSurfaceVariant
 import sv.app.squircleshape.demo.core.ui_components.FixedSmallTopAppBar
 import sv.app.squircleshape.demo.core.ui_components.SliderWithTitle
 import sv.lib.squircleshape.SquircleShape
 import sv.lib.squircleshape.drawSquircle
-import kotlin.math.roundToInt
 
 @Composable
 fun PreviewScreen(
@@ -48,12 +48,12 @@ fun PreviewScreen(
 
     val cornerRadiusSliderTitle by rememberUpdatedState(
         "${stringResource(id = R.string.corner_radius)}:   " +
-                "${(state.cornerRadius * 100).roundToInt()}%"
+                "$cornerRadius%"
     )
 
     val cornerSmoothingSliderTitle by rememberUpdatedState(
         "${stringResource(id = R.string.corner_smoothing)}:   " +
-                "$cornerSmoothing"
+                cornerSmoothing.roundDecimalCountTo(2)
     )
 
     Scaffold(
@@ -82,7 +82,7 @@ fun PreviewScreen(
                         val smallestAxis = if (size.width < size.height) size.width
                         else size.height
 
-                        val corner = (smallestAxis / 2f) * cornerRadius
+                        val corner = (smallestAxis / 2f) * (cornerRadius.toFloat() / 100f)
 
                         drawSquircle(
                             color = color,
@@ -105,7 +105,7 @@ fun PreviewScreen(
                     .fillMaxWidth()
                     .padding(horizontal = 24.dp),
                 title = cornerRadiusSliderTitle,
-                value = cornerRadius,
+                value = cornerRadius.toFloat() / 100f,
                 onValueChange = remember { { onUiAction(PreviewScreenUiAction.SetCornerRadius(it)) } }
             )
 

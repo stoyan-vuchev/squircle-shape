@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlin.math.roundToInt
 import kotlin.random.Random
 
 class PreviewScreenViewModel : ViewModel() {
@@ -21,7 +22,7 @@ class PreviewScreenViewModel : ViewModel() {
     }
 
     private fun setCornerRadius(value: Float) {
-        _state.update { it.copy(cornerRadius = value) }
+        _state.update { it.copy(cornerRadius = (value * 100).roundToInt()) }
     }
 
     private fun setCornerSmoothing(value: Float) {
