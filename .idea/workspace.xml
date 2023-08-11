@@ -10,23 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="07a63061-e1ac-4350-bf7c-a0f9e12acac5" name="Changes" comment="Added collection of commonly used corner smoothing values.&#10;- Added CornerSmoothing.kt&#10;- Modified README.md&#10;- Other minor improvements.">
-      <change afterPath="$PROJECT_DIR$/.idea/modules/squircle-shape/Squircle_Shape.squircle-shape.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/kotlin/sv/app/squircleshape/demo/core/ext/RoundDecimalCount.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/squircle-shape/src/main/kotlin/sv/lib/squircleshape/CornerSmoothing.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/sv/app/squircleshape/demo/presentation/preview/PreviewScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/sv/app/squircleshape/demo/presentation/preview/PreviewScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/sv/app/squircleshape/demo/presentation/preview/PreviewScreenState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/sv/app/squircleshape/demo/presentation/preview/PreviewScreenState.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/sv/app/squircleshape/demo/presentation/preview/PreviewScreenViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/sv/app/squircleshape/demo/presentation/preview/PreviewScreenViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/squircle-shape/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/squircle-shape/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/squircle-shape/src/main/kotlin/sv/lib/squircleshape/SquircleBasedShape.kt" beforeDir="false" afterPath="$PROJECT_DIR$/squircle-shape/src/main/kotlin/sv/lib/squircleshape/SquircleBasedShape.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/squircle-shape/src/main/kotlin/sv/lib/squircleshape/SquircleShape.kt" beforeDir="false" afterPath="$PROJECT_DIR$/squircle-shape/src/main/kotlin/sv/lib/squircleshape/SquircleShape.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/squircle-shape/src/main/kotlin/sv/lib/squircleshape/SquircleShapeHelperFunctions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/squircle-shape/src/main/kotlin/sv/lib/squircleshape/SquircleShapeHelperFunctions.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/squircle-shape/src/main/kotlin/sv/lib/squircleshape/SquircleShapePath.kt" beforeDir="false" afterPath="$PROJECT_DIR$/squircle-shape/src/main/kotlin/sv/lib/squircleshape/SquircleShapePath.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +44,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="1.0.2/lib-version-catalog" />
+        <entry key="$PROJECT_DIR$" value="1.0.3/corner-smoothing-values" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -87,19 +76,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/AndroidStudioProjects/SquircleShape&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "cidr.known.project.marker": "true",
+    "last_opened_file_path": "D:/AndroidStudioProjects/SquircleShape",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\stfir\AndroidStudioProjects\SquircleShapeDemo\app\src\main\java\sv\app\squircleshape\demo" />
@@ -232,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684958872371</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added collection of commonly used corner smoothing values.&#10;- Added CornerSmoothing.kt&#10;- Modified README.md&#10;- Other minor improvements.">
+      <created>1685848643296</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1685848643296</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

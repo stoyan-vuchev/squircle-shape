@@ -8,7 +8,7 @@ plugins {
 android {
 
     namespace = "sv.lib.squircleshape"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 23
@@ -27,26 +27,32 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
-    kotlinOptions.jvmTarget = "1.8"
+    kotlin {
+        jvmToolchain(17)
+    }
+
     buildFeatures.compose = true
     composeOptions.kotlinCompilerExtensionVersion = libs.versions.compose.compiler.version.get()
+
 }
 
 afterEvaluate {
     publishing {
         publications {
             register<MavenPublication>("release") {
+
                 groupId = "com.github.stoyan-vuchev"
                 artifactId = "squircle-shape"
-                version = "1.0.3"
+                version = "1.0.4"
 
                 afterEvaluate {
                     from(components["release"])
                 }
+
             }
         }
     }
