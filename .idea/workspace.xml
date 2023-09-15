@@ -9,11 +9,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07a63061-e1ac-4350-bf7c-a0f9e12acac5" name="Changes" comment="Added collection of commonly used corner smoothing values.&#10;- Added CornerSmoothing.kt&#10;- Modified README.md&#10;- Other minor improvements.">
+    <list default="true" id="07a63061-e1ac-4350-bf7c-a0f9e12acac5" name="Changes" comment="Kotlin &amp; Compose version bump&#10;- Bumped Kotlin version to 1.9.0.&#10;- Bumped Jetpack Compose version to 1.5.0.&#10;- Bumped Jetpack Compose compiler version to 1.5.1.&#10;- Bumped compileSdk to 34.&#10;- Bumped sourceCompatibility &amp; targetCompatibility Java version to 17.&#10;- Replaced kotlinOptions.jvmTarget = &quot;1.8&quot; with kotlin { jvmToolchain(17) }.">
       <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/squircle-shape/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/squircle-shape/build.gradle.kts" afterDir="false" />
     </list>
@@ -44,7 +43,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="1.0.3/corner-smoothing-values" />
+        <entry key="$PROJECT_DIR$" value="1.0.4/kotlin-and-compose-version-bump" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -85,8 +84,10 @@
     "RunOnceActivity.cidr.known.project.marker": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
     "last_opened_file_path": "D:/AndroidStudioProjects/SquircleShape",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -228,7 +229,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685848643296</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Kotlin &amp; Compose version bump&#10;- Bumped Kotlin version to 1.9.0.&#10;- Bumped Jetpack Compose version to 1.5.0.&#10;- Bumped Jetpack Compose compiler version to 1.5.1.&#10;- Bumped compileSdk to 34.&#10;- Bumped sourceCompatibility &amp; targetCompatibility Java version to 17.&#10;- Replaced kotlinOptions.jvmTarget = &quot;1.8&quot; with kotlin { jvmToolchain(17) }.">
+      <created>1691777075430</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1691777075430</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -241,6 +249,7 @@
     <MESSAGE value="Added README.md" />
     <MESSAGE value="Implemented lib version catalog.&#10;- Added libs.versions.toml&#10;- Modified README.md&#10;- Other minor improvements" />
     <MESSAGE value="Added collection of commonly used corner smoothing values.&#10;- Added CornerSmoothing.kt&#10;- Modified README.md&#10;- Other minor improvements." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added collection of commonly used corner smoothing values.&#10;- Added CornerSmoothing.kt&#10;- Modified README.md&#10;- Other minor improvements." />
+    <MESSAGE value="Kotlin &amp; Compose version bump&#10;- Bumped Kotlin version to 1.9.0.&#10;- Bumped Jetpack Compose version to 1.5.0.&#10;- Bumped Jetpack Compose compiler version to 1.5.1.&#10;- Bumped compileSdk to 34.&#10;- Bumped sourceCompatibility &amp; targetCompatibility Java version to 17.&#10;- Replaced kotlinOptions.jvmTarget = &quot;1.8&quot; with kotlin { jvmToolchain(17) }." />
+    <option name="LAST_COMMIT_MESSAGE" value="Kotlin &amp; Compose version bump&#10;- Bumped Kotlin version to 1.9.0.&#10;- Bumped Jetpack Compose version to 1.5.0.&#10;- Bumped Jetpack Compose compiler version to 1.5.1.&#10;- Bumped compileSdk to 34.&#10;- Bumped sourceCompatibility &amp; targetCompatibility Java version to 17.&#10;- Replaced kotlinOptions.jvmTarget = &quot;1.8&quot; with kotlin { jvmToolchain(17) }." />
   </component>
 </project>

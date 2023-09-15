@@ -47,7 +47,7 @@ afterEvaluate {
 
                 groupId = "com.github.stoyan-vuchev"
                 artifactId = "squircle-shape"
-                version = "1.0.4"
+                version = "1.0.5"
 
                 afterEvaluate {
                     from(components["release"])
