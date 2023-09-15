@@ -26,9 +26,9 @@
 
 - Project minSdk version - `23`
 - Project compileSdk version - `34`
-- Jetpack Compose version - `1.5.0`
-- Jetpack Compose Compiler version - `1.5.1`
-- Kotlin version - `1.9.0`
+- Jetpack Compose version - `1.5.1`
+- Jetpack Compose Compiler version - `1.5.3`
+- Kotlin version - `1.9.10`
 
 ## Gradle Kotlin DSL Setup
 
