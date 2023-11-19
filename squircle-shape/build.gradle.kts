@@ -47,7 +47,7 @@ afterEvaluate {
 
                 groupId = "com.github.stoyan-vuchev"
                 artifactId = "squircle-shape"
-                version = "1.0.5"
+                version = "1.0.6"
 
                 afterEvaluate {
                     from(components["release"])
@@ -62,9 +62,10 @@ dependencies {
 
     implementation(libs.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.androidx.compose.foundation)
-    implementation(libs.androidx.compose.runtime)
-    implementation(libs.androidx.compose.ui)
+
+    implementation(libs.compose.foundation)
+    implementation(libs.compose.runtime)
+    implementation(libs.compose.ui)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
