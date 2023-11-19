@@ -9,10 +9,12 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07a63061-e1ac-4350-bf7c-a0f9e12acac5" name="Changes" comment="Kotlin &amp; Compose version bump&#10;- Bumped Kotlin version to 1.9.0.&#10;- Bumped Jetpack Compose version to 1.5.0.&#10;- Bumped Jetpack Compose compiler version to 1.5.1.&#10;- Bumped compileSdk to 34.&#10;- Bumped sourceCompatibility &amp; targetCompatibility Java version to 17.&#10;- Replaced kotlinOptions.jvmTarget = &quot;1.8&quot; with kotlin { jvmToolchain(17) }.">
+    <list default="true" id="07a63061-e1ac-4350-bf7c-a0f9e12acac5" name="Changes" comment="Dependency &amp; library version bump&#10;- Bumped Kotlin version to 1.9.10&#10;- Bumped Compose version to 1.5.1&#10;- Bumped Compose Compiler version to 1.5.1&#10;- Bumped other dependencies version&#10;- Bumped library version&#10;- Updated README.md">
+      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/squircle-shape/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/squircle-shape/build.gradle.kts" afterDir="false" />
     </list>
@@ -43,7 +45,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="1.0.4/kotlin-and-compose-version-bump" />
+        <entry key="$PROJECT_DIR$" value="1.0.5/dependency-and-library-version-bump" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -236,7 +238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691777075430</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Dependency &amp; library version bump&#10;- Bumped Kotlin version to 1.9.10&#10;- Bumped Compose version to 1.5.1&#10;- Bumped Compose Compiler version to 1.5.1&#10;- Bumped other dependencies version&#10;- Bumped library version&#10;- Updated README.md">
+      <created>1694821660842</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1694821660842</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -250,6 +259,7 @@
     <MESSAGE value="Implemented lib version catalog.&#10;- Added libs.versions.toml&#10;- Modified README.md&#10;- Other minor improvements" />
     <MESSAGE value="Added collection of commonly used corner smoothing values.&#10;- Added CornerSmoothing.kt&#10;- Modified README.md&#10;- Other minor improvements." />
     <MESSAGE value="Kotlin &amp; Compose version bump&#10;- Bumped Kotlin version to 1.9.0.&#10;- Bumped Jetpack Compose version to 1.5.0.&#10;- Bumped Jetpack Compose compiler version to 1.5.1.&#10;- Bumped compileSdk to 34.&#10;- Bumped sourceCompatibility &amp; targetCompatibility Java version to 17.&#10;- Replaced kotlinOptions.jvmTarget = &quot;1.8&quot; with kotlin { jvmToolchain(17) }." />
-    <option name="LAST_COMMIT_MESSAGE" value="Kotlin &amp; Compose version bump&#10;- Bumped Kotlin version to 1.9.0.&#10;- Bumped Jetpack Compose version to 1.5.0.&#10;- Bumped Jetpack Compose compiler version to 1.5.1.&#10;- Bumped compileSdk to 34.&#10;- Bumped sourceCompatibility &amp; targetCompatibility Java version to 17.&#10;- Replaced kotlinOptions.jvmTarget = &quot;1.8&quot; with kotlin { jvmToolchain(17) }." />
+    <MESSAGE value="Dependency &amp; library version bump&#10;- Bumped Kotlin version to 1.9.10&#10;- Bumped Compose version to 1.5.1&#10;- Bumped Compose Compiler version to 1.5.1&#10;- Bumped other dependencies version&#10;- Bumped library version&#10;- Updated README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dependency &amp; library version bump&#10;- Bumped Kotlin version to 1.9.10&#10;- Bumped Compose version to 1.5.1&#10;- Bumped Compose Compiler version to 1.5.1&#10;- Bumped other dependencies version&#10;- Bumped library version&#10;- Updated README.md" />
   </component>
 </project>
