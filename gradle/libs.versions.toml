@@ -1,7 +1,7 @@
 [versions]
 
-agp = "8.1.4"
-kotlin = "1.9.20"
+agp = "8.2.2"
+kotlin = "1.9.22"
 
 core-ktx = "1.12.0"
 junit = "4.13.2"
@@ -10,18 +10,18 @@ androidx-test-espresso-core = "3.5.1"
 
 androidx-appcompat-version = "1.6.1"
 
-lifecycle-runtime-ktx = "2.6.2"
-lifecycle-runtime-compose = "2.6.2"
-lifecycle-viewmodel-compose = "2.6.2"
+lifecycle-runtime-ktx = "2.7.0"
+lifecycle-runtime-compose = "2.7.0"
+lifecycle-viewmodel-compose = "2.7.0"
 
-activity-compose = "1.8.0"
-navigation-compose = "2.7.5"
+activity-compose = "1.8.2"
+navigation-compose = "2.7.7"
 
-compose-compiler-version = "1.5.4"
-compose-version = "1.5.4"
-compose-m3-version = "1.1.2"
+compose-compiler-version = "1.5.9"
+compose-version = "1.6.1"
+compose-m3-version = "1.2.0"
 
-material = "1.10.0"
+material = "1.11.0"
 
 [libraries]
 
