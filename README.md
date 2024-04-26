@@ -35,15 +35,36 @@
 ---
 
 ## Requirements
+<br/>
 
 ##### Base requirements:
 
 - Project `minSdk` version - `23`
 - Project `compileSdk` version - `34`
 
-##### Version `1.0.x`:
+<br/>
+
+##### Library version `1.0.0` - `1.0.3`:
+
+- Jetpack Compose - `1.4.x`
+
+<br/>
+
+##### Library version `1.0.4` - `1.0.6`:
 
 - Jetpack Compose - `1.5.x`
+
+<br/>
+
+##### Library version `1.0.7` onwards:
+
+- Jetpack Compose - `1.6.x`
+
+<br/>
+
+If you're using Compose BOM (e.g. 2024.04.01) and you're not sure which Compose library version is included, check out [this link](https://developer.android.com/develop/ui/compose/bom/bom-mapping) for a detailed BOM to library version mapping.
+
+<br/>
 
 ---
 
