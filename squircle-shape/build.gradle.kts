@@ -1,4 +1,3 @@
-@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
@@ -27,7 +26,6 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
 
@@ -47,7 +45,7 @@ afterEvaluate {
 
                 groupId = "com.github.stoyan-vuchev"
                 artifactId = "squircle-shape"
-                version = "1.0.7"
+                version = "1.0.8"
 
                 afterEvaluate {
                     from(components["release"])
