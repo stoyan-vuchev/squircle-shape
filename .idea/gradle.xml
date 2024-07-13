@@ -5,12 +5,15 @@
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleJvm" value="jbrsdk_jcef-17" />
+        <option name="gradleJvm" value="jbr-17" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/squircle-shape" />
+            <option value="$PROJECT_DIR$/application" />
+            <option value="$PROJECT_DIR$/application/androidApp" />
+            <option value="$PROJECT_DIR$/application/desktopApp" />
+            <option value="$PROJECT_DIR$/application/shared" />
+            <option value="$PROJECT_DIR$/library" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />

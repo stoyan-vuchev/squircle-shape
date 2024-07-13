@@ -1,12 +1,12 @@
 # Squircle Shape
 
-[![](https://jitpack.io/v/stoyan-vuchev/squircle-shape.svg)](https://jitpack.io/#stoyan-vuchev/squircle-shape)
+![Maven Central Version](https://img.shields.io/maven-central/v/io.github.stoyan-vuchev/squircle-shape)
 [![API](https://img.shields.io/badge/API-23%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=23)
 <a href="https://github.com/stoyan-vuchev/squircle-shape/commits/master"><img src="https://img.shields.io/github/last-commit/stoyan-vuchev/squircle-shape.svg?style=flat&logo=github&logoColor=white" alt="GitHub last commit"></a>
 <a href="https://github.com/stoyan-vuchev/squircle-shape/issues"><img src="https://img.shields.io/github/issues-raw/stoyan-vuchev/squircle-shape.svg?style=flat&logo=github&logoColor=white" alt="GitHub issues"></a>
 <a href="https://jetc.dev/issues/168.html"><img src="https://img.shields.io/badge/As_Seen_In-jetc.dev_Newsletter_Issue_%23168-blue?logo=Jetpack+Compose&amp;logoColor=white" alt="As Seen In - jetc.dev Newsletter Issue #168"></a>
 
-> An Android Jetpack Compose library providing customizable Squircle shapes for UI components.
+> A Compose Multiplatform library providing customizable Squircle shapes for UI components.
 
 ---
 
@@ -14,8 +14,9 @@
 
 * [Why Squircle?](#why-squircle)
 * [Requirements](#requirements)
-* [Gradle Kotlin DSL Setup](#gradle-kotlin-dsl-setup)
-* [Gradle Groovy Setup](#gradle-groovy-setup)
+* [Gradle Kotlin DSL Setup (For Multiplatform projects).](#gradle-kotlin-dsl-setup-for-multiplatform-projects)
+* [Gradle Kotlin DSL Setup (For Android only projects).](#gradle-kotlin-dsl-setup-for-android-only-projects)
+* [Gradle Groovy Setup (For Android only projects).](#gradle-groovy-setup-for-android-only-projects)
 * [Usage](#usage)
 * [License](#license)
 * [Contact](#contact)
@@ -26,67 +27,57 @@
 
 - The squircle is an intermediate shape between a square and a circle, present in digital and real
   products as well.
-- Whereas the corners of a rounded square remain at 90 degree angle, the edges of a squircle curve
-  smoothly outwards from each corner, forming an arc, thus creating an optically pleasing shape.
-- Currently, there aren't any squircle shapes in Android out of the box. That's why this project was
-  created, with the main goal being to provide an easy implementation of a squircle shape for UI
-  components built with Jetpack Compose.
+- While the corners of a rounded square remain at 90-degree angle, the edges of a squircle curve
+  smoothly outwards from each corner, therefore creating an optically pleasing shape.
 
 ---
 
 ## Requirements
 <br/>
 
-##### Base requirements:
+##### Base requirements (For Multiplatform projects):
 
+- Kotlin version - `2.0.0`
+- Compose version - `1.6.11`
+
+<br/>
+
+##### Base requirements (For Android only projects):
+
+- Kotlin version - `2.0.0`
+- Jetpack Compose version - `1.6.11`
 - Project `minSdk` version - `23`
 - Project `compileSdk` version - `34`
 
 <br/>
 
-##### Library version `1.0.0` - `1.0.3`:
-
-- Jetpack Compose - `1.4.x`
-
-<br/>
-
-##### Library version `1.0.4` - `1.0.6`:
-
-- Jetpack Compose - `1.5.x`
-
-<br/>
-
-##### Library version `1.0.7` onwards:
-
-- Jetpack Compose - `1.6.x`
-
-<br/>
-
-If you're using Compose BOM (e.g. 2024.04.01) and you're not sure which Compose library version is included, check out [this link](https://developer.android.com/develop/ui/compose/bom/bom-mapping) for a detailed BOM to library version mapping.
-
-<br/>
-
 ---
 
-## Gradle Kotlin DSL Setup
+## Gradle Kotlin DSL Setup (For Multiplatform projects).
 
 ##### Step 1
 
-* Add the Jitpack maven repository in your `settings.gradle.kts` file.
+* Add the Squircle Shape dependency in your shared module `build.gradle.kts` file.
+* Latest version: ![Maven Central Version](https://img.shields.io/maven-central/v/io.github.stoyan-vuchev/squircle-shape)
 
 ```kotlin
-repositories {
-    maven(url = "https://jitpack.io")
+sourceSets {
+    
+    val commonMain by getting {
+        
+        dependencies {
+            
+            // ...
+            
+            implementation("io.github.stoyan-vuchev:squircle-shape:<version>")
+          
+        }
+      
+    }
+
+    // ...
+  
 }
-```
-
-##### Step 2
-
-* Add the Squircle Shape dependency in your module `build.gradle.kts` file.
-* Latest version: [![](https://jitpack.io/v/stoyan-vuchev/squircle-shape.svg)](https://jitpack.io/#stoyan-vuchev/squircle-shape)
-
-```kotlin
-implementation("com.github.stoyan-vuchev:squircle-shape:<version>")
 ```
 
 * Or if you're using a version catalog (e.g. `libs.versions.toml`), declare it in the catalog instead.
@@ -96,46 +87,100 @@ implementation("com.github.stoyan-vuchev:squircle-shape:<version>")
 squircle-shape = "<version>"
 
 [libraries]
-squircle-shape = { group = "com.github.stoyan-vuchev", name = "squircle-shape", version.ref = "squircle-shape" }
+squircle-shape = { group = "io.github.stoyan-vuchev", name = "squircle-shape", version.ref = "squircle-shape" }
 ```
 
-* Then include the dependency in your module `build.gradle.kts` file.
+* Then include the dependency in your shared module `build.gradle.kts` file.
 
 ```kotlin
-implementation(libs.squircle.shape)
-```
+sourceSets {
 
-#### Step 3
+  val commonMain by getting {
 
-* Sync and rebuild the project. 🔄️🔨✅
+    dependencies {
 
----
+      // ...
 
-## Gradle Groovy Setup
+      implementation(libs.squircle.shape)
 
-#### Step 1
-
-* Add the Jitpack maven repository in your project (root) level `build.gradle` file.
-
-```groovy
-allprojects {
-    repositories {
-        maven { url 'https://jitpack.io' }
     }
+
+  }
+
+  // ...
+
 }
 ```
 
 #### Step 2
 
-* Add the Squircle Shape dependency in your module `build.gradle` file.
-* Latest
-  version: [![](https://jitpack.io/v/stoyan-vuchev/squircle-shape.svg)](https://jitpack.io/#stoyan-vuchev/squircle-shape)
+* Sync and rebuild the project. 🔄️🔨✅
 
-```groovy
-implementation 'com.github.stoyan-vuchev:squircle-shape:<version>'
+---
+
+## Gradle Kotlin DSL Setup (For Android only projects).
+
+##### Step 1
+
+* Add the Squircle Shape dependency in your module `build.gradle.kts` file.
+* Latest version: ![Maven Central Version](https://img.shields.io/maven-central/v/io.github.stoyan-vuchev/squircle-shape)
+
+```kotlin
+dependencies {
+            
+    // ...
+            
+    implementation("io.github.stoyan-vuchev:squircle-shape-android:<version>")
+  
+}
 ```
 
-#### Step 3
+* Or if you're using a version catalog (e.g. `libs.versions.toml`), declare it in the catalog instead.
+
+```toml
+[versions]
+squircle-shape = "<version>"
+
+[libraries]
+squircle-shape = { group = "io.github.stoyan-vuchev", name = "squircle-shape-android", version.ref = "squircle-shape" }
+```
+
+* Then include the dependency in your module `build.gradle.kts` file.
+
+```kotlin
+dependencies {
+
+  // ...
+
+  implementation(libs.squircle.shape)
+
+}
+```
+
+#### Step 2
+
+* Sync and rebuild the project. 🔄️🔨✅
+
+---
+
+## Gradle Groovy Setup (For Android only projects).
+
+##### Step 1
+
+* Add the Squircle Shape dependency in your module `build.gradle` file.
+* Latest version: ![Maven Central Version](https://img.shields.io/maven-central/v/io.github.stoyan-vuchev/squircle-shape)
+
+```groovy
+dependencies {
+            
+    // ...
+            
+    implementation "io.github.stoyan-vuchev:squircle-shape-android:<version>"
+  
+}
+```
+
+#### Step 2
 
 * Sync and rebuild the project. 🔄️🔨✅
 
@@ -219,7 +264,7 @@ Image(
   the [SquircleShapePath.kt](/squircle-shape/src/main/kotlin/sv/lib/squircleshape/SquircleShapePath.kt)
   file.
 
-### Demo app coming soon! 📱✨
+### Demo app coming soon! 📱💻✨
 
 ---
 
@@ -227,9 +272,33 @@ Image(
 
 This project is open source and available under the [MIT License](./LICENSE).
 
+```
+MIT License
+
+Copyright (c) 2023 Stoyan Vuchev
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
 ---
 
 ## Contact
 
 Created by [@stoyan-vuchev](https://github.com/stoyan-vuchev/) - feel free to contact me! <br/>
-E-mail - [contact.stoyan.vuchev@gmail.com](mailto://contact.stoyan.vuchev@gmail.com)
+E-mail - [contact@stoyanvuchev.com](mailto://contact@stoyanvuchev.com)

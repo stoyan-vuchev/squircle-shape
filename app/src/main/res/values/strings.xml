@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">Squircle Shape Demo</string>
-    <string name="corner_radius">Corner radius</string>
-    <string name="corner_smoothing">Corner smoothing</string>
-    <string name="navigate_back">Navigate back</string>
-    <string name="preview_screen_title">Preview</string>
-    <string name="reset">Reset</string>
-    <string name="random">Random</string>
-</resources>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="squircle-shape-multiplatform-desktop">
+    <output-path>$PROJECT_DIR$/squircle-shape-multiplatform/build/libs</output-path>
+    <root id="archive" name="squircle-shape-multiplatform-desktop.jar">
+      <element id="module-output" name="Squircle_Shape.squircle-shape-multiplatform.desktopMain" />
+    </root>
+  </artifact>
+</component>
