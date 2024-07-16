@@ -44,7 +44,7 @@
 
 ---
 
-##### Migration guide for Android projects:
+##### Base requirements (For Android-only projects):
 
 - Kotlin version - `2.0.0`
 - Jetpack Compose version - `1.6.11`
