@@ -29,6 +29,7 @@
   products as well.
 - While the corners of a rounded square remain at 90-degree angle, the edges of a squircle curve
   smoothly outwards from each corner, therefore creating an optically pleasing shape.
+- The human brain perceives rounded corners (especially the smoother ones) easier and faster than sharp corners.
 
 ---
 
