@@ -211,8 +211,8 @@ dependencies {
 
 
 * Take a look at
-  the [SquircleShape.kt](/squircle-shape/src/main/kotlin/sv/lib/squircleshape/SquircleShape.kt)
-  and [CornerSmoothing.kt](/squircle-shape/src/main/kotlin/sv/lib/squircleshape/CornerSmoothing.kt)
+  the [SquircleShape.kt](/library/src/commonMain/kotlin/sv/lib/squircleshape/SquircleShape.kt)
+  and [CornerSmoothing.kt](/library/src/commonMain/kotlin/sv/lib/squircleshape/CornerSmoothing.kt)
   files for more information.
 
 
@@ -276,7 +276,7 @@ Image(
 
 * There is also a support for drawing squircle shapes in Canvas - `drawSquircle()`.
 * All methods for creating a squircle shape use the `squircleShapePath()`. You can find it inside
-  the [SquircleShapePath.kt](/squircle-shape/src/main/kotlin/sv/lib/squircleshape/SquircleShapePath.kt)
+  the [SquircleShapePath.kt](/library/src/commonMain/kotlin/sv/lib/squircleshape/SquircleShapePath.kt)
   file.
 
 ### Demo app coming soon! 📱💻✨
