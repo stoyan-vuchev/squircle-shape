@@ -59,7 +59,7 @@
 
 ##### Step 1
 
-* Add the Squircle Shape dependency in your shared module `build.gradle.kts` file.
+* Add the Squircle Shape dependency in your common module `build.gradle.kts` file.
 * Latest version: ![Maven Central Version](https://img.shields.io/maven-central/v/io.github.stoyan-vuchev/squircle-shape)
 
 ```kotlin
