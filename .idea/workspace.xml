@@ -9,281 +9,114 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07a63061-e1ac-4350-bf7c-a0f9e12acac5" name="Changes" comment="Migrated project to Compose Multiplatform.&#10;&#10;- Migrated the project to Compose Multiplatform.&#10;- Bumped Kotlin version to 2.0.0&#10;- Bumped Compose version to 1.6.11&#10;- Bumped other dependencies version&#10;- Bumped library version to v2.0.0">
-      <change afterPath="$PROJECT_DIR$/.idea/appInsightsSettings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/desktopApp_jvm.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/shared_desktop.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/squircle_shape_desktop.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/squircle_shape_multiplatform_desktop.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/markdown.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/migrations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedCInteropMetadataLibraries/.application.shared-iosMain.cinteropLibraries" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedCInteropMetadataLibraries/.library-iosMain.cinteropLibraries" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedCInteropMetadataLibraries/.squircle-shape-iosMain.cinteropLibraries" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedCInteropMetadataLibraries/.squircle_shape-iosMain.cinteropLibraries" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedCInteropMetadataLibraries/org.jetbrains.compose.ui-ui-uikit-1.6.10-uikitMain-cinterop/org.jetbrains.compose.ui_ui-uikit-cinterop-utils-DC3XFw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedCInteropMetadataLibraries/org.jetbrains.kotlinx-atomicfu-0.23.2-nativeMain-cinterop/org.jetbrains.kotlinx_atomicfu-cinterop-interop-yBS35w.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/io.github.stoyan-vuchev-squircle-shape-2.0.0-commonMain-3Xf8gg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.androidx.core-core-bundle-1.0.0-commonMain-cb_PMQ.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.androidx.core-core-bundle-1.0.0-jbMain-cb_PMQ.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.androidx.core-core-bundle-1.0.0-nativeMain-cb_PMQ.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.androidx.lifecycle-lifecycle-common-2.8.0-commonMain-_oGBew.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.androidx.lifecycle-lifecycle-common-2.8.0-nonJvmMain-_oGBew.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.androidx.lifecycle-lifecycle-runtime-2.8.0-commonMain-Cd-IGw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.androidx.lifecycle-lifecycle-runtime-2.8.0-nativeMain-Cd-IGw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.androidx.lifecycle-lifecycle-runtime-2.8.0-nonJvmMain-Cd-IGw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.androidx.lifecycle-lifecycle-runtime-compose-2.8.0-commonMain-mvP4Vw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.androidx.lifecycle-lifecycle-viewmodel-2.8.0-commonMain-ydSu5Q.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.androidx.lifecycle-lifecycle-viewmodel-2.8.0-nativeMain-ydSu5Q.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.androidx.lifecycle-lifecycle-viewmodel-2.8.0-nonJvmMain-ydSu5Q.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.androidx.lifecycle-lifecycle-viewmodel-compose-2.8.0-commonMain-207ecg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.androidx.lifecycle-lifecycle-viewmodel-compose-2.8.0-jbMain-207ecg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.androidx.lifecycle-lifecycle-viewmodel-savedstate-2.8.0-commonMain-KnkPTw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.androidx.lifecycle-lifecycle-viewmodel-savedstate-2.8.0-jbMain-KnkPTw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.androidx.savedstate-savedstate-1.2.0-commonMain-xMdm-g.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.androidx.savedstate-savedstate-1.2.0-nonJvmMain-xMdm-g.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.animation-animation-1.6.10-commonMain-5jNXZw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.animation-animation-1.6.10-jsNativeMain-5jNXZw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.animation-animation-1.6.10-nativeMain-tpXTFg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.animation-animation-1.6.11-commonMain-5jNXZw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.animation-animation-1.6.11-jsNativeMain-5jNXZw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.animation-animation-1.6.11-nativeMain-tpXTFg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.animation-animation-core-1.6.10-commonMain-jNz1Aw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.animation-animation-core-1.6.10-jbMain-jNz1Aw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.animation-animation-core-1.6.10-jsNativeMain-jNz1Aw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.animation-animation-core-1.6.10-uikitMain-2J6wbg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.animation-animation-core-1.6.11-commonMain-jNz1Aw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.animation-animation-core-1.6.11-jbMain-jNz1Aw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.animation-animation-core-1.6.11-jsNativeMain-jNz1Aw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.animation-animation-core-1.6.11-uikitMain-2J6wbg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.annotation-internal-annotation-1.6.10-commonMain-cNNKSA.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.annotation-internal-annotation-1.6.10-nonJvmMain-cNNKSA.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.annotation-internal-annotation-1.6.11-commonMain-cNNKSA.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.annotation-internal-annotation-1.6.11-nonJvmMain-cNNKSA.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.collection-internal-collection-1.6.10-commonMain-hcu3Ug.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.collection-internal-collection-1.6.10-jbMain-hcu3Ug.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.collection-internal-collection-1.6.10-jsNativeMain-hcu3Ug.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.collection-internal-collection-1.6.11-commonMain-hcu3Ug.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.collection-internal-collection-1.6.11-jbMain-hcu3Ug.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.collection-internal-collection-1.6.11-jsNativeMain-hcu3Ug.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.components-components-resources-1.6.11-blockingMain-44UCqg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.components-components-resources-1.6.11-commonMain-44UCqg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.components-components-resources-1.6.11-iosMain-mlvQUA.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.components-components-resources-1.6.11-nativeMain-mlvQUA.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.components-components-resources-1.6.11-skikoMain-44UCqg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.foundation-foundation-1.6.10-commonMain-dXXsCQ.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.foundation-foundation-1.6.10-darwinMain-aASdXg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.foundation-foundation-1.6.10-jsNativeMain-dXXsCQ.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.foundation-foundation-1.6.10-nativeMain-aASdXg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.foundation-foundation-1.6.10-skikoMain-dXXsCQ.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.foundation-foundation-1.6.10-uikitMain-aASdXg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.foundation-foundation-1.6.11-commonMain-dXXsCQ.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.foundation-foundation-1.6.11-darwinMain-aASdXg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.foundation-foundation-1.6.11-jsNativeMain-dXXsCQ.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.foundation-foundation-1.6.11-nativeMain-aASdXg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.foundation-foundation-1.6.11-skikoMain-dXXsCQ.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.foundation-foundation-1.6.11-uikitMain-aASdXg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.foundation-foundation-layout-1.6.10-commonMain-89e7lw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.foundation-foundation-layout-1.6.10-jsNativeMain-89e7lw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.foundation-foundation-layout-1.6.10-skikoMain-89e7lw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.foundation-foundation-layout-1.6.10-uikitMain-BKR0pA.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.foundation-foundation-layout-1.6.11-commonMain-89e7lw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.foundation-foundation-layout-1.6.11-jsNativeMain-89e7lw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.foundation-foundation-layout-1.6.11-skikoMain-89e7lw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.foundation-foundation-layout-1.6.11-uikitMain-BKR0pA.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.material-material-1.6.10-commonMain-tGo7Ag.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.material-material-1.6.10-jsNativeMain-tGo7Ag.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.material-material-1.6.10-nativeMain-33WlwA.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.material-material-1.6.10-skikoMain-tGo7Ag.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.material-material-1.6.11-commonMain-tGo7Ag.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.material-material-1.6.11-jsNativeMain-tGo7Ag.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.material-material-1.6.11-nativeMain-33WlwA.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.material-material-1.6.11-skikoMain-tGo7Ag.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.material-material-icons-core-1.6.10-commonMain-XjyzjQ.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.material-material-icons-core-1.6.11-commonMain-XjyzjQ.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.material-material-ripple-1.6.10-commonMain-8kHg7A.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.material-material-ripple-1.6.10-nativeMain-zsMeyQ.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.material-material-ripple-1.6.11-commonMain-8kHg7A.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.material-material-ripple-1.6.11-nativeMain-zsMeyQ.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.material3-material3-1.6.11-commonMain-0hrc0g.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.material3-material3-1.6.11-darwinMain-rFGDeg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.material3-material3-1.6.11-jsNativeMain-0hrc0g.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.material3-material3-1.6.11-nativeMain-rFGDeg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.material3-material3-1.6.11-skikoMain-0hrc0g.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.runtime-runtime-1.6.10-commonMain-CVJWAg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.runtime-runtime-1.6.10-jbMain-CVJWAg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.runtime-runtime-1.6.10-jsNativeMain-CVJWAg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.runtime-runtime-1.6.10-nativeMain-CVJWAg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.runtime-runtime-1.6.10-uikitMain-LSh9lw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.runtime-runtime-1.6.11-commonMain-CVJWAg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.runtime-runtime-1.6.11-jbMain-CVJWAg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.runtime-runtime-1.6.11-jsNativeMain-CVJWAg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.runtime-runtime-1.6.11-nativeMain-CVJWAg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.runtime-runtime-1.6.11-uikitMain-LSh9lw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.runtime-runtime-saveable-1.6.10-commonMain-pCPplQ.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.runtime-runtime-saveable-1.6.11-commonMain-pCPplQ.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-1.6.10-commonMain-Eh674w.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-1.6.10-darwinMain-BVAqnw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-1.6.10-jsNativeMain-Eh674w.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-1.6.10-nativeMain-BVAqnw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-1.6.10-skikoMain-Eh674w.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-1.6.10-uikitMain-BVAqnw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-1.6.11-commonMain-OrzU9w.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-1.6.11-darwinMain-OEwx0A.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-1.6.11-jsNativeMain-OrzU9w.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-1.6.11-nativeMain-OEwx0A.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-1.6.11-skikoMain-OrzU9w.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-1.6.11-uikitMain-OEwx0A.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-geometry-1.6.10-commonMain-zDj2GQ.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-geometry-1.6.11-commonMain-zDj2GQ.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-graphics-1.6.10-commonMain-jqr5iw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-graphics-1.6.10-jsNativeMain-jqr5iw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-graphics-1.6.10-nativeMain-M9RlEw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-graphics-1.6.10-skikoExcludingWebMain-jqr5iw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-graphics-1.6.10-skikoMain-jqr5iw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-graphics-1.6.11-commonMain-jqr5iw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-graphics-1.6.11-jsNativeMain-jqr5iw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-graphics-1.6.11-nativeMain-M9RlEw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-graphics-1.6.11-skikoExcludingWebMain-jqr5iw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-graphics-1.6.11-skikoMain-jqr5iw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-text-1.6.10-commonMain-aUvkxg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-text-1.6.10-darwinMain-DK5x5Q.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-text-1.6.10-jsNativeMain-aUvkxg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-text-1.6.10-nativeMain-DK5x5Q.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-text-1.6.10-skikoMain-aUvkxg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-text-1.6.11-commonMain-aUvkxg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-text-1.6.11-darwinMain-DK5x5Q.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-text-1.6.11-jsNativeMain-aUvkxg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-text-1.6.11-nativeMain-DK5x5Q.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-text-1.6.11-skikoMain-aUvkxg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-uikit-1.6.10-uikitMain-DC3XFw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-uikit-1.6.11-uikitMain-oguluQ.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-unit-1.6.10-commonMain-vwDMdg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-unit-1.6.10-jbMain-vwDMdg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-unit-1.6.10-jsNativeMain-vwDMdg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-unit-1.6.11-commonMain-vwDMdg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-unit-1.6.11-jbMain-vwDMdg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-unit-1.6.11-jsNativeMain-vwDMdg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-util-1.6.10-commonMain-LLOBPg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-util-1.6.10-uikitMain-4Hpl6Q.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-util-1.6.11-commonMain-LLOBPg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-util-1.6.11-uikitMain-4Hpl6Q.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.kotlin-kotlin-stdlib-2.0.0-commonMain-2bbUHA.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.kotlinx-atomicfu-0.23.2-commonMain-yBS35w.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.kotlinx-atomicfu-0.23.2-nativeMain-yBS35w.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.kotlinx-kotlinx-coroutines-core-1.8.0-commonMain-UxhG-g.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.kotlinx-kotlinx-coroutines-core-1.8.0-concurrentMain-UxhG-g.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.kotlinx-kotlinx-coroutines-core-1.8.0-nativeDarwinMain-sy5nKg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.kotlinx-kotlinx-coroutines-core-1.8.0-nativeMain-UxhG-g.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.kotlinx-kotlinx-datetime-0.6.0-commonMain-v1Leig.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.kotlinx-kotlinx-datetime-0.6.0-darwinMain-O4UcJA.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.kotlinx-kotlinx-datetime-0.6.0-nativeMain-v1Leig.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.kotlinx-kotlinx-datetime-0.6.0-tzdbOnFilesystemMain-v1Leig.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.kotlinx-kotlinx-datetime-0.6.0-tzfileMain-v1Leig.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.kotlinx-kotlinx-serialization-core-1.6.2-commonMain-0z2eOA.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.kotlinx-kotlinx-serialization-core-1.6.2-nativeMain-0z2eOA.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.skiko-skiko-0.8.4-commonMain-DbI_Jg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.skiko-skiko-0.8.4-darwinMain-1T2ZCw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.skiko-skiko-0.8.4-iosMain-1T2ZCw.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.skiko-skiko-0.8.4-nativeJsMain-DbI_Jg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.skiko-skiko-0.8.4-nativeMain-DbI_Jg.klib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/shared/build/generated/compose/resourceGenerator/kotlin/commonResClass/squircleshape/application/shared/generated/resources/Res.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/shared/src/androidMain/AndroidManifest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/shared/src/commonMain/kotlin/App.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/shared/src/commonMain/kotlin/FixedSmallTopAppBar.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/shared/src/commonMain/kotlin/PreviewScreen.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/shared/src/commonMain/kotlin/PreviewScreenState.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/shared/src/commonMain/kotlin/PreviewScreenUiAction.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/shared/src/commonMain/kotlin/PreviewScreenViewModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/shared/src/commonMain/kotlin/RoundDecimalCount.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/shared/src/commonMain/kotlin/SliderWithTitle.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/shared/src/commonMain/kotlin/SwapColors.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/shared/src/iosMain/kotlin/main.ios.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/build.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/androidMain/AndroidManifest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/commonMain/kotlin/sv/lib/squircleshape/CornerSmoothing.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/commonMain/kotlin/sv/lib/squircleshape/SquircleBasedShape.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/commonMain/kotlin/sv/lib/squircleshape/SquircleShape.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/commonMain/kotlin/sv/lib/squircleshape/SquircleShapeHelperFunctions.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/commonMain/kotlin/sv/lib/squircleshape/SquircleShapePath.kt" afterDir="false" />
+    <list default="true" id="07a63061-e1ac-4350-bf7c-a0f9e12acac5" name="Changes" comment="Migrated project to Compose Multiplatform.&#10;&#10;- Migrated the project to Compose Multiplatform.&#10;- Bumped Kotlin version to 2.0.0&#10;- Bumped Compose version to 1.6.11&#10;- Bumped other dependencies version&#10;- Bumped library version to v2.0.0&#10;- Updated README.md">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/library_desktop.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/squircle_shape.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedCInteropMetadataLibraries/org.jetbrains.compose.ui-ui-uikit-1.7.0-beta02-uikitMain-cinterop/org.jetbrains.compose.ui_ui-uikit-cinterop-utils-aNVDjg.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.androidx.lifecycle-lifecycle-common-2.8.2-commonMain-FPlmfg.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.androidx.lifecycle-lifecycle-common-2.8.2-nonJvmMain-FPlmfg.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.androidx.lifecycle-lifecycle-runtime-2.8.2-commonMain-P_jWsA.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.androidx.lifecycle-lifecycle-runtime-2.8.2-nativeMain-P_jWsA.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.androidx.lifecycle-lifecycle-runtime-2.8.2-nonJvmMain-P_jWsA.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.androidx.lifecycle-lifecycle-runtime-compose-2.8.2-commonMain-eB6IaQ.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.androidx.lifecycle-lifecycle-runtime-compose-2.8.2-nonAndroidMain-eB6IaQ.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.androidx.lifecycle-lifecycle-viewmodel-2.8.2-commonMain-I44vqw.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.androidx.lifecycle-lifecycle-viewmodel-2.8.2-nativeMain-I44vqw.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.androidx.lifecycle-lifecycle-viewmodel-2.8.2-nonJvmMain-I44vqw.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.animation-animation-1.7.0-beta02-commonMain-TojQLQ.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.animation-animation-1.7.0-beta02-jsNativeMain-TojQLQ.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.animation-animation-1.7.0-beta02-nativeMain-RuOUtg.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.animation-animation-core-1.7.0-beta02-commonMain-KAIxIA.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.animation-animation-core-1.7.0-beta02-jbMain-KAIxIA.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.animation-animation-core-1.7.0-beta02-jsNativeMain-KAIxIA.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.animation-animation-core-1.7.0-beta02-uikitMain-uWuQcA.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.annotation-internal-annotation-1.7.0-beta02-commonMain-BD0V2w.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.annotation-internal-annotation-1.7.0-beta02-nonJvmMain-BD0V2w.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.collection-internal-collection-1.7.0-beta02-commonMain-5apXgA.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.collection-internal-collection-1.7.0-beta02-jbMain-5apXgA.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.collection-internal-collection-1.7.0-beta02-jsNativeMain-5apXgA.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.components-components-resources-1.7.0-beta02-blockingMain-Tn2Qyw.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.components-components-resources-1.7.0-beta02-commonMain-Tn2Qyw.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.components-components-resources-1.7.0-beta02-iosMain-mlvQUA.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.components-components-resources-1.7.0-beta02-nativeMain-mlvQUA.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.components-components-resources-1.7.0-beta02-skikoMain-Tn2Qyw.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.foundation-foundation-1.7.0-beta02-commonMain-TAgbXQ.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.foundation-foundation-1.7.0-beta02-darwinMain-qEodUw.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.foundation-foundation-1.7.0-beta02-jsNativeMain-TAgbXQ.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.foundation-foundation-1.7.0-beta02-nativeMain-qEodUw.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.foundation-foundation-1.7.0-beta02-skikoMain-TAgbXQ.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.foundation-foundation-1.7.0-beta02-uikitMain-qEodUw.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.foundation-foundation-layout-1.7.0-beta02-commonMain-Nkt8ew.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.foundation-foundation-layout-1.7.0-beta02-jsNativeMain-Nkt8ew.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.foundation-foundation-layout-1.7.0-beta02-skikoMain-Nkt8ew.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.foundation-foundation-layout-1.7.0-beta02-uikitMain-GYqBaA.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.material-material-1.7.0-beta02-commonMain-G6kTFA.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.material-material-1.7.0-beta02-jsNativeMain-G6kTFA.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.material-material-1.7.0-beta02-nativeMain-hgkVgQ.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.material-material-1.7.0-beta02-skikoMain-G6kTFA.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.material-material-icons-core-1.7.0-beta02-commonMain-OY6u5w.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.material-material-ripple-1.7.0-beta02-commonMain-hYj_-Q.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.material-material-ripple-1.7.0-beta02-jbMain-hYj_-Q.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.material3-material3-1.7.0-beta02-commonMain-HpF0Ww.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.material3-material3-1.7.0-beta02-darwinMain-Kuw-mA.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.material3-material3-1.7.0-beta02-jsNativeMain-HpF0Ww.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.material3-material3-1.7.0-beta02-nativeMain-Kuw-mA.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.material3-material3-1.7.0-beta02-nonJvmMain-HpF0Ww.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.material3-material3-1.7.0-beta02-skikoMain-HpF0Ww.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.runtime-runtime-1.7.0-beta02-commonMain-9pDeVQ.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.runtime-runtime-1.7.0-beta02-darwinMain-bWTFyg.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.runtime-runtime-1.7.0-beta02-jbMain-9pDeVQ.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.runtime-runtime-1.7.0-beta02-jsNativeMain-9pDeVQ.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.runtime-runtime-1.7.0-beta02-nativeMain-9pDeVQ.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.runtime-runtime-1.7.0-beta02-posixMain-9pDeVQ.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.runtime-runtime-1.7.0-beta02-uikitMain-bWTFyg.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.runtime-runtime-saveable-1.7.0-beta02-commonMain-dToAUQ.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-1.7.0-beta02-commonMain-Yex4FA.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-1.7.0-beta02-darwinMain-9U4bHA.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-1.7.0-beta02-jsNativeMain-Yex4FA.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-1.7.0-beta02-nativeMain-9U4bHA.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-1.7.0-beta02-skikoMain-Yex4FA.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-1.7.0-beta02-uikitMain-9U4bHA.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-geometry-1.7.0-beta02-commonMain-CwQ9Eg.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-graphics-1.7.0-beta02-commonMain-0rbfnQ.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-graphics-1.7.0-beta02-jsNativeMain-0rbfnQ.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-graphics-1.7.0-beta02-nativeMain-aqjVUg.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-graphics-1.7.0-beta02-skikoExcludingWebMain-0rbfnQ.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-graphics-1.7.0-beta02-skikoMain-0rbfnQ.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-text-1.7.0-beta02-commonMain-22Ga_g.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-text-1.7.0-beta02-darwinMain-soKQsQ.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-text-1.7.0-beta02-jsNativeMain-22Ga_g.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-text-1.7.0-beta02-nativeMain-soKQsQ.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-text-1.7.0-beta02-skikoMain-22Ga_g.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-uikit-1.7.0-beta02-uikitMain-aNVDjg.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-unit-1.7.0-beta02-commonMain-pR3KgA.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-unit-1.7.0-beta02-jbMain-pR3KgA.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-unit-1.7.0-beta02-jsNativeMain-pR3KgA.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-util-1.7.0-beta02-commonMain-3-t5Ow.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-util-1.7.0-beta02-nonJvmMain-3-t5Ow.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.compose.ui-ui-util-1.7.0-beta02-uikitMain-V6MLCQ.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.kotlin-kotlin-stdlib-2.0.10-commonMain-2bbUHA.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.skiko-skiko-0.8.12-commonMain-oBdx-Q.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.skiko-skiko-0.8.12-darwinMain-SvRtdQ.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.skiko-skiko-0.8.12-iosMain-SvRtdQ.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.skiko-skiko-0.8.12-nativeJsMain-oBdx-Q.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.skiko-skiko-0.8.12-nativeMain-oBdx-Q.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedMetadataLibraries/org.jetbrains.skiko-skiko-0.8.12-uikitMain-SvRtdQ.klib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/androidApp/src/androidMain/res/values/themes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/shared/build/generated/compose/resourceGenerator/kotlin/iosArm64MainResourceCollectors/squircleshape/application/shared/generated/resources/ActualResourceCollectors.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/shared/build/generated/compose/resourceGenerator/kotlin/iosSimulatorArm64MainResourceCollectors/squircleshape/application/shared/generated/resources/ActualResourceCollectors.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/shared/build/generated/compose/resourceGenerator/kotlin/iosX64MainResourceCollectors/squircleshape/application/shared/generated/resources/ActualResourceCollectors.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/other.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedCInteropMetadataLibraries/.application.shared-iosMain.cinteropLibraries" beforeDir="false" afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedCInteropMetadataLibraries/.application.shared-iosMain.cinteropLibraries" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedCInteropMetadataLibraries/.library-iosMain.cinteropLibraries" beforeDir="false" afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedCInteropMetadataLibraries/.library-iosMain.cinteropLibraries" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedCInteropMetadataLibraries/org.jetbrains.kotlinx-atomicfu-0.23.2-nativeMain-cinterop/org.jetbrains.kotlinx_atomicfu-cinterop-interop-yBS35w.klib" beforeDir="false" afterPath="$PROJECT_DIR$/.kotlin/metadata/kotlinTransformedCInteropMetadataLibraries/org.jetbrains.kotlinx-atomicfu-0.23.2-nativeMain-cinterop/org.jetbrains.kotlinx_atomicfu-cinterop-interop-yBS35w.klib" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/proguard-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/androidTest/kotlin/sv/app/squircleshape/demo/ExampleInstrumentedTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/ic_launcher-playstore.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/sv/app/squircleshape/demo/DestinationScreen.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/sv/app/squircleshape/demo/MainActivity.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/sv/app/squircleshape/demo/core/LocalNavHostController.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/sv/app/squircleshape/demo/core/ext/RoundDecimalCount.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/sv/app/squircleshape/demo/core/theme/Theme.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/sv/app/squircleshape/demo/core/theme/Type.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/sv/app/squircleshape/demo/core/ui_components/FixedSmallTopAppBar.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/sv/app/squircleshape/demo/core/ui_components/SliderWithTitle.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/sv/app/squircleshape/demo/presentation/AppNavHost.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/sv/app/squircleshape/demo/presentation/preview/PreviewScreen.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/sv/app/squircleshape/demo/presentation/preview/PreviewScreenState.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/sv/app/squircleshape/demo/presentation/preview/PreviewScreenUiAction.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/sv/app/squircleshape/demo/presentation/preview/PreviewScreenViewModel.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_background.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_background.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_background.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_background.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_background.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-night-v31/themes.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-night/themes.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-v27/themes.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-v31/themes.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/backup_rules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/kotlin/sv/app/squircleshape/demo/ExampleUnitTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jitpack.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/squircle-shape/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/squircle-shape/build.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/squircle-shape/consumer-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/squircle-shape/proguard-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/squircle-shape/src/androidTest/kotlin/sv/lib/squircleshape/ExampleInstrumentedTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/squircle-shape/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/squircle-shape/src/main/kotlin/sv/lib/squircleshape/CornerSmoothing.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/squircle-shape/src/main/kotlin/sv/lib/squircleshape/SquircleBasedShape.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/squircle-shape/src/main/kotlin/sv/lib/squircleshape/SquircleShape.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/squircle-shape/src/main/kotlin/sv/lib/squircleshape/SquircleShapeHelperFunctions.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/squircle-shape/src/main/kotlin/sv/lib/squircleshape/SquircleShapePath.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/squircle-shape/src/test/kotlin/sv/lib/squircleshape/ExampleUnitTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/library/build.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -293,7 +126,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\stfir\.android\avd\Pixel_8_Pro_API_34.avd)]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\stfir\.android\avd\Pixel_8_API_35.avd)]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -322,20 +155,20 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="valueResourceFile" />
         <option value="Kotlin Sealed Class" />
         <option value="Kotlin Sealed Interface" />
         <option value="Kotlin Data Class" />
         <option value="Kotlin Object" />
         <option value="Kotlin Class" />
         <option value="Kotlin File" />
+        <option value="valueResourceFile" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="1.0.8/dependency-readme-updates" />
+        <entry key="$PROJECT_DIR$" value="compose-multiplatform" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -345,14 +178,12 @@
     &quot;state&quot;: &quot;OPEN&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="3a3abc37-c24f-46bd-a19f-6f776ba2e101" />
-        <option name="url" value="https://github.com/stoyan-vuchev/squircle-shape.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/stoyan-vuchev/squircle-shape.git&quot;,
+    &quot;accountId&quot;: &quot;bd57451b-476f-4bdb-ad8b-999ace96789c&quot;
+  }
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -385,12 +216,12 @@
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;compose-multiplatform&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;2.0.1&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/AndroidStudioProjects/squircle-shape&quot;,
     &quot;recommended.upgrade.do.not.ask.for.project&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;emulator&quot;,
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -418,7 +249,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Android App.application.androidApp">
-    <configuration name="application.androidApp" type="AndroidRunConfigurationType" factoryName="Android App">
+    <configuration name="application.androidApp" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="SquircleShape.application.androidApp.main" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
@@ -484,7 +315,7 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="main [jvm]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="main [jvm]" type="GradleRunConfiguration" factoryName="Gradle" activateToolWindowBeforeRun="false" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/application/desktopApp" />
@@ -609,7 +440,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714166522696</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Migrated project to Compose Multiplatform.&#10;&#10;- Migrated the project to Compose Multiplatform.&#10;- Bumped Kotlin version to 2.0.0&#10;- Bumped Compose version to 1.6.11&#10;- Bumped other dependencies version&#10;- Bumped library version to v2.0.0&#10;- Updated README.md">
+      <option name="closed" value="true" />
+      <created>1720877889678</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1720877889678</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -626,6 +465,7 @@
     <MESSAGE value="Dependency &amp; library version bump&#10;- Bumped Kotlin version to 1.9.10&#10;- Bumped Compose version to 1.5.1&#10;- Bumped Compose Compiler version to 1.5.1&#10;- Bumped other dependencies version&#10;- Bumped library version&#10;- Updated README.md" />
     <MESSAGE value="Dependency &amp; library version bump&#10;- Bumped Kotlin version to 1.9.22&#10;- Bumped Compose version to 1.6.1&#10;- Bumped Compose Compiler version to 1.5.9&#10;- Bumped other dependencies version&#10;- Bumped library version to v1.0.7" />
     <MESSAGE value="Updated README, Dependency &amp; library version bump.&#10;&#10;- Bumped Kotlin version to 1.9.23&#10;- Bumped Compose version to 1.6.6&#10;- Bumped Compose Compiler version to 1.5.12&#10;- Bumped other dependencies version&#10;- Bumped library version to v1.0.8" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated README, Dependency &amp; library version bump.&#10;&#10;- Bumped Kotlin version to 1.9.23&#10;- Bumped Compose version to 1.6.6&#10;- Bumped Compose Compiler version to 1.5.12&#10;- Bumped other dependencies version&#10;- Bumped library version to v1.0.8" />
+    <MESSAGE value="Migrated project to Compose Multiplatform.&#10;&#10;- Migrated the project to Compose Multiplatform.&#10;- Bumped Kotlin version to 2.0.0&#10;- Bumped Compose version to 1.6.11&#10;- Bumped other dependencies version&#10;- Bumped library version to v2.0.0&#10;- Updated README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Migrated project to Compose Multiplatform.&#10;&#10;- Migrated the project to Compose Multiplatform.&#10;- Bumped Kotlin version to 2.0.0&#10;- Bumped Compose version to 1.6.11&#10;- Bumped other dependencies version&#10;- Bumped library version to v2.0.0&#10;- Updated README.md" />
   </component>
 </project>

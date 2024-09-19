@@ -15,8 +15,8 @@
 * [Why Squircle?](#why-squircle)
 * [Requirements](#requirements)
 * [Gradle Kotlin DSL Setup (For Multiplatform projects).](#gradle-kotlin-dsl-setup-for-multiplatform-projects)
-* [Gradle Kotlin DSL Setup (For Android only projects).](#gradle-kotlin-dsl-setup-for-android-only-projects)
-* [Gradle Groovy Setup (For Android only projects).](#gradle-groovy-setup-for-android-only-projects)
+* [Gradle Kotlin DSL Setup (For Android-only projects).](#gradle-kotlin-dsl-setup-for-android-only-projects)
+* [Gradle Groovy Setup (For Android-only projects).](#gradle-groovy-setup-for-android-only-projects)
 * [Usage](#usage)
 * [License](#license)
 * [Contact](#contact)
@@ -29,6 +29,7 @@
   products as well.
 - While the corners of a rounded square remain at 90-degree angle, the edges of a squircle curve
   smoothly outwards from each corner, therefore creating an optically pleasing shape.
+- The human brain perceives rounded corners (especially the smoother ones) easier and faster than sharp corners.
 
 ---
 
@@ -37,17 +38,19 @@
 
 ##### Base requirements (For Multiplatform projects):
 
-- Kotlin version - `2.0.0`
-- Compose version - `1.6.11`
+- Kotlin version - `2.0.10`
+- Compose version - `1.7.0-beta02`
 
 <br/>
 
-##### Base requirements (For Android only projects):
+---
 
-- Kotlin version - `2.0.0`
-- Jetpack Compose version - `1.6.11`
+##### Base requirements (For Android-only projects):
+
+- Kotlin version - `2.0.10`
+- Jetpack Compose version - `1.7.2`
 - Project `minSdk` version - `23`
-- Project `compileSdk` version - `34`
+- Project `compileSdk` version - `35`
 
 <br/>
 
@@ -57,7 +60,7 @@
 
 ##### Step 1
 
-* Add the Squircle Shape dependency in your shared module `build.gradle.kts` file.
+* Add the Squircle Shape dependency in your common module `build.gradle.kts` file.
 * Latest version: ![Maven Central Version](https://img.shields.io/maven-central/v/io.github.stoyan-vuchev/squircle-shape)
 
 ```kotlin
@@ -118,7 +121,7 @@ sourceSets {
 
 ---
 
-## Gradle Kotlin DSL Setup (For Android only projects).
+## Gradle Kotlin DSL Setup (For Android-only projects).
 
 ##### Step 1
 
@@ -130,6 +133,10 @@ dependencies {
             
     // ...
             
+    // Legacy Dependency (Lib. Version < 2.0.0).
+    // implementation("com.github.stoyan-vuchev:squircle-shape:<version>")
+            
+    // New Dependency (Lib. Version >= 2.0.0).
     implementation("io.github.stoyan-vuchev:squircle-shape-android:<version>")
   
 }
@@ -142,6 +149,11 @@ dependencies {
 squircle-shape = "<version>"
 
 [libraries]
+
+# Legacy Dependency (Lib. Version < 2.0.0).
+# squircle-shape = { group = "com.github.stoyan-vuchev", name = "squircle-shape", version.ref = "squircle-shape" }
+
+# New Dependency (Lib. Version >= 2.0.0)
 squircle-shape = { group = "io.github.stoyan-vuchev", name = "squircle-shape-android", version.ref = "squircle-shape" }
 ```
 
@@ -163,7 +175,7 @@ dependencies {
 
 ---
 
-## Gradle Groovy Setup (For Android only projects).
+## Gradle Groovy Setup (For Android-only projects).
 
 ##### Step 1
 
@@ -174,7 +186,11 @@ dependencies {
 dependencies {
             
     // ...
+
+    // Legacy Dependency (Lib. Version < 2.0.0).
+    // implementation "com.github.stoyan-vuchev:squircle-shape:<version>"
             
+    // New Dependency (Lib. Version >= 2.0.0).
     implementation "io.github.stoyan-vuchev:squircle-shape-android:<version>"
   
 }
@@ -196,8 +212,8 @@ dependencies {
 
 
 * Take a look at
-  the [SquircleShape.kt](/squircle-shape/src/main/kotlin/sv/lib/squircleshape/SquircleShape.kt)
-  and [CornerSmoothing.kt](/squircle-shape/src/main/kotlin/sv/lib/squircleshape/CornerSmoothing.kt)
+  the [SquircleShape.kt](/library/src/commonMain/kotlin/sv/lib/squircleshape/SquircleShape.kt)
+  and [CornerSmoothing.kt](/library/src/commonMain/kotlin/sv/lib/squircleshape/CornerSmoothing.kt)
   files for more information.
 
 
@@ -261,7 +277,7 @@ Image(
 
 * There is also a support for drawing squircle shapes in Canvas - `drawSquircle()`.
 * All methods for creating a squircle shape use the `squircleShapePath()`. You can find it inside
-  the [SquircleShapePath.kt](/squircle-shape/src/main/kotlin/sv/lib/squircleshape/SquircleShapePath.kt)
+  the [SquircleShapePath.kt](/library/src/commonMain/kotlin/sv/lib/squircleshape/SquircleShapePath.kt)
   file.
 
 ### Demo app coming soon! 📱💻✨
