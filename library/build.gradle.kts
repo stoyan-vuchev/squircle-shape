@@ -1,4 +1,5 @@
 import com.vanniktech.maven.publish.SonatypeHost
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
     alias(libs.plugins.androidLibrary)
@@ -9,6 +10,9 @@ plugins {
 }
 
 kotlin {
+
+    @OptIn(ExperimentalWasmDsl::class)
+    wasmJs { browser() }
 
     androidTarget {
         publishLibraryVariants("release", "debug")
@@ -63,7 +67,7 @@ kotlin {
 
 android {
 
-    compileSdk = (findProperty("android.compileSdk") as String).toInt()
+    compileSdk = 35
     namespace = "sv.lib.squircleshape"
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
@@ -71,7 +75,7 @@ android {
     sourceSets["main"].resources.srcDirs("src/commonMain/composeResources")
 
     defaultConfig {
-        minSdk = (findProperty("android.minSdk") as String).toInt()
+        minSdk = 23
     }
 
     compileOptions {
@@ -89,7 +93,7 @@ mavenPublishing {
     coordinates(
         groupId = "io.github.stoyan-vuchev",
         artifactId = "squircle-shape",
-        version = "2.0.0"
+        version = "2.0.10"
     )
 
     pom {

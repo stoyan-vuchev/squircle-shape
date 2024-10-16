@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Essential theme for Assertive UI. -->
+    <style name="Theme.SquircleShape" parent="android:Theme.DeviceDefault.NoActionBar">
+
+        <!-- System UI -->
+        <item name="android:statusBarColor">#00000000</item>
+        <item name="android:navigationBarColor">#00000000</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="O_MR1">true</item>
+        <item name="android:enforceStatusBarContrast" tools:targetApi="Q">false</item>
+        <item name="android:enforceNavigationBarContrast" tools:targetApi="Q">false</item>
+
+        <!-- Background -->
+        <item name="android:background">#DBE4E8</item>
+        <item name="android:windowBackground">#DBE4E8</item>
+        <item name="android:colorBackground">#DBE4E8</item>
+
+    </style>
+
+</resources>
