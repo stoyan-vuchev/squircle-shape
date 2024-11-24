@@ -2,78 +2,59 @@
 
 ![Maven Central Version](https://img.shields.io/maven-central/v/io.github.stoyan-vuchev/squircle-shape)
 [![API](https://img.shields.io/badge/API-23%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=23)
-<a href="https://github.com/stoyan-vuchev/squircle-shape/commits/master"><img src="https://img.shields.io/github/last-commit/stoyan-vuchev/squircle-shape.svg?style=flat&logo=github&logoColor=white" alt="GitHub last commit"></a>
-<a href="https://github.com/stoyan-vuchev/squircle-shape/issues"><img src="https://img.shields.io/github/issues-raw/stoyan-vuchev/squircle-shape.svg?style=flat&logo=github&logoColor=white" alt="GitHub issues"></a>
-<a href="https://jetc.dev/issues/168.html"><img src="https://img.shields.io/badge/As_Seen_In-jetc.dev_Newsletter_Issue_%23168-blue?logo=Jetpack+Compose&amp;logoColor=white" alt="As Seen In - jetc.dev Newsletter Issue #168"></a>
+[![Last Commit](https://img.shields.io/github/last-commit/stoyan-vuchev/squircle-shape.svg?style=flat&logo=github&logoColor=white)](https://github.com/stoyan-vuchev/squircle-shape/commits/master)
+[![Issues](https://img.shields.io/github/issues-raw/stoyan-vuchev/squircle-shape.svg?style=flat&logo=github&logoColor=white)](https://github.com/stoyan-vuchev/squircle-shape/issues)
+[![As Seen In](https://img.shields.io/badge/As_Seen_In-jetc.dev_Newsletter_Issue_%23168-blue?logo=Jetpack+Compose&amp;logoColor=white)](https://jetc.dev/issues/168.html)
 
 > A Compose Multiplatform library providing customizable Squircle shapes for UI components.
 
 ---
 
-## Table of Contents
+## ✨ Features
 
-* [Why Squircle?](#why-squircle)
-* [Requirements](#requirements)
-* [Supported Platforms](#supported-platforms)
-* [Gradle Kotlin DSL Setup (For Multiplatform projects).](#gradle-kotlin-dsl-setup-for-multiplatform-projects)
-* [Gradle Kotlin DSL Setup (For Android-only projects).](#gradle-kotlin-dsl-setup-for-android-only-projects)
-* [Gradle Groovy Setup (For Android-only projects).](#gradle-groovy-setup-for-android-only-projects)
-* [Usage](#usage)
-* [License](#license)
-* [Contact](#contact)
+- **Customizable Squircle Shapes**: Create UI shapes that smoothly transition between squares and circles.
+- **Integration with `MaterialTheme`**: Use squircle shapes directly in Jetpack Compose themes.
+- **Corner Smoothing**: Fine-tune the smoothness of corners for a delightful design.
+- **Multiplatform Support**: Available for Android, iOS, Desktop (JVM), and Web (WasmJS).
+- **Canvas Drawing**: Easily draw squircle shapes on canvases with `drawSquircle()`.
 
 ---
 
-## Why Squircle?
+## 🆕 What's New in Version 3.0.0?
 
-- The squircle is an intermediate shape between a square and a circle, present in digital and real
-  products as well.
-- While the corners of a rounded square remain at 90-degree angle, the edges of a squircle curve
-  smoothly outwards from each corner, therefore creating an optically pleasing shape.
-- The human brain perceives rounded corners (especially the smoother ones) easier and faster than sharp corners.
+- **Seamless `MaterialTheme` Integration**:  
+  `SquircleBasedShape` now extends `CornerBasedShape`, allowing you to use it directly in `androidx.compose.material3.Shapes`.
 
----
+- **Corner Smoothing Support**:  
+  Added the `cornerSmoothing` parameter for effortless corner smoothing without extra overhead.
 
-## Requirements
+- **RTL Layout Support**:  
+  Fully compatible with both `LayoutDirection.Ltr` and `LayoutDirection.Rtl`, ensuring proper corner mapping.
 
-##### Base requirements (For Multiplatform projects):
-
-- Kotlin version - `2.0.21`
-- Compose version - `1.7.1`
-
-<br/>
-
-##### Base requirements (For Android-only projects):
-
-- Kotlin version - `2.0.21`
-- Jetpack Compose version - `1.7.1`
-- Project `minSdk` version - `23`
-- Project `compileSdk` version - `35`
-
-<br/>
+- **Performance Enhancements**:  
+  Optimized corner clamping logic for improved rendering performance.
 
 ---
 
-## Supported Platforms
+## 📋 Requirements
 
-##### List of currently supported platforms:
+### For Multiplatform Projects:
+- Kotlin: `2.0.21`
+- Compose: `1.7.1`
 
-- Android
-- iOS
-- Desktop (JVM)
-- Web (WasmJS)
-
-<br/>
+### For Android-only Projects:
+- Kotlin: `2.0.21`
+- Jetpack Compose: `1.7.1`
+- Minimum SDK: `23`
+- Compile SDK: `35`
 
 ---
 
-## Gradle Kotlin DSL Setup (For Multiplatform projects).
+## 📦 Setup
 
-##### Step 1
+### Gradle Kotlin DSL (Multiplatform)
 
-* Add the Squircle Shape dependency in your common module `build.gradle.kts` file.
-* Latest version: ![Maven Central Version](https://img.shields.io/maven-central/v/io.github.stoyan-vuchev/squircle-shape)
-
+1. Add the dependency in your shared module's `build.gradle.kts`:
 ```kotlin
 sourceSets {
     
@@ -126,28 +107,20 @@ sourceSets {
 }
 ```
 
-#### Step 2
-
-* Sync and rebuild the project. 🔄️🔨✅
+2. Sync and rebuild the project. 🔄️🔨✅
 
 ---
 
 ## Gradle Kotlin DSL Setup (For Android-only projects).
 
-##### Step 1
-
-* Add the Squircle Shape dependency in your module `build.gradle.kts` file.
+* 1. Add the Squircle Shape dependency in your module `build.gradle.kts` file.
 * Latest version: ![Maven Central Version](https://img.shields.io/maven-central/v/io.github.stoyan-vuchev/squircle-shape)
 
 ```kotlin
 dependencies {
             
     // ...
-            
-    // Legacy Dependency (Lib. Version < 2.0.0).
-    // implementation("com.github.stoyan-vuchev:squircle-shape:<version>")
-            
-    // New Dependency (Lib. Version >= 2.0.0).
+
     implementation("io.github.stoyan-vuchev:squircle-shape-android:<version>")
   
 }
@@ -160,11 +133,6 @@ dependencies {
 squircle-shape = "<version>"
 
 [libraries]
-
-# Legacy Dependency (Lib. Version < 2.0.0).
-# squircle-shape = { group = "com.github.stoyan-vuchev", name = "squircle-shape", version.ref = "squircle-shape" }
-
-# New Dependency (Lib. Version >= 2.0.0)
 squircle-shape = { group = "io.github.stoyan-vuchev", name = "squircle-shape-android", version.ref = "squircle-shape" }
 ```
 
@@ -180,104 +148,57 @@ dependencies {
 }
 ```
 
-#### Step 2
-
-* Sync and rebuild the project. 🔄️🔨✅
+2. Sync and rebuild the project. 🔄️🔨✅
 
 ---
 
-## Gradle Groovy Setup (For Android-only projects).
+## 🚀 Usage
 
-##### Step 1
+### 1. **Using Squircle Shapes with `MaterialTheme`**
 
-* Add the Squircle Shape dependency in your module `build.gradle` file.
-* Latest version: ![Maven Central Version](https://img.shields.io/maven-central/v/io.github.stoyan-vuchev/squircle-shape)
+Define squircle shapes in your theme to use them consistently across your app:
 
-```groovy
-dependencies {
-            
+```kotlin
+val shapes = Shapes(
+    small = SquircleShape(radius = 16.dp, cornerSmoothing = CornerSmoothing.Medium),
+    medium = SquircleShape(radius = 32.dp, cornerSmoothing = CornerSmoothing.Medium),
+    large = SquircleShape(percent = 100, cornerSmoothing = CornerSmoothing.Medium)
+)
+
+MaterialTheme(
+    shapes = shapes
+) {
+
     // ...
 
-    // Legacy Dependency (Lib. Version < 2.0.0).
-    // implementation "com.github.stoyan-vuchev:squircle-shape:<version>"
-            
-    // New Dependency (Lib. Version >= 2.0.0).
-    implementation "io.github.stoyan-vuchev:squircle-shape-android:<version>"
-  
-}
-```
+    Button(
+        onClick = { /* Action */ },
+        shape = MaterialTheme.shapes.large // Clipped to the provided `large` material theme shape.
+    ) {
+        Text(text = "Full Squircle")
+    }
 
-#### Step 2
+    // ...
 
-* Sync and rebuild the project. 🔄️🔨✅
-
----
-
-## Usage
-
-* For components, use `SquircleShape()`, which comes in multiple variants for multiple use cases, so
-  different variants have different parameters (percent: Float, radius: Dp, etc.).
-* However, there is a single common parameter in all variants - `cornerSmoothing: Float`.
-* The `cornerSmoothing` as you may have or may have not guessed, is responsible for adjusting the
-  smoothness of the corners, the foundation of every squircle shape.
-
-
-* Take a look at
-  the [SquircleShape.kt](/library/src/commonMain/kotlin/sv/lib/squircleshape/SquircleShape.kt)
-  and [CornerSmoothing.kt](/library/src/commonMain/kotlin/sv/lib/squircleshape/CornerSmoothing.kt)
-  files for more information.
-
-
-* For a single percent based corner radius, use the variant of `SquircleShape()` with `precent: Int`
-  and `cornerSmoothing: Float` parameters.
-
-```kotlin
-SquircleShape(
-    percent = 100,
-    cornerSmoothing = CornerSmoothing.Medium
-)
-```
-
-* There are also a pixel (Float) and dp (Dp) based variants.
-
-
-* For a multiple percent based corner radii, use the variant of `SquircleShape()`
-  with `topStart: Int`, `topEnd: Int`, `bottomStart: Int`, `bottomEnd: Int`,
-  and `cornerSmoothing: Float` parameters.
-
-```kotlin
-SquircleShape(
-    topStart = 50,
-    topEnd = 10,
-    bottomStart = 50,
-    bottomEnd = 10,
-    cornerSmoothing = CornerSmoothing.Medium
-)
-```
-
-* There are also a pixel (Float) and dp (Dp) based variants.
-
-
-* Here is an example use of a Button using the default `SquircleShape()`.
-
-```kotlin
-Button(
-    onClick = { /* Action */ },
-    shape = SquircleShape() // Fully rounded squircle shape.
-) {
-    Text(text = "Full Squircle")
 }
 ```
 
 ![Button with Full Squircle shape.](./readme_images/full_squircle.png)
 
-* This is an example of Image clipped to the default `SquircleShape()`.
+### 2. **Using Squircle Shapes separately**
+
+Clip UI components separately by using a `SquircleShape()` function.
 
 ```kotlin
 Image(
     modifier = Modifier
         .size(128.dp)
-        .clip(shape = SquircleShape()), // Clipped to a fully rounded squircle shape.
+        .clip(
+            shape = SquircleShape(
+                percent = 100,
+                cornerSmoothing = CornerSmoothing.Medium
+            )
+        ), // Clipped to a fully rounded squircle shape.
     painter = painterResource(R.drawable.mlbb_novaria),
     contentDescription = "An image of Novaria.",
     contentScale = ContentScale.Crop
@@ -286,19 +207,89 @@ Image(
 
 ![A portrait image of Novaria from MLBB clipped to a Squircle shape.](./readme_images/mlbb_novaria.png)
 
-* There is also a support for drawing squircle shapes in Canvas - `drawSquircle()`.
-* All methods for creating a squircle shape use the `squircleShapePath()`. You can find it inside
-  the [SquircleShapePath.kt](/library/src/commonMain/kotlin/sv/lib/squircleshape/SquircleShapePath.kt)
-  file.
+You can customize the radii for all corners, or for each corner independently.
+Supported corner values are:
 
-### Demo app coming soon! 📱💻✨
+- `Int` for percent-based corner radius in range 0..100 
+- `Float` for pixel-based corner radius e.g. `50f`
+- `Dp` for density pixel-based corner radius e.g. `16.dp`
+
+```kotlin
+// Single-corner percent-based radius implementation.
+SquircleShape(
+    percent = 100,
+    cornerSmoothing = .6f
+)
+
+// Single-corner pixel-based radius implementation.
+SquircleShape(
+    radius = 32f,
+    cornerSmoothing = .6f
+)
+
+// Single-corner density pixel-based radius implementation.
+SquircleShape(
+    radius = 32.dp,
+    cornerSmoothing = .6f
+)
+
+// Multi-corner percent-based radius implementation.
+SquircleShape(
+    topStart = 25,
+    topEnd = 5,
+    bottomStart = 25,
+    bottomEnd = 5,
+    cornerSmoothing = .6f
+)
+
+// Multi-corner pixel-based radius implementation.
+SquircleShape(
+    topStart = 32f,
+    topEnd = 8f,
+    bottomStart = 32f,
+    bottomEnd = 8f,
+    cornerSmoothing = .6f
+)
+
+// Multi-corner density pixel-based radius implementation.
+SquircleShape(
+    topStart = 32.dp,
+    topEnd = 8.dp,
+    bottomStart = 32.dp,
+    bottomEnd = 8.dp,
+    cornerSmoothing = .6f
+)
+```
+
+### 3. Draw a Squircle on Canvas
+
+You can draw squircle shapes on a canvas for custom graphics.
+
+Note: currently `drawSquircle` only accepts pixel-based values for each corner:
+
+```kotlin
+Canvas(
+    modifier = Modifier.size(150.dp),
+    onDraw = {
+    
+        drawSquircle(
+            color = Color.Blue,
+            topLeft = Offset.Zero,
+            size = this.size,
+            topLeftCorner = 32.dp.toPx(),
+            topRightCorner = 8.dp.toPx(),
+            bottomRightCorner = 32.dp.toPx(),
+            bottomLeftCorner = 8.dp.toPx(),
+            cornerSmoothing = .6f
+        )
+    
+    }
+)
+```
 
 ---
 
-## License
-
-This project is open source and available under the [MIT License](./LICENSE).
-
+## 📄 License
 ```
 MIT License
 
@@ -306,13 +297,11 @@ Copyright (c) 2023 Stoyan Vuchev
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+in the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -325,7 +314,8 @@ SOFTWARE.
 
 ---
 
-## Contact
+## 👤 Contact
 
-Created by [@stoyan-vuchev](https://github.com/stoyan-vuchev/) - feel free to contact me! <br/>
-E-mail - [contact@stoyanvuchev.com](mailto://contact@stoyanvuchev.com)
+Created by [@stoyan-vuchev](https://github.com/stoyan-vuchev/) – feel free to reach out!
+
+📧 Email: [contact@stoyanvuchev.com](mailto:://contact@stoyanvuchev.com)
