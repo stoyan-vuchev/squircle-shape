@@ -1,8 +1,5 @@
 rootProject.name = "SquircleShape"
-include(":application:androidApp")
-include(":application:desktopApp")
-include(":application:shared")
-include(":library")
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 @Suppress("UnstableApiUsage")
 pluginManagement {
@@ -33,3 +30,6 @@ dependencyResolutionManagement {
         maven("https://jitpack.io")
     }
 }
+
+include(":composeApp")
+include(":library")

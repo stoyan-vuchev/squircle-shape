@@ -1,6 +1,10 @@
 # Project exclude paths
 /.gradle/
-/app/build/
+.gradle/
+/.idea/
+.idea/
+/composeApp/build/
+/library/build/
 /local.properties
 /gradle.properties
 local.properties

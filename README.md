@@ -38,8 +38,8 @@
 
 ##### Base requirements (For Multiplatform projects):
 
-- Kotlin version - `2.0.20`
-- Compose version - `1.7.0`
+- Kotlin version - `2.0.21`
+- Compose version - `1.7.1`
 
 <br/>
 
@@ -47,8 +47,8 @@
 
 ##### Base requirements (For Android-only projects):
 
-- Kotlin version - `2.0.20`
-- Jetpack Compose version - `1.7.0`
+- Kotlin version - `2.0.21`
+- Jetpack Compose version - `1.7.1`
 - Project `minSdk` version - `23`
 - Project `compileSdk` version - `35`
 

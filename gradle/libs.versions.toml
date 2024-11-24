@@ -1,27 +1,27 @@
 [versions]
 
 # Plugins
-composePlugin = "1.7.0"
+composePlugin = "1.7.1"
 agp = "8.2.2"
-kotlin = "2.0.20"
+kotlin = "2.0.21"
 vanniktechMavenPublish = "0.28.0"
 
 # Core Dependencies
-core-ktx = "1.13.1"
+core-ktx = "1.15.0"
 junit = "4.13.2"
 androidx-test-ext-junit = "1.2.1"
 androidx-test-espresso-core = "3.6.1"
 androidx-appcompat-version = "1.7.0"
-lifecycle-runtime-ktx = "2.8.3"
-lifecycle-runtime-compose = "2.8.3"
-lifecycle-viewmodel-compose = "2.8.3"
+lifecycle-runtime-ktx = "2.8.4"
+lifecycle-runtime-compose = "2.8.4"
+lifecycle-viewmodel-compose = "2.8.4"
 material = "1.12.0"
 
 # Compose Dependencies
-activity-compose = "1.9.2"
-navigation-compose = "2.8.2"
-compose-version = "1.7.3"
-compose-m3-version = "1.3.0"
+activity-compose = "1.9.3"
+navigation-compose = "2.8.4"
+compose-version = "1.7.5"
+compose-m3-version = "1.3.1"
 
 # Other
 systemUiBarsTweaker = "1.2.1"
