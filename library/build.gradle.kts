@@ -93,7 +93,7 @@ mavenPublishing {
     coordinates(
         groupId = "io.github.stoyan-vuchev",
         artifactId = "squircle-shape",
-        version = "2.1.0"
+        version = "3.0.0"
     )
 
     pom {
