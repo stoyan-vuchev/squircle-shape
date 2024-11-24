@@ -1,5 +1,6 @@
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Shapes
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
@@ -14,26 +15,37 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import sv.lib.squircleshape.CornerSmoothing
+import sv.lib.squircleshape.SquircleShape
 import kotlin.math.roundToInt
 import kotlin.random.Random
 
 @Composable
 fun App() {
 
+    var aspectRatio by remember { mutableFloatStateOf(1f) }
+    var cornerRadius by remember { mutableIntStateOf(100) }
+    var cornerSmoothing by remember { mutableFloatStateOf(CornerSmoothing.Medium) }
+    val state by rememberUpdatedState(
+        PreviewScreenState(
+            aspectRatio = aspectRatio,
+            cornerRadius = cornerRadius,
+            cornerSmoothing = cornerSmoothing
+        )
+    )
+
+    val shapes by rememberUpdatedState(
+        Shapes(
+            large = SquircleShape(
+                percent = state.cornerRadius,
+                cornerSmoothing = state.cornerSmoothing
+            )
+        )
+    )
+
     MaterialTheme(
+        shapes = shapes,
         colorScheme = if (isSystemInDarkTheme()) darkColorScheme() else lightColorScheme(),
         content = {
-
-            var aspectRatio by remember { mutableFloatStateOf(1f) }
-            var cornerRadius by remember { mutableIntStateOf(100) }
-            var cornerSmoothing by remember { mutableFloatStateOf(CornerSmoothing.Medium) }
-            val state by rememberUpdatedState(
-                PreviewScreenState(
-                    aspectRatio = aspectRatio,
-                    cornerRadius = cornerRadius,
-                    cornerSmoothing = cornerSmoothing
-                )
-            )
 
             val scope = rememberCoroutineScope()
             val onUiAction = remember<(PreviewScreenUiAction) -> Unit> {

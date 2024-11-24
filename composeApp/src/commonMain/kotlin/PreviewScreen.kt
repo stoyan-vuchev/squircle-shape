@@ -19,12 +19,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
-import sv.lib.squircleshape.SquircleShape
 import sv.lib.squircleshape.drawSquircle
 
 @Composable
@@ -54,6 +54,8 @@ fun PreviewScreen(
             ) {
 
                 val color = MaterialTheme.colorScheme.primary
+                val shape = MaterialTheme.shapes.large
+                val density = LocalDensity.current
 
                 Canvas(
                     modifier = Modifier
@@ -63,18 +65,19 @@ fun PreviewScreen(
 
                         val landscapeSquircleSize = this.size
                         val landscapeSquircleOffset = Offset.Zero
-                        val landscapeSquircleCorner = (
-                                landscapeSquircleSize.minDimension / 2f
-                                ) * (state.cornerRadius.toFloat() / 100f)
+                        val shapeSize = Size(
+                            width = landscapeSquircleSize.width / 2,
+                            height = landscapeSquircleSize.height / 2
+                        )
 
                         drawSquircle(
                             color = color,
                             topLeft = landscapeSquircleOffset,
                             size = landscapeSquircleSize,
-                            topLeftCorner = landscapeSquircleCorner,
-                            topRightCorner = landscapeSquircleCorner,
-                            bottomLeftCorner = landscapeSquircleCorner,
-                            bottomRightCorner = landscapeSquircleCorner,
+                            topLeftCorner = shape.topStart.toPx(shapeSize, density),
+                            topRightCorner = shape.topEnd.toPx(shapeSize, density),
+                            bottomLeftCorner = shape.bottomStart.toPx(shapeSize, density),
+                            bottomRightCorner = shape.bottomEnd.toPx(shapeSize, density),
                             cornerSmoothing = state.cornerSmoothing
                         )
 
@@ -119,6 +122,7 @@ fun PreviewScreen(
                     .padding(horizontal = 24.dp),
                 title = cornerRadiusSliderTitle,
                 value = cornerRadiusSliderValue,
+                valueRange = 0f..1f,
                 onValueChange = remember {
                     { onUiAction(PreviewScreenUiAction.SetCornerRadius(it)) }
                 }
@@ -154,24 +158,17 @@ fun PreviewScreen(
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
 
-                val buttonShape by rememberUpdatedState(
-                    SquircleShape(
-                        percent = state.cornerRadius,
-                        cornerSmoothing = state.cornerSmoothing
-                    )
-                )
-
                 TextButton(
                     onClick = remember { { onUiAction(PreviewScreenUiAction.Reset) } },
                     modifier = Modifier.weight(1f),
-                    shape = buttonShape,
+                    shape = MaterialTheme.shapes.large,
                     content = { Text(text = "Reset") }
                 )
 
                 TextButton(
                     onClick = remember { { onUiAction(PreviewScreenUiAction.Random) } },
                     modifier = Modifier.weight(1f),
-                    shape = buttonShape,
+                    shape = MaterialTheme.shapes.large,
                     content = { Text(text = "Random") }
                 )
 

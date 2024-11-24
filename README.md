@@ -14,6 +14,7 @@
 
 * [Why Squircle?](#why-squircle)
 * [Requirements](#requirements)
+* [Supported Platforms](#supported-platforms)
 * [Gradle Kotlin DSL Setup (For Multiplatform projects).](#gradle-kotlin-dsl-setup-for-multiplatform-projects)
 * [Gradle Kotlin DSL Setup (For Android-only projects).](#gradle-kotlin-dsl-setup-for-android-only-projects)
 * [Gradle Groovy Setup (For Android-only projects).](#gradle-groovy-setup-for-android-only-projects)
@@ -34,7 +35,6 @@
 ---
 
 ## Requirements
-<br/>
 
 ##### Base requirements (For Multiplatform projects):
 
@@ -43,14 +43,25 @@
 
 <br/>
 
----
-
 ##### Base requirements (For Android-only projects):
 
 - Kotlin version - `2.0.21`
 - Jetpack Compose version - `1.7.1`
 - Project `minSdk` version - `23`
 - Project `compileSdk` version - `35`
+
+<br/>
+
+---
+
+## Supported Platforms
+
+##### List of currently supported platforms:
+
+- Android
+- iOS
+- Desktop (JVM)
+- Web (WasmJS)
 
 <br/>
 
