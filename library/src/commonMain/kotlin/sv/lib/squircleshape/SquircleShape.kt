@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Stoyan Vuchev
+ * Copyright (c) 2023-2025 Stoyan Vuchev
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,6 +26,30 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
+import sv.lib.squircleshape.util.convertFloatBasedSmoothingToInt
+import sv.lib.squircleshape.util.createSquircleShapeOutline
+
+/**
+ *
+ *  Creates a [SquircleShape] with corner radius percent defined as [Int] value.
+ *
+ *  @param percent The corner radius percent from 0 to 100.
+ *  @param smoothing The smoothing factor from 0 to 100.
+ *  @param upscaleCornerSize Whether to upscale the corner size in order to preserve the roundness when a larger corner smoothing is applied.
+ *
+ **/
+fun SquircleShape(
+    percent: Int = 100,
+    smoothing: Int = Smoothing.Medium,
+    upscaleCornerSize: Boolean = true
+) = SquircleShape(
+    topStartCorner = CornerSize(percent),
+    topEndCorner = CornerSize(percent),
+    bottomStartCorner = CornerSize(percent),
+    bottomEndCorner = CornerSize(percent),
+    smoothing = smoothing,
+    upscaleCornerSize = upscaleCornerSize
+)
 
 /**
  *
@@ -35,6 +59,21 @@ import androidx.compose.ui.unit.dp
  *  @param cornerSmoothing (0.55f - rounded corner shape, 1f - fully pronounced squircle).
  *
  **/
+@Deprecated(
+    message = "Consider using the new integer based smoothing parameter " +
+            "for a better control over the shape. \n" +
+            "This function will be removed in the future.",
+    replaceWith = ReplaceWith(
+        """
+            SquircleShape(
+                percent = 100,
+                smoothing = 60,
+                upscaleCornerSize = true
+            )
+        """
+    ),
+    level = DeprecationLevel.WARNING
+)
 fun SquircleShape(
     percent: Int = 100,
     cornerSmoothing: Float = CornerSmoothing.Medium
@@ -43,7 +82,30 @@ fun SquircleShape(
     topEndCorner = CornerSize(percent),
     bottomStartCorner = CornerSize(percent),
     bottomEndCorner = CornerSize(percent),
-    cornerSmoothing = cornerSmoothing
+    smoothing = convertFloatBasedSmoothingToInt(cornerSmoothing),
+    upscaleCornerSize = false
+)
+
+/**
+ *
+ *  Creates a [SquircleShape] with corner radius defined as [Dp] value.
+ *
+ *  @param radius The corner radius.
+ *  @param smoothing The smoothing factor from 0 to 100.
+ *  @param upscaleCornerSize Whether to upscale the corner size in order to preserve the roundness when a larger corner smoothing is applied.
+ *
+ **/
+fun SquircleShape(
+    radius: Dp,
+    smoothing: Int = Smoothing.Medium,
+    upscaleCornerSize: Boolean = true
+) = SquircleShape(
+    topStartCorner = CornerSize(radius),
+    topEndCorner = CornerSize(radius),
+    bottomStartCorner = CornerSize(radius),
+    bottomEndCorner = CornerSize(radius),
+    smoothing = smoothing,
+    upscaleCornerSize = upscaleCornerSize
 )
 
 /**
@@ -54,6 +116,21 @@ fun SquircleShape(
  *  @param cornerSmoothing (0.55f - rounded corner shape, 1f - fully pronounced squircle).
  *
  **/
+@Deprecated(
+    message = "Consider using the new integer based smoothing parameter " +
+            "for a better control over the shape. \n" +
+            "This function will be removed in the future.",
+    replaceWith = ReplaceWith(
+        """
+            SquircleShape(
+                radius = 16.dp,
+                smoothing = 60,
+                upscaleCornerSize = true
+            )
+        """
+    ),
+    level = DeprecationLevel.WARNING
+)
 fun SquircleShape(
     radius: Dp,
     cornerSmoothing: Float = CornerSmoothing.Medium
@@ -62,7 +139,30 @@ fun SquircleShape(
     topEndCorner = CornerSize(radius),
     bottomStartCorner = CornerSize(radius),
     bottomEndCorner = CornerSize(radius),
-    cornerSmoothing = cornerSmoothing
+    smoothing = convertFloatBasedSmoothingToInt(cornerSmoothing),
+    upscaleCornerSize = false
+)
+
+/**
+ *
+ *  Creates a [SquircleShape] with corner radius in pixels defined as [Float] value.
+ *
+ *  @param radius The corner radius in pixels.
+ *  @param smoothing The smoothing factor from 0 to 100.
+ *  @param upscaleCornerSize Whether to upscale the corner size in order to preserve the roundness when a larger corner smoothing is applied.
+ *
+ **/
+fun SquircleShape(
+    radius: Float,
+    smoothing: Int = Smoothing.Medium,
+    upscaleCornerSize: Boolean = true
+) = SquircleShape(
+    topStartCorner = CornerSize(radius),
+    topEndCorner = CornerSize(radius),
+    bottomStartCorner = CornerSize(radius),
+    bottomEndCorner = CornerSize(radius),
+    smoothing = smoothing,
+    upscaleCornerSize = upscaleCornerSize
 )
 
 /**
@@ -73,6 +173,21 @@ fun SquircleShape(
  *  @param cornerSmoothing (0.55f - rounded corner shape, 1f - fully pronounced squircle).
  *
  **/
+@Deprecated(
+    message = "Consider using the new integer based smoothing parameter " +
+            "for a better control over the shape. \n" +
+            "This function will be removed in the future.",
+    replaceWith = ReplaceWith(
+        """
+            SquircleShape(
+                radius = 150f,
+                smoothing = 60,
+                upscaleCornerSize = true
+            )
+        """
+    ),
+    level = DeprecationLevel.WARNING
+)
 fun SquircleShape(
     radius: Float,
     cornerSmoothing: Float = CornerSmoothing.Medium
@@ -81,7 +196,36 @@ fun SquircleShape(
     topEndCorner = CornerSize(radius),
     bottomStartCorner = CornerSize(radius),
     bottomEndCorner = CornerSize(radius),
-    cornerSmoothing = cornerSmoothing
+    smoothing = convertFloatBasedSmoothingToInt(cornerSmoothing),
+    upscaleCornerSize = false
+)
+
+/**
+ *
+ *  Creates a [SquircleShape] with corners percent defined as [Int] values.
+ *
+ *  @param topStart The top start corner radius percent from 0 to 100.
+ *  @param topEnd The top end corner radius percent from 0 to 100.
+ *  @param bottomStart The bottom start corner radius percent from 0 to 100.
+ *  @param bottomEnd The bottom end corner radius percent from 0 to 100.
+ *  @param smoothing The smoothing factor from 0 to 100.
+ *  @param upscaleCornerSize Whether to upscale the corner size in order to preserve the roundness when a larger corner smoothing is applied.
+ *
+ **/
+fun SquircleShape(
+    topStart: Int = 0,
+    topEnd: Int = 0,
+    bottomStart: Int = 0,
+    bottomEnd: Int = 0,
+    smoothing: Int = Smoothing.Medium,
+    upscaleCornerSize: Boolean = true
+) = SquircleShape(
+    topStartCorner = CornerSize(topStart),
+    topEndCorner = CornerSize(topEnd),
+    bottomStartCorner = CornerSize(bottomStart),
+    bottomEndCorner = CornerSize(bottomEnd),
+    smoothing = smoothing,
+    upscaleCornerSize = upscaleCornerSize
 )
 
 /**
@@ -95,6 +239,24 @@ fun SquircleShape(
  *  @param cornerSmoothing (0.55f - rounded corner shape, 1f - fully pronounced squircle).
  *
  **/
+@Deprecated(
+    message = "Consider using the new integer based smoothing parameter " +
+            "for a better control over the shape. \n" +
+            "This function will be removed in the future.",
+    replaceWith = ReplaceWith(
+        """
+            SquircleShape(
+                topStart = 50,
+                topEnd = 25,
+                bottomStart = 25,
+                bottomEnd = 50,
+                smoothing = 60,
+                upscaleCornerSize = true
+            )
+        """
+    ),
+    level = DeprecationLevel.WARNING
+)
 fun SquircleShape(
     topStart: Int = 0,
     topEnd: Int = 0,
@@ -106,7 +268,36 @@ fun SquircleShape(
     topEndCorner = CornerSize(topEnd),
     bottomStartCorner = CornerSize(bottomStart),
     bottomEndCorner = CornerSize(bottomEnd),
-    cornerSmoothing = cornerSmoothing
+    smoothing = convertFloatBasedSmoothingToInt(cornerSmoothing),
+    upscaleCornerSize = false
+)
+
+/**
+ *
+ *  Creates a [SquircleShape] with corners defined as [Dp] values.
+ *
+ *  @param topStart The top start corner radius.
+ *  @param topEnd The top end corner radius.
+ *  @param bottomStart The bottom start corner radius.
+ *  @param bottomEnd The bottom end corner radius.
+ *  @param smoothing The smoothing factor from 0 to 100.
+ *  @param upscaleCornerSize Whether to upscale the corner size in order to preserve the roundness when a larger corner smoothing is applied.
+ *
+ **/
+fun SquircleShape(
+    topStart: Dp = 0.dp,
+    topEnd: Dp = 0.dp,
+    bottomStart: Dp = 0.dp,
+    bottomEnd: Dp = 0.dp,
+    smoothing: Int = Smoothing.Medium,
+    upscaleCornerSize: Boolean = true
+) = SquircleShape(
+    topStartCorner = CornerSize(topStart),
+    topEndCorner = CornerSize(topEnd),
+    bottomStartCorner = CornerSize(bottomStart),
+    bottomEndCorner = CornerSize(bottomEnd),
+    smoothing = smoothing,
+    upscaleCornerSize = upscaleCornerSize
 )
 
 /**
@@ -120,6 +311,24 @@ fun SquircleShape(
  *  @param cornerSmoothing (0.55f - rounded corner shape, 1f - fully pronounced squircle).
  *
  **/
+@Deprecated(
+    message = "Consider using the new integer based smoothing parameter " +
+            "for a better control over the shape. \n" +
+            "This function will be removed in the future.",
+    replaceWith = ReplaceWith(
+        """
+            SquircleShape(
+                topStart = 24.dp,
+                topEnd = 8.dp,
+                bottomStart = 8.dp,
+                bottomEnd = 24.dp,
+                smoothing = 60,
+                upscaleCornerSize = true
+            )
+        """
+    ),
+    level = DeprecationLevel.WARNING
+)
 fun SquircleShape(
     topStart: Dp = 0.dp,
     topEnd: Dp = 0.dp,
@@ -131,7 +340,36 @@ fun SquircleShape(
     topEndCorner = CornerSize(topEnd),
     bottomStartCorner = CornerSize(bottomStart),
     bottomEndCorner = CornerSize(bottomEnd),
-    cornerSmoothing = cornerSmoothing
+    smoothing = convertFloatBasedSmoothingToInt(cornerSmoothing),
+    upscaleCornerSize = false
+)
+
+/**
+ *
+ *  Creates a [SquircleShape] with pixel corners defined as [Float] values.
+ *
+ *  @param topStart The top start corner radius in pixels.
+ *  @param topEnd The top end corner radius.
+ *  @param bottomStart The bottom start corner radius.
+ *  @param bottomEnd The bottom end corner radius.
+ *  @param smoothing The smoothing factor from 0 to 100.
+ *  @param upscaleCornerSize Whether to upscale the corner size in order to preserve the roundness when a larger corner smoothing is applied.
+ *
+ **/
+fun SquircleShape(
+    topStart: Float = 0f,
+    topEnd: Float = 0f,
+    bottomStart: Float = 0f,
+    bottomEnd: Float = 0f,
+    smoothing: Int = Smoothing.Medium,
+    upscaleCornerSize: Boolean = true
+) = SquircleShape(
+    topStartCorner = CornerSize(topStart),
+    topEndCorner = CornerSize(topEnd),
+    bottomStartCorner = CornerSize(bottomStart),
+    bottomEndCorner = CornerSize(bottomEnd),
+    smoothing = smoothing,
+    upscaleCornerSize = upscaleCornerSize
 )
 
 /**
@@ -145,6 +383,24 @@ fun SquircleShape(
  *  @param cornerSmoothing (0.55f - rounded corner shape, 1f - fully pronounced squircle).
  *
  **/
+@Deprecated(
+    message = "Consider using the new integer based smoothing parameter " +
+            "for a better control over the shape. \n" +
+            "This function will be removed in the future.",
+    replaceWith = ReplaceWith(
+        """
+            SquircleShape(
+                topStart = 200f,
+                topEnd = 75f,
+                bottomStart = 75f,
+                bottomEnd = 200f,
+                smoothing = 60,
+                upscaleCornerSize = true
+            )
+        """
+    ),
+    level = DeprecationLevel.WARNING
+)
 fun SquircleShape(
     topStart: Float = 0f,
     topEnd: Float = 0f,
@@ -156,7 +412,8 @@ fun SquircleShape(
     topEndCorner = CornerSize(topEnd),
     bottomStartCorner = CornerSize(bottomStart),
     bottomEndCorner = CornerSize(bottomEnd),
-    cornerSmoothing = cornerSmoothing
+    smoothing = convertFloatBasedSmoothingToInt(cornerSmoothing),
+    upscaleCornerSize = false
 )
 
 /**
@@ -167,7 +424,8 @@ fun SquircleShape(
  *  @param topEndCorner The top end corner radius defined as [CornerSize].
  *  @param bottomStartCorner The bottom start corner radius defined as [CornerSize].
  *  @param bottomEndCorner The bottom end corner radius defined as [CornerSize].
- *  @param cornerSmoothing (0.55f - rounded corner shape, 1f - fully pronounced squircle).
+ *  @param smoothing The corner smoothing from 0 to 100.
+ *  @param upscaleCornerSize Whether to upscale the corner size in order to preserve the roundness when a larger corner smoothing is applied.
  *
  **/
 class SquircleShape(
@@ -175,13 +433,15 @@ class SquircleShape(
     topEndCorner: CornerSize,
     bottomStartCorner: CornerSize,
     bottomEndCorner: CornerSize,
-    cornerSmoothing: Float
+    smoothing: Int,
+    upscaleCornerSize: Boolean
 ) : SquircleBasedShape(
-    topStartCorner,
-    topEndCorner,
-    bottomStartCorner,
-    bottomEndCorner,
-    cornerSmoothing
+    topStart = topStartCorner,
+    topEnd = topEndCorner,
+    bottomStart = bottomStartCorner,
+    bottomEnd = bottomEndCorner,
+    smoothing = smoothing,
+    upscaleCornerSize = upscaleCornerSize
 ) {
 
     override fun copy(
@@ -194,7 +454,8 @@ class SquircleShape(
         topEndCorner = topEnd,
         bottomStartCorner = bottomStart,
         bottomEndCorner = bottomEnd,
-        cornerSmoothing = cornerSmoothing
+        smoothing = smoothing,
+        upscaleCornerSize = upscaleCornerSize
     )
 
     override fun createOutline(
@@ -210,7 +471,8 @@ class SquircleShape(
         topEnd = topEnd,
         bottomEnd = bottomEnd,
         bottomStart = bottomStart,
-        cornerSmoothing = cornerSmoothing,
+        smoothing = smoothing,
+        upscaleCornerSize = upscaleCornerSize,
         layoutDirection = layoutDirection
     )
 
@@ -220,7 +482,8 @@ class SquircleShape(
                 "topEnd = $topEnd, " +
                 "bottomStart = $bottomStart, " +
                 "bottomEnd = $bottomEnd, " +
-                "cornerSmoothing = $cornerSmoothing" +
+                "smoothing = $smoothing, " +
+                "upscaleCornerSize = $upscaleCornerSize" +
                 ")"
     }
 
@@ -231,7 +494,8 @@ class SquircleShape(
         if (topEnd != other.topEnd) return false
         if (bottomStart != other.bottomStart) return false
         if (bottomEnd != other.bottomEnd) return false
-        if (cornerSmoothing != other.cornerSmoothing) return false
+        if (smoothing != other.smoothing) return false
+        if (upscaleCornerSize != other.upscaleCornerSize) return false
         return true
     }
 
@@ -240,7 +504,8 @@ class SquircleShape(
         result = 31 * result + topEnd.hashCode()
         result = 31 * result + bottomStart.hashCode()
         result = 31 * result + bottomEnd.hashCode()
-        result = 31 * result + cornerSmoothing.hashCode()
+        result = 31 * result + smoothing.hashCode()
+        result = 31 * result + upscaleCornerSize.hashCode()
         return result
     }
 

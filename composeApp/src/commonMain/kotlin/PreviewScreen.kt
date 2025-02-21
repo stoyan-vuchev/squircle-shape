@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -26,6 +27,7 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import sv.lib.squircleshape.drawSquircle
+import kotlin.math.roundToInt
 
 @Composable
 fun PreviewScreen(
@@ -78,7 +80,8 @@ fun PreviewScreen(
                             topRightCorner = shape.topEnd.toPx(shapeSize, density),
                             bottomLeftCorner = shape.bottomStart.toPx(shapeSize, density),
                             bottomRightCorner = shape.bottomEnd.toPx(shapeSize, density),
-                            cornerSmoothing = state.cornerSmoothing
+                            smoothing = state.smoothing,
+                            upscaleCornerSize = state.upscaleCornerRadius
                         )
 
                     }
@@ -98,7 +101,7 @@ fun PreviewScreen(
                     .padding(horizontal = 24.dp),
                 title = aspectRatioSliderTitle,
                 value = state.aspectRatio,
-                valueRange = 0.25f..1.75f,
+                valueRange = 0.25f..2.75f,
                 onValueChange = remember {
                     { onUiAction(PreviewScreenUiAction.SetAspectRatio(it)) }
                 }
@@ -130,10 +133,9 @@ fun PreviewScreen(
 
             Spacer(modifier = Modifier.height(24.dp))
 
-            val cornerSmoothingSliderTitle by remember(state.cornerSmoothing) {
+            val cornerSmoothingSliderTitle by remember(state.smoothing) {
                 derivedStateOf {
-                    "Corner smoothing:   " +
-                            "${state.cornerSmoothing.roundDecimalCountTo(2)}"
+                    "Corner smoothing:   ${state.smoothing}"
                 }
             }
 
@@ -142,12 +144,47 @@ fun PreviewScreen(
                     .fillMaxWidth()
                     .padding(horizontal = 24.dp),
                 title = cornerSmoothingSliderTitle,
-                value = state.cornerSmoothing,
-                valueRange = 0.55f..1f,
+                value = state.smoothing.toFloat() / 100f,
+                valueRange = 0f..1f,
                 onValueChange = remember {
-                    { onUiAction(PreviewScreenUiAction.SetCornerSmoothing(it)) }
+                    {
+                        onUiAction(
+                            PreviewScreenUiAction.SetCornerSmoothing(
+                                (it * 100f).roundToInt()
+                            )
+                        )
+                    }
                 }
             )
+
+            Spacer(modifier = Modifier.height(24.dp))
+
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 24.dp),
+            ) {
+
+                Text(
+                    text = "Upscale corner size",
+                    style = MaterialTheme.typography.titleSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+
+                Spacer(modifier = Modifier.height(12.dp))
+
+                Switch(
+                    checked = state.upscaleCornerRadius,
+                    onCheckedChange = remember {
+                        {
+                            onUiAction(
+                                PreviewScreenUiAction.SetUpscaleCornerRadius(it)
+                            )
+                        }
+                    }
+                )
+
+            }
 
             Spacer(modifier = Modifier.height(24.dp))
 

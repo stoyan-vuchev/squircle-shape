@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Stoyan Vuchev
+ * Copyright (c) 2025 Sylvain BARRÉ-PERSYN, Stoyan Vuchev
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,24 +26,20 @@ import androidx.compose.foundation.shape.CornerSize
 
 /**
  *
- *  Base class for creating a Squircle shape derived from a [CornerBasedShape]
- *  defined by four corners and a corner smoothing.
+ *  Base class for creating a Gentle Squircle shape derived from a [CornerBasedShape]
+ *  defined by four corners.
  *
  *  @param topStart The top start corner radius defined as [CornerSize].
  *  @param topEnd The top end corner radius defined as [CornerSize].
  *  @param bottomStart The bottom start corner radius defined as [CornerSize].
  *  @param bottomEnd The bottom end corner radius defined as [CornerSize].
- *  @param smoothing The corner smoothing value from 0 to 100.
- *  @param upscaleCornerSize Whether to upscale the corner size in order to preserve the roundness when a larger smoothing is applied.
  *
  **/
-abstract class SquircleBasedShape(
+abstract class GentleSquircleBasedShape(
     topStart: CornerSize,
     topEnd: CornerSize,
     bottomStart: CornerSize,
-    bottomEnd: CornerSize,
-    val smoothing: Int,
-    val upscaleCornerSize: Boolean
+    bottomEnd: CornerSize
 ) : CornerBasedShape(
     topStart = topStart,
     topEnd = topEnd,

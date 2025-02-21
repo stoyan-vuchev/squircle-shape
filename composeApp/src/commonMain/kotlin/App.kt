@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.rememberUpdatedState
@@ -14,7 +15,7 @@ import androidx.compose.runtime.setValue
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import sv.lib.squircleshape.CornerSmoothing
+import sv.lib.squircleshape.Smoothing
 import sv.lib.squircleshape.SquircleShape
 import kotlin.math.roundToInt
 import kotlin.random.Random
@@ -24,12 +25,15 @@ fun App() {
 
     var aspectRatio by remember { mutableFloatStateOf(1f) }
     var cornerRadius by remember { mutableIntStateOf(100) }
-    var cornerSmoothing by remember { mutableFloatStateOf(CornerSmoothing.Medium) }
+    var smoothing by remember { mutableIntStateOf(Smoothing.Medium) }
+    var upscaleCornerRadius by remember { mutableStateOf(true) }
+
     val state by rememberUpdatedState(
         PreviewScreenState(
             aspectRatio = aspectRatio,
             cornerRadius = cornerRadius,
-            cornerSmoothing = cornerSmoothing
+            smoothing = smoothing,
+            upscaleCornerRadius = upscaleCornerRadius
         )
     )
 
@@ -37,7 +41,8 @@ fun App() {
         Shapes(
             large = SquircleShape(
                 percent = state.cornerRadius,
-                cornerSmoothing = state.cornerSmoothing
+                smoothing = state.smoothing,
+                upscaleCornerSize = state.upscaleCornerRadius
             )
         )
     )
@@ -62,19 +67,24 @@ fun App() {
                         }
 
                         is PreviewScreenUiAction.SetCornerSmoothing -> {
-                            cornerSmoothing = uiAction.value
+                            smoothing = uiAction.value
+                        }
+
+                        is PreviewScreenUiAction.SetUpscaleCornerRadius -> {
+                            upscaleCornerRadius = uiAction.value
                         }
 
                         is PreviewScreenUiAction.Reset -> {
                             aspectRatio = 1f
                             cornerRadius = 100
-                            cornerSmoothing = CornerSmoothing.Medium
+                            smoothing = Smoothing.Medium
+                            upscaleCornerRadius = true
                         }
 
                         is PreviewScreenUiAction.Random -> {
                             aspectRatio = Random.nextFloat().coerceIn(.25f, 1.75f)
                             cornerRadius = (Random.nextFloat() * 100).roundToInt()
-                            cornerSmoothing = Random.nextFloat().coerceIn(.55f, 1f)
+                            smoothing = Random.nextInt(0, 100)
                         }
 
                     }
