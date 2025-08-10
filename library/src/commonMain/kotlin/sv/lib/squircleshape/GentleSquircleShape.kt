@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2025 Stoyan Vuchev
+ * Copyright (c) 2025 Sylvain BARRÉ-PERSYN, Stoyan Vuchev
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,168 +21,154 @@
 
 package sv.lib.squircleshape
 
+import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
-import sv.lib.squircleshape.util.createSquircleShapeOutline
+import sv.lib.squircleshape.util.createGentleSquircleShapeOutline
 
 /**
  *
- *  Creates a [SquircleShape] with corner radius percent defined as [Int] value.
+ *  Creates a [GentleSquircleShape] that gently morphs from a squircle
+ *  into a circle when applying larger corner radii defined as [Int] value,.
  *
  *  @param percent The corner radius percent from 0 to 100.
- *  @param smoothing The smoothing factor from 0 to 100.
  *
  **/
-fun SquircleShape(
-    percent: Int = 100,
-    smoothing: Int = CornerSmoothing.Medium
-) = SquircleShape(
+fun GentleSquircleShape(
+    percent: Int = 100
+) = GentleSquircleShape(
     topStartCorner = CornerSize(percent),
     topEndCorner = CornerSize(percent),
     bottomStartCorner = CornerSize(percent),
-    bottomEndCorner = CornerSize(percent),
-    smoothing = smoothing
+    bottomEndCorner = CornerSize(percent)
 )
 
 /**
  *
- *  Creates a [SquircleShape] with corner radius defined as [Dp] value.
+ *  Creates a [GentleSquircleShape] that gently morphs from a squircle
+ *  into a circle when applying larger corner radii defined as [Dp] value.
  *
  *  @param radius The corner radius.
- *  @param smoothing The smoothing factor from 0 to 100.
  *
  **/
-fun SquircleShape(
-    radius: Dp,
-    smoothing: Int = CornerSmoothing.Medium
-) = SquircleShape(
+fun GentleSquircleShape(
+    radius: Dp
+) = GentleSquircleShape(
     topStartCorner = CornerSize(radius),
     topEndCorner = CornerSize(radius),
     bottomStartCorner = CornerSize(radius),
-    bottomEndCorner = CornerSize(radius),
-    smoothing = smoothing
+    bottomEndCorner = CornerSize(radius)
 )
 
 /**
  *
- *  Creates a [SquircleShape] with corner radius in pixels defined as [Float] value.
+ *  Creates a [GentleSquircleShape] that gently morphs from a squircle
+ *  into a circle when applying larger corner radii defined as [Float] value.
  *
  *  @param radius The corner radius in pixels.
- *  @param smoothing The smoothing factor from 0 to 100.
  *
  **/
-fun SquircleShape(
-    radius: Float,
-    smoothing: Int = CornerSmoothing.Medium
-) = SquircleShape(
+fun GentleSquircleShape(
+    radius: Float
+) = GentleSquircleShape(
     topStartCorner = CornerSize(radius),
     topEndCorner = CornerSize(radius),
     bottomStartCorner = CornerSize(radius),
-    bottomEndCorner = CornerSize(radius),
-    smoothing = smoothing
+    bottomEndCorner = CornerSize(radius)
 )
 
 /**
  *
- *  Creates a [SquircleShape] with corners percent defined as [Int] values.
+ *  Creates a [GentleSquircleShape] that gently morphs from a squircle
+ *  into a circle when applying larger corner radii defined as [Int] values.
  *
  *  @param topStart The top start corner radius percent from 0 to 100.
  *  @param topEnd The top end corner radius percent from 0 to 100.
  *  @param bottomStart The bottom start corner radius percent from 0 to 100.
  *  @param bottomEnd The bottom end corner radius percent from 0 to 100.
- *  @param smoothing The smoothing factor from 0 to 100.
  *
  **/
-fun SquircleShape(
+fun GentleSquircleShape(
     topStart: Int = 0,
     topEnd: Int = 0,
     bottomStart: Int = 0,
-    bottomEnd: Int = 0,
-    smoothing: Int = CornerSmoothing.Medium
-) = SquircleShape(
+    bottomEnd: Int = 0
+) = GentleSquircleShape(
     topStartCorner = CornerSize(topStart),
     topEndCorner = CornerSize(topEnd),
     bottomStartCorner = CornerSize(bottomStart),
-    bottomEndCorner = CornerSize(bottomEnd),
-    smoothing = smoothing
+    bottomEndCorner = CornerSize(bottomEnd)
 )
 
 /**
  *
- *  Creates a [SquircleShape] with corners defined as [Dp] values.
+ *  Creates a [GentleSquircleShape] that gently morphs from a squircle
+ *  into a circle when applying larger corner radii defined as [Dp] values.
  *
  *  @param topStart The top start corner radius.
  *  @param topEnd The top end corner radius.
  *  @param bottomStart The bottom start corner radius.
  *  @param bottomEnd The bottom end corner radius.
- *  @param smoothing The smoothing factor from 0 to 100.
  *
  **/
-fun SquircleShape(
+fun GentleSquircleShape(
     topStart: Dp = 0.dp,
     topEnd: Dp = 0.dp,
     bottomStart: Dp = 0.dp,
-    bottomEnd: Dp = 0.dp,
-    smoothing: Int = CornerSmoothing.Medium
-) = SquircleShape(
+    bottomEnd: Dp = 0.dp
+) = GentleSquircleShape(
     topStartCorner = CornerSize(topStart),
     topEndCorner = CornerSize(topEnd),
     bottomStartCorner = CornerSize(bottomStart),
-    bottomEndCorner = CornerSize(bottomEnd),
-    smoothing = smoothing
+    bottomEndCorner = CornerSize(bottomEnd)
 )
 
 /**
  *
- *  Creates a [SquircleShape] with pixel corners defined as [Float] values.
+ *  Creates a [GentleSquircleShape] that gently morphs from a squircle
+ *  into a circle when applying larger corner radii defined as [Float] values.
  *
  *  @param topStart The top start corner radius in pixels.
  *  @param topEnd The top end corner radius.
  *  @param bottomStart The bottom start corner radius.
  *  @param bottomEnd The bottom end corner radius.
- *  @param smoothing The smoothing factor from 0 to 100.
  *
  **/
-fun SquircleShape(
+fun GentleSquircleShape(
     topStart: Float = 0f,
     topEnd: Float = 0f,
     bottomStart: Float = 0f,
-    bottomEnd: Float = 0f,
-    smoothing: Int = CornerSmoothing.Medium
-) = SquircleShape(
+    bottomEnd: Float = 0f
+) = GentleSquircleShape(
     topStartCorner = CornerSize(topStart),
     topEndCorner = CornerSize(topEnd),
     bottomStartCorner = CornerSize(bottomStart),
-    bottomEndCorner = CornerSize(bottomEnd),
-    smoothing = smoothing
+    bottomEndCorner = CornerSize(bottomEnd)
 )
 
 /**
  *
- *  Creates a [SquircleBasedShape].
+ *  Creates a [GentleSquircleBasedShape].
  *
  *  @param topStartCorner The top start corner radius defined as [CornerSize].
  *  @param topEndCorner The top end corner radius defined as [CornerSize].
  *  @param bottomStartCorner The bottom start corner radius defined as [CornerSize].
  *  @param bottomEndCorner The bottom end corner radius defined as [CornerSize].
- *  @param smoothing The corner smoothing from 0 to 100.
  *
  **/
-class SquircleShape(
+class GentleSquircleShape(
     topStartCorner: CornerSize,
     topEndCorner: CornerSize,
     bottomStartCorner: CornerSize,
-    bottomEndCorner: CornerSize,
-    smoothing: Int
-) : SquircleBasedShape(
+    bottomEndCorner: CornerSize
+) : GentleSquircleBasedShape(
     topStart = topStartCorner,
     topEnd = topEndCorner,
     bottomStart = bottomStartCorner,
-    bottomEnd = bottomEndCorner,
-    smoothing = smoothing
+    bottomEnd = bottomEndCorner
 ) {
 
     override fun copy(
@@ -190,12 +176,11 @@ class SquircleShape(
         topEnd: CornerSize,
         bottomEnd: CornerSize,
         bottomStart: CornerSize
-    ) = SquircleShape(
+    ): CornerBasedShape = GentleSquircleShape(
         topStartCorner = topStart,
         topEndCorner = topEnd,
         bottomStartCorner = bottomStart,
-        bottomEndCorner = bottomEnd,
-        smoothing = smoothing
+        bottomEndCorner = bottomEnd
     )
 
     override fun createOutline(
@@ -205,23 +190,21 @@ class SquircleShape(
         bottomEnd: Float,
         bottomStart: Float,
         layoutDirection: LayoutDirection
-    ) = createSquircleShapeOutline(
+    ) = createGentleSquircleShapeOutline(
         size = size,
         topStart = topStart,
         topEnd = topEnd,
         bottomEnd = bottomEnd,
         bottomStart = bottomStart,
-        smoothing = smoothing,
         layoutDirection = layoutDirection
     )
 
     override fun toString(): String {
-        return "SquircleShape(" +
+        return "GentleSquircleShape(" +
                 "topStart = $topStart, " +
                 "topEnd = $topEnd, " +
                 "bottomStart = $bottomStart, " +
-                "bottomEnd = $bottomEnd, " +
-                "smoothing = $smoothing" +
+                "bottomEnd = $bottomEnd" +
                 ")"
     }
 
@@ -232,7 +215,6 @@ class SquircleShape(
         if (topEnd != other.topEnd) return false
         if (bottomStart != other.bottomStart) return false
         if (bottomEnd != other.bottomEnd) return false
-        if (smoothing != other.smoothing) return false
         return true
     }
 
@@ -241,7 +223,6 @@ class SquircleShape(
         result = 31 * result + topEnd.hashCode()
         result = 31 * result + bottomStart.hashCode()
         result = 31 * result + bottomEnd.hashCode()
-        result = 31 * result + smoothing.hashCode()
         return result
     }
 

@@ -20,33 +20,31 @@
 
 ---
 
-## 🆕 What's New in Version 3.0.0?
+## 🆕 What's New in Version 4.0.0?
 
-- **Seamless `MaterialTheme` Integration**:  
-  `SquircleBasedShape` now extends `CornerBasedShape`, allowing you to use it directly in `androidx.compose.material3.Shapes`.
+- **Added a new shape type**:  
+  A new shape type called *Gentle Squircle* was added. The goal of this shape is to be used in scenarios
+  where the shape must gently transition from a squircle to a perfectly round circle without specifying a smoothing value.
 
-- **Corner Smoothing Support**:  
-  Added the `cornerSmoothing` parameter for effortless corner smoothing without extra overhead.
+- **Fixed corner radius to smoothing scaling**:  
+  The corner smoothing no longer scales down the corner radius.
 
-- **RTL Layout Support**:  
-  Fully compatible with both `LayoutDirection.Ltr` and `LayoutDirection.Rtl`, ensuring proper corner mapping.
-
-- **Performance Enhancements**:  
-  Optimized corner clamping logic for improved rendering performance.
+- **Fixed RTL & LTR layout direction mirroring**:  
+  The logic for RTL & LTR layout direction mirroring is fixed.
 
 ---
 
 ## 📋 Requirements
 
 ### For Multiplatform Projects:
-- Kotlin: `2.0.21`
-- Compose: `1.7.1`
+- Kotlin: `2.2.0`
+- Compose: `1.8.2`
 
 ### For Android-only Projects:
-- Kotlin: `2.0.21`
-- Jetpack Compose: `1.7.1`
+- Kotlin: `2.2.0`
+- Jetpack Compose: `1.8.2`
 - Minimum SDK: `23`
-- Compile SDK: `35`
+- Compile SDK: `36`
 
 ---
 
@@ -293,7 +291,7 @@ Canvas(
 ```
 MIT License
 
-Copyright (c) 2023 Stoyan Vuchev
+Copyright (c) 2023-2025 Stoyan Vuchev
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,8 +1,6 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.plugin.mpp.NativeBuildType
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 
 plugins {
@@ -16,7 +14,7 @@ kotlin {
 
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
-        moduleName = "SquircleShapeApp"
+        outputModuleName = "SquircleShapeApp"
         browser {
             val rootDirPath = project.rootDir.path
             val projectDirPath = project.projectDir.path
@@ -35,7 +33,6 @@ kotlin {
     }
 
     androidTarget {
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_17)
         }
@@ -59,6 +56,7 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 implementation(compose.preview)
+                implementation(libs.androidx.core.ktx)
                 implementation(libs.androidx.activity.compose)
                 implementation(libs.systemUiBarsTweaker)
             }
@@ -82,6 +80,7 @@ kotlin {
                 implementation(libs.lifecycle.runtime.ktx)
                 implementation(libs.lifecycle.runtime.compose)
                 implementation(libs.lifecycle.viewmodel.compose)
+                implementation(libs.androidx.navigation.compose)
                 implementation(project(":library"))
             }
         }
@@ -103,12 +102,12 @@ kotlin {
 android {
 
     namespace = "com.stoyanvuchev.squircleshape.app"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.stoyanvuchev.squircleshape.app"
         minSdk = 23
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0.0"
     }

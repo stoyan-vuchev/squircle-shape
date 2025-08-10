@@ -24,12 +24,13 @@ fun App() {
 
     var aspectRatio by remember { mutableFloatStateOf(1f) }
     var cornerRadius by remember { mutableIntStateOf(100) }
-    var cornerSmoothing by remember { mutableFloatStateOf(CornerSmoothing.Medium) }
+    var smoothing by remember { mutableIntStateOf(CornerSmoothing.Medium) }
+
     val state by rememberUpdatedState(
         PreviewScreenState(
             aspectRatio = aspectRatio,
             cornerRadius = cornerRadius,
-            cornerSmoothing = cornerSmoothing
+            smoothing = smoothing
         )
     )
 
@@ -37,7 +38,7 @@ fun App() {
         Shapes(
             large = SquircleShape(
                 percent = state.cornerRadius,
-                cornerSmoothing = state.cornerSmoothing
+                smoothing = state.smoothing
             )
         )
     )
@@ -62,19 +63,19 @@ fun App() {
                         }
 
                         is PreviewScreenUiAction.SetCornerSmoothing -> {
-                            cornerSmoothing = uiAction.value
+                            smoothing = uiAction.value
                         }
 
                         is PreviewScreenUiAction.Reset -> {
                             aspectRatio = 1f
                             cornerRadius = 100
-                            cornerSmoothing = CornerSmoothing.Medium
+                            smoothing = CornerSmoothing.Medium
                         }
 
                         is PreviewScreenUiAction.Random -> {
                             aspectRatio = Random.nextFloat().coerceIn(.25f, 1.75f)
                             cornerRadius = (Random.nextFloat() * 100).roundToInt()
-                            cornerSmoothing = Random.nextFloat().coerceIn(.55f, 1f)
+                            smoothing = Random.nextInt(0, 100)
                         }
 
                     }

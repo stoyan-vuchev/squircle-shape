@@ -5,5 +5,5 @@ import sv.lib.squircleshape.CornerSmoothing
 data class PreviewScreenState(
     val aspectRatio: Float = 1f,
     val cornerRadius: Int = 100,
-    val cornerSmoothing: Float = CornerSmoothing.Medium
+    val smoothing: Int = CornerSmoothing.Medium
 )

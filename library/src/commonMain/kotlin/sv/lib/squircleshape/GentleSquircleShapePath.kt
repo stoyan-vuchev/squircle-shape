@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2025 Stoyan Vuchev
+ * Copyright (c) 2020-2025 MartinRGB, Sylvain BARRÉ-PERSYN, Stoyan Vuchev
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,6 +22,7 @@
 package sv.lib.squircleshape
 
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.BlendMode
 import androidx.compose.ui.graphics.Brush
@@ -35,11 +36,12 @@ import androidx.compose.ui.graphics.drawscope.Fill
 import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.unit.LayoutDirection
 import sv.lib.squircleshape.util.clampedCornerRadius
-import sv.lib.squircleshape.util.convertIntBasedSmoothingToFloat
+import sv.lib.squircleshape.util.clampedSmoothing
 
 /**
  *
- *  The path used for drawing a typical Squircle shape.
+ *  The path used for drawing a Gentle Squircle shape that gently
+ *  morphs from a squircle into a circle when applying larger corner radii.
  *
  *  @param size The size of the shape in pixels.
  *  @param topLeftCorner The top left corner radius in pixels.
@@ -49,125 +51,149 @@ import sv.lib.squircleshape.util.convertIntBasedSmoothingToFloat
  *  @param smoothing The corner smoothing from 0 to 100.
  *
  **/
-fun squircleShapePath(
+fun gentleSquircleShapePath(
     size: Size,
     topLeftCorner: Float,
     topRightCorner: Float,
     bottomLeftCorner: Float,
-    bottomRightCorner: Float,
-    smoothing: Int = CornerSmoothing.Medium
+    bottomRightCorner: Float
 ): Path {
 
-    val topLeft = clampedCornerRadius(
-        size = size,
-        cornerSize = topLeftCorner,
-        smoothing = smoothing
-    )
+    val width = size.width
+    val height = size.height
+    val minDimension = size.minDimension
+    val cornerThreshold = minDimension / 2
 
-    val topRight = clampedCornerRadius(
-        size = size,
-        cornerSize = topRightCorner,
-        smoothing = smoothing
-    )
+    val topLeft = clampedCornerRadius(topLeftCorner * 1.2f, size)
+    val topRight = clampedCornerRadius(topRightCorner * 1.2f, size)
+    val bottomRight = clampedCornerRadius(bottomRightCorner * 1.2f, size)
+    val bottomLeft = clampedCornerRadius(bottomLeftCorner * 1.2f, size)
 
-    val bottomLeft = clampedCornerRadius(
-        size = size,
-        cornerSize = bottomLeftCorner,
-        smoothing = smoothing
-    )
+    val useArcAtTopLeft = topLeft >= cornerThreshold
+    val useArcAtTopRight = topRight >= cornerThreshold
+    val useArcAtBottomRight = bottomRight >= cornerThreshold
+    val useArcAtBottomLeft = bottomLeft >= cornerThreshold
 
-    val bottomRight = clampedCornerRadius(
-        size = size,
-        cornerSize = bottomRightCorner,
-        smoothing = smoothing
-    )
+    val topLeftSmoothingFactor = clampedSmoothing(topLeft, cornerThreshold)
+    val topRightSmoothingFactor = clampedSmoothing(topRight, cornerThreshold)
+    val bottomRightSmoothingFactor = clampedSmoothing(bottomRight, cornerThreshold)
+    val bottomLeftSmoothingFactor = clampedSmoothing(bottomLeft, cornerThreshold)
 
-    val smoothingFactor = 1f - convertIntBasedSmoothingToFloat(smoothing)
     return Path().apply {
 
-        // Extract the shape width & height
-        val width = size.width
-        val height = size.height
+        // Enter the path at x = topLeft & y = 0.
 
-        // Set the starting point at the coordinate of (x = topLeft corner, y = 0).
         moveTo(
             x = topLeft,
             y = 0f
         )
 
-        // Draw a Line to the coordinate of (x = the width - the top right corner).
+        // Top-right corner.
+
         lineTo(
             x = width - topRight,
             y = 0f
         )
 
-        // Draw a Cubic from the coordinate of (x1 = the width - the top right corner * (1 - the corner smoothing), y1 = 0)
-        // with a mid point at the coordinate of (x2 = the width, y2 = the top right corner * (1 - the corner smoothing))
-        // to the end point at the coordinate of (x3 = the width, y3 = the top right corner).
-        cubicTo(
-            x1 = width - topRight * smoothingFactor,
+        if (useArcAtTopRight) arcTo(
+            rect = Rect(
+                left = width - 2 * topRight,
+                top = 0f,
+                right = width,
+                bottom = 2 * topRight
+            ),
+            startAngleDegrees = -90f,
+            sweepAngleDegrees = 90f,
+            forceMoveTo = false
+        ) else cubicTo(
+            x1 = width - topRight * topRightSmoothingFactor,
             y1 = 0f,
             x2 = width,
-            y2 = topRight * smoothingFactor,
+            y2 = topRight * topRightSmoothingFactor,
             x3 = width,
             y3 = topRight
         )
 
-        // Draw a Line to the coordinate of (x = the width, y = the height - the bottom right corner).
+        // Bottom-right corner.
+
         lineTo(
             x = width,
             y = height - bottomRight
         )
 
-        // Draw a Cubic from the coordinate of (x1 = the width, y1 = the height - the bottom right corner * (1 - the corner smoothing))
-        // with a mid point at the coordinate of (x2 = the width - the bottom right corner * (1 - the corner smoothing), y2 = the height)
-        // to the end point at the coordinate of (x3 = the width - the bottom right corner, y3 = the height).
-        cubicTo(
+        if (useArcAtBottomRight) arcTo(
+            rect = Rect(
+                left = width - 2 * bottomRight,
+                top = height - 2 * bottomRight,
+                right = width,
+                bottom = height
+            ),
+            startAngleDegrees = 0f,
+            sweepAngleDegrees = 90f,
+            forceMoveTo = false
+        ) else cubicTo(
             x1 = width,
-            y1 = height - bottomRight * smoothingFactor,
-            x2 = width - bottomRight * smoothingFactor,
+            y1 = height - bottomRight * bottomRightSmoothingFactor,
+            x2 = width - bottomRight * bottomRightSmoothingFactor,
             y2 = height,
             x3 = width - bottomRight,
             y3 = height
         )
 
-        // Draw a Line to the coordinate of (x = the bottom left corner, y = the height).
+        // Bottom-left corner.
+
         lineTo(
             x = bottomLeft,
             y = height
         )
 
-        // Draw a Cubic from the coordinate of (x1 = the bottom left corner * (1 - the corner smoothing), y1 = the height)
-        // with a mid point at the coordinate of (x2 = 0, y2 = the height - the bottom left corner * (1 - the corner smoothing))
-        // to the end point at the coordinate of (x3 = 0, y3 = the height - the bottom left corner).
-        cubicTo(
-            x1 = bottomLeft * smoothingFactor,
+        if (useArcAtBottomLeft) arcTo(
+            rect = Rect(
+                left = 0f,
+                top = height - 2 * bottomLeft,
+                right = 2 * bottomLeft,
+                bottom = height
+            ),
+            startAngleDegrees = 90f,
+            sweepAngleDegrees = 90f,
+            forceMoveTo = false
+        ) else cubicTo(
+            x1 = bottomLeft * bottomLeftSmoothingFactor,
             y1 = height,
             x2 = 0f,
-            y2 = height - bottomLeft * smoothingFactor,
+            y2 = height - bottomLeft * bottomLeftSmoothingFactor,
             x3 = 0f,
             y3 = height - bottomLeft
         )
 
-        // Draw a Line to the coordinate of (x = 0, y = the top left corner).
+        // Top-left corner.
+
         lineTo(
             x = 0f,
             y = topLeft
         )
 
-        // Draw a Cubic from the coordinate of (x1 = 0, y1 = the top left corner * (1 - the corner smoothing))
-        // with a mid point at the coordinate of (x2 = the top left corner * (1 - the corner smoothing), y2 = 0)
-        // to the end point at the coordinate of (x3 = the top left corner, y3 = 0.
-        cubicTo(
+        if (useArcAtTopLeft) arcTo(
+            rect = Rect(
+                left = 0f,
+                top = 0f,
+                right = 2 * topLeft,
+                bottom = 2 * topLeft
+            ),
+            startAngleDegrees = 180f,
+            sweepAngleDegrees = 90f,
+            forceMoveTo = false
+        ) else cubicTo(
             x1 = 0f,
-            y1 = topLeft * smoothingFactor,
-            x2 = topLeft * smoothingFactor,
+            y1 = topLeft * topLeftSmoothingFactor,
+            x2 = topLeft * topLeftSmoothingFactor,
             y2 = 0f,
             x3 = topLeft,
             y3 = 0f
         )
 
-        // Close the [Path].
+        // Close the path.
+
         close()
 
     }
@@ -176,7 +202,7 @@ fun squircleShapePath(
 
 /**
  *
- * Draws a Squircle with the given [Color]. Whether the Squircle is
+ * Draws a Gentle Squircle with the given [Color]. Whether the Gentle Squircle is
  * filled or stroked (or both) is controlled by [Paint.style].
  *
  * @param color The color to be applied to the Squircle.
@@ -186,14 +212,13 @@ fun squircleShapePath(
  * @param topRightCorner The top right corner radius in pixels.
  * @param bottomLeftCorner The bottom left corner radius in pixels.
  * @param bottomRightCorner The bottom right corner radius in pixels.
- * @param smoothing The smoothing factor from 0 to 100.
  * @param alpha Opacity to be applied to Squircle from 0.0f to 1.0f representing fully transparent to fully opaque respectively.
  * @param style Specifies whether the Squircle is stroked or filled in.
  * @param colorFilter ColorFilter to apply to the [color] when drawn into the destination.
  * @param blendMode Blending algorithm to be applied to the color.
  *
  */
-fun DrawScope.drawSquircle(
+fun DrawScope.drawGentleSquircle(
     color: Color,
     topLeft: Offset = Offset.Zero,
     size: Size,
@@ -201,7 +226,6 @@ fun DrawScope.drawSquircle(
     topRightCorner: Float,
     bottomLeftCorner: Float,
     bottomRightCorner: Float,
-    smoothing: Int = CornerSmoothing.Medium,
     style: DrawStyle = Fill,
     alpha: Float = 1.0f,
     colorFilter: ColorFilter? = null,
@@ -209,13 +233,12 @@ fun DrawScope.drawSquircle(
 ) {
 
     val isRtl = this.layoutDirection == LayoutDirection.Rtl
-    val path = squircleShapePath(
+    val path = gentleSquircleShapePath(
         size = size,
-        topLeftCorner = if (isRtl) topRightCorner else topLeftCorner,
-        topRightCorner = if (isRtl) topLeftCorner else topRightCorner,
-        bottomLeftCorner = if (isRtl) bottomRightCorner else bottomLeftCorner,
-        bottomRightCorner = if (isRtl) bottomLeftCorner else bottomRightCorner,
-        smoothing = smoothing
+        topLeftCorner = if (isRtl) topLeftCorner else topRightCorner,
+        topRightCorner = if (isRtl) topRightCorner else topLeftCorner,
+        bottomLeftCorner = if (isRtl) bottomLeftCorner else bottomRightCorner,
+        bottomRightCorner = if (isRtl) bottomRightCorner else bottomLeftCorner
     )
 
     translate(
@@ -238,7 +261,7 @@ fun DrawScope.drawSquircle(
 
 /**
  *
- * Draws a Squircle with the given [Brush]. Whether the Squircle is
+ * Draws a Gentle Squircle with the given [Brush]. Whether the Gentle Squircle is
  * filled or stroked (or both) is controlled by [Paint.style].
  *
  * @param brush The brush to be applied to the Squircle.
@@ -248,14 +271,13 @@ fun DrawScope.drawSquircle(
  * @param topRightCorner The top right corner radius in pixels.
  * @param bottomLeftCorner The bottom left corner radius in pixels.
  * @param bottomRightCorner The bottom right corner radius in pixels.
- * @param smoothing The smoothing factor from 0 to 100.
  * @param alpha Opacity to be applied to Squircle from 0.0f to 1.0f representing fully transparent to fully opaque respectively.
  * @param style Specifies whether the Squircle is stroked or filled in.
  * @param colorFilter ColorFilter to apply to the [brush] when drawn into the destination.
  * @param blendMode Blending algorithm to be applied to the color.
  *
  */
-fun DrawScope.drawSquircle(
+fun DrawScope.drawGentleSquircle(
     brush: Brush,
     topLeft: Offset = Offset.Zero,
     size: Size,
@@ -263,7 +285,6 @@ fun DrawScope.drawSquircle(
     topRightCorner: Float,
     bottomLeftCorner: Float,
     bottomRightCorner: Float,
-    smoothing: Int = CornerSmoothing.Medium,
     style: DrawStyle = Fill,
     alpha: Float = 1.0f,
     colorFilter: ColorFilter? = null,
@@ -271,13 +292,12 @@ fun DrawScope.drawSquircle(
 ) {
 
     val isRtl = this.layoutDirection == LayoutDirection.Rtl
-    val path = squircleShapePath(
+    val path = gentleSquircleShapePath(
         size = size,
-        topLeftCorner = if (isRtl) topRightCorner else topLeftCorner,
-        topRightCorner = if (isRtl) topLeftCorner else topRightCorner,
-        bottomLeftCorner = if (isRtl) bottomRightCorner else bottomLeftCorner,
-        bottomRightCorner = if (isRtl) bottomLeftCorner else bottomRightCorner,
-        smoothing = smoothing
+        topLeftCorner = if (isRtl) topLeftCorner else topRightCorner,
+        topRightCorner = if (isRtl) topRightCorner else topLeftCorner,
+        bottomLeftCorner = if (isRtl) bottomLeftCorner else bottomRightCorner,
+        bottomRightCorner = if (isRtl) bottomRightCorner else bottomLeftCorner
     )
 
     translate(
