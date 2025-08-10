@@ -1,10 +1,10 @@
 package com.stoyanvuchev.squircleshape.app
 
 import App
+import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.core.bundle.Bundle
 import com.stoyanvuchev.systemuibarstweaker.ProvideSystemUIBarsTweaker
 
 class MainActivity : ComponentActivity() {

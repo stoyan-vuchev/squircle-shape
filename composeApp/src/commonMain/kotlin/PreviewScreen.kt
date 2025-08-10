@@ -26,6 +26,7 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import sv.lib.squircleshape.drawSquircle
+import kotlin.math.roundToInt
 
 @Composable
 fun PreviewScreen(
@@ -78,7 +79,7 @@ fun PreviewScreen(
                             topRightCorner = shape.topEnd.toPx(shapeSize, density),
                             bottomLeftCorner = shape.bottomStart.toPx(shapeSize, density),
                             bottomRightCorner = shape.bottomEnd.toPx(shapeSize, density),
-                            cornerSmoothing = state.cornerSmoothing
+                            smoothing = state.smoothing
                         )
 
                     }
@@ -98,7 +99,7 @@ fun PreviewScreen(
                     .padding(horizontal = 24.dp),
                 title = aspectRatioSliderTitle,
                 value = state.aspectRatio,
-                valueRange = 0.25f..1.75f,
+                valueRange = 0.25f..2.75f,
                 onValueChange = remember {
                     { onUiAction(PreviewScreenUiAction.SetAspectRatio(it)) }
                 }
@@ -130,10 +131,9 @@ fun PreviewScreen(
 
             Spacer(modifier = Modifier.height(24.dp))
 
-            val cornerSmoothingSliderTitle by remember(state.cornerSmoothing) {
+            val cornerSmoothingSliderTitle by remember(state.smoothing) {
                 derivedStateOf {
-                    "Corner smoothing:   " +
-                            "${state.cornerSmoothing.roundDecimalCountTo(2)}"
+                    "Corner smoothing:   ${state.smoothing}"
                 }
             }
 
@@ -142,10 +142,16 @@ fun PreviewScreen(
                     .fillMaxWidth()
                     .padding(horizontal = 24.dp),
                 title = cornerSmoothingSliderTitle,
-                value = state.cornerSmoothing,
-                valueRange = 0.55f..1f,
+                value = state.smoothing.toFloat() / 100f,
+                valueRange = 0f..1f,
                 onValueChange = remember {
-                    { onUiAction(PreviewScreenUiAction.SetCornerSmoothing(it)) }
+                    {
+                        onUiAction(
+                            PreviewScreenUiAction.SetCornerSmoothing(
+                                (it * 100f).roundToInt()
+                            )
+                        )
+                    }
                 }
             )
 
