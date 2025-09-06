@@ -1,6 +1,6 @@
 # Squircle Shape
 
-![Maven Central Version](https://img.shields.io/maven-central/v/io.github.stoyan-vuchev/squircle-shape)
+![Maven Central Version](https://img.shields.io/maven-central/v/com.stoyanvuchev/squircle-shape)
 [![API](https://img.shields.io/badge/API-23%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=23)
 [![Last Commit](https://img.shields.io/github/last-commit/stoyan-vuchev/squircle-shape.svg?style=flat&logo=github&logoColor=white)](https://github.com/stoyan-vuchev/squircle-shape/commits/master)
 [![Issues](https://img.shields.io/github/issues-raw/stoyan-vuchev/squircle-shape.svg?style=flat&logo=github&logoColor=white)](https://github.com/stoyan-vuchev/squircle-shape/issues)
@@ -62,7 +62,7 @@ sourceSets {
             
             // ...
             
-            implementation("io.github.stoyan-vuchev:squircle-shape:<version>")
+            implementation("com.stoyanvuchev:squircle-shape:<version>")
           
         }
       
@@ -80,7 +80,7 @@ sourceSets {
 squircle-shape = "<version>"
 
 [libraries]
-squircle-shape = { group = "io.github.stoyan-vuchev", name = "squircle-shape", version.ref = "squircle-shape" }
+squircle-shape = { group = "com.stoyanvuchev", name = "squircle-shape", version.ref = "squircle-shape" }
 ```
 
 * Then include the dependency in your shared module `build.gradle.kts` file.
@@ -111,15 +111,15 @@ sourceSets {
 
 ## Gradle Kotlin DSL Setup (For Android-only projects).
 
-* 1. Add the Squircle Shape dependency in your module `build.gradle.kts` file.
-* Latest version: ![Maven Central Version](https://img.shields.io/maven-central/v/io.github.stoyan-vuchev/squircle-shape)
+1. Add the Squircle Shape dependency in your module `build.gradle.kts` file.
+* Latest version: ![Maven Central Version](https://img.shields.io/maven-central/v/com.stoyanvuchev/squircle-shape)
 
 ```kotlin
 dependencies {
             
     // ...
 
-    implementation("io.github.stoyan-vuchev:squircle-shape-android:<version>")
+    implementation("com.stoyanvuchev:squircle-shape-android:<version>")
   
 }
 ```
@@ -131,7 +131,7 @@ dependencies {
 squircle-shape = "<version>"
 
 [libraries]
-squircle-shape = { group = "io.github.stoyan-vuchev", name = "squircle-shape-android", version.ref = "squircle-shape" }
+squircle-shape = { group = "com.stoyanvuchev", name = "squircle-shape-android", version.ref = "squircle-shape" }
 ```
 
 * Then include the dependency in your module `build.gradle.kts` file.
