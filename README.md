@@ -62,7 +62,7 @@ sourceSets {
             
             // ...
             
-            implementation("com.stoyanvuchev:squircle-shape:<version>")
+            implementation("com.stoyanvuchev:squircle-shape:4.0.0")
           
         }
       
@@ -77,7 +77,7 @@ sourceSets {
 
 ```toml
 [versions]
-squircle-shape = "<version>"
+squircle-shape = "4.0.0"
 
 [libraries]
 squircle-shape = { group = "com.stoyanvuchev", name = "squircle-shape", version.ref = "squircle-shape" }
@@ -119,7 +119,7 @@ dependencies {
             
     // ...
 
-    implementation("com.stoyanvuchev:squircle-shape-android:<version>")
+    implementation("com.stoyanvuchev:squircle-shape-android:4.0.0")
   
 }
 ```
@@ -128,7 +128,7 @@ dependencies {
 
 ```toml
 [versions]
-squircle-shape = "<version>"
+squircle-shape = "4.0.0"
 
 [libraries]
 squircle-shape = { group = "com.stoyanvuchev", name = "squircle-shape-android", version.ref = "squircle-shape" }
