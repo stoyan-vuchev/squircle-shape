@@ -53,6 +53,8 @@
 ### Gradle Kotlin DSL (Multiplatform)
 
 1. Add the dependency in your shared module's `build.gradle.kts`:
+* Latest version: ![Maven Central Version](https://img.shields.io/maven-central/v/com.stoyanvuchev/squircle-shape)
+
 ```kotlin
 sourceSets {
     
