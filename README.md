@@ -46,7 +46,7 @@
 
 ---
 
-## 📋 Requirements
+## 📋 Minimum Requirements
 
 ### For Multiplatform Projects:
 - Kotlin: `2.2.0`
