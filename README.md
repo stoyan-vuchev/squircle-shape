@@ -22,9 +22,9 @@
 
 ## ⚠️‼️📢 Important Notice
 
-- **The Artifact ID has changed**:
+- **The library namespace has changed**:
   </br>
-  New library versions will be published with the `com.stoyanvuchev` Artifact ID.
+  New library versions will be published with the `com.stoyanvuchev` namespace.
   </br>
   Consider replacing `io.github.stoyan-vuchev` with `com.stoyanvuchev`.
   <br/>
