@@ -24,7 +24,7 @@
 
 - **The library namespace has changed**:
   </br>
-  New library versions will be published with the `com.stoyanvuchev` namespace.
+  New library versions will be published using the `com.stoyanvuchev` namespace.
   </br>
   Consider replacing `io.github.stoyan-vuchev` with `com.stoyanvuchev`.
   <br/>
