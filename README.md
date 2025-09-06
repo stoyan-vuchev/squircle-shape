@@ -20,6 +20,18 @@
 
 ---
 
+## ⚠️‼️📢 Important Notice
+
+- **The Artifact ID has changed**:
+  </br>
+  New library versions will be published with the `com.stoyanvuchev` Artifact ID.
+  </br>
+  Consider replacing `io.github.stoyan-vuchev` with `com.stoyanvuchev`.
+  <br/>
+  Check out the updated Setup guide [here](#-setup)
+
+---
+
 ## 🆕 What's New in Version 4.0.0?
 
 - **Added a new shape type**:  
