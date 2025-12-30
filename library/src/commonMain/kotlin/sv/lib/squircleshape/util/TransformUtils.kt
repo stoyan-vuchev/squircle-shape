@@ -84,7 +84,7 @@ internal fun convertIntBasedSmoothingToFloat(
  * f(x) = 1 - 2 * |x - 0.5|
  * ```
  *
- * @param fraction A floating-point value in the range `[0f, 1f]`, representing the input fraction.
+ * @param value A floating-point value in the range `[0f, 1f]`, representing the input fraction.
  * @return A floating-point value in the range `[0f, 1f]`, following a triangular wave pattern.
  */
 internal fun triangleFraction(value: Float): Float {

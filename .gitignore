@@ -9,3 +9,7 @@
 /gradle.properties
 local.properties
 gradle.properties
+/.kotlin/
+/.kotlin
+.kotlin/
+.kotlin

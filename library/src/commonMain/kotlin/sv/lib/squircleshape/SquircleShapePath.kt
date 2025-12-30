@@ -60,50 +60,45 @@ fun squircleShapePath(
 
     val topLeft = clampedCornerRadius(
         size = size,
-        cornerSize = topLeftCorner,
-        smoothing = smoothing
+        cornerSize = topLeftCorner
     )
 
     val topRight = clampedCornerRadius(
         size = size,
-        cornerSize = topRightCorner,
-        smoothing = smoothing
+        cornerSize = topRightCorner
     )
 
     val bottomLeft = clampedCornerRadius(
         size = size,
-        cornerSize = bottomLeftCorner,
-        smoothing = smoothing
+        cornerSize = bottomLeftCorner
     )
 
     val bottomRight = clampedCornerRadius(
         size = size,
-        cornerSize = bottomRightCorner,
-        smoothing = smoothing
+        cornerSize = bottomRightCorner
     )
 
     val smoothingFactor = 1f - convertIntBasedSmoothingToFloat(smoothing)
     return Path().apply {
 
-        // Extract the shape width & height
+        // Factor to control edge pinch (adjust between 0.1–0.3 for subtle effect).
+        val edgePinch = .2f
         val width = size.width
         val height = size.height
 
-        // Set the starting point at the coordinate of (x = topLeft corner, y = 0).
-        moveTo(
-            x = topLeft,
-            y = 0f
+        moveTo(x = topLeft, y = 0f)
+
+        // Top edge
+        cubicTo(
+            x1 = width * edgePinch,
+            y1 = 0f,
+            x2 = width - topRight * (1 - edgePinch),
+            y2 = 0f,
+            x3 = width - topRight,
+            y3 = 0f
         )
 
-        // Draw a Line to the coordinate of (x = the width - the top right corner).
-        lineTo(
-            x = width - topRight,
-            y = 0f
-        )
-
-        // Draw a Cubic from the coordinate of (x1 = the width - the top right corner * (1 - the corner smoothing), y1 = 0)
-        // with a mid point at the coordinate of (x2 = the width, y2 = the top right corner * (1 - the corner smoothing))
-        // to the end point at the coordinate of (x3 = the width, y3 = the top right corner).
+        // Top-right corner
         cubicTo(
             x1 = width - topRight * smoothingFactor,
             y1 = 0f,
@@ -113,15 +108,17 @@ fun squircleShapePath(
             y3 = topRight
         )
 
-        // Draw a Line to the coordinate of (x = the width, y = the height - the bottom right corner).
-        lineTo(
-            x = width,
-            y = height - bottomRight
+        // Right edge
+        cubicTo(
+            x1 = width,
+            y1 = height * edgePinch,
+            x2 = width,
+            y2 = height - bottomRight * (1 - edgePinch),
+            x3 = width,
+            y3 = height - bottomRight
         )
 
-        // Draw a Cubic from the coordinate of (x1 = the width, y1 = the height - the bottom right corner * (1 - the corner smoothing))
-        // with a mid point at the coordinate of (x2 = the width - the bottom right corner * (1 - the corner smoothing), y2 = the height)
-        // to the end point at the coordinate of (x3 = the width - the bottom right corner, y3 = the height).
+        // Bottom-right corner
         cubicTo(
             x1 = width,
             y1 = height - bottomRight * smoothingFactor,
@@ -131,15 +128,17 @@ fun squircleShapePath(
             y3 = height
         )
 
-        // Draw a Line to the coordinate of (x = the bottom left corner, y = the height).
-        lineTo(
-            x = bottomLeft,
-            y = height
+        // Bottom edge
+        cubicTo(
+            x1 = width * (1 - edgePinch),
+            y1 = height,
+            x2 = bottomLeft * (1 - edgePinch),
+            y2 = height,
+            x3 = bottomLeft,
+            y3 = height
         )
 
-        // Draw a Cubic from the coordinate of (x1 = the bottom left corner * (1 - the corner smoothing), y1 = the height)
-        // with a mid point at the coordinate of (x2 = 0, y2 = the height - the bottom left corner * (1 - the corner smoothing))
-        // to the end point at the coordinate of (x3 = 0, y3 = the height - the bottom left corner).
+        // Bottom-left corner
         cubicTo(
             x1 = bottomLeft * smoothingFactor,
             y1 = height,
@@ -149,15 +148,17 @@ fun squircleShapePath(
             y3 = height - bottomLeft
         )
 
-        // Draw a Line to the coordinate of (x = 0, y = the top left corner).
-        lineTo(
-            x = 0f,
-            y = topLeft
+        // Left edge
+        cubicTo(
+            x1 = 0f,
+            y1 = height * (1 - edgePinch),
+            x2 = 0f,
+            y2 = topLeft * (1 - edgePinch),
+            x3 = 0f,
+            y3 = topLeft
         )
 
-        // Draw a Cubic from the coordinate of (x1 = 0, y1 = the top left corner * (1 - the corner smoothing))
-        // with a mid point at the coordinate of (x2 = the top left corner * (1 - the corner smoothing), y2 = 0)
-        // to the end point at the coordinate of (x3 = the top left corner, y3 = 0.
+        // Top-left corner
         cubicTo(
             x1 = 0f,
             y1 = topLeft * smoothingFactor,
@@ -167,7 +168,6 @@ fun squircleShapePath(
             y3 = 0f
         )
 
-        // Close the [Path].
         close()
 
     }

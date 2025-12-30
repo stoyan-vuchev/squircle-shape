@@ -34,11 +34,11 @@ kotlin {
 
         val commonMain by getting {
             dependencies {
-                implementation(compose.ui)
-                implementation(compose.uiUtil)
-                implementation(compose.runtime)
-                implementation(compose.foundation)
-                implementation(compose.material)
+                implementation(libs.ui)
+                implementation(libs.ui.util)
+                implementation(libs.runtime)
+                implementation(libs.foundation)
+                implementation(libs.material3)
             }
         }
 
@@ -79,10 +79,13 @@ android {
 
     compileOptions {
         targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_17
     }
 
     kotlin {
-        jvmToolchain(17)
+        jvmToolchain {
+            languageVersion = JavaLanguageVersion.of(17)
+        }
     }
 
 }
@@ -90,9 +93,9 @@ android {
 mavenPublishing {
 
     coordinates(
-        groupId = "io.github.stoyan-vuchev",
+        groupId = "com.stoyanvuchev",
         artifactId = "squircle-shape",
-        version = "4.0.0"
+        version = "5.0.0"
     )
 
     pom {
@@ -129,4 +132,4 @@ mavenPublishing {
 
 }
 
-task("testClasses") {}
+tasks.register("testClasses") {}

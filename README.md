@@ -32,29 +32,23 @@
 
 ---
 
-## 🆕 What's New in Version 4.0.0?
+## 🆕 What's New in Version 5.0.0?
 
-- **Added a new shape type**:  
-  A new shape type called *Gentle Squircle* was added. The goal of this shape is to be used in scenarios
-  where the shape must gently transition from a squircle to a perfectly round circle without specifying a smoothing value.
-
-- **Fixed corner radius to smoothing scaling**:  
-  The corner smoothing no longer scales down the corner radius.
-
-- **Fixed RTL & LTR layout direction mirroring**:  
-  The logic for RTL & LTR layout direction mirroring is fixed.
+**‼️ Breaking Changes**:  
+- The corner scaling that was used to keep the corner radius somewhat consistent with a RoundedCornerShape was removed due to geometrical limitations and shape inconsistency with nested UI components.
+- To balance things out, consider increasing the corner radius when using a larger corner smoothing value.
 
 ---
 
 ## 📋 Minimum Requirements
 
 ### For Multiplatform Projects:
-- Kotlin: `2.2.0`
-- Compose: `1.8.2`
+- Kotlin: `2.3.0`
+- Compose: `1.11.0-alpha01`
 
 ### For Android-only Projects:
-- Kotlin: `2.2.0`
-- Jetpack Compose: `1.8.2`
+- Kotlin: `2.3.0`
+- Jetpack Compose: `1.11.0-alpha02`
 - Minimum SDK: `23`
 - Compile SDK: `36`
 
@@ -76,7 +70,7 @@ sourceSets {
             
             // ...
             
-            implementation("com.stoyanvuchev:squircle-shape:4.0.0")
+            implementation("com.stoyanvuchev:squircle-shape:5.0.0")
           
         }
       
@@ -91,7 +85,7 @@ sourceSets {
 
 ```toml
 [versions]
-squircle-shape = "4.0.0"
+squircle-shape = "5.0.0"
 
 [libraries]
 squircle-shape = { group = "com.stoyanvuchev", name = "squircle-shape", version.ref = "squircle-shape" }
@@ -133,7 +127,7 @@ dependencies {
             
     // ...
 
-    implementation("com.stoyanvuchev:squircle-shape-android:4.0.0")
+    implementation("com.stoyanvuchev:squircle-shape-android:5.0.0")
   
 }
 ```
@@ -142,7 +136,7 @@ dependencies {
 
 ```toml
 [versions]
-squircle-shape = "4.0.0"
+squircle-shape = "5.0.0"
 
 [libraries]
 squircle-shape = { group = "com.stoyanvuchev", name = "squircle-shape-android", version.ref = "squircle-shape" }

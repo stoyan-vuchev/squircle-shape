@@ -43,37 +43,6 @@ internal fun clampedCornerRadius(
 
 /**
  *
- *  Clamps the corner radius from 0.0f to the size of the smallest axis.
- *
- *  @param size The size of the shape.
- *  @param cornerSize The corner radius in pixels.
- *  @param smoothing The corner smoothing of the shape from 0 to 100.
- *
- **/
-@Stable
-internal fun clampedCornerRadius(
-    size: Size,
-    cornerSize: Float,
-    smoothing: Int,
-): Float {
-
-    val smallestAxis = size.minDimension / 2
-    val smoothness = smoothing.toFloat() / 100
-    val smoothnessAmplitude = (1f - triangleFraction(smoothness)).coerceAtLeast(.75f)
-    val factor = transformFraction(
-        value = smoothness * smoothnessAmplitude,
-        startX = 0f,
-        endX = 1f,
-        startY = 1f,
-        endY = 2.33f
-    )
-
-    return (cornerSize * factor).coerceIn(0f, smallestAxis)
-
-}
-
-/**
- *
  *  Clamps the corner smoothing from 0 to 100.
  *
  *  @param smoothing The corner smoothing.
