@@ -55,9 +55,11 @@ kotlin {
 
         val androidMain by getting {
             dependencies {
-                implementation(compose.preview)
                 implementation(libs.androidx.core.ktx)
                 implementation(libs.androidx.activity.compose)
+                implementation(libs.androidx.compose.foundation)
+                implementation(libs.androidx.compose.runtime)
+                implementation(libs.androidx.compose.ui)
                 implementation(libs.systemUiBarsTweaker)
             }
         }
@@ -71,16 +73,20 @@ kotlin {
 
         val commonMain by getting {
             dependencies {
-                implementation(compose.runtime)
-                implementation(compose.foundation)
-                implementation(compose.material3)
-                implementation(compose.ui)
-                implementation(compose.components.resources)
-                implementation(compose.components.uiToolingPreview)
+                implementation(libs.runtime)
+                implementation(libs.foundation)
+                implementation(libs.material3)
+                implementation(libs.material3.windowsizeclass)
+                implementation(libs.ui)
+                implementation(libs.components.resources)
+                implementation(libs.ui.tooling.preview)
                 implementation(libs.lifecycle.runtime.ktx)
                 implementation(libs.lifecycle.runtime.compose)
                 implementation(libs.lifecycle.viewmodel.compose)
                 implementation(libs.androidx.navigation.compose)
+                implementation(libs.koin.core)
+                implementation(libs.koin.compose)
+                implementation(libs.koin.compose.viewmodel)
                 implementation(project(":library"))
             }
         }
@@ -131,12 +137,19 @@ android {
 
     compileOptions {
         targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlin {
+        jvmToolchain {
+            languageVersion = JavaLanguageVersion.of(17)
+        }
     }
 
 }
 
 dependencies {
-    debugImplementation(compose.uiTooling)
+    debugImplementation(libs.ui.tooling.preview)
 }
 
 compose.desktop {
