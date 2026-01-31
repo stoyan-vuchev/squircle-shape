@@ -100,9 +100,9 @@ mavenPublishing {
 
     pom {
 
-        name.set(project.name)
+        name.set(rootProject.name)
         description.set("A Compose Multiplatform library providing customizable Squircle shapes for UI components.")
-        inceptionYear.set("2023-2025")
+        inceptionYear.set("2023-2026")
         url.set("https://github.com/stoyan-vuchev/squircle-shape")
 
         licenses {
