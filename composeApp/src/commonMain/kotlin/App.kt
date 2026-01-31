@@ -1,4 +1,5 @@
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Shapes
 import androidx.compose.material3.darkColorScheme
@@ -14,6 +15,7 @@ import sv.lib.squircleshape.SquircleShape
 
 @Composable
 fun App(
+    colorScheme: ColorScheme = if (isSystemInDarkTheme()) darkColorScheme() else lightColorScheme(),
     koinAppDeclaration: KoinAppDeclaration? = null
 ) = KoinApplication(
     application = {
@@ -24,7 +26,6 @@ fun App(
 
     val viewModel = koinViewModel<PreviewScreenViewModel>()
     val state by viewModel.state.collectAsStateWithLifecycle()
-
     val shapes by rememberUpdatedState(
         Shapes(
             large = SquircleShape(
@@ -32,11 +33,6 @@ fun App(
                 smoothing = state.smoothing
             )
         )
-    )
-
-    val colorScheme by rememberUpdatedState(
-        if (isSystemInDarkTheme()) darkColorScheme()
-        else lightColorScheme()
     )
 
     MaterialTheme(

@@ -1,7 +1,8 @@
+import com.vanniktech.maven.publish.KotlinMultiplatform
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
-    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.androidMultiplatformLibrary)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.kotlinMultiplatform)
@@ -13,14 +14,16 @@ kotlin {
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs { browser() }
 
-    androidTarget {
-        publishLibraryVariants("release", "debug")
+    androidLibrary {
+        compileSdk = 36
+        minSdk = 23
+        namespace = "sv.lib.squircleshape"
+        experimentalProperties["android.experimental.kmp.enableAndroidResources"] = true
     }
 
     jvm("desktop")
 
     listOf(
-        iosX64(),
         iosArm64(),
         iosSimulatorArm64(),
     ).forEach { iosTarget ->
@@ -32,26 +35,19 @@ kotlin {
 
     sourceSets {
 
-        val commonMain by getting {
-            dependencies {
-                implementation(libs.ui)
-                implementation(libs.ui.util)
-                implementation(libs.runtime)
-                implementation(libs.foundation)
-                implementation(libs.material3)
-            }
+        androidMain.dependencies { /* Leave empty for now. */ }
+        commonMain.dependencies {
+            implementation(libs.ui)
+            implementation(libs.ui.util)
+            implementation(libs.runtime)
+            implementation(libs.foundation)
+            implementation(libs.material3)
         }
 
-        val androidMain by getting {
-            dependencies { /* Leave empty for now. */ }
-        }
-
-        val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
         val iosMain by creating {
-            dependsOn(commonMain)
-            iosX64Main.dependsOn(this)
+            dependsOn(commonMain.get())
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
         }
@@ -64,38 +60,12 @@ kotlin {
 
 }
 
-android {
-
-    compileSdk = 36
-    namespace = "sv.lib.squircleshape"
-
-    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
-    sourceSets["main"].res.srcDirs("src/androidMain/res")
-    sourceSets["main"].resources.srcDirs("src/commonMain/composeResources")
-
-    defaultConfig {
-        minSdk = 23
-    }
-
-    compileOptions {
-        targetCompatibility = JavaVersion.VERSION_17
-        sourceCompatibility = JavaVersion.VERSION_17
-    }
-
-    kotlin {
-        jvmToolchain {
-            languageVersion = JavaLanguageVersion.of(17)
-        }
-    }
-
-}
-
 mavenPublishing {
 
     coordinates(
         groupId = "com.stoyanvuchev",
         artifactId = "squircle-shape",
-        version = "5.0.0"
+        version = "5.1.0"
     )
 
     pom {
@@ -127,8 +97,15 @@ mavenPublishing {
 
     }
 
-    // Enable GPG signing for all publications
+    // Enable GPG signing for all publications.
     signAllPublications()
+
+    // Configure KMP platform.
+    configure(
+        platform = KotlinMultiplatform(
+            androidVariantsToPublish = listOf("release", "debug"),
+        )
+    )
 
 }
 

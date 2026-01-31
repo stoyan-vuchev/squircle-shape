@@ -52,18 +52,6 @@
           <option name="screenY" value="2412" />
         </PersistentDeviceSelectionData>
         <PersistentDeviceSelectionData>
-          <option name="api" value="35" />
-          <option name="brand" value="OnePlus" />
-          <option name="codename" value="OP5552L1" />
-          <option name="id" value="OP5552L1" />
-          <option name="labId" value="google" />
-          <option name="manufacturer" value="OnePlus" />
-          <option name="name" value="CPH2415" />
-          <option name="screenDensity" value="480" />
-          <option name="screenX" value="1080" />
-          <option name="screenY" value="2412" />
-        </PersistentDeviceSelectionData>
-        <PersistentDeviceSelectionData>
           <option name="api" value="34" />
           <option name="brand" value="OPPO" />
           <option name="codename" value="OP573DL1" />
@@ -173,6 +161,18 @@
           <option name="screenY" value="2340" />
         </PersistentDeviceSelectionData>
         <PersistentDeviceSelectionData>
+          <option name="api" value="36" />
+          <option name="brand" value="samsung" />
+          <option name="codename" value="a15x" />
+          <option name="id" value="a15x" />
+          <option name="labId" value="google" />
+          <option name="manufacturer" value="Samsung" />
+          <option name="name" value="A15 5G" />
+          <option name="screenDensity" value="450" />
+          <option name="screenX" value="1080" />
+          <option name="screenY" value="2340" />
+        </PersistentDeviceSelectionData>
+        <PersistentDeviceSelectionData>
           <option name="api" value="35" />
           <option name="brand" value="samsung" />
           <option name="codename" value="a16" />
@@ -234,6 +234,18 @@
         </PersistentDeviceSelectionData>
         <PersistentDeviceSelectionData>
           <option name="api" value="35" />
+          <option name="brand" value="samsung" />
+          <option name="codename" value="a35x" />
+          <option name="id" value="a35x" />
+          <option name="labId" value="google" />
+          <option name="manufacturer" value="Samsung" />
+          <option name="name" value="A35" />
+          <option name="screenDensity" value="450" />
+          <option name="screenX" value="1080" />
+          <option name="screenY" value="2340" />
+        </PersistentDeviceSelectionData>
+        <PersistentDeviceSelectionData>
+          <option name="api" value="36" />
           <option name="brand" value="samsung" />
           <option name="codename" value="a35x" />
           <option name="id" value="a35x" />
@@ -341,6 +353,18 @@
           <option name="screenY" value="3088" />
         </PersistentDeviceSelectionData>
         <PersistentDeviceSelectionData>
+          <option name="api" value="36" />
+          <option name="brand" value="samsung" />
+          <option name="codename" value="b0q" />
+          <option name="id" value="b0q" />
+          <option name="labId" value="google" />
+          <option name="manufacturer" value="Samsung" />
+          <option name="name" value="Galaxy S22 Ultra" />
+          <option name="screenDensity" value="600" />
+          <option name="screenX" value="1440" />
+          <option name="screenY" value="3088" />
+        </PersistentDeviceSelectionData>
+        <PersistentDeviceSelectionData>
           <option name="api" value="34" />
           <option name="brand" value="samsung" />
           <option name="codename" value="b6q" />
@@ -373,6 +397,18 @@
           <option name="manufacturer" value="Google" />
           <option name="name" value="Pixel 6a" />
           <option name="screenDensity" value="420" />
+          <option name="screenX" value="1080" />
+          <option name="screenY" value="2400" />
+        </PersistentDeviceSelectionData>
+        <PersistentDeviceSelectionData>
+          <option name="api" value="33" />
+          <option name="brand" value="samsung" />
+          <option name="codename" value="c1q" />
+          <option name="id" value="c1q" />
+          <option name="labId" value="google" />
+          <option name="manufacturer" value="Samsung" />
+          <option name="name" value="Galaxy Note 20 5G" />
+          <option name="screenDensity" value="450" />
           <option name="screenX" value="1080" />
           <option name="screenY" value="2400" />
         </PersistentDeviceSelectionData>
@@ -412,6 +448,11 @@
           <option name="screenDensity" value="390" />
           <option name="screenX" value="2076" />
           <option name="screenY" value="2152" />
+          <option name="tags">
+            <list>
+              <option value="dda-default" />
+            </list>
+          </option>
         </PersistentDeviceSelectionData>
         <PersistentDeviceSelectionData>
           <option name="api" value="35" />
@@ -425,24 +466,29 @@
           <option name="screenDensity" value="390" />
           <option name="screenX" value="2076" />
           <option name="screenY" value="2152" />
-        </PersistentDeviceSelectionData>
-        <PersistentDeviceSelectionData>
-          <option name="api" value="29" />
-          <option name="brand" value="samsung" />
-          <option name="codename" value="crownqlteue" />
-          <option name="id" value="crownqlteue" />
-          <option name="labId" value="google" />
-          <option name="manufacturer" value="Samsung" />
-          <option name="name" value="Galaxy Note9" />
-          <option name="screenDensity" value="420" />
-          <option name="screenX" value="2220" />
-          <option name="screenY" value="1080" />
+          <option name="tags">
+            <list>
+              <option value="dda-default" />
+            </list>
+          </option>
         </PersistentDeviceSelectionData>
         <PersistentDeviceSelectionData>
           <option name="api" value="35" />
           <option name="brand" value="samsung" />
           <option name="codename" value="dm1q" />
           <option name="id" value="dm1q" />
+          <option name="labId" value="google" />
+          <option name="manufacturer" value="Samsung" />
+          <option name="name" value="S23" />
+          <option name="screenDensity" value="480" />
+          <option name="screenX" value="1080" />
+          <option name="screenY" value="2340" />
+        </PersistentDeviceSelectionData>
+        <PersistentDeviceSelectionData>
+          <option name="api" value="36" />
+          <option name="brand" value="samsung" />
+          <option name="codename" value="dm1q-SM-S911U" />
+          <option name="id" value="dm1q-SM-S911U" />
           <option name="labId" value="google" />
           <option name="manufacturer" value="Samsung" />
           <option name="name" value="S23" />
@@ -498,6 +544,11 @@
           <option name="screenDensity" value="480" />
           <option name="screenX" value="1080" />
           <option name="screenY" value="2340" />
+          <option name="tags">
+            <list>
+              <option value="dda-default" />
+            </list>
+          </option>
         </PersistentDeviceSelectionData>
         <PersistentDeviceSelectionData>
           <option name="api" value="36" />
@@ -509,6 +560,35 @@
           <option name="manufacturer" value="Samsung" />
           <option name="name" value="Galaxy S24" />
           <option name="screenDensity" value="480" />
+          <option name="screenX" value="1080" />
+          <option name="screenY" value="2340" />
+          <option name="tags">
+            <list>
+              <option value="dda-default" />
+            </list>
+          </option>
+        </PersistentDeviceSelectionData>
+        <PersistentDeviceSelectionData>
+          <option name="api" value="36" />
+          <option name="brand" value="samsung" />
+          <option name="codename" value="e2q" />
+          <option name="id" value="e2q" />
+          <option name="labId" value="google" />
+          <option name="manufacturer" value="Samsung" />
+          <option name="name" value="Galaxy S24 +" />
+          <option name="screenDensity" value="450" />
+          <option name="screenX" value="1080" />
+          <option name="screenY" value="2340" />
+        </PersistentDeviceSelectionData>
+        <PersistentDeviceSelectionData>
+          <option name="api" value="36" />
+          <option name="brand" value="samsung" />
+          <option name="codename" value="e2s" />
+          <option name="id" value="e2s" />
+          <option name="labId" value="google" />
+          <option name="manufacturer" value="Samsung" />
+          <option name="name" value="Galaxy S24+" />
+          <option name="screenDensity" value="450" />
           <option name="screenX" value="1080" />
           <option name="screenY" value="2340" />
         </PersistentDeviceSelectionData>
@@ -529,6 +609,18 @@
           <option name="brand" value="samsung" />
           <option name="codename" value="e3q" />
           <option name="id" value="e3q" />
+          <option name="labId" value="google" />
+          <option name="manufacturer" value="Samsung" />
+          <option name="name" value="Galaxy S24 Ultra" />
+          <option name="screenDensity" value="450" />
+          <option name="screenX" value="1440" />
+          <option name="screenY" value="3120" />
+        </PersistentDeviceSelectionData>
+        <PersistentDeviceSelectionData>
+          <option name="api" value="36" />
+          <option name="brand" value="samsung" />
+          <option name="codename" value="e3qksx" />
+          <option name="id" value="e3qksx" />
           <option name="labId" value="google" />
           <option name="manufacturer" value="Samsung" />
           <option name="name" value="Galaxy S24 Ultra" />
@@ -743,6 +835,18 @@
           <option name="screenY" value="2244" />
         </PersistentDeviceSelectionData>
         <PersistentDeviceSelectionData>
+          <option name="api" value="35" />
+          <option name="brand" value="google" />
+          <option name="codename" value="husky" />
+          <option name="id" value="husky" />
+          <option name="labId" value="google" />
+          <option name="manufacturer" value="Google" />
+          <option name="name" value="Pixel 8 Pro" />
+          <option name="screenDensity" value="390" />
+          <option name="screenX" value="1008" />
+          <option name="screenY" value="2244" />
+        </PersistentDeviceSelectionData>
+        <PersistentDeviceSelectionData>
           <option name="api" value="30" />
           <option name="brand" value="motorola" />
           <option name="codename" value="java" />
@@ -942,9 +1046,9 @@
           <option name="labId" value="google" />
           <option name="manufacturer" value="Samsung" />
           <option name="name" value="Galaxy S25 Ultra" />
-          <option name="screenDensity" value="600" />
-          <option name="screenX" value="1440" />
-          <option name="screenY" value="3120" />
+          <option name="screenDensity" value="450" />
+          <option name="screenX" value="1080" />
+          <option name="screenY" value="2340" />
         </PersistentDeviceSelectionData>
         <PersistentDeviceSelectionData>
           <option name="api" value="36" />
@@ -954,9 +1058,9 @@
           <option name="labId" value="google" />
           <option name="manufacturer" value="Samsung" />
           <option name="name" value="Galaxy S25 Ultra" />
-          <option name="screenDensity" value="600" />
-          <option name="screenX" value="1440" />
-          <option name="screenY" value="3120" />
+          <option name="screenDensity" value="450" />
+          <option name="screenX" value="1080" />
+          <option name="screenY" value="2340" />
         </PersistentDeviceSelectionData>
         <PersistentDeviceSelectionData>
           <option name="api" value="33" />
@@ -1035,8 +1139,44 @@
         <PersistentDeviceSelectionData>
           <option name="api" value="36" />
           <option name="brand" value="samsung" />
+          <option name="codename" value="r11s" />
+          <option name="id" value="r11s" />
+          <option name="labId" value="google" />
+          <option name="manufacturer" value="Samsung" />
+          <option name="name" value="SM-S711N" />
+          <option name="screenDensity" value="450" />
+          <option name="screenX" value="1080" />
+          <option name="screenY" value="2340" />
+        </PersistentDeviceSelectionData>
+        <PersistentDeviceSelectionData>
+          <option name="api" value="33" />
+          <option name="brand" value="samsung" />
+          <option name="codename" value="r8q" />
+          <option name="id" value="r8q" />
+          <option name="labId" value="google" />
+          <option name="manufacturer" value="Samsung" />
+          <option name="name" value="Galaxy S20 FE 5G" />
+          <option name="screenDensity" value="480" />
+          <option name="screenX" value="1080" />
+          <option name="screenY" value="2400" />
+        </PersistentDeviceSelectionData>
+        <PersistentDeviceSelectionData>
+          <option name="api" value="36" />
+          <option name="brand" value="samsung" />
           <option name="codename" value="r9q" />
           <option name="id" value="r9q" />
+          <option name="labId" value="google" />
+          <option name="manufacturer" value="Samsung" />
+          <option name="name" value="Galaxy S21 FE 5G" />
+          <option name="screenDensity" value="480" />
+          <option name="screenX" value="1080" />
+          <option name="screenY" value="2340" />
+        </PersistentDeviceSelectionData>
+        <PersistentDeviceSelectionData>
+          <option name="api" value="36" />
+          <option name="brand" value="samsung" />
+          <option name="codename" value="r9q-SM-G990U" />
+          <option name="id" value="r9q-SM-G990U" />
           <option name="labId" value="google" />
           <option name="manufacturer" value="Samsung" />
           <option name="name" value="Galaxy S21 FE 5G" />
@@ -1067,6 +1207,11 @@
           <option name="screenDensity" value="440" />
           <option name="screenX" value="1080" />
           <option name="screenY" value="2340" />
+          <option name="tags">
+            <list>
+              <option value="default" />
+            </list>
+          </option>
         </PersistentDeviceSelectionData>
         <PersistentDeviceSelectionData>
           <option name="api" value="34" />
@@ -1082,6 +1227,18 @@
         </PersistentDeviceSelectionData>
         <PersistentDeviceSelectionData>
           <option name="api" value="34" />
+          <option name="brand" value="samsung" />
+          <option name="codename" value="t2q" />
+          <option name="id" value="t2q" />
+          <option name="labId" value="google" />
+          <option name="manufacturer" value="Samsung" />
+          <option name="name" value="Galaxy S21 Plus" />
+          <option name="screenDensity" value="394" />
+          <option name="screenX" value="1080" />
+          <option name="screenY" value="2400" />
+        </PersistentDeviceSelectionData>
+        <PersistentDeviceSelectionData>
+          <option name="api" value="35" />
           <option name="brand" value="samsung" />
           <option name="codename" value="t2q" />
           <option name="id" value="t2q" />
@@ -1129,6 +1286,11 @@
           <option name="screenDensity" value="420" />
           <option name="screenX" value="1080" />
           <option name="screenY" value="2424" />
+          <option name="tags">
+            <list>
+              <option value="dda-default" />
+            </list>
+          </option>
         </PersistentDeviceSelectionData>
         <PersistentDeviceSelectionData>
           <option name="api" value="35" />
@@ -1142,6 +1304,11 @@
           <option name="screenDensity" value="420" />
           <option name="screenX" value="1080" />
           <option name="screenY" value="2424" />
+          <option name="tags">
+            <list>
+              <option value="dda-default" />
+            </list>
+          </option>
         </PersistentDeviceSelectionData>
         <PersistentDeviceSelectionData>
           <option name="api" value="36" />
@@ -1155,6 +1322,11 @@
           <option name="screenDensity" value="420" />
           <option name="screenX" value="1080" />
           <option name="screenY" value="2424" />
+          <option name="tags">
+            <list>
+              <option value="dda-default" />
+            </list>
+          </option>
         </PersistentDeviceSelectionData>
         <PersistentDeviceSelectionData>
           <option name="api" value="34" />
