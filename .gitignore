@@ -13,3 +13,4 @@ gradle.properties
 /.kotlin
 .kotlin/
 .kotlin
+/build

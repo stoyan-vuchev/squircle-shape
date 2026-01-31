@@ -1,10 +1,9 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 
 plugins {
-    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.androidMultiplatformLibrary)
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.composeCompiler)
@@ -16,32 +15,26 @@ kotlin {
     wasmJs {
         outputModuleName = "SquircleShapeApp"
         browser {
-            val rootDirPath = project.rootDir.path
-            val projectDirPath = project.projectDir.path
             commonWebpackConfig {
                 outputFileName = "SquircleShapeApp.js"
                 devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
-                    static = (static ?: mutableListOf()).apply {
-                        // Serve sources to debug inside browser
-                        add(rootDirPath)
-                        add(projectDirPath)
-                    }
+                    static(directory = project.rootDir.path + project.projectDir.path)
                 }
             }
         }
         binaries.executable()
     }
 
-    androidTarget {
-        compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_17)
-        }
+    androidLibrary {
+        compileSdk = 36
+        minSdk = 23
+        namespace = "com.stoyanvuchev.squircleshape.app"
+        experimentalProperties["android.experimental.kmp.enableAndroidResources"] = true
     }
 
     jvm("desktop")
 
     listOf(
-        iosX64(),
         iosArm64(),
         iosSimulatorArm64(),
     ).forEach { iosTarget ->
@@ -53,15 +46,27 @@ kotlin {
 
     sourceSets {
 
-        val androidMain by getting {
-            dependencies {
-                implementation(libs.androidx.core.ktx)
-                implementation(libs.androidx.activity.compose)
-                implementation(libs.androidx.compose.foundation)
-                implementation(libs.androidx.compose.runtime)
-                implementation(libs.androidx.compose.ui)
-                implementation(libs.systemUiBarsTweaker)
-            }
+        androidMain.dependencies {
+            implementation(libs.ui.tooling.preview)
+            implementation(libs.androidx.activity.compose)
+        }
+
+        commonMain.dependencies {
+            implementation(libs.runtime)
+            implementation(libs.foundation)
+            implementation(libs.material3)
+            implementation(libs.material3.windowsizeclass)
+            implementation(libs.ui)
+            implementation(libs.components.resources)
+            implementation(libs.ui.tooling.preview)
+            implementation(libs.lifecycle.runtime.ktx)
+            implementation(libs.lifecycle.runtime.compose)
+            implementation(libs.lifecycle.viewmodel.compose)
+            implementation(libs.androidx.navigation.compose)
+            implementation(libs.koin.core)
+            implementation(libs.koin.compose)
+            implementation(libs.koin.compose.viewmodel)
+            implementation(projects.library)
         }
 
         val desktopMain by getting {
@@ -71,32 +76,10 @@ kotlin {
             }
         }
 
-        val commonMain by getting {
-            dependencies {
-                implementation(libs.runtime)
-                implementation(libs.foundation)
-                implementation(libs.material3)
-                implementation(libs.material3.windowsizeclass)
-                implementation(libs.ui)
-                implementation(libs.components.resources)
-                implementation(libs.ui.tooling.preview)
-                implementation(libs.lifecycle.runtime.ktx)
-                implementation(libs.lifecycle.runtime.compose)
-                implementation(libs.lifecycle.viewmodel.compose)
-                implementation(libs.androidx.navigation.compose)
-                implementation(libs.koin.core)
-                implementation(libs.koin.compose)
-                implementation(libs.koin.compose.viewmodel)
-                implementation(project(":library"))
-            }
-        }
-
-        val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
         val iosMain by creating {
-            dependsOn(commonMain)
-            iosX64Main.dependsOn(this)
+            dependsOn(commonMain.get())
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
         }
@@ -105,65 +88,13 @@ kotlin {
 
 }
 
-android {
-
-    namespace = "com.stoyanvuchev.squircleshape.app"
-    compileSdk = 36
-
-    defaultConfig {
-        applicationId = "com.stoyanvuchev.squircleshape.app"
-        minSdk = 23
-        targetSdk = 36
-        versionCode = 1
-        versionName = "1.0.0"
-    }
-
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
-
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = true
-            isShrinkResources = true
-        }
-    }
-
-    buildFeatures {
-        compose = true
-    }
-
-    compileOptions {
-        targetCompatibility = JavaVersion.VERSION_17
-        sourceCompatibility = JavaVersion.VERSION_17
-    }
-
-    kotlin {
-        jvmToolchain {
-            languageVersion = JavaLanguageVersion.of(17)
-        }
-    }
-
-}
-
-dependencies {
-    debugImplementation(libs.ui.tooling.preview)
-}
-
 compose.desktop {
-
     application {
-
         mainClass = "com.stoyanvuchev.squircleshape.app.MainKt"
-
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "com.stoyanvuchev.squircleshape.app"
             packageVersion = "1.0.0"
         }
-
     }
-
 }

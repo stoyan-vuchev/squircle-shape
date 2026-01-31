@@ -32,23 +32,24 @@
 
 ---
 
-## 🆕 What's New in Version 5.0.0?
+## 🆕 What's New in Version 5.1.0?
 
 **‼️ Breaking Changes**:  
-- The corner scaling that was used to keep the corner radius somewhat consistent with a RoundedCornerShape was removed due to geometrical limitations and shape inconsistency with nested UI components.
-- To balance things out, consider increasing the corner radius when using a larger corner smoothing value.
+- Starting with this release, the library is now configured to use AGP version 9+. Conflicts are highly possible for projects configured with older AGP versions. Check [this](https://kotlinlang.org/docs/multiplatform/multiplatform-project-agp-9-migration.html) link for more information.
 
 ---
 
 ## 📋 Minimum Requirements
 
 ### For Multiplatform Projects:
+- AGP: `9.0.0`
 - Kotlin: `2.3.0`
-- Compose: `1.11.0-alpha01`
+- CMP: `1.11.0-alpha02`
 
 ### For Android-only Projects:
+- AGP: `9.0.0`
 - Kotlin: `2.3.0`
-- Jetpack Compose: `1.11.0-alpha02`
+- Jetpack Compose: `1.11.0-alpha04`
 - Minimum SDK: `23`
 - Compile SDK: `36`
 
@@ -70,7 +71,7 @@ sourceSets {
             
             // ...
             
-            implementation("com.stoyanvuchev:squircle-shape:5.0.0")
+            implementation("com.stoyanvuchev:squircle-shape:5.1.0")
           
         }
       
@@ -85,7 +86,7 @@ sourceSets {
 
 ```toml
 [versions]
-squircle-shape = "5.0.0"
+squircle-shape = "5.1.0"
 
 [libraries]
 squircle-shape = { group = "com.stoyanvuchev", name = "squircle-shape", version.ref = "squircle-shape" }
@@ -127,7 +128,7 @@ dependencies {
             
     // ...
 
-    implementation("com.stoyanvuchev:squircle-shape-android:5.0.0")
+    implementation("com.stoyanvuchev:squircle-shape-android:5.1.0")
   
 }
 ```
@@ -136,7 +137,7 @@ dependencies {
 
 ```toml
 [versions]
-squircle-shape = "5.0.0"
+squircle-shape = "5.1.0"
 
 [libraries]
 squircle-shape = { group = "com.stoyanvuchev", name = "squircle-shape-android", version.ref = "squircle-shape" }
