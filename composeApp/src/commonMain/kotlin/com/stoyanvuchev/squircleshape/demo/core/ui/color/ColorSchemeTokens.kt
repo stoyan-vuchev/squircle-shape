@@ -58,7 +58,7 @@ sealed class ColorSchemeTokens(
         onSurfaceElevationMedium = Color(0xFF020608),
         surfaceElevationHigh = Color(0xFFFFFFFF),
         onSurfaceElevationHigh = Color(0xFF020608),
-        outline = Color.White.copy(alpha = .08f)
+        outline = Color.White.copy(alpha = .33f)
     )
 
     data object Dark : ColorSchemeTokens(

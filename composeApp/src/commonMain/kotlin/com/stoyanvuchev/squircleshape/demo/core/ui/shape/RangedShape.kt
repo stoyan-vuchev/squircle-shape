@@ -30,14 +30,14 @@ import sv.lib.squircleshape.SquircleShape
 val LocalRangedShape = staticCompositionLocalOf {
     makeRangedShape(
         shapeData = ShapeData(
-            radius = 56,
+            radius = 50,
             smoothing = CornerSmoothing.Medium
         )
     )
 }
 
 fun makeRangedShape(shapeData: ShapeData): CornerBasedShape {
-    val radius = (shapeData.radius.coerceIn(0, 100) / 100f * 40f).dp
+    val radius = (shapeData.radius.coerceIn(0, 100) / 100f * 56f).dp
     return SquircleShape(
         radius = radius,
         smoothing = shapeData.smoothing

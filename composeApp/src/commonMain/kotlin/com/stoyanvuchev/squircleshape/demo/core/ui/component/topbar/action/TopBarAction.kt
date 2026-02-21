@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 Assertive UI (assertiveui.com)
+ * Copyright 2026 Assertive UI (assertiveui.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,13 +25,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.topbar.action.TopBarActionUtils.topBarActionContainerModifier
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.topbar.action.TopBarActionUtils.topBarActionIconModifier
-import com.stoyanvuchev.squircleshape.demo.core.ui.component.topbar.CollapsibleTopBar
+import com.stoyanvuchev.squircleshape.demo.core.ui.component.topbar.TopBar
 
 /**
  *
  * A reusable, accessible top bar action component that displays an icon and responds to user interaction.
  *
- * Designed to be used within custom top bars such as [CollapsibleTopBar] or any composable header area
+ * Designed to be used within custom top bars such as [TopBar] or any composable header area
  * that needs consistent action button behavior. This component handles layout, alignment, styling,
  * and integrates with custom Assertive UI modifiers for hover, press, and focus states.
  *
@@ -96,7 +96,7 @@ fun TopBarAction(
  *
  * A composable slot scope used for defining a row of top bar actions.
  *
- * This typealias is used to simplify the API for action parameters in components like [CollapsibleTopBar],
+ * This typealias is used to simplify the API for action parameters in components like [TopBar],
  * allowing developers to pass in action content that aligns horizontally using [RowScope].
  *
  * Actions defined within this scope are typically aligned to the start or end of a top bar and can

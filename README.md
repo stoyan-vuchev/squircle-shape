@@ -2,56 +2,92 @@
 
 ![Maven Central Version](https://img.shields.io/maven-central/v/com.stoyanvuchev/squircle-shape)
 [![API](https://img.shields.io/badge/API-23%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=23)
-[![Last Commit](https://img.shields.io/github/last-commit/stoyan-vuchev/squircle-shape.svg?style=flat&logo=github&logoColor=white)](https://github.com/stoyan-vuchev/squircle-shape/commits/master)
+[![Last Commit](https://img.shields.io/github/last-commit/stoyan-vuchev/squircle-shape/stable.svg?style=flat&logo=github&logoColor=white)](https://github.com/stoyan-vuchev/squircle-shape/commits/stable)
 [![Issues](https://img.shields.io/github/issues-raw/stoyan-vuchev/squircle-shape.svg?style=flat&logo=github&logoColor=white)](https://github.com/stoyan-vuchev/squircle-shape/issues)
-[![As Seen In](https://img.shields.io/badge/As_Seen_In-jetc.dev_Newsletter_Issue_%23168-blue?logo=Jetpack+Compose&amp;logoColor=white)](https://jetc.dev/issues/168.html)
+[![As Seen In](https://img.shields.io/badge/As_Seen_In-jetc.dev_Newsletter_Issue_%23168-blue?logo=Jetpack+Compose&logoColor=white)](https://jetc.dev/issues/168.html)
 
-> A Compose Multiplatform library providing customizable Squircle shapes for UI components.
+> A Compose Multiplatform library providing customizable **Squircle** shapes for modern UI components.
+
+---
+
+## 🌿 Release Channels
+
+This project maintains two long-lived branches:
+
+### 🟢 [`stable`](https://github.com/stoyan-vuchev/squircle-shape/tree/stable)
+- Built with the latest **stable** Compose Multiplatform / Jetpack Compose versions.
+- Recommended for **production apps**.
+- Published versions follow semantic versioning (e.g. `5.1.1`).
+
+### 🧪 [`experimental`](https://github.com/stoyan-vuchev/squircle-shape/tree/experimental)
+- Built with **alpha / beta / RC** Compose versions.
+- May introduce breaking changes earlier.
+- Intended for early adopters and testing upcoming Compose updates.
+
+If you're building a production app, use the latest stable release from Maven Central.
 
 ---
 
 ## ✨ Features
 
-- **Customizable Squircle Shapes**: Create UI shapes that smoothly transition between squares and circles.
-- **Integration with `MaterialTheme`**: Use squircle shapes directly in Jetpack Compose themes.
-- **Corner Smoothing**: Fine-tune the smoothness of corners for a delightful design.
-- **Multiplatform Support**: Available for Android, iOS, Desktop (JVM), and Web (WasmJS).
-- **Canvas Drawing**: Easily draw squircle shapes on canvases with `drawSquircle()`.
+- **Customizable Squircle Shapes** — Smooth transition between squares and circles.
+- **MaterialTheme Integration** — Use directly inside `MaterialTheme.shapes`.
+- **Corner Smoothing Control** — Fine-tune curvature for precise design language.
+- **Compose Multiplatform Support** — Android, iOS, Desktop (JVM), Web (WasmJS).
+- **Canvas Support** — Draw squircles using `drawSquircle()`.
 
 ---
 
-## ⚠️‼️📢 Important Notice
+## ⚠️ Important Notice
 
-- **The library namespace has changed**:
-  </br>
-  New library versions will be published using the `com.stoyanvuchev` namespace.
-  </br>
-  Consider replacing `io.github.stoyan-vuchev` with `com.stoyanvuchev`.
-  <br/>
-  Check out the updated Setup guide [here](#-setup)
+### Namespace Change
+
+The library is now published under the `com.stoyanvuchev` namespace.
+
+If upgrading from older versions, replace: `io.github.stoyan-vuchev` with `com.stoyanvuchev`
+
+Check out the updated Setup guide [here](#-setup)
 
 ---
 
-## 🆕 What's New in Version 5.1.0?
+## 🆕 What's New
 
-**‼️ Breaking Changes**:  
-- Starting with this release, the library is now configured to use AGP version 9+. Conflicts are highly possible for projects configured with older AGP versions. Check [this](https://kotlinlang.org/docs/multiplatform/multiplatform-project-agp-9-migration.html) link for more information.
+See full release history here:  
+https://github.com/stoyan-vuchev/squircle-shape/releases
 
 ---
 
 ## 📋 Minimum Requirements
 
-### For Multiplatform Projects:
-- AGP: `9.0.0`
-- Kotlin: `2.3.0`
-- CMP: `1.11.0-alpha02`
+### 🟢 Stable Branch
 
-### For Android-only Projects:
-- AGP: `9.0.0`
-- Kotlin: `2.3.0`
-- Jetpack Compose: `1.11.0-alpha04`
+#### Multiplatform:
+- AGP: `9.0.0+`
+- Kotlin: `2.3.0+`
+- Compose Multiplatform: `1.10.1+`
+
+#### Android-only:
+- AGP: `9.0.0+`
+- Kotlin: `2.3.0+`
+- Jetpack Compose: `1.10.3+`
 - Minimum SDK: `23`
 - Compile SDK: `36`
+
+### 🧪 Experimental Branch
+
+#### Multiplatform:
+- AGP: `9.0.0+`
+- Kotlin: `2.3.0+`
+- Compose Multiplatform: `1.11.0-alpha02+`
+
+#### Android-only:
+- AGP: `9.0.0+`
+- Kotlin: `2.3.0+`
+- Jetpack Compose: `1.11.0-alpha04+`
+- Minimum SDK: `23`
+- Compile SDK: `36`
+
+---
 
 ---
 
@@ -71,7 +107,7 @@ sourceSets {
             
             // ...
             
-            implementation("com.stoyanvuchev:squircle-shape:5.1.0")
+            implementation("com.stoyanvuchev:squircle-shape:5.1.1")
           
         }
       
@@ -86,7 +122,7 @@ sourceSets {
 
 ```toml
 [versions]
-squircle-shape = "5.1.0"
+squircle-shape = "5.1.1"
 
 [libraries]
 squircle-shape = { group = "com.stoyanvuchev", name = "squircle-shape", version.ref = "squircle-shape" }
@@ -128,7 +164,7 @@ dependencies {
             
     // ...
 
-    implementation("com.stoyanvuchev:squircle-shape-android:5.1.0")
+    implementation("com.stoyanvuchev:squircle-shape-android:5.1.1")
   
 }
 ```
@@ -137,7 +173,7 @@ dependencies {
 
 ```toml
 [versions]
-squircle-shape = "5.1.0"
+squircle-shape = "5.1.1"
 
 [libraries]
 squircle-shape = { group = "com.stoyanvuchev", name = "squircle-shape-android", version.ref = "squircle-shape" }
@@ -148,9 +184,9 @@ squircle-shape = { group = "com.stoyanvuchev", name = "squircle-shape-android", 
 ```kotlin
 dependencies {
 
-  // ...
+    // ...
 
-  implementation(libs.squircle.shape)
+    implementation(libs.squircle.shape)
 
 }
 ```
@@ -217,7 +253,7 @@ Image(
 You can customize the radii for all corners, or for each corner independently.
 Supported corner values are:
 
-- `Int` for percent-based corner radius in range 0..100 
+- `Int` for percent-based corner radius in range 0..100
 - `Float` for pixel-based corner radius e.g. `50f`
 - `Dp` for density pixel-based corner radius e.g. `16.dp`
 
@@ -278,7 +314,7 @@ Note: currently `drawSquircle` only accepts pixel-based values for each corner:
 Canvas(
     modifier = Modifier.size(150.dp),
     onDraw = {
-    
+
         drawSquircle(
             color = Color.Blue,
             topLeft = Offset.Zero,
@@ -289,7 +325,7 @@ Canvas(
             bottomLeftCorner = 8.dp.toPx(),
             cornerSmoothing = .6f
         )
-    
+
     }
 )
 ```

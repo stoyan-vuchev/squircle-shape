@@ -4,48 +4,54 @@
     <shared>
       <config />
     </shared>
+    <layouts>
+      <layout url="file://$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/home.xml">
+        <config>
+          <theme>@style/Theme.SquircleShape</theme>
+        </config>
+      </layout>
+    </layouts>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="07a63061-e1ac-4350-bf7c-a0f9e12acac5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/composeApp/src/androidMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/util/PlatformUtils.android.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/composeResources/font/roboto-flex.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/Theme.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/ThemeMode.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/UIThemeWrapper.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/color/ColorScheme.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/color/ColorSchemeTokens.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/interaction/Ripple.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/layout/ScaffoldLayout.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/text/Text.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/topbar/CollapsibleTopBar.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/topbar/TopBarScrollBehavior.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/topbar/TopBarState.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/topbar/TopBarUtils.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/topbar/action/TopBarAction.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/topbar/action/TopBarActionUtils.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/shape/RangedShape.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/shape/ShapeData.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/shape/UniversalShape.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/typography/Typography.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/typography/TypographyTokens.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/util/window/WindowUtils.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/util/PlatformUtils.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/util/TransformUtils.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/TestScreen.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/UIEntryPoint.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/desktopMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/util/PlatformUtils.desktop.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/iosMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/util/PlatformUtils.ios.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/wasmJsMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/util/PlatformUtils.wasmJs.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/arrow-back.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/documentation.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/home.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/Haze.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/bottombar/BottomBar.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/bottombar/BottomBarUtils.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/bottombar/action/BottomBarAction.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/bottombar/item/BottomBarItem.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/layout/spacer/Spacer.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/siderail/SideRail.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/siderail/SideRailUtils.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/siderail/action/SideRailAction.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/siderail/item/SideRailItem.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/topbar/TopBar.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/topbar/TopBarStickyHeader.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/androidApp/src/main/kotlin/com/stoyanvuchev/squircleshape/demo/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/androidApp/src/main/kotlin/com/stoyanvuchev/squircleshape/demo/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/desktopMain/kotlin/com/stoyanvuchev/squircleshape/app/main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/desktopMain/kotlin/com/stoyanvuchev/squircleshape/app/main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/iosMain/kotlin/com/stoyanvuchev/squircleshape/app/MainViewController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/iosMain/kotlin/com/stoyanvuchev/squircleshape/app/MainViewController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/wasmJsMain/kotlin/com/stoyanvuchev/squircleshape/app/main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/wasmJsMain/kotlin/com/stoyanvuchev/squircleshape/app/main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composeApp/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/color/ColorSchemeTokens.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/color/ColorSchemeTokens.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/layout/ScaffoldLayout.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/layout/ScaffoldLayout.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/text/Text.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/text/Text.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/topbar/CollapsibleTopBar.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/topbar/TopBarScrollBehavior.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/topbar/TopBarState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/topbar/TopBarState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/topbar/TopBarUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/topbar/TopBarUtils.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/topbar/action/TopBarAction.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/topbar/action/TopBarAction.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/topbar/action/TopBarActionUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/topbar/action/TopBarActionUtils.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/shape/RangedShape.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/shape/RangedShape.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/typography/Typography.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/typography/Typography.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/typography/TypographyTokens.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/typography/TypographyTokens.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/util/window/WindowUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/util/window/WindowUtils.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/UIEntryPoint.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/UIEntryPoint.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,11 +97,11 @@
         <option value="valueResourceFile" />
         <option value="Kotlin Sealed Class" />
         <option value="Kotlin Sealed Interface" />
-        <option value="Kotlin Object" />
         <option value="Kotlin Enum" />
         <option value="Kotlin Data Class" />
         <option value="Kotlin Class" />
         <option value="Kotlin Interface" />
+        <option value="Kotlin Object" />
         <option value="Kotlin File" />
       </list>
     </option>
@@ -108,7 +114,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="demo-app/1.0.0/initial-setup" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -187,58 +193,58 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Android App.androidApp.executor&quot;: &quot;Run&quot;,
-    &quot;Android App.app.executor&quot;: &quot;Run&quot;,
-    &quot;Android App.application.androidApp.executor&quot;: &quot;Run&quot;,
-    &quot;Android App.application.executor&quot;: &quot;Run&quot;,
-    &quot;Android App.composeApp.executor&quot;: &quot;Run&quot;,
-    &quot;ApkExportedModule&quot;: &quot;SquircleShape.composeApp&quot;,
-    &quot;ExportApk.ApkPathForSquircleShape.composeApp&quot;: &quot;/Users/stoyan/AndroidStudioProjects/squircle-shape/composeApp&quot;,
-    &quot;Gradle.Building Kotlin artifacts for Build :composeApp:embedAndSignAppleFrameworkForXcode.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Upgrade Gradle wrapper.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.composeApp [desktop].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.composeApp [wasmJs].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.main [jvm].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.squircle-shape [application:run].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.squircle-shape [application:wasmJsRun].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.squircle-shape [composeApp:run].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.squircle-shape [composeApp:wasmJsBrowserProductionRun].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.squircle-shape [composeApp:wasmJsRun].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.squircle-shape [testClasses].executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.MainKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.MainKtKt.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Xcode Application.iosApp.executor&quot;: &quot;Run&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;demo-app/1.0.0/initial-setup&quot;,
-    &quot;iOS Application.iosApp.executor&quot;: &quot;Run&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/stoyan/StudioProjects/squircle-shape/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component&quot;,
-    &quot;recommended.upgrade.do.not.ask.for.project&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.language&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Android App.androidApp.executor": "Run",
+    "Android App.app.executor": "Run",
+    "Android App.application.androidApp.executor": "Run",
+    "Android App.application.executor": "Run",
+    "Android App.composeApp.executor": "Run",
+    "ApkExportedModule": "SquircleShape.composeApp",
+    "ExportApk.ApkPathForSquircleShape.composeApp": "/Users/stoyan/AndroidStudioProjects/squircle-shape/composeApp",
+    "Gradle.Building Kotlin artifacts for Build :composeApp:embedAndSignAppleFrameworkForXcode.executor": "Run",
+    "Gradle.Download Sources.executor": "Run",
+    "Gradle.Upgrade Gradle wrapper.executor": "Run",
+    "Gradle.composeApp [desktop].executor": "Run",
+    "Gradle.composeApp [wasmJs].executor": "Run",
+    "Gradle.main [jvm].executor": "Run",
+    "Gradle.squircle-shape [application:run].executor": "Run",
+    "Gradle.squircle-shape [application:wasmJsRun].executor": "Run",
+    "Gradle.squircle-shape [composeApp:run].executor": "Run",
+    "Gradle.squircle-shape [composeApp:wasmJsBrowserProductionRun].executor": "Run",
+    "Gradle.squircle-shape [composeApp:wasmJsRun].executor": "Run",
+    "Gradle.squircle-shape [testClasses].executor": "Run",
+    "Kotlin.MainKt.executor": "Run",
+    "Kotlin.MainKtKt.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Xcode Application.iosApp.executor": "Run",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "demo-app/1.0.0/ui-components/bottom-bar-and-side-rain",
+    "iOS Application.iosApp.executor": "Run",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/stoyan/StudioProjects/squircle-shape/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component",
+    "recommended.upgrade.do.not.ask.for.project": "true",
+    "settings.editor.selected.configurable": "configurable.group.language",
+    "show.migrate.to.gradle.popup": "false"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;ExportApk.BuildVariants&quot;: [
-      &quot;release&quot;
+  "keyToStringList": {
+    "ExportApk.BuildVariants": [
+      "release"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component" />
@@ -248,14 +254,17 @@
       <recent name="$PROJECT_DIR$/composeApp/src/androidMain" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable" />
       <recent name="$PROJECT_DIR$/composeApp/src" />
       <recent name="$PROJECT_DIR$/androidApp/src/main" />
       <recent name="$PROJECT_DIR$/application/src/iosMain/kotlin/com/stoyanvuchev/squircleshape/app" />
       <recent name="D:\AndroidStudioProjects\squircle-shape\application\src\desktopMain\kotlin\com\stoyanvuchev\squircleshape\app" />
-      <recent name="D:\AndroidStudioProjects\squircle-shape\application\src\commonMain\kotlin\com\stoyanvuchev\squircleshape\app\common" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="com.stoyanvuchev.squircleshape" />
+    </key>
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.stoyanvuchev.squircleshape.demo.core.ui.component.siderail" />
     </key>
     <key name="K2MoveDeclarationsDialog.RECENT_PACKAGE_KEY">
       <recent name="com.stoyanvuchev.squircleshape.demo.core.ui.shape" />
@@ -334,16 +343,15 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="AppleRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" IS_LOCATION_SIMULATION_SUPPORTED="false" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" DEVELOPMENT_TEAM="${TEAM_ID}" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="false">
+    <configuration name="iosApp" type="AppleRunConfiguration" factoryName="Application" activateToolWindowBeforeRun="false" nameIsGenerated="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$PROJECT_DIR$/iosApp" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iosApp" TARGET_NAME="iosApp" CONFIG_NAME="Debug" IS_LOCATION_SIMULATION_SUPPORTED="true" SCHEME_NAME="iosApp" IS_LOCATION_SIMULATION_ALLOWED="true" LOCATION_SCENARIO_ID="com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier" LOCATION_SCENARIO_TYPE="1" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" DEVELOPMENT_TEAM="GQSBJKL2HP" RUN_TARGET_PROJECT_NAME="iosApp" RUN_TARGET_NAME="iosApp" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="false">
       <embedded_app_extension_list />
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="iosApp" type="AppleRunConfiguration" factoryName="Application" activateToolWindowBeforeRun="false" nameIsGenerated="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$PROJECT_DIR$/iosApp" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iosApp" TARGET_NAME="iosApp" CONFIG_NAME="Debug" IS_LOCATION_SIMULATION_SUPPORTED="true" SCHEME_NAME="iosApp" IS_LOCATION_SIMULATION_ALLOWED="true" LOCATION_SCENARIO_ID="com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier" LOCATION_SCENARIO_TYPE="1" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" DEVELOPMENT_TEAM="${TEAM_ID}" RUN_TARGET_PROJECT_NAME="iosApp" RUN_TARGET_NAME="iosApp" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="false">
-      <embedded_app_extension_list />
+    <configuration default="true" type="Application" factoryName="Application">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="composeApp [desktop]" type="GradleRunConfiguration" factoryName="Gradle" activateToolWindowBeforeRun="false">
@@ -642,12 +650,12 @@
         </entry>
         <entry key="com.stoyanvuchev.squircleshape.demo">
           <value>
-            <CheckInfo lastCheckTimestamp="1769886511060" />
+            <CheckInfo lastCheckTimestamp="1771695874552" />
           </value>
         </entry>
         <entry key="com.stoyanvuchev.squircleshape.demo.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1769886511061" />
+            <CheckInfo lastCheckTimestamp="1771695874552" />
           </value>
         </entry>
       </map>

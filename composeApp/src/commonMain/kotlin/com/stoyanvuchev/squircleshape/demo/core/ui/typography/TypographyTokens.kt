@@ -38,15 +38,15 @@ object TypographyTokens {
     val titleSmall: TextStyle
         get() = DefaultTextStyle.copy(
             fontFamily = DefaultFontFamily,
-            fontSize = 20.sp,
-            lineHeight = 28.sp
+            fontSize = 18.sp,
+            lineHeight = 24.sp
         )
 
     val bodyLarge: TextStyle
         get() = DefaultTextStyle.copy(
             fontFamily = DefaultFontFamily,
-            fontSize = 16.sp,
-            lineHeight = 24.sp
+            fontSize = 14.sp,
+            lineHeight = 20.sp
         )
 
     val bodySmall: TextStyle

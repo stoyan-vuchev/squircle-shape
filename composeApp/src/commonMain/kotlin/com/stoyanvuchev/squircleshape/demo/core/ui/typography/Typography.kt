@@ -51,7 +51,8 @@ fun defaultTypography(): Typography {
                         )
                     ),
                     fontSize = 32.sp,
-                    lineHeight = 40.sp
+                    lineHeight = 40.sp,
+                    letterSpacing = (-0.1).sp
                 ),
                 titleSmall = titleSmall.copy(
                     fontFamily = FontFamily(
@@ -60,8 +61,9 @@ fun defaultTypography(): Typography {
                             width = 150f
                         )
                     ),
-                    fontSize = 20.sp,
-                    lineHeight = 28.sp
+                    fontSize = 16.sp,
+                    lineHeight = 24.sp,
+                    letterSpacing = 0.sp
                 ),
                 bodyLarge = bodyLarge.copy(
                     fontFamily = FontFamily(
@@ -70,8 +72,8 @@ fun defaultTypography(): Typography {
                             width = 128f
                         )
                     ),
-                    fontSize = 16.sp,
-                    lineHeight = 24.sp
+                    fontSize = 14.sp,
+                    lineHeight = 20.sp
                 ),
                 bodySmall = bodySmall.copy(
                     fontFamily = FontFamily(

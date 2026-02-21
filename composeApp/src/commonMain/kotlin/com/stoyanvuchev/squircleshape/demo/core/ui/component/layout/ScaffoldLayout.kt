@@ -1,22 +1,17 @@
 /*
- * Copyright (c) 2026 Stoyan Vuchev
+ * Copyright 2026 Assertive UI (assertiveui.com)
  *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 package com.stoyanvuchev.squircleshape.demo.core.ui.component.layout
@@ -35,7 +30,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.UiComposable
 import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.graphics.BlendMode
 import androidx.compose.ui.graphics.Brush
@@ -46,51 +40,93 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.offset
+import com.stoyanvuchev.squircleshape.demo.core.ui.LocalHazeState
 import com.stoyanvuchev.squircleshape.demo.core.ui.Theme
 import com.stoyanvuchev.squircleshape.demo.core.ui.color.LocalBackgroundColor
 import com.stoyanvuchev.squircleshape.demo.core.ui.color.LocalContentColor
 import com.stoyanvuchev.squircleshape.demo.core.ui.color.inverseColor
+import com.stoyanvuchev.squircleshape.demo.core.ui.component.topbar.LocalTopBarState
+import com.stoyanvuchev.squircleshape.demo.core.ui.component.topbar.TopBarState
+import com.stoyanvuchev.squircleshape.demo.core.ui.component.topbar.rememberTopBarState
 import com.stoyanvuchev.squircleshape.demo.core.ui.util.window.LocalWindowState
+import dev.chrisbanes.haze.HazeState
+import dev.chrisbanes.haze.hazeSource
+import dev.chrisbanes.haze.rememberHazeState
 
+
+/**
+ * A responsive scaffold layout used as the structural foundation of the app UI.
+ *
+ * Responsibilities:
+ * - Hosts top bar, bottom bar, side rail, and main content
+ * - Handles responsive layout behavior (compact vs expanded width)
+ * - Provides shared [TopBarState] and [HazeState] through CompositionLocal
+ * - Applies fading edge effects for top and bottom bars
+ *
+ * This is not a simple wrapper — it controls layout order and layering.
+ */
 @Composable
-@UiComposable
 fun ScaffoldLayout(
     modifier: Modifier = Modifier,
-    topBar: @Composable @UiComposable (() -> Unit)? = null,
-    bottomBar: @Composable @UiComposable (() -> Unit)? = null,
-    sideRail: @Composable @UiComposable () -> Unit = {},
+    topBar: @Composable (() -> Unit)? = null,
+    bottomBar: @Composable (() -> Unit)? = null,
+    sideRail: @Composable () -> Unit = {},
     surfaceColor: Color = LocalBackgroundColor.current,
     contentColor: Color = Theme.colorScheme.inverseColor(surfaceColor),
     contentWindowInsets: WindowInsets = WindowInsets.safeDrawing,
-    content: @Composable @UiComposable (PaddingValues) -> Unit
+    content: @Composable (PaddingValues) -> Unit
 ) = BoxWithConstraints(
     modifier = Modifier
         .background(surfaceColor)
         .then(modifier),
-    content = {
+) {
 
-        CompositionLocalProvider(
-            LocalContentColor provides contentColor,
-            content = {
+    /**
+     * Provide:
+     * - Content color
+     * - Shared TopBarState
+     * - Shared HazeState
+     *
+     * TopBarState is scoped to the entire scaffold.
+     */
+    CompositionLocalProvider(
+        LocalContentColor provides contentColor,
+        LocalTopBarState provides rememberTopBarState(),
+        LocalHazeState provides rememberHazeState()
+    ) {
 
-                val isCompactWidth = LocalWindowState.current.isCompactWidth
+        val isCompactWidth = LocalWindowState.current.isCompactWidth
 
-                FoundationLayoutImpl(
-                    topBar = topBar,
-                    bottomBar = if (isCompactWidth) bottomBar else remember { {} },
-                    sideRail = if (!isCompactWidth) sideRail else remember { {} },
-                    content = content,
-                    contentWindowInsets = contentWindowInsets,
-                )
-
-            }
+        /**
+         * Responsive behavior:
+         * - Compact → bottom bar visible
+         * - Expanded → side rail visible
+         */
+        FoundationLayoutImpl(
+            topBar = topBar,
+            bottomBar = if (isCompactWidth) bottomBar else remember { {} },
+            sideRail = if (!isCompactWidth) sideRail else remember { {} },
+            content = content,
+            contentWindowInsets = contentWindowInsets
         )
 
     }
-)
 
+}
+
+/**
+ * Core layout engine of [ScaffoldLayout].
+ *
+ * Uses [SubcomposeLayout] to:
+ * 1. Measure top bar
+ * 2. Measure bottom bar
+ * 3. Measure side rail
+ * 4. Measure main content with calculated padding
+ *
+ * Subcomposition is required because content padding
+ * depends on the measured sizes of other slots.
+ */
 @Composable
-@UiComposable
 private fun FoundationLayoutImpl(
     topBar: @Composable (() -> Unit)?,
     bottomBar: @Composable (() -> Unit)?,
@@ -103,12 +139,13 @@ private fun FoundationLayoutImpl(
     val layoutHeight = constraints.maxHeight
     val looseConstraints = constraints.copy(minWidth = 0, minHeight = 0)
 
-    layout(
-        width = layoutWidth,
-        height = layoutHeight
-    ) {
+    layout(layoutWidth, layoutHeight) {
 
-        // Defining side rail placeables.
+        /**
+         * 1). Measure Side Rail
+         *
+         * Side rail affects horizontal insets and content positioning.
+         */
         val sideRailPlaceables = subcompose(
             slotId = ResponsiveScaffoldLayoutContent.SideRail,
             content = sideRail
@@ -117,20 +154,23 @@ private fun FoundationLayoutImpl(
         val sideRailWidth = sideRailPlaceables.maxByOrNull { it.width }?.width
         val sideRailHeight = sideRailPlaceables.maxByOrNull { it.height }?.height
 
-        // Defining top bar placeables & height.
+        /**
+         * 2). Measure Top Bar
+         *
+         * If a side rail exists, horizontal constraints are adjusted
+         * so the top bar does not overlap it.
+         */
         val topBarPlaceables = subcompose(
             slotId = ResponsiveScaffoldLayoutContent.TopBar,
             content = topBar ?: {}
         ).map {
 
             val leftInset = if (
-                layoutDirection == LayoutDirection.Ltr
-                && sideRailWidth != null
+                layoutDirection == LayoutDirection.Ltr && sideRailWidth != null
             ) sideRailWidth else 0
 
             val rightInset = if (
-                layoutDirection == LayoutDirection.Rtl
-                && sideRailWidth != null
+                layoutDirection == LayoutDirection.Rtl && sideRailWidth != null
             ) sideRailWidth else 0
 
             it.measure(
@@ -138,124 +178,165 @@ private fun FoundationLayoutImpl(
                     horizontal = (-leftInset) - rightInset,
                 )
             )
-
         }
+
         val topBarHeight = topBarPlaceables.maxByOrNull { it.height }?.height ?: 0
 
-        // Defining bottom bar placeables & height.
+        /**
+         * 3). Measure Bottom Bar
+         */
         val bottomBarPlaceables = subcompose(
             slotId = ResponsiveScaffoldLayoutContent.BottomBar,
             content = bottomBar ?: {}
         ).map { it.measure(looseConstraints) }
+
         val bottomBarHeight = bottomBarPlaceables.maxByOrNull { it.height }?.height ?: 0
 
-        // Defining body content placeables.
+        /**
+         * 4). Measure Main Content
+         *
+         * Padding depends on:
+         * - Top bar height
+         * - Bottom bar height
+         * - Side rail width
+         * - System window insets
+         */
         val bodyContentPlaceables = subcompose(
             ResponsiveScaffoldLayoutContent.MainContent
         ) {
 
             val insets = contentWindowInsets.asPaddingValues(this@SubcomposeLayout)
+
             val innerPadding = PaddingValues(
-                top = if (topBarPlaceables.isEmpty()) insets.calculateTopPadding()
-                else topBarHeight.toDp(),
-                bottom = if (bottomBarPlaceables.isEmpty()) {
+                top = if (topBarPlaceables.isEmpty())
+                    insets.calculateTopPadding()
+                else 0.dp,
+                bottom = if (bottomBarPlaceables.isEmpty())
                     insets.calculateBottomPadding()
-                } else bottomBarHeight.toDp(),
-                start = if (sideRailPlaceables.isEmpty() || sideRailWidth == null) {
-                    insets.calculateStartPadding((this@SubcomposeLayout).layoutDirection)
-                } else sideRailWidth.toDp(),
-                end = insets.calculateEndPadding((this@SubcomposeLayout).layoutDirection)
+                else bottomBarHeight.toDp(),
+                start = if (sideRailPlaceables.isEmpty() || sideRailWidth == null)
+                    insets.calculateStartPadding(layoutDirection)
+                else sideRailWidth.toDp(),
+                end = insets.calculateEndPadding(layoutDirection)
             )
 
+            /**
+             * Main content container.
+             *
+             * Applies fading edge masks for:
+             * - Top bar
+             * - Bottom bar
+             *
+             * BlendMode.DstIn is used to mask content smoothly.
+             */
             Box(
                 modifier = Modifier
-                    .graphicsLayer { this.alpha = .99f }
                     .fillMaxSize()
-                    .drawWithContent {
+                    .background(color = Theme.colorScheme.surface)
+            ) {
 
-                        // Draw the body content.
-                        drawContent()
+                Box(
+                    modifier = Modifier
+                        .graphicsLayer { alpha = .99f }
+                        .fillMaxSize()
+                        .drawWithContent {
 
-                        // Apply fading edge for the top bar.
-                        drawRect(
-                            brush = Brush.verticalGradient(
-                                colors = listOf(
-                                    Color.Black.copy(alpha = .0f),
-                                    Color.Black.copy(alpha = .2f),
-                                    Color.Black
-                                ),
-                                startY = 0f,
-                                endY = topBarHeight.toFloat() + 32.dp.toPx()
-                            ),
-                            blendMode = BlendMode.DstIn
-                        )
+                            drawContent()
 
-                        // Apply fading edge for the bottom bar.
-                        drawRect(
-                            brush = Brush.verticalGradient(
-                                colors = listOf(
-                                    Color.Black,
-                                    Color.Black.copy(alpha = .2f),
-                                    Color.Black.copy(alpha = .0f)
-                                ),
-                                startY = layoutHeight.toFloat() -
-                                        (bottomBarHeight.toFloat() + 32.dp.toPx()),
-                                endY = layoutHeight.toFloat()
-                            ),
-                            blendMode = BlendMode.DstIn
-                        )
+                            // Top fade mask
+                            if (topBarHeight > 0) {
+                                drawRect(
+                                    brush = Brush.verticalGradient(
+                                        colors = listOf(
+                                            Color.Black.copy(alpha = .05f),
+                                            Color.Black.copy(alpha = .1f),
+                                            Color.Black
+                                        ),
+                                        startY = 0f,
+                                        endY = topBarHeight + 32.dp.toPx()
+                                    ),
+                                    blendMode = BlendMode.DstIn
+                                )
+                            }
 
-                    },
-                content = { content(innerPadding) }
-            )
+                            // Bottom fade mask
+                            if (bottomBarHeight > 0) {
+                                drawRect(
+                                    brush = Brush.verticalGradient(
+                                        colors = listOf(
+                                            Color.Black,
+                                            Color.Black.copy(alpha = .1f),
+                                            Color.Black.copy(alpha = .05f)
+                                        ),
+                                        startY = layoutHeight -
+                                                (bottomBarHeight + 32.dp.toPx()),
+                                        endY = layoutHeight.toFloat()
+                                    ),
+                                    blendMode = BlendMode.DstIn
+                                )
+                            }
+
+                        }
+                ) {
+
+                    Box(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .hazeSource(
+                                state = LocalHazeState.current,
+                                key = SCAFFOLD_LAYOUT_HAZE_SOURCE_KEY,
+                                zIndex = .1f
+                            )
+                    ) {
+                        content(innerPadding)
+                    }
+
+                }
+
+            }
 
         }.map { it.measure(looseConstraints) }
 
-        /*
-         * Defining each content placeables position offset.
+        /**
+         * Positioning offsets
          */
 
-        // Defining the top bar placeables position offset.
-        val topBarPlaceablesOffset = IntOffset(
+        val topBarOffset = IntOffset(
             x = if (layoutDirection == LayoutDirection.Ltr) sideRailWidth ?: 0 else 0,
             y = 0
         )
 
-        // Defining the bottom bar placeables position offset.
-        val bottomBarPlaceablesPositionOffset = IntOffset(
+        val bottomBarOffset = IntOffset(
             x = 0,
             y = layoutHeight - bottomBarHeight
         )
 
-        // Defining the side rail placeables position offset.
-        val sideRailPlaceablesPositionOffset = IntOffset(
+        val sideRailOffset = IntOffset(
             x = if (layoutDirection == LayoutDirection.Ltr) 0
             else layoutWidth - (sideRailWidth ?: 0),
             y = (layoutHeight / 2) - ((sideRailHeight?.div(2)) ?: 0)
         )
 
-        /*
-         * Placing the placeables by maintaining the layout hierarchy:
-         * MainContent >> TopBar >> BottomBar >> SideRail
+        /**
+         * Placement order defines visual stacking:
+         *
+         * MainContent → TopBar → BottomBar → SideRail
          */
-
-        // Placing the body content placeables.
-        bodyContentPlaceables.forEach { it.place(position = IntOffset.Zero) }
-
-        // Placing the top bar placeables.
-        topBarPlaceables.forEach { it.place(position = topBarPlaceablesOffset) }
-
-        // Placing the bottom bar placeables.
-        bottomBarPlaceables.forEach { it.place(position = bottomBarPlaceablesPositionOffset) }
-
-        // Placing the side rail placeables.
-        sideRailPlaceables.forEach { it.place(position = sideRailPlaceablesPositionOffset) }
-
+        bodyContentPlaceables.forEach { it.place(IntOffset.Zero) }
+        topBarPlaceables.forEach { it.place(topBarOffset) }
+        bottomBarPlaceables.forEach { it.place(bottomBarOffset) }
+        sideRailPlaceables.forEach { it.place(sideRailOffset) }
     }
-
 }
 
-/** Constants defining [ScaffoldLayout]'s content hierarchy slots. */
+/**
+ * Internal slot identifiers used by [SubcomposeLayout].
+ */
 private enum class ResponsiveScaffoldLayoutContent {
-    MainContent, TopBar, BottomBar, SideRail;
+    MainContent,
+    TopBar,
+    BottomBar,
+    SideRail;
 }
+
+private const val SCAFFOLD_LAYOUT_HAZE_SOURCE_KEY = "scaffold_layout_content_source"

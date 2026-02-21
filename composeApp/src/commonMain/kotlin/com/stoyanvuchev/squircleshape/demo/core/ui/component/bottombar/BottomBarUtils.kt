@@ -14,36 +14,36 @@
  * limitations under the License.
  */
 
-package com.stoyanvuchev.squircleshape.demo.core.ui.component.topbar.action
+package com.stoyanvuchev.squircleshape.demo.core.ui.component.bottombar
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.spring
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsHoveredAsState
 import androidx.compose.foundation.interaction.collectIsPressedAsState
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.WindowInsetsSides
+import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.dropShadow
 import androidx.compose.ui.draw.innerShadow
 import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.shadow.Shadow
 import androidx.compose.ui.input.pointer.PointerIcon
 import androidx.compose.ui.input.pointer.pointerHoverIcon
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpOffset
-import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import com.stoyanvuchev.squircleshape.demo.core.ui.LocalHazeState
 import com.stoyanvuchev.squircleshape.demo.core.ui.Theme
@@ -52,11 +52,97 @@ import dev.chrisbanes.haze.HazeStyle
 import dev.chrisbanes.haze.HazeTint
 import dev.chrisbanes.haze.hazeEffect
 
-object TopBarActionUtils {
+/**
+ * Useful utilities for a bottom bar UI components.
+ */
+object BottomBarUtils {
 
-    // Container
+    /**
+     * Returns a [WindowInsets] instance for the bottom and horizontal safe drawing areas.
+     *
+     * @return A [WindowInsets] representing the requested sides of the safe drawing area.
+     */
+    @Composable
+    internal fun windowInsets(): WindowInsets {
+        return WindowInsets.safeDrawing
+            .only(
+                sides = WindowInsetsSides.Bottom +
+                        WindowInsetsSides.Horizontal
+            )
+    }
 
-    internal fun Modifier.topBarActionContainerModifier(
+    /**
+     * The container height of the bottom bar.
+     */
+    @Composable
+    internal fun containerHeight(): Dp {
+        return 72.dp + with(LocalDensity.current) {
+            windowInsets().getBottom(this).toDp()
+        }
+    }
+
+    internal fun Modifier.bottomBarBlurModifier(): Modifier {
+        return composed {
+            Modifier
+                .dropShadow(
+                    shape = Theme.rangedShape,
+                    shadow = Shadow(
+                        radius = 24.dp,
+                        color = Theme.colorScheme.surface.copy(.5f),
+                        offset = DpOffset(x = 0.dp, y = 4.dp)
+                    )
+                )
+                .clip(Theme.rangedShape)
+                .hazeEffect(
+                    state = LocalHazeState.current,
+                    style = HazeStyle(
+                        backgroundColor = Theme.colorScheme.surface,
+                        tint = HazeTint(
+                            color = Theme.colorScheme.surfaceElevationMedium.copy(.5f)
+                        ),
+                        blurRadius = 12.dp
+                    )
+                )
+                .innerShadow(
+                    shape = Theme.rangedShape,
+                    shadow = Shadow(
+                        radius = 16.dp,
+                        brush = Brush.verticalGradient(
+                            colors = listOf(
+                                Theme.colorScheme.surface.copy(.5f),
+                                Theme.colorScheme.surface.copy(0f)
+                            )
+                        ),
+                        offset = DpOffset(x = 0.dp, y = 2.dp)
+                    )
+                )
+                .innerShadow(
+                    shape = Theme.rangedShape,
+                    shadow = Shadow(
+                        radius = 16.dp,
+                        brush = Brush.verticalGradient(
+                            colors = listOf(
+                                Theme.colorScheme.surfaceElevationHigh.copy(0f),
+                                Theme.colorScheme.surfaceElevationHigh
+                            )
+                        ),
+                        offset = DpOffset(x = 0.dp, y = (-2).dp)
+                    )
+                )
+                .border(
+                    width = 1.dp,
+                    brush = Brush.verticalGradient(
+                        colors = listOf(
+                            Theme.colorScheme.outline,
+                            Theme.colorScheme.outline.copy(0f)
+                        )
+                    ),
+                    shape = Theme.rangedShape
+                )
+        }
+    }
+
+    internal fun Modifier.bottomBarActionModifier(
         onClick: () -> Unit
     ): Modifier {
         return composed {
@@ -68,10 +154,10 @@ object TopBarActionUtils {
 
             val contentPadding by animateDpAsState(
                 targetValue = when {
-                    isPressed -> 6.dp
-                    isFocused -> 3.dp
-                    isHovered -> 3.dp
-                    else -> 4.dp
+                    isPressed -> 3.dp
+                    isFocused -> 1.5.dp
+                    isHovered -> 1.5.dp
+                    else -> 0.dp
                 },
                 animationSpec = spring()
             )
@@ -87,7 +173,6 @@ object TopBarActionUtils {
             )
 
             Modifier
-                .size(clickableContainerSize)
                 .pointerHoverIcon(
                     icon = PointerIcon.Hand
                 )
@@ -97,19 +182,19 @@ object TopBarActionUtils {
                     indication = rememberRipple()
                 )
                 .padding(contentPadding)
-                .clip(clickableContainerShape)
+                .clip(Theme.rangedShape)
                 .hazeEffect(
                     state = LocalHazeState.current,
                     style = HazeStyle(
                         backgroundColor = Theme.colorScheme.surface,
                         tint = HazeTint(
-                            color = clickableContainerColor.copy(.5f)
+                            color = Theme.colorScheme.surfaceElevationHigh.copy(.5f)
                         ),
                         blurRadius = 12.dp
                     )
                 )
                 .innerShadow(
-                    shape = clickableContainerShape,
+                    shape = Theme.rangedShape,
                     shadow = Shadow(
                         radius = 16.dp,
                         brush = Brush.verticalGradient(
@@ -122,7 +207,7 @@ object TopBarActionUtils {
                     )
                 )
                 .innerShadow(
-                    shape = clickableContainerShape,
+                    shape = Theme.rangedShape,
                     shadow = Shadow(
                         radius = 16.dp,
                         brush = Brush.verticalGradient(
@@ -142,37 +227,10 @@ object TopBarActionUtils {
                             borderColor.copy(0f)
                         )
                     ),
-                    shape = clickableContainerShape
+                    shape = Theme.rangedShape
                 )
 
         }
     }
-
-    private val clickableContainerSize: DpSize
-        get() = DpSize(48.dp, 48.dp)
-
-    private val clickableContainerShape: Shape
-        @Composable
-        @ReadOnlyComposable
-        get() = Theme.universalShape
-
-    private val clickableContainerColor: Color
-        @Composable
-        @ReadOnlyComposable
-        get() = Theme.colorScheme.surfaceElevationHigh
-
-    // Icon
-
-    internal fun Modifier.topBarActionIconModifier(): Modifier {
-        return size(iconContainerSize)
-    }
-
-    internal val iconColor: Color
-        @Composable
-        @ReadOnlyComposable
-        get() = Theme.colorScheme.onSurfaceElevationMedium
-
-    private val iconContainerSize: DpSize
-        get() = DpSize(24.dp, 24.dp)
 
 }

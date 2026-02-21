@@ -22,63 +22,143 @@
 package com.stoyanvuchev.squircleshape.demo.presentation
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.UiComposable
-import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.unit.dp
 import com.stoyanvuchev.squircleshape.demo.core.ui.UIThemeWrapper
+import com.stoyanvuchev.squircleshape.demo.core.ui.component.bottombar.BottomBar
+import com.stoyanvuchev.squircleshape.demo.core.ui.component.bottombar.action.BottomBarAction
+import com.stoyanvuchev.squircleshape.demo.core.ui.component.bottombar.item.BottomBarItem
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.layout.ScaffoldLayout
+import com.stoyanvuchev.squircleshape.demo.core.ui.component.layout.spacer.VerticalSpacer
+import com.stoyanvuchev.squircleshape.demo.core.ui.component.siderail.SideRail
+import com.stoyanvuchev.squircleshape.demo.core.ui.component.siderail.action.SideRailAction
+import com.stoyanvuchev.squircleshape.demo.core.ui.component.siderail.item.SideRailItem
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.text.Text
-import com.stoyanvuchev.squircleshape.demo.core.ui.component.topbar.CollapsibleTopBar
-import com.stoyanvuchev.squircleshape.demo.core.ui.component.topbar.TopBarUtils
+import com.stoyanvuchev.squircleshape.demo.core.ui.component.topbar.TopBar
+import com.stoyanvuchev.squircleshape.demo.core.ui.component.topbar.topBarStickyHeader
+import org.jetbrains.compose.resources.painterResource
+import squircleshape.composeapp.generated.resources.Res
+import squircleshape.composeapp.generated.resources.documentation
+import squircleshape.composeapp.generated.resources.home
+import squircleshape.composeapp.generated.resources.settings
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 @UiComposable
 fun UIEntryPoint() = UIThemeWrapper {
 
     val lazyListState = rememberLazyListState()
-    val scrollBehavior = TopBarUtils.exitUntilCollapsedScrollBehavior(
-        canScrollItself = { !lazyListState.canScrollBackward },
-        canScrollBackward = { !lazyListState.canScrollBackward }
-    )
+    var selectedItem by remember { mutableIntStateOf(0) }
+    val onSelected = remember<(Int) -> Unit>(selectedItem) {
+        { i -> selectedItem = i }
+    }
 
     ScaffoldLayout(
         modifier = Modifier.fillMaxSize(),
         topBar = {
 
-            CollapsibleTopBar(
-                title = "Title",
-                scrollBehavior = scrollBehavior
+            TopBar(
+                title = "Squircle Demo"
             )
+
+        },
+        sideRail = {
+
+            SideRail(
+                selectedItemIndex = { selectedItem },
+                itemsCount = { 2 },
+                action = {
+
+                    SideRailAction(
+                        icon = { painterResource(Res.drawable.settings) },
+                        onClick = {}
+                    )
+
+                }
+            ) {
+
+                SideRailItem(
+                    icon = { painterResource(Res.drawable.home) },
+                    label = "Demo",
+                    selected = selectedItem == 0,
+                    onSelected = remember { { onSelected(0) } }
+                )
+
+                SideRailItem(
+                    icon = { painterResource(Res.drawable.documentation) },
+                    label = "Docs",
+                    selected = selectedItem == 1,
+                    onSelected = remember { { onSelected(1) } }
+                )
+
+            }
+
+        },
+        bottomBar = {
+
+            BottomBar(
+                selectedItemIndex = { selectedItem },
+                itemsCount = { 2 },
+                action = {
+
+                    BottomBarAction(
+                        icon = { painterResource(Res.drawable.settings) },
+                        onClick = {}
+                    )
+
+                }
+            ) {
+
+                BottomBarItem(
+                    icon = { painterResource(Res.drawable.home) },
+                    label = "Demo",
+                    selected = selectedItem == 0,
+                    onSelected = remember { { onSelected(0) } }
+                )
+
+                BottomBarItem(
+                    icon = { painterResource(Res.drawable.documentation) },
+                    label = "Docs",
+                    selected = selectedItem == 1,
+                    onSelected = remember { { onSelected(1) } }
+                )
+
+            }
 
         }
     ) { safePadding ->
 
         LazyColumn(
-            modifier = Modifier
-                .fillMaxSize()
-                .nestedScroll(scrollBehavior.nestedScrollConnection),
+            modifier = Modifier.fillMaxSize(),
             state = lazyListState,
             contentPadding = safePadding,
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
 
+            topBarStickyHeader(
+                lazyListState = lazyListState
+            )
+
             item(
                 key = "top_spacer",
                 contentType = "spacer"
             ) {
-                Spacer(modifier = Modifier.height(32.dp))
+                VerticalSpacer(height = 20.dp)
             }
 
             items(
-                count = 200,
+                count = 500,
                 key = { "item_$it" },
                 contentType = { "item" }
             ) {
@@ -94,7 +174,7 @@ fun UIEntryPoint() = UIThemeWrapper {
                 key = "bottom_spacer",
                 contentType = "spacer"
             ) {
-                Spacer(modifier = Modifier.height(32.dp))
+                VerticalSpacer(height = 32.dp)
             }
 
         }

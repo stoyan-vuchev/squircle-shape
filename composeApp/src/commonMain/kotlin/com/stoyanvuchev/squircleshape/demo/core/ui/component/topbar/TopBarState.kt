@@ -1,6 +1,5 @@
 /*
- * Copyright 2021 The Android Open Source Project
- * Copyright 2025 Assertive UI (assertiveui.com)
+ * Copyright 2026 Assertive UI (assertiveui.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +18,7 @@ package com.stoyanvuchev.squircleshape.demo.core.ui.component.topbar
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
+import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
@@ -42,9 +42,9 @@ import com.stoyanvuchev.squircleshape.demo.core.ui.component.topbar.TopBarState.
  */
 @Composable
 fun rememberTopBarState(
-    initialHeightOffsetLimit: Float = -Float.MAX_VALUE,
+    initialHeightOffsetLimit: Float = TopBarUtils.initialHeightOffsetLimit(),
     initialHeightOffset: Float = 0f
-): TopBarState = rememberSaveable(saver = TopBarState.Saver) {
+): TopBarState = rememberSaveable(saver = Saver) {
     TopBarState(
         initialHeightOffsetLimit,
         initialHeightOffset
@@ -76,10 +76,7 @@ class TopBarState(
     var heightOffset: Float
         get() = _heightOffset
         set(newOffset) {
-            _heightOffset = newOffset.coerceIn(
-                minimumValue = heightOffsetLimit,
-                maximumValue = 0f
-            )
+            _heightOffset = newOffset
         }
 
     /**
@@ -109,4 +106,14 @@ class TopBarState(
 
     }
 
+}
+
+/**
+ * A CompositionLocal key for accessing a [TopBarState] in nested composition.
+ */
+val LocalTopBarState = compositionLocalOf {
+    TopBarState(
+        initialHeightOffsetLimit = Float.MAX_VALUE,
+        initialHeightOffset = 0f
+    )
 }
