@@ -65,7 +65,7 @@ mavenPublishing {
     coordinates(
         groupId = "com.stoyanvuchev",
         artifactId = "squircle-shape",
-        version = "5.1.1"
+        version = "5.2.0"
     )
 
     pom {
