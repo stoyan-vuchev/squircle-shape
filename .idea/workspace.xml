@@ -72,158 +72,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="07a63061-e1ac-4350-bf7c-a0f9e12acac5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/androidApp/release/androidApp-release.apk" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/androidApp/release/baselineProfiles/0/androidApp-release.dm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/androidApp/release/baselineProfiles/1/androidApp-release.dm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/androidApp/release/output-metadata.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/androidMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/clipboard/ClipboardExt.android.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/butterflies.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/checkmark-outlined.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/compose-multiplatform.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/copy-outlined.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/explore-outlined.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/faq-outlined.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/flowers.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/github-icon.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/info-outlined.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/issue-icon.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/kotlin-icon.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/linkedin-square-icon.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/menu.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/performance.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/pfp.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/squircle-icon-bold.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/squircle-icon-outlined.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/village.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/composeResources/font/google-sans-code.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/clipboard/ClipboardExt.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/AnimatedReveal.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/BackgroundModifier.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/button/Button.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/button/ButtonUtils.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/button/IconButton.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/code/CodeBlock.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/layout/scaffold/Etc.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/layout/scaffold/NestedScaffoldLayout.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/navigation/navlist/NavigationList.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/navigation/navlist/NavigationListItem.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/shape/Shapes.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/util/transitions/NavTransitions.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/data/remote/RemoteDataSource.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/di/AppModule.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/domain/model/LatestRelease.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/DemoApp.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/DemoAppBottomBar.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/DemoAppNavigation.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/DemoAppSideRail.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/DemoAppViewModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/LocalLatestRelease.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/app/about/AboutScreen.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/app/about/AboutScreenContent.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/app/demo/DemoScreen.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/app/demo/DemoScreenContent.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/app/demo/components/DemoScreenCard.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/app/demo/components/DemoSquircle.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/app/faq/FAQScreen.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/app/faq/FAQScreenContent.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/app/faq/components/CornerRadiusComparison.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/app/faq/components/SquircleToRoundedCornerShapeComparison.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/app/setup/SetupScreen.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/app/setup/SetupScreenContent.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/app/usage/UsageScreen.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/app/usage/UsageScreenContent.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/app/usage/components/BasicExample.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/app/usage/components/CanvasExample.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/content/ContentGroup.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/content/ContentPiece.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/content/ReusableContentComponents.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/content/ScreenContent.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/defaults/DefaultBackgroundDecoration.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/defaults/DefaultLazyVerticalGrid.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/defaults/DefaultTopBarAction.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/defaults/LicenceString.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/desktopMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/clipboard/ClipboardExt.desktop.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/iosMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/clipboard/ClipboardExt.ios.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composeApp/src/wasmJsMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/clipboard/ClipboardExt.wasmJs.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/readme_images/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/readme_images/logo.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.github/workflows/deploy-web.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/androidApp/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/androidApp/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/androidApp/src/main/kotlin/com/stoyanvuchev/squircleshape/demo/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/androidApp/src/main/kotlin/com/stoyanvuchev/squircleshape/demo/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/androidApp/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/androidApp/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/androidApp/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" afterPath="$PROJECT_DIR$/androidApp/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/androidApp/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" afterPath="$PROJECT_DIR$/androidApp/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/androidApp/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/androidApp/src/main/res/mipmap-hdpi/ic_launcher.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/androidApp/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/androidApp/src/main/res/mipmap-hdpi/ic_launcher_round.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/androidApp/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/androidApp/src/main/res/mipmap-mdpi/ic_launcher.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/androidApp/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/androidApp/src/main/res/mipmap-mdpi/ic_launcher_round.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/androidApp/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/androidApp/src/main/res/mipmap-xhdpi/ic_launcher.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/androidApp/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/androidApp/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/androidApp/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/androidApp/src/main/res/mipmap-xxhdpi/ic_launcher.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/androidApp/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/androidApp/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/androidApp/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/androidApp/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/androidApp/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/androidApp/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/androidMain/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/androidMain/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/androidMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/util/PlatformUtils.android.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/androidMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/util/PlatformUtils.android.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/settings-outlined.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/App.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/App.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/AppModule.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/Haze.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/Haze.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/Theme.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/Theme.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/ThemeMode.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/ThemeMode.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/UIThemeWrapper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/UIThemeWrapper.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/color/ColorScheme.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/color/ColorScheme.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/color/ColorSchemeTokens.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/color/ColorSchemeTokens.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/bottombar/BottomBar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/bottombar/BottomBar.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/bottombar/BottomBarUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/bottombar/BottomBarUtils.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/bottombar/action/BottomBarAction.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/bottombar/action/BottomBarAction.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/bottombar/item/BottomBarItem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/bottombar/item/BottomBarItem.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/layout/ScaffoldLayout.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/layout/scaffold/ScaffoldLayout.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/layout/spacer/Spacer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/layout/spacer/Spacer.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/siderail/SideRail.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/siderail/SideRail.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/siderail/SideRailUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/siderail/SideRailUtils.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/siderail/action/SideRailAction.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/siderail/action/SideRailAction.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/siderail/item/SideRailItem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/siderail/item/SideRailItem.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/text/Text.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/text/Text.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/topbar/TopBar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/topbar/TopBar.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/topbar/TopBarState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/topbar/TopBarState.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/topbar/TopBarStickyHeader.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/topbar/TopBarStickyHeader.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/topbar/TopBarUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/topbar/TopBarUtils.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/topbar/action/TopBarAction.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/topbar/action/TopBarAction.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/topbar/action/TopBarActionUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/component/topbar/action/TopBarActionUtils.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/shape/RangedShape.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/app/usage/components/MaterialThemeExample.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/shape/ShapeData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/shape/ShapeData.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/shape/UniversalShape.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/typography/Typography.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/typography/Typography.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/typography/TypographyTokens.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/typography/TypographyTokens.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/util/window/WindowUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/ui/util/window/WindowUtils.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/util/PlatformUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/util/PlatformUtils.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/TestScreen.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/UIEntryPoint.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/desktopMain/kotlin/com/stoyanvuchev/squircleshape/app/main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/desktopMain/kotlin/com/stoyanvuchev/squircleshape/app/main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/desktopMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/util/PlatformUtils.desktop.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/desktopMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/util/PlatformUtils.desktop.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/iosMain/kotlin/com/stoyanvuchev/squircleshape/app/MainViewController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/iosMain/kotlin/com/stoyanvuchev/squircleshape/app/MainViewController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/iosMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/util/PlatformUtils.ios.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/iosMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/util/PlatformUtils.ios.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/wasmJsMain/kotlin/com/stoyanvuchev/squircleshape/app/main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/wasmJsMain/kotlin/com/stoyanvuchev/squircleshape/app/main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composeApp/src/wasmJsMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/util/PlatformUtils.wasmJs.kt" beforeDir="false" afterPath="$PROJECT_DIR$/composeApp/src/wasmJsMain/kotlin/com/stoyanvuchev/squircleshape/demo/core/util/PlatformUtils.wasmJs.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iosApp/iosApp.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/iosApp/iosApp.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iosApp/iosApp.xcodeproj/project.xcworkspace/xcuserdata/stoyan.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/iosApp/iosApp.xcodeproj/project.xcworkspace/xcuserdata/stoyan.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iosApp/iosApp/ContentView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/iosApp/iosApp/ContentView.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kotlin-js-store/wasm/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/kotlin-js-store/wasm/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/library/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/src/commonMain/kotlin/sv/lib/squircleshape/SquircleShapePath.kt" beforeDir="false" afterPath="$PROJECT_DIR$/library/src/commonMain/kotlin/sv/lib/squircleshape/SquircleShapePath.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme_images/full_squircle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme_images/mlbb_novaria.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -308,7 +158,7 @@
     &quot;accountId&quot;: &quot;746c16ae-d01a-44a4-b5d8-0a3892bd0025&quot;
   }
 }</component>
-  <component name="GradleScriptDefinitionsStorage" workingDir="$PROJECT_DIR$" gradleHome="$USER_HOME$/.gradle/wrapper/dists/gradle-9.3.1-bin/23ovyewtku6u96viwx3xl3oks/gradle-9.3.1" javaHome="$APPLICATION_HOME_DIR$/jbr/Contents/Home" gradleVersion="9.3.1">
+  <component name="GradleScriptDefinitionsStorage" workingDir="$PROJECT_DIR$" gradleHome="$USER_HOME$/.gradle/wrapper/dists/gradle-9.1.0-bin/9agqghryom9wkf8r80qlhnts3/gradle-9.1.0" javaHome="$APPLICATION_HOME_DIR$/jbr/Contents/Home" gradleVersion="9.1.0">
     <option name="jvmArguments">
       <list>
         <option value="-Didea.compose.hot-reload=true" />
@@ -404,13 +254,13 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "demoApp",
+    "git-widget-placeholder": "demo-app",
     "iOS Application.iosApp.executor": "Run",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/stoyan/StudioProjects/squircle-shape/composeApp/build/dist/wasmJs/productionExecutable",
     "recommended.upgrade.do.not.ask.for.project": "true",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "com.android.studio.ml.bot.mainConfigurable",
     "show.migrate.to.gradle.popup": "false"
   },
   "keyToStringList": {
@@ -522,16 +372,15 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="AppleRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" IS_LOCATION_SIMULATION_SUPPORTED="false" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" DEVELOPMENT_TEAM="${TEAM_ID}" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="false">
+    <configuration name="iosApp" type="AppleRunConfiguration" factoryName="Application" activateToolWindowBeforeRun="false" nameIsGenerated="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$PROJECT_DIR$/iosApp" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iosApp" TARGET_NAME="iosApp" CONFIG_NAME="Debug" IS_LOCATION_SIMULATION_SUPPORTED="true" SCHEME_NAME="iosApp" IS_LOCATION_SIMULATION_ALLOWED="true" LOCATION_SCENARIO_ID="com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier" LOCATION_SCENARIO_TYPE="1" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" DEVELOPMENT_TEAM="GQSBJKL2HP" RUN_TARGET_PROJECT_NAME="iosApp" RUN_TARGET_NAME="iosApp" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="false">
       <embedded_app_extension_list />
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="iosApp" type="AppleRunConfiguration" factoryName="Application" activateToolWindowBeforeRun="false" nameIsGenerated="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$PROJECT_DIR$/iosApp" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iosApp" TARGET_NAME="iosApp" CONFIG_NAME="Debug" IS_LOCATION_SIMULATION_SUPPORTED="true" SCHEME_NAME="iosApp" IS_LOCATION_SIMULATION_ALLOWED="true" LOCATION_SCENARIO_ID="com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier" LOCATION_SCENARIO_TYPE="1" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" DEVELOPMENT_TEAM="GQSBJKL2HP" RUN_TARGET_PROJECT_NAME="iosApp" RUN_TARGET_NAME="iosApp" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="false">
-      <embedded_app_extension_list />
+    <configuration default="true" type="Application" factoryName="Application">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="composeApp [desktop]" type="GradleRunConfiguration" factoryName="Gradle" activateToolWindowBeforeRun="false">
