@@ -31,7 +31,9 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
 
       - name: Build WasmJS production distribution
-        run: ./gradlew :composeApp:wasmJsBrowserDistribution
+        run: ./gradlew :composeApp:wasmJsBrowserDistribution --no-daemon
+        env:
+          GRADLE_OPTS: -Dkotlin.daemon.jvm.options="-Xmx5g -Xms1g"
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
