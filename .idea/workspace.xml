@@ -71,7 +71,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07a63061-e1ac-4350-bf7c-a0f9e12acac5" name="Changes" comment="CI: Implement GitHub Actions workflow for Wasm/Compose Web deployment.&#10;&#10;This commit introduces an automated CI/CD pipeline to build and deploy the Compose Multiplatform Web (Wasm) target to GitHub Pages.&#10;&#10;- **Automated Deployment Workflow:**&#10;    - Added `.github/workflows/deploy-web.yml` to handle the build and deployment process.&#10;    - Configured the workflow to trigger on pushes to the `demo-app` branch and via manual `workflow_dispatch`.&#10;    - Set up a build environment using Ubuntu, JDK 21 (Temurin), and Gradle.&#10;    - Implemented steps to build the WasmJS production distribution using the `:composeApp:wasmJsBrowserDistribution` task.&#10;    - Integrated GitHub Pages artifact uploading and deployment actions.&#10;- **Permissions &amp; Concurrency:**&#10;    - Defined necessary permissions for writing content and managing Page deployments.&#10;    - Configured concurrency settings to manage sequential deployments to the &quot;pages&quot; group." />
+    <list default="true" id="07a63061-e1ac-4350-bf7c-a0f9e12acac5" name="Changes" comment="CI: Optimize WasmJS build configuration for web deployment.&#10;&#10;This commit tunes the GitHub Actions workflow for the web distribution build to improve stability and resource management.&#10;&#10;-   Added the `--no-daemon` flag to the `wasmJsBrowserDistribution` Gradle task to prevent persistent processes in the CI environment.&#10;-   Configured `GRADLE_OPTS` to set Kotlin daemon JVM memory limits (`-Xmx5g -Xms1g`) to prevent out-of-memory errors during compilation.">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy-web.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy-web.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -132,7 +135,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="demo-app" />
+        <entry key="$PROJECT_DIR$" value="fix-website-workflow-memory-build-error" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -251,7 +254,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "website-workflow-impl",
+    "git-widget-placeholder": "demo-app",
     "iOS Application.iosApp.executor": "Run",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
@@ -661,7 +664,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773582939821</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="CI: Optimize WasmJS build configuration for web deployment.&#10;&#10;This commit tunes the GitHub Actions workflow for the web distribution build to improve stability and resource management.&#10;&#10;-   Added the `--no-daemon` flag to the `wasmJsBrowserDistribution` Gradle task to prevent persistent processes in the CI environment.&#10;-   Configured `GRADLE_OPTS` to set Kotlin daemon JVM memory limits (`-Xmx5g -Xms1g`) to prevent out-of-memory errors during compilation.">
+      <option name="closed" value="true" />
+      <created>1773583980510</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1773583980510</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -684,7 +695,8 @@
     <MESSAGE value="Refactor: Update project structure and upgrade dependencies to version 5.1.0.&#10;&#10;This commit introduces a major restructuring of the project to align with AGP 9.0.0 and Kotlin Multiplatform standards:&#10;&#10;- **Project Restructuring:**&#10;    - Created a standalone `androidApp` module for the demo application, moving Android-specific resources and the `MainActivity` from `composeApp`.&#10;    - Converted the `library` and `composeApp` modules to use the `androidMultiplatformLibrary` plugin.&#10;    - Simplified `iosApp` build configuration by removing unused test and profile schemes.&#10;&#10;- **Dependency Updates:**&#10;    - Updated Library version to `5.1.0`.&#10;    - Upgraded **AGP** to `9.0.0` and **Gradle** to `9.1.0`.&#10;    - Updated **Compose Multiplatform** to `1.11.0-alpha02` and **Jetpack Compose** to `1.11.0-alpha04`.&#10;    - Added `androidx.compose.material3` and upgraded various core dependencies in the version catalog.&#10;&#10;- **Feature Enhancements:**&#10;    - **Dynamic Color Support:** Updated `MainActivity` to support Material 3 dynamic color schemes on Android S+.&#10;    - **App Theming:** Refactored the `App` entry point to accept a `colorScheme`, allowing better state management between platform-specific launchers and the common UI.&#10;&#10;- **Documentation &amp; Legal:**&#10;    - Updated `README.md` with new minimum requirements and AGP 9 migration warnings.&#10;    - Updated `LICENSE` copyright year to 2026." />
     <MESSAGE value="Refactor: Overhaul Demo App UI with a new navigation system and enhanced TopBar architecture.&#10;&#10;This commit introduces a significant update to the demo app's presentation layer, replacing the previous collapsible top bar logic with a more flexible navigation system and integrating the Haze library for visual effects.&#10;&#10;- **New Navigation Components:**&#10;    - Implemented `BottomBar` and `SideRail` components with corresponding `Item` and `Action` sub-components for responsive navigation.&#10;    - Added `BottomBarUtils` and `SideRailUtils` to manage layout, glassmorphism-style blur effects (via Haze), and interaction animations.&#10;    - Integrated new vector resources: `home`, `documentation`, `settings`, and `arrow-back`.&#10;&#10;- **TopBar Architecture Overhaul:**&#10;    - Replaced `CollapsibleTopBar` and `ExitUntilCollapsedScrollBehavior` with a new `TopBar` component driven by `topBarStickyHeader`.&#10;    - Moved collapse logic into `TopBarStickyHeader.kt`, using a sticky header in `LazyColumn`/`LazyGrid` to drive the shared `TopBarState`.&#10;    - Introduced `LocalTopBarState` for easier state access across the UI hierarchy.&#10;    - Updated `TopBarUtils` with refined container height calculations and safe drawing inset support.&#10;&#10;- **Scaffold &amp; UI Core:**&#10;    - Updated `ScaffoldLayout` to support the new `BottomBar` and `SideRail`, including responsive logic to switch between them based on window size.&#10;    - Integrated `HazeState` globally via `LocalHazeState` for unified blur effects across bars and actions.&#10;    - Added `VerticalSpacer` and `HorizontalSpacer` utility components.&#10;    - Refined `Typography` tokens for better scaling and `ColorScheme` outlines for better visibility.&#10;    - Adjusted `RangedShape` radius scaling from `40f` to `56f`.&#10;&#10;- **Dependencies &amp; Documentation:**&#10;    - Reverted Kotlin to `2.3.0` and AGP to `9.0.0` for the stable branch.&#10;    - Downgraded Compose Multiplatform to `1.10.1` and Jetpack Compose to `1.10.3`.&#10;    - Added `dev.chrisbanes.haze:haze` dependency.&#10;    - Updated `README.md` to reflect the new release channels (`stable` vs `experimental`), updated minimum requirements, and bumped version to `5.1.1`." />
     <MESSAGE value="CI: Implement GitHub Actions workflow for Wasm/Compose Web deployment.&#10;&#10;This commit introduces an automated CI/CD pipeline to build and deploy the Compose Multiplatform Web (Wasm) target to GitHub Pages.&#10;&#10;- **Automated Deployment Workflow:**&#10;    - Added `.github/workflows/deploy-web.yml` to handle the build and deployment process.&#10;    - Configured the workflow to trigger on pushes to the `demo-app` branch and via manual `workflow_dispatch`.&#10;    - Set up a build environment using Ubuntu, JDK 21 (Temurin), and Gradle.&#10;    - Implemented steps to build the WasmJS production distribution using the `:composeApp:wasmJsBrowserDistribution` task.&#10;    - Integrated GitHub Pages artifact uploading and deployment actions.&#10;- **Permissions &amp; Concurrency:**&#10;    - Defined necessary permissions for writing content and managing Page deployments.&#10;    - Configured concurrency settings to manage sequential deployments to the &quot;pages&quot; group." />
-    <option name="LAST_COMMIT_MESSAGE" value="CI: Implement GitHub Actions workflow for Wasm/Compose Web deployment.&#10;&#10;This commit introduces an automated CI/CD pipeline to build and deploy the Compose Multiplatform Web (Wasm) target to GitHub Pages.&#10;&#10;- **Automated Deployment Workflow:**&#10;    - Added `.github/workflows/deploy-web.yml` to handle the build and deployment process.&#10;    - Configured the workflow to trigger on pushes to the `demo-app` branch and via manual `workflow_dispatch`.&#10;    - Set up a build environment using Ubuntu, JDK 21 (Temurin), and Gradle.&#10;    - Implemented steps to build the WasmJS production distribution using the `:composeApp:wasmJsBrowserDistribution` task.&#10;    - Integrated GitHub Pages artifact uploading and deployment actions.&#10;- **Permissions &amp; Concurrency:**&#10;    - Defined necessary permissions for writing content and managing Page deployments.&#10;    - Configured concurrency settings to manage sequential deployments to the &quot;pages&quot; group." />
+    <MESSAGE value="CI: Optimize WasmJS build configuration for web deployment.&#10;&#10;This commit tunes the GitHub Actions workflow for the web distribution build to improve stability and resource management.&#10;&#10;-   Added the `--no-daemon` flag to the `wasmJsBrowserDistribution` Gradle task to prevent persistent processes in the CI environment.&#10;-   Configured `GRADLE_OPTS` to set Kotlin daemon JVM memory limits (`-Xmx5g -Xms1g`) to prevent out-of-memory errors during compilation." />
+    <option name="LAST_COMMIT_MESSAGE" value="CI: Optimize WasmJS build configuration for web deployment.&#10;&#10;This commit tunes the GitHub Actions workflow for the web distribution build to improve stability and resource management.&#10;&#10;-   Added the `--no-daemon` flag to the `wasmJsBrowserDistribution` Gradle task to prevent persistent processes in the CI environment.&#10;-   Configured `GRADLE_OPTS` to set Kotlin daemon JVM memory limits (`-Xmx5g -Xms1g`) to prevent out-of-memory errors during compilation." />
   </component>
   <component name="XcodeBuildConfigurationMetadata">
     <buildConfigurationMetadataMap>
