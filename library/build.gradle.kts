@@ -14,7 +14,7 @@ kotlin {
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs { browser() }
 
-    androidLibrary {
+    android {
         compileSdk = 36
         minSdk = 23
         namespace = "sv.lib.squircleshape"

@@ -4,11 +4,76 @@
     <shared>
       <config />
     </shared>
+    <layouts>
+      <layout url="file://$PROJECT_DIR$/androidApp/src/main/res/mipmap-anydpi-v26/ic_launcher.xml">
+        <config>
+          <theme>@style/Theme.SquircleShape</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/androidApp/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml">
+        <config>
+          <theme>@style/Theme.SquircleShape</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/compose-multiplatform.xml">
+        <config>
+          <theme>@style/Theme.SquircleShape</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/copy-outlined.xml">
+        <config>
+          <theme>@style/Theme.SquircleShape</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/explore-outlined.xml">
+        <config>
+          <theme>@style/Theme.SquircleShape</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/faq-outlined.xml">
+        <config>
+          <theme>@style/Theme.SquircleShape</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/home.xml">
+        <config>
+          <theme>@style/Theme.SquircleShape</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/info-outlined.xml">
+        <config>
+          <theme>@style/Theme.SquircleShape</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/performance.xml">
+        <config>
+          <theme>@style/Theme.SquircleShape</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/settings-outlined.xml">
+        <config>
+          <theme>@style/Theme.SquircleShape</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/squircle-icon-bold.xml">
+        <config>
+          <theme>@style/Theme.SquircleShape</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable/squircle-icon-outlined.xml">
+        <config>
+          <theme>@style/Theme.AppCompat.NoActionBar</theme>
+        </config>
+      </layout>
+    </layouts>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="07a63061-e1ac-4350-bf7c-a0f9e12acac5" name="Changes" comment="CI: Optimize WasmJS build configuration for web deployment.&#10;&#10;This commit tunes the GitHub Actions workflow for the web distribution build to improve stability and resource management.&#10;&#10;-   Added the `--no-daemon` flag to the `wasmJsBrowserDistribution` Gradle task to prevent persistent processes in the CI environment.&#10;-   Configured `GRADLE_OPTS` to set Kotlin daemon JVM memory limits (`-Xmx5g -Xms1g`) to prevent out-of-memory errors during compilation.">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy-web.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy-web.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     <list default="true" id="07a63061-e1ac-4350-bf7c-a0f9e12acac5" name="Changes" comment="Refactor: Improve shape drawing and update dependencies.&#10;&#10;This commit introduces several key changes:&#10;&#10;-   **Refactored `SquircleShapePath`:**&#10;    -   Removed the corner radius scaling that was dependent on the smoothing value.&#10;    -   Replaced straight `lineTo` calls with `cubicTo` for the shape's edges, allowing for a subtle pinch effect and a more organic appearance.&#10;&#10;-   **Updated Dependencies:**&#10;    -   Bumped Kotlin to `2.3.0` and Compose to `1.11.0`.&#10;    -   Migrated project dependencies to use the version catalog (`libs.versions.toml`).&#10;    -   Updated the library version to `5.0.0` and changed the `groupId`.&#10;&#10;-   **Sample App Improvements:**&#10;    -   Refactored the preview screen to use a `ViewModel` for state management.&#10;    -   Introduced Koin for dependency injection.&#10;    -   Improved layout responsiveness for larger screens.&#10;&#10;-   **Documentation:**&#10;    -   Updated `README.md` with breaking changes for version `5.0.0`, new minimum requirements, and updated dependency instructions.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
@@ -23,7 +88,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[LocalEmulator::path=/Users/stoyan/.android/avd/Pixel_7_Pro.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[PhysicalDevice::serial=R5CX22P8R0T]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -58,8 +123,10 @@
         <option value="valueResourceFile" />
         <option value="Kotlin Sealed Class" />
         <option value="Kotlin Sealed Interface" />
+        <option value="Kotlin Enum" />
         <option value="Kotlin Data Class" />
         <option value="Kotlin Object" />
+        <option value="Kotlin Interface" />
         <option value="Kotlin Class" />
         <option value="Kotlin File" />
       </list>
@@ -73,6 +140,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
+        <entry key="$PROJECT_DIR$" value="fix-website-workflow-memory-build-error" />
         <entry key="$PROJECT_DIR$" value="stable" />
       </map>
     </option>
@@ -150,7 +218,6 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
@@ -162,12 +229,15 @@
     "Android App.application.androidApp.executor": "Run",
     "Android App.application.executor": "Run",
     "Android App.composeApp.executor": "Run",
-    "ApkExportedModule": "SquircleShape.composeApp",
+    "ApkExportedModule": "SquircleShape.androidApp",
+    "ExportApk.ApkPathForSquircleShape.androidApp": "/Users/stoyan/StudioProjects/squircle-shape/androidApp",
     "ExportApk.ApkPathForSquircleShape.composeApp": "/Users/stoyan/AndroidStudioProjects/squircle-shape/composeApp",
     "Gradle.Building Kotlin artifacts for Build :composeApp:embedAndSignAppleFrameworkForXcode.executor": "Run",
+    "Gradle.Configure Daemon JVM Criteria.executor": "Run",
     "Gradle.Download Sources.executor": "Run",
     "Gradle.Upgrade Gradle wrapper.executor": "Run",
     "Gradle.composeApp [desktop].executor": "Run",
+    "Gradle.composeApp [wasmJs].executor": "Run",
     "Gradle.main [jvm].executor": "Run",
     "Gradle.squircle-shape [application:run].executor": "Run",
     "Gradle.squircle-shape [application:wasmJsRun].executor": "Run",
@@ -175,6 +245,7 @@
     "Gradle.squircle-shape [composeApp:wasmJsBrowserProductionRun].executor": "Run",
     "Gradle.squircle-shape [composeApp:wasmJsRun].executor": "Run",
     "Gradle.squircle-shape [testClasses].executor": "Run",
+    "GradleDaemonJvmCriteriaMigrationNotification.isNotificationDisabled": "true",
     "Kotlin.MainKt.executor": "Run",
     "Kotlin.MainKtKt.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -189,13 +260,14 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "demo-app",
     "git-widget-placeholder": "release-5.1.1",
     "iOS Application.iosApp.executor": "Run",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/stoyan/StudioProjects/squircle-shape/composeApp/src/androidMain",
+    "last_opened_file_path": "/Users/stoyan/StudioProjects/squircle-shape/composeApp/build/dist/wasmJs/productionExecutable",
     "recommended.upgrade.do.not.ask.for.project": "true",
-    "settings.editor.selected.configurable": "configurable.group.language",
+    "settings.editor.selected.configurable": "com.android.studio.ml.bot.mainConfigurable",
     "show.migrate.to.gradle.popup": "false"
   },
   "keyToStringList": {
@@ -206,21 +278,32 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/composeApp/src/androidMain" />
-      <recent name="$PROJECT_DIR$/composeApp/src/androidMain/kotlin" />
-      <recent name="D:\AndroidStudioProjects\squircle-shape\application\src\wasmJsMain\kotlin\com\stoyanvuchev\squircleshape\app" />
-      <recent name="D:\AndroidStudioProjects\squircle-shape" />
-      <recent name="D:\AndroidStudioProjects\squircle-shape\application\src\androidMain" />
+      <recent name="$PROJECT_DIR$/composeApp/build/dist/wasmJs/productionExecutable" />
+      <recent name="$PROJECT_DIR$/readme_images" />
+      <recent name="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/app/faq/components" />
+      <recent name="$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable" />
+      <recent name="$PROJECT_DIR$/composeApp/src/commonMain/kotlin/com/stoyanvuchev/squircleshape/demo/presentation/faq" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/composeApp/src/commonMain/composeResources/drawable" />
       <recent name="$PROJECT_DIR$/composeApp/src" />
       <recent name="$PROJECT_DIR$/androidApp/src/main" />
       <recent name="$PROJECT_DIR$/application/src/iosMain/kotlin/com/stoyanvuchev/squircleshape/app" />
       <recent name="D:\AndroidStudioProjects\squircle-shape\application\src\desktopMain\kotlin\com\stoyanvuchev\squircleshape\app" />
-      <recent name="D:\AndroidStudioProjects\squircle-shape\application\src\commonMain\kotlin\com\stoyanvuchev\squircleshape\app\common" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="com.stoyanvuchev.squircleshape" />
+    </key>
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.stoyanvuchev.squircleshape.demo.presentation.demo" />
+      <recent name="com.stoyanvuchev.squircleshape.demo.core.ui.component.siderail" />
+    </key>
+    <key name="K2MoveDeclarationsDialog.RECENT_PACKAGE_KEY">
+      <recent name="com.stoyanvuchev.squircleshape.demo.di" />
+      <recent name="com.stoyanvuchev.squircleshape.demo.presentation.content" />
+      <recent name="com.stoyanvuchev.squircleshape.demo.presentation.usage.components" />
+      <recent name="com.stoyanvuchev.squircleshape.demo.presentation.demo.components" />
+      <recent name="com.stoyanvuchev.squircleshape.demo.presentation.content.components.demo" />
     </key>
   </component>
   <component name="RunManager" selected="Gradle.composeApp [desktop]">
@@ -308,6 +391,11 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="composeApp [desktop]" type="GradleRunConfiguration" factoryName="Gradle" activateToolWindowBeforeRun="false">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -326,8 +414,11 @@
       </ExternalSystemSettings>
       <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
       <DebugAllEnabled>false</DebugAllEnabled>
       <RunAsTest>false</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
       <method v="2" />
     </configuration>
     <configuration name="composeApp [wasmJs]" type="GradleRunConfiguration" factoryName="Gradle">
@@ -348,8 +439,11 @@
       </ExternalSystemSettings>
       <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
       <DebugAllEnabled>false</DebugAllEnabled>
       <RunAsTest>false</RunAsTest>
+      <GradleProfilingDisabled>true</GradleProfilingDisabled>
+      <GradleCoverageDisabled>true</GradleCoverageDisabled>
       <method v="2" />
     </configuration>
     <configuration name="squircle-shape [composeApp:run]" type="GradleRunConfiguration" factoryName="Gradle" nameIsGenerated="true">
@@ -370,8 +464,11 @@
       </ExternalSystemSettings>
       <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
       <DebugAllEnabled>false</DebugAllEnabled>
       <RunAsTest>false</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
       <method v="2" />
     </configuration>
     <configuration name="squircle-shape [composeApp:wasmJsBrowserProductionRun]" type="GradleRunConfiguration" factoryName="Gradle" nameIsGenerated="true">
@@ -392,8 +489,11 @@
       </ExternalSystemSettings>
       <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
       <DebugAllEnabled>false</DebugAllEnabled>
       <RunAsTest>false</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
       <method v="2" />
     </configuration>
     <configuration name="squircle-shape [testClasses]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -414,8 +514,11 @@
       </ExternalSystemSettings>
       <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
       <DebugAllEnabled>false</DebugAllEnabled>
       <RunAsTest>false</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
       <method v="2" />
     </configuration>
     <configuration default="true" type="JetRunConfigurationType">
@@ -550,7 +653,39 @@
       <option name="project" value="LOCAL" />
       <updated>1767118666413</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Refactor: Update project structure and upgrade dependencies to version 5.1.0.&#10;&#10;This commit introduces a major restructuring of the project to align with AGP 9.0.0 and Kotlin Multiplatform standards:&#10;&#10;- **Project Restructuring:**&#10;    - Created a standalone `androidApp` module for the demo application, moving Android-specific resources and the `MainActivity` from `composeApp`.&#10;    - Converted the `library` and `composeApp` modules to use the `androidMultiplatformLibrary` plugin.&#10;    - Simplified `iosApp` build configuration by removing unused test and profile schemes.&#10;&#10;- **Dependency Updates:**&#10;    - Updated Library version to `5.1.0`.&#10;    - Upgraded **AGP** to `9.0.0` and **Gradle** to `9.1.0`.&#10;    - Updated **Compose Multiplatform** to `1.11.0-alpha02` and **Jetpack Compose** to `1.11.0-alpha04`.&#10;    - Added `androidx.compose.material3` and upgraded various core dependencies in the version catalog.&#10;&#10;- **Feature Enhancements:**&#10;    - **Dynamic Color Support:** Updated `MainActivity` to support Material 3 dynamic color schemes on Android S+.&#10;    - **App Theming:** Refactored the `App` entry point to accept a `colorScheme`, allowing better state management between platform-specific launchers and the common UI.&#10;&#10;- **Documentation &amp; Legal:**&#10;    - Updated `README.md` with new minimum requirements and AGP 9 migration warnings.&#10;    - Updated `LICENSE` copyright year to 2026.">
+      <option name="closed" value="true" />
+      <created>1769892038598</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1769892038598</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Refactor: Overhaul Demo App UI with a new navigation system and enhanced TopBar architecture.&#10;&#10;This commit introduces a significant update to the demo app's presentation layer, replacing the previous collapsible top bar logic with a more flexible navigation system and integrating the Haze library for visual effects.&#10;&#10;- **New Navigation Components:**&#10;    - Implemented `BottomBar` and `SideRail` components with corresponding `Item` and `Action` sub-components for responsive navigation.&#10;    - Added `BottomBarUtils` and `SideRailUtils` to manage layout, glassmorphism-style blur effects (via Haze), and interaction animations.&#10;    - Integrated new vector resources: `home`, `documentation`, `settings`, and `arrow-back`.&#10;&#10;- **TopBar Architecture Overhaul:**&#10;    - Replaced `CollapsibleTopBar` and `ExitUntilCollapsedScrollBehavior` with a new `TopBar` component driven by `topBarStickyHeader`.&#10;    - Moved collapse logic into `TopBarStickyHeader.kt`, using a sticky header in `LazyColumn`/`LazyGrid` to drive the shared `TopBarState`.&#10;    - Introduced `LocalTopBarState` for easier state access across the UI hierarchy.&#10;    - Updated `TopBarUtils` with refined container height calculations and safe drawing inset support.&#10;&#10;- **Scaffold &amp; UI Core:**&#10;    - Updated `ScaffoldLayout` to support the new `BottomBar` and `SideRail`, including responsive logic to switch between them based on window size.&#10;    - Integrated `HazeState` globally via `LocalHazeState` for unified blur effects across bars and actions.&#10;    - Added `VerticalSpacer` and `HorizontalSpacer` utility components.&#10;    - Refined `Typography` tokens for better scaling and `ColorScheme` outlines for better visibility.&#10;    - Adjusted `RangedShape` radius scaling from `40f` to `56f`.&#10;&#10;- **Dependencies &amp; Documentation:**&#10;    - Reverted Kotlin to `2.3.0` and AGP to `9.0.0` for the stable branch.&#10;    - Downgraded Compose Multiplatform to `1.10.1` and Jetpack Compose to `1.10.3`.&#10;    - Added `dev.chrisbanes.haze:haze` dependency.&#10;    - Updated `README.md` to reflect the new release channels (`stable` vs `experimental`), updated minimum requirements, and bumped version to `5.1.1`.">
+      <option name="closed" value="true" />
+      <created>1771716667456</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1771716667456</updated>
+    </task>
+    <task id="LOCAL-00015" summary="CI: Implement GitHub Actions workflow for Wasm/Compose Web deployment.&#10;&#10;This commit introduces an automated CI/CD pipeline to build and deploy the Compose Multiplatform Web (Wasm) target to GitHub Pages.&#10;&#10;- **Automated Deployment Workflow:**&#10;    - Added `.github/workflows/deploy-web.yml` to handle the build and deployment process.&#10;    - Configured the workflow to trigger on pushes to the `demo-app` branch and via manual `workflow_dispatch`.&#10;    - Set up a build environment using Ubuntu, JDK 21 (Temurin), and Gradle.&#10;    - Implemented steps to build the WasmJS production distribution using the `:composeApp:wasmJsBrowserDistribution` task.&#10;    - Integrated GitHub Pages artifact uploading and deployment actions.&#10;- **Permissions &amp; Concurrency:**&#10;    - Defined necessary permissions for writing content and managing Page deployments.&#10;    - Configured concurrency settings to manage sequential deployments to the &quot;pages&quot; group.">
+      <option name="closed" value="true" />
+      <created>1773582939821</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1773582939821</updated>
+    </task>
+    <task id="LOCAL-00016" summary="CI: Optimize WasmJS build configuration for web deployment.&#10;&#10;This commit tunes the GitHub Actions workflow for the web distribution build to improve stability and resource management.&#10;&#10;-   Added the `--no-daemon` flag to the `wasmJsBrowserDistribution` Gradle task to prevent persistent processes in the CI environment.&#10;-   Configured `GRADLE_OPTS` to set Kotlin daemon JVM memory limits (`-Xmx5g -Xms1g`) to prevent out-of-memory errors during compilation.">
+      <option name="closed" value="true" />
+      <created>1773583980510</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1773583980510</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -570,7 +705,11 @@
     <MESSAGE value="Added support for iOS targets.&#10;&#10;- Added support for iOS targets.&#10;- Bumped Kotlin version to 2.0.21.&#10;- Bumped Compose version to 1.7.1.&#10;- Bumped other dependency versions.&#10;- Bumped library version to v2.1.0.&#10;- Other fixes &amp; improvements." />
     <MESSAGE value="Release v4.0.0&#10;&#10;- Added GentleSquircleShape.kt&#10;- Added GentleSquircleBasedShape.kt&#10;- Added GentleSquircleShapePath.kt&#10;- Fixed corner smoothing to radius scaling.&#10;- Fixed RTL/LTR mirroring." />
     <MESSAGE value="Refactor: Improve shape drawing and update dependencies.&#10;&#10;This commit introduces several key changes:&#10;&#10;-   **Refactored `SquircleShapePath`:**&#10;    -   Removed the corner radius scaling that was dependent on the smoothing value.&#10;    -   Replaced straight `lineTo` calls with `cubicTo` for the shape's edges, allowing for a subtle pinch effect and a more organic appearance.&#10;&#10;-   **Updated Dependencies:**&#10;    -   Bumped Kotlin to `2.3.0` and Compose to `1.11.0`.&#10;    -   Migrated project dependencies to use the version catalog (`libs.versions.toml`).&#10;    -   Updated the library version to `5.0.0` and changed the `groupId`.&#10;&#10;-   **Sample App Improvements:**&#10;    -   Refactored the preview screen to use a `ViewModel` for state management.&#10;    -   Introduced Koin for dependency injection.&#10;    -   Improved layout responsiveness for larger screens.&#10;&#10;-   **Documentation:**&#10;    -   Updated `README.md` with breaking changes for version `5.0.0`, new minimum requirements, and updated dependency instructions." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor: Improve shape drawing and update dependencies.&#10;&#10;This commit introduces several key changes:&#10;&#10;-   **Refactored `SquircleShapePath`:**&#10;    -   Removed the corner radius scaling that was dependent on the smoothing value.&#10;    -   Replaced straight `lineTo` calls with `cubicTo` for the shape's edges, allowing for a subtle pinch effect and a more organic appearance.&#10;&#10;-   **Updated Dependencies:**&#10;    -   Bumped Kotlin to `2.3.0` and Compose to `1.11.0`.&#10;    -   Migrated project dependencies to use the version catalog (`libs.versions.toml`).&#10;    -   Updated the library version to `5.0.0` and changed the `groupId`.&#10;&#10;-   **Sample App Improvements:**&#10;    -   Refactored the preview screen to use a `ViewModel` for state management.&#10;    -   Introduced Koin for dependency injection.&#10;    -   Improved layout responsiveness for larger screens.&#10;&#10;-   **Documentation:**&#10;    -   Updated `README.md` with breaking changes for version `5.0.0`, new minimum requirements, and updated dependency instructions." />
+    <MESSAGE value="Refactor: Update project structure and upgrade dependencies to version 5.1.0.&#10;&#10;This commit introduces a major restructuring of the project to align with AGP 9.0.0 and Kotlin Multiplatform standards:&#10;&#10;- **Project Restructuring:**&#10;    - Created a standalone `androidApp` module for the demo application, moving Android-specific resources and the `MainActivity` from `composeApp`.&#10;    - Converted the `library` and `composeApp` modules to use the `androidMultiplatformLibrary` plugin.&#10;    - Simplified `iosApp` build configuration by removing unused test and profile schemes.&#10;&#10;- **Dependency Updates:**&#10;    - Updated Library version to `5.1.0`.&#10;    - Upgraded **AGP** to `9.0.0` and **Gradle** to `9.1.0`.&#10;    - Updated **Compose Multiplatform** to `1.11.0-alpha02` and **Jetpack Compose** to `1.11.0-alpha04`.&#10;    - Added `androidx.compose.material3` and upgraded various core dependencies in the version catalog.&#10;&#10;- **Feature Enhancements:**&#10;    - **Dynamic Color Support:** Updated `MainActivity` to support Material 3 dynamic color schemes on Android S+.&#10;    - **App Theming:** Refactored the `App` entry point to accept a `colorScheme`, allowing better state management between platform-specific launchers and the common UI.&#10;&#10;- **Documentation &amp; Legal:**&#10;    - Updated `README.md` with new minimum requirements and AGP 9 migration warnings.&#10;    - Updated `LICENSE` copyright year to 2026." />
+    <MESSAGE value="Refactor: Overhaul Demo App UI with a new navigation system and enhanced TopBar architecture.&#10;&#10;This commit introduces a significant update to the demo app's presentation layer, replacing the previous collapsible top bar logic with a more flexible navigation system and integrating the Haze library for visual effects.&#10;&#10;- **New Navigation Components:**&#10;    - Implemented `BottomBar` and `SideRail` components with corresponding `Item` and `Action` sub-components for responsive navigation.&#10;    - Added `BottomBarUtils` and `SideRailUtils` to manage layout, glassmorphism-style blur effects (via Haze), and interaction animations.&#10;    - Integrated new vector resources: `home`, `documentation`, `settings`, and `arrow-back`.&#10;&#10;- **TopBar Architecture Overhaul:**&#10;    - Replaced `CollapsibleTopBar` and `ExitUntilCollapsedScrollBehavior` with a new `TopBar` component driven by `topBarStickyHeader`.&#10;    - Moved collapse logic into `TopBarStickyHeader.kt`, using a sticky header in `LazyColumn`/`LazyGrid` to drive the shared `TopBarState`.&#10;    - Introduced `LocalTopBarState` for easier state access across the UI hierarchy.&#10;    - Updated `TopBarUtils` with refined container height calculations and safe drawing inset support.&#10;&#10;- **Scaffold &amp; UI Core:**&#10;    - Updated `ScaffoldLayout` to support the new `BottomBar` and `SideRail`, including responsive logic to switch between them based on window size.&#10;    - Integrated `HazeState` globally via `LocalHazeState` for unified blur effects across bars and actions.&#10;    - Added `VerticalSpacer` and `HorizontalSpacer` utility components.&#10;    - Refined `Typography` tokens for better scaling and `ColorScheme` outlines for better visibility.&#10;    - Adjusted `RangedShape` radius scaling from `40f` to `56f`.&#10;&#10;- **Dependencies &amp; Documentation:**&#10;    - Reverted Kotlin to `2.3.0` and AGP to `9.0.0` for the stable branch.&#10;    - Downgraded Compose Multiplatform to `1.10.1` and Jetpack Compose to `1.10.3`.&#10;    - Added `dev.chrisbanes.haze:haze` dependency.&#10;    - Updated `README.md` to reflect the new release channels (`stable` vs `experimental`), updated minimum requirements, and bumped version to `5.1.1`." />
+    <MESSAGE value="CI: Implement GitHub Actions workflow for Wasm/Compose Web deployment.&#10;&#10;This commit introduces an automated CI/CD pipeline to build and deploy the Compose Multiplatform Web (Wasm) target to GitHub Pages.&#10;&#10;- **Automated Deployment Workflow:**&#10;    - Added `.github/workflows/deploy-web.yml` to handle the build and deployment process.&#10;    - Configured the workflow to trigger on pushes to the `demo-app` branch and via manual `workflow_dispatch`.&#10;    - Set up a build environment using Ubuntu, JDK 21 (Temurin), and Gradle.&#10;    - Implemented steps to build the WasmJS production distribution using the `:composeApp:wasmJsBrowserDistribution` task.&#10;    - Integrated GitHub Pages artifact uploading and deployment actions.&#10;- **Permissions &amp; Concurrency:**&#10;    - Defined necessary permissions for writing content and managing Page deployments.&#10;    - Configured concurrency settings to manage sequential deployments to the &quot;pages&quot; group." />
+    <MESSAGE value="CI: Optimize WasmJS build configuration for web deployment.&#10;&#10;This commit tunes the GitHub Actions workflow for the web distribution build to improve stability and resource management.&#10;&#10;-   Added the `--no-daemon` flag to the `wasmJsBrowserDistribution` Gradle task to prevent persistent processes in the CI environment.&#10;-   Configured `GRADLE_OPTS` to set Kotlin daemon JVM memory limits (`-Xmx5g -Xms1g`) to prevent out-of-memory errors during compilation." />
+    <option name="LAST_COMMIT_MESSAGE" value="CI: Optimize WasmJS build configuration for web deployment.&#10;&#10;This commit tunes the GitHub Actions workflow for the web distribution build to improve stability and resource management.&#10;&#10;-   Added the `--no-daemon` flag to the `wasmJsBrowserDistribution` Gradle task to prevent persistent processes in the CI environment.&#10;-   Configured `GRADLE_OPTS` to set Kotlin daemon JVM memory limits (`-Xmx5g -Xms1g`) to prevent out-of-memory errors during compilation." />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">
@@ -587,12 +726,12 @@
         </entry>
         <entry key="com.stoyanvuchev.squircleshape.demo">
           <value>
-            <CheckInfo lastCheckTimestamp="1769886511060" />
+            <CheckInfo lastCheckTimestamp="1773566903518" />
           </value>
         </entry>
         <entry key="com.stoyanvuchev.squircleshape.demo.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1769886511061" />
+            <CheckInfo lastCheckTimestamp="1773566903523" />
           </value>
         </entry>
       </map>
