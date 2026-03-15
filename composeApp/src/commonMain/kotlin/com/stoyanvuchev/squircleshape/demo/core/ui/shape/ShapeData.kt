@@ -1,4 +1,6 @@
 /*
+ * MIT License
+ *
  * Copyright (c) 2026 Stoyan Vuchev
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,10 +24,28 @@
 package com.stoyanvuchev.squircleshape.demo.core.ui.shape
 
 import androidx.compose.runtime.Stable
-import sv.lib.squircleshape.CornerSmoothing
+import androidx.compose.runtime.compositionLocalOf
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 
 @Stable
-data class ShapeData(
-    val radius: Int = 50,
-    val smoothing: Int = CornerSmoothing.Medium
-)
+class ShapeData {
+
+    private val _percent = MutableStateFlow(100)
+    val percent = _percent.asStateFlow()
+
+    private val _smoothing = MutableStateFlow(50)
+    val smoothing = _smoothing.asStateFlow()
+
+    fun setPercent(newPercent: Int) {
+        _percent.update { newPercent }
+    }
+
+    fun setSmoothing(newSmoothing: Int) {
+        _smoothing.update { newSmoothing }
+    }
+
+}
+
+val LocalShapeData = compositionLocalOf { ShapeData() }

@@ -1,4 +1,6 @@
 /*
+ * MIT License
+ *
  * Copyright (c) 2026 Stoyan Vuchev
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -21,27 +23,21 @@
 
 package com.stoyanvuchev.squircleshape.demo.core.ui
 
-import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable
 import com.stoyanvuchev.squircleshape.demo.core.ui.color.ColorScheme
 import com.stoyanvuchev.squircleshape.demo.core.ui.color.LocalColorScheme
-import com.stoyanvuchev.squircleshape.demo.core.ui.shape.LocalRangedShape
-import com.stoyanvuchev.squircleshape.demo.core.ui.shape.LocalUniversalShape
+import com.stoyanvuchev.squircleshape.demo.core.ui.shape.LocalShapes
+import com.stoyanvuchev.squircleshape.demo.core.ui.shape.Shapes
 import com.stoyanvuchev.squircleshape.demo.core.ui.typography.LocalTypography
 import com.stoyanvuchev.squircleshape.demo.core.ui.typography.Typography
 
 object Theme {
 
-    val universalShape: CornerBasedShape
+    val shapes: Shapes
         @Composable
         @ReadOnlyComposable
-        get() = LocalUniversalShape.current
-
-    val rangedShape: CornerBasedShape
-        @Composable
-        @ReadOnlyComposable
-        get() = LocalRangedShape.current
+        get() = LocalShapes.current
 
     val colorScheme: ColorScheme
         @Composable

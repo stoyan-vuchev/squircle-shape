@@ -1,4 +1,6 @@
 /*
+ * MIT License
+ *
  * Copyright (c) 2026 Stoyan Vuchev
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -40,7 +42,8 @@ sealed class ColorSchemeTokens(
     val onSurfaceElevationMedium: Color,
     val surfaceElevationHigh: Color,
     val onSurfaceElevationHigh: Color,
-    val outline: Color
+    val outline: Color,
+    val shadow: Color
 ) {
 
     data object Light : ColorSchemeTokens(
@@ -51,14 +54,15 @@ sealed class ColorSchemeTokens(
         error = Color(0xFF960017),
         onError = Color(0xFFFFF2F1),
         surface = Color(0xFFDAE4E7),
-        onSurface = Color(0xFF0B181C),
+        onSurface = Color(0xFF264249),
         surfaceElevationLow = Color(0xFFE6EDEF),
         onSurfaceElevationLow = Color(0xFF060F12),
         surfaceElevationMedium = Color(0xFFF3F6F7),
         onSurfaceElevationMedium = Color(0xFF020608),
         surfaceElevationHigh = Color(0xFFFFFFFF),
         onSurfaceElevationHigh = Color(0xFF020608),
-        outline = Color.White.copy(alpha = .33f)
+        outline = Color.White.copy(alpha = .33f),
+        shadow = Color(0x291E373D)
     )
 
     data object Dark : ColorSchemeTokens(
@@ -69,14 +73,15 @@ sealed class ColorSchemeTokens(
         error = Color(0xFFFF857F),
         onError = Color(0xFF160001),
         surface = Color(0xFF060F12),
-        onSurface = Color(0xFFDAE4E7),
+        onSurface = Color(0xFFA9C2C8),
         surfaceElevationLow = Color(0xFF0B181C),
         onSurfaceElevationLow = Color(0xFFE6EDEF),
         surfaceElevationMedium = Color(0xFF112227),
         onSurfaceElevationMedium = Color(0xFFF3F6F7),
         surfaceElevationHigh = Color(0xFF182C32),
         onSurfaceElevationHigh = Color(0xFFF3F6F7),
-        outline = Color.White.copy(alpha = .08f)
+        outline = Color.White.copy(alpha = .08f),
+        shadow = Color(0xFF060F12)
     )
 
 }

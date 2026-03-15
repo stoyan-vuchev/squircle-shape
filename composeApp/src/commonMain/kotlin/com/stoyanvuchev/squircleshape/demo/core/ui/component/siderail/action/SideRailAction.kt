@@ -1,4 +1,6 @@
 /*
+ * MIT License
+ *
  * Copyright (c) 2026 Stoyan Vuchev
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,6 +31,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.dp
 import com.stoyanvuchev.squircleshape.demo.core.ui.Theme
@@ -36,14 +39,17 @@ import com.stoyanvuchev.squircleshape.demo.core.ui.component.siderail.SideRailUt
 
 @Composable
 fun SideRailAction(
+    modifier: Modifier = Modifier,
     icon: @Composable () -> Painter,
     onClick: () -> Unit,
-    contentDescription: String? = null
+    contentDescription: String? = null,
+    contentColor: Color = Theme.colorScheme.primary
 ) = Box(
     modifier = Modifier
         .height(56.dp)
         .defaultMinSize(minWidth = 56.dp)
-        .sideRailActionModifier(onClick = onClick),
+        .sideRailActionModifier(onClick = onClick)
+        .then(modifier),
     contentAlignment = Alignment.Center,
     content = {
 
@@ -51,7 +57,7 @@ fun SideRailAction(
             modifier = Modifier.size(24.dp),
             painter = icon(),
             contentDescription = contentDescription,
-            tint = Theme.colorScheme.accent
+            tint = contentColor
         )
 
     }

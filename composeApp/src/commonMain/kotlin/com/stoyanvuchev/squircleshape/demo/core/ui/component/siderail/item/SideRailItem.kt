@@ -1,17 +1,24 @@
 /*
- * Copyright 2026 Assertive UI (assertiveui.com)
+ * MIT License
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Copyright (c) 2026 Stoyan Vuchev
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
 package com.stoyanvuchev.squircleshape.demo.core.ui.component.siderail.item
@@ -24,18 +31,16 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.RowScope
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
@@ -48,20 +53,27 @@ import androidx.compose.ui.unit.dp
 import com.stoyanvuchev.squircleshape.demo.core.ui.Theme
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.interaction.rememberRipple
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.text.Text
+import com.stoyanvuchev.squircleshape.demo.core.ui.util.window.LocalWindowState
 
 @Composable
-fun ColumnScope.SideRailItem(
+fun SideRailItem(
     modifier: Modifier = Modifier,
     icon: @Composable () -> Painter,
     label: String? = null,
-    selected: Boolean,
+    selected: () -> Boolean,
     onSelected: () -> Unit
 ) {
+
+    val windowState = LocalWindowState.current
+    val isLabelVisible = remember(windowState) { windowState.isLargeWidth }
+    val horizontalPadding by rememberUpdatedState(
+        if (isLabelVisible) 12.dp else 0.dp
+    )
 
     val transition = updateTransition(targetState = selected)
     val contentColor by transition.animateColor(
         targetValueByState = { isSelected ->
-            if (isSelected) Theme.colorScheme.primary
+            if (isSelected()) Theme.colorScheme.primary
             else Theme.colorScheme.onSurface
         },
         transitionSpec = {
@@ -76,7 +88,7 @@ fun ColumnScope.SideRailItem(
         modifier = Modifier
             .pointerHoverIcon(icon = PointerIcon.Hand)
             .padding(4.dp)
-            .height(48.dp)
+            .defaultMinSize(minWidth = 48.dp, minHeight = 48.dp)
             .width(IntrinsicSize.Max)
             .clickable(
                 interactionSource = remember { MutableInteractionSource() },
@@ -84,7 +96,7 @@ fun ColumnScope.SideRailItem(
                 onClick = onSelected,
                 role = Role.Tab
             )
-            .padding(horizontal = 12.dp)
+            .padding(horizontal = horizontalPadding)
             .then(modifier),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally)
@@ -97,14 +109,16 @@ fun ColumnScope.SideRailItem(
             contentDescription = null
         )
 
-        label?.let {
-            Text(
-                text = label,
-                color = contentColor,
-                style = Theme.typography.bodyLarge,
-                overflow = TextOverflow.Ellipsis,
-                maxLines = 1
-            )
+        if (isLabelVisible) {
+            label?.let {
+                Text(
+                    text = label,
+                    color = contentColor,
+                    style = Theme.typography.bodySmall,
+                    overflow = TextOverflow.Ellipsis,
+                    maxLines = 1
+                )
+            }
         }
 
     }

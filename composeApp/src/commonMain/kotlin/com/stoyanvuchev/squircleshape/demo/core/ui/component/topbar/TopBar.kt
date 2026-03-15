@@ -1,17 +1,24 @@
 /*
- * Copyright 2026 Assertive UI (assertiveui.com)
+ * MIT License
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Copyright (c) 2026 Stoyan Vuchev
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
 package com.stoyanvuchev.squircleshape.demo.core.ui.component.topbar
@@ -30,13 +37,19 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.text.lerp
+import androidx.compose.ui.graphics.Shadow
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.stoyanvuchev.squircleshape.demo.core.ui.LocalHazeState
 import com.stoyanvuchev.squircleshape.demo.core.ui.Theme
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.layout.spacer.HorizontalSpacer
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.text.Text
+import com.stoyanvuchev.squircleshape.demo.core.util.transformFraction
+import dev.chrisbanes.haze.HazeProgressive
+import dev.chrisbanes.haze.HazeStyle
+import dev.chrisbanes.haze.HazeTint
+import dev.chrisbanes.haze.hazeEffect
 
 /**
  * A collapsible Top Bar that reacts to scroll-driven [TopBarState].
@@ -53,106 +66,130 @@ import com.stoyanvuchev.squircleshape.demo.core.ui.component.text.Text
  * @param title The title text displayed in the top bar.
  * @param primaryActions Optional composable content aligned to the start (navigation/actions).
  * @param secondaryActions Optional composable content aligned to the end (actions/menu).
- * @param state The shared [TopBarState] driving height and typography interpolation.
  * @param insets Safe drawing insets applied to the content area.
- * @param modifier Optional modifier for additional styling or layout behavior.
  */
 @Composable
 fun TopBar(
     title: String,
     primaryActions: (@Composable RowScope.() -> Unit)? = null,
     secondaryActions: (@Composable RowScope.() -> Unit)? = null,
-    state: TopBarState = LocalTopBarState.current,
-    insets: WindowInsets = TopBarUtils.windowInsets(),
-    modifier: Modifier = Modifier
+    insets: WindowInsets = TopBarUtils.windowInsets()
 ) {
 
-    val density = LocalDensity.current
-    val minHeight = TopBarUtils.smallContainerHeight()
-    val maxHeight = TopBarUtils.largeContainerHeight()
-    val maxHeightPx = with(density) { maxHeight.toPx() }
-
-    /**
-     * Current dynamic height of the top bar.
-     *
-     * heightOffset increases as the list scrolls,
-     * reducing the visible height of the top bar.
-     */
-    val currentHeight by remember {
-        derivedStateOf {
-            with(density) {
-                (maxHeightPx - state.heightOffset).toDp()
-            }
-        }
+    val state = LocalTopBarState.current
+    val collapsedFraction by remember {
+        derivedStateOf { state.collapsedFraction }
     }
 
-    /**
-     * Title typography interpolation.
-     *
-     * Smoothly transitions between:
-     * - Large title when expanded
-     * - Small title when collapsed
-     */
-    val largeTitle = Theme.typography.titleLarge
-    val smallTitle = Theme.typography.titleSmall
-    val interpolatedStyle by remember {
-        derivedStateOf {
-            lerp(
-                largeTitle,
-                smallTitle,
-                state.collapsedFraction
-            )
-        }
+    val translationY by remember {
+        derivedStateOf { state.heightOffsetLimit - state.heightOffset }
     }
 
-    // Root container:
-    // Height is dynamically controlled by collapse progress.
-    // Content is aligned to the bottom to mimic a collapsing header.
+    val startIntensity by remember {
+        derivedStateOf { if (collapsedFraction == 1f) 1f else 0f }
+    }
+
     Box(
         modifier = Modifier
+            .graphicsLayer {
+                this.translationY = translationY
+            }
             .fillMaxWidth()
-            .height(currentHeight)
-            .then(modifier),
+            .hazeEffect(
+                state = LocalHazeState.current,
+                style = HazeStyle(
+                    backgroundColor = Theme.colorScheme.surface,
+                    tint = HazeTint(
+                        color = Theme.colorScheme.surface.copy(.8f)
+                    ),
+                    blurRadius = 12.dp,
+                    noiseFactor = 0f
+                )
+            ) {
+                progressive = HazeProgressive.verticalGradient(
+                    startIntensity = startIntensity,
+                    endIntensity = 0f
+                )
+            },
         contentAlignment = Alignment.BottomStart
     ) {
 
-        // Horizontal content row containing:
-        //  - Primary actions
-        //  - Title
-        //  - Secondary actions
-        // Height is fixed to the pinned (collapsed) height.
         Row(
             modifier = Modifier
-                .windowInsetsPadding(insets)
-                .height(minHeight),
+                .fillMaxWidth()
+                .height(TopBarUtils.smallContainerHeight())
+                .windowInsetsPadding(insets),
             verticalAlignment = Alignment.CenterVertically
         ) {
 
-            // Primary actions (start side).
             primaryActions?.let {
-                HorizontalSpacer(width = 16.dp)
+                HorizontalSpacer(width = 24.dp)
                 primaryActions()
             } ?: HorizontalSpacer(width = 4.dp)
 
-            // Displays the Title text.
-            // Uses weight(1f) to occupy remaining horizontal space.
-            // Ellipsis prevents layout jumps during collapse.
+            val largeTitleAlpha by remember {
+                derivedStateOf {
+                    transformFraction(
+                        value = 1f - collapsedFraction,
+                        startX = 1f,
+                        endX = .5f,
+                        startY = 1f,
+                        endY = 0f
+                    )
+                }
+            }
+
             Text(
                 modifier = Modifier
-                    .padding(horizontal = 16.dp)
+                    .graphicsLayer { this.alpha = largeTitleAlpha }
+                    .padding(horizontal = 24.dp)
                     .weight(1f),
                 text = title,
-                style = interpolatedStyle,
+                style = Theme.typography.titleLarge.copy(
+                    shadow = Shadow(
+                        color = Theme.colorScheme.surface,
+                        blurRadius = 1f
+                    )
+                ),
+                color = Theme.colorScheme.onSurfaceElevationHigh,
                 overflow = TextOverflow.Ellipsis
             )
 
-            // Secondary actions (end side).
             secondaryActions?.let {
                 secondaryActions()
-                HorizontalSpacer(width = 16.dp)
+                HorizontalSpacer(width = 24.dp)
             } ?: HorizontalSpacer(width = 4.dp)
 
         }
+
+        val smallTitleAlpha by remember {
+            derivedStateOf {
+                transformFraction(
+                    value = collapsedFraction,
+                    startX = .5f,
+                    endX = 1f,
+                    startY = 0f,
+                    endY = 1f
+                )
+            }
+        }
+
+        Text(
+            modifier = Modifier
+                .graphicsLayer { this.alpha = smallTitleAlpha }
+                .padding(horizontal = 24.dp)
+                .windowInsetsPadding(insets)
+                .align(Alignment.Center),
+            text = title,
+            style = Theme.typography.titleSmall.copy(
+                shadow = Shadow(
+                    color = Theme.colorScheme.surface,
+                    blurRadius = 1f
+                )
+            ),
+            color = Theme.colorScheme.onSurfaceElevationHigh,
+            overflow = TextOverflow.Ellipsis
+        )
 
     }
 

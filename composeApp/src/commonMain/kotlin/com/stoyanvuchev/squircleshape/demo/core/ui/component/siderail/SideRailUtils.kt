@@ -1,17 +1,24 @@
 /*
- * Copyright 2026 Assertive UI (assertiveui.com)
+ * MIT License
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Copyright (c) 2026 Stoyan Vuchev
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
 package com.stoyanvuchev.squircleshape.demo.core.ui.component.siderail
@@ -32,6 +39,8 @@ import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.draw.clip
@@ -69,67 +78,6 @@ object SideRailUtils {
             )
     }
 
-    internal fun Modifier.sideRailBlurModifier(): Modifier {
-        return composed {
-            Modifier
-                .dropShadow(
-                    shape = Theme.rangedShape,
-                    shadow = Shadow(
-                        radius = 24.dp,
-                        color = Theme.colorScheme.surface.copy(.5f),
-                        offset = DpOffset(x = 0.dp, y = 4.dp)
-                    )
-                )
-                .clip(Theme.rangedShape)
-                .hazeEffect(
-                    state = LocalHazeState.current,
-                    style = HazeStyle(
-                        backgroundColor = Theme.colorScheme.surface,
-                        tint = HazeTint(
-                            color = Theme.colorScheme.surfaceElevationMedium.copy(.5f)
-                        ),
-                        blurRadius = 12.dp
-                    )
-                )
-                .innerShadow(
-                    shape = Theme.rangedShape,
-                    shadow = Shadow(
-                        radius = 16.dp,
-                        brush = Brush.verticalGradient(
-                            colors = listOf(
-                                Theme.colorScheme.surface.copy(.5f),
-                                Theme.colorScheme.surface.copy(0f)
-                            )
-                        ),
-                        offset = DpOffset(x = 0.dp, y = 2.dp)
-                    )
-                )
-                .innerShadow(
-                    shape = Theme.rangedShape,
-                    shadow = Shadow(
-                        radius = 16.dp,
-                        brush = Brush.verticalGradient(
-                            colors = listOf(
-                                Theme.colorScheme.surfaceElevationHigh.copy(0f),
-                                Theme.colorScheme.surfaceElevationHigh
-                            )
-                        ),
-                        offset = DpOffset(x = 0.dp, y = (-2).dp)
-                    )
-                )
-                .border(
-                    width = 1.dp,
-                    brush = Brush.verticalGradient(
-                        colors = listOf(
-                            Theme.colorScheme.outline,
-                            Theme.colorScheme.outline.copy(0f)
-                        )
-                    ),
-                    shape = Theme.rangedShape
-                )
-        }
-    }
-
     internal fun Modifier.sideRailActionModifier(
         onClick: () -> Unit
     ): Modifier {
@@ -141,23 +89,27 @@ object SideRailUtils {
             val isPressed by interactionSource.collectIsPressedAsState()
 
             val contentPadding by animateDpAsState(
-                targetValue = when {
-                    isPressed -> 3.dp
-                    isFocused -> 1.5.dp
-                    isHovered -> 1.5.dp
-                    else -> 0.dp
-                },
-                animationSpec = spring()
+                targetValue = rememberUpdatedState(
+                    when {
+                        isPressed -> 3.dp
+                        isFocused -> 1.5.dp
+                        isHovered -> 1.5.dp
+                        else -> 0.dp
+                    }
+                ).value,
+                animationSpec = remember { spring() }
             )
 
             val borderColor by animateColorAsState(
-                targetValue = when {
-                    isPressed -> Theme.colorScheme.outline.copy(.5f)
-                    isHovered -> Theme.colorScheme.outline.copy(.33f)
-                    isFocused -> Theme.colorScheme.outline.copy(.33f)
-                    else -> Theme.colorScheme.outline
-                },
-                animationSpec = spring()
+                targetValue = rememberUpdatedState(
+                    when {
+                        isPressed -> Theme.colorScheme.outline.copy(.5f)
+                        isHovered -> Theme.colorScheme.outline.copy(.33f)
+                        isFocused -> Theme.colorScheme.outline.copy(.33f)
+                        else -> Theme.colorScheme.outline
+                    }
+                ).value,
+                animationSpec = remember { spring() }
             )
 
             Modifier
@@ -170,7 +122,15 @@ object SideRailUtils {
                     indication = rememberRipple()
                 )
                 .padding(contentPadding)
-                .clip(Theme.rangedShape)
+                .dropShadow(
+                    shape = Theme.shapes.medium,
+                    shadow = Shadow(
+                        radius = 24.dp,
+                        color = Theme.colorScheme.shadow,
+                        offset = DpOffset(x = 0.dp, y = 4.dp)
+                    )
+                )
+                .clip(Theme.shapes.medium)
                 .hazeEffect(
                     state = LocalHazeState.current,
                     style = HazeStyle(
@@ -182,7 +142,7 @@ object SideRailUtils {
                     )
                 )
                 .innerShadow(
-                    shape = Theme.rangedShape,
+                    shape = Theme.shapes.medium,
                     shadow = Shadow(
                         radius = 16.dp,
                         brush = Brush.verticalGradient(
@@ -195,7 +155,7 @@ object SideRailUtils {
                     )
                 )
                 .innerShadow(
-                    shape = Theme.rangedShape,
+                    shape = Theme.shapes.medium,
                     shadow = Shadow(
                         radius = 16.dp,
                         brush = Brush.verticalGradient(
@@ -215,10 +175,12 @@ object SideRailUtils {
                             borderColor.copy(0f)
                         )
                     ),
-                    shape = Theme.rangedShape
+                    shape = Theme.shapes.medium
                 )
 
         }
     }
 
 }
+
+val LocalIsSideRailPresent = staticCompositionLocalOf { false }

@@ -1,4 +1,6 @@
 /*
+ * MIT License
+ *
  * Copyright (c) 2026 Stoyan Vuchev
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,6 +28,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.retain.retain
 import androidx.compose.ui.UiComposable
 import androidx.compose.ui.unit.DpSize
 import com.stoyanvuchev.squircleshape.demo.core.ui.color.ColorSchemeTokens
@@ -33,11 +36,10 @@ import com.stoyanvuchev.squircleshape.demo.core.ui.color.LocalBackgroundColor
 import com.stoyanvuchev.squircleshape.demo.core.ui.color.LocalColorScheme
 import com.stoyanvuchev.squircleshape.demo.core.ui.color.LocalContentColor
 import com.stoyanvuchev.squircleshape.demo.core.ui.color.colorSchemeFromTokens
-import com.stoyanvuchev.squircleshape.demo.core.ui.shape.LocalRangedShape
-import com.stoyanvuchev.squircleshape.demo.core.ui.shape.LocalUniversalShape
+import com.stoyanvuchev.squircleshape.demo.core.ui.shape.LocalShapeData
+import com.stoyanvuchev.squircleshape.demo.core.ui.shape.LocalShapes
 import com.stoyanvuchev.squircleshape.demo.core.ui.shape.ShapeData
-import com.stoyanvuchev.squircleshape.demo.core.ui.shape.makeRangedShape
-import com.stoyanvuchev.squircleshape.demo.core.ui.shape.makeUniversalShape
+import com.stoyanvuchev.squircleshape.demo.core.ui.shape.Shapes
 import com.stoyanvuchev.squircleshape.demo.core.ui.typography.LocalTextStyle
 import com.stoyanvuchev.squircleshape.demo.core.ui.typography.LocalTypography
 import com.stoyanvuchev.squircleshape.demo.core.ui.typography.defaultTypography
@@ -47,7 +49,6 @@ import com.stoyanvuchev.squircleshape.demo.core.ui.util.window.rememberWindowSta
 @Composable
 @UiComposable
 fun UIThemeWrapper(
-    shapeData: ShapeData = ShapeData(),
     themeMode: ThemeMode = ThemeMode.SYSTEM,
     content: @Composable () -> Unit
 ) = BoxWithConstraints {
@@ -68,12 +69,11 @@ fun UIThemeWrapper(
         )
     }
 
-    val universalShape = remember(shapeData) { makeUniversalShape(shapeData) }
-    val rangedShape = remember(shapeData) { makeRangedShape(shapeData) }
+    val shapeData = retain { ShapeData() }
 
     CompositionLocalProvider(
-        LocalUniversalShape provides universalShape,
-        LocalRangedShape provides rangedShape,
+        LocalShapeData provides shapeData,
+        LocalShapes provides Shapes(),
         LocalThemeMode provides themeMode,
         LocalColorScheme provides colorScheme,
         LocalBackgroundColor provides colorScheme.surface,

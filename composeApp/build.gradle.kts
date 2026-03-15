@@ -5,6 +5,7 @@ import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 plugins {
     alias(libs.plugins.androidMultiplatformLibrary)
     alias(libs.plugins.kotlinMultiplatform)
+    alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.composeCompiler)
 }
@@ -25,7 +26,7 @@ kotlin {
         binaries.executable()
     }
 
-    androidLibrary {
+    android {
         compileSdk = 36
         minSdk = 23
         namespace = "com.stoyanvuchev.squircleshape.app"
@@ -49,6 +50,8 @@ kotlin {
         androidMain.dependencies {
             implementation(libs.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
+            implementation(libs.ktor.client.android)
+            implementation(libs.kotlinx.coroutines.android)
         }
 
         commonMain.dependencies {
@@ -62,17 +65,25 @@ kotlin {
             implementation(libs.lifecycle.runtime.ktx)
             implementation(libs.lifecycle.runtime.compose)
             implementation(libs.lifecycle.viewmodel.compose)
-            implementation(libs.androidx.navigation.compose)
+            implementation(libs.navigation3.compose)
             implementation(libs.koin.core)
             implementation(libs.koin.compose)
             implementation(libs.koin.compose.viewmodel)
             implementation(libs.haze)
+            implementation(libs.landscapist.core)
+            implementation(libs.landscapist.image)
+            implementation(libs.serialization.json)
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.client.content.negotiation)
+            implementation(libs.ktor.serialization.kotlinx.json)
+            implementation(libs.kotlinx.coroutines.core)
             implementation(projects.library)
         }
 
         val desktopMain by getting {
             dependencies {
                 implementation(compose.desktop.currentOs)
+                implementation(libs.ktor.client.cio)
                 implementation(libs.kotlinx.coroutines.swing)
             }
         }
@@ -80,9 +91,14 @@ kotlin {
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
         val iosMain by creating {
+            dependencies { implementation(libs.ktor.client.darwin) }
             dependsOn(commonMain.get())
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
+        }
+
+        wasmJsMain.dependencies {
+            implementation(libs.ktor.client.wasm)
         }
 
     }

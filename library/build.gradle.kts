@@ -14,7 +14,7 @@ kotlin {
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs { browser() }
 
-    androidLibrary {
+    android {
         compileSdk = 36
         minSdk = 23
         namespace = "sv.lib.squircleshape"
@@ -65,7 +65,7 @@ mavenPublishing {
     coordinates(
         groupId = "com.stoyanvuchev",
         artifactId = "squircle-shape",
-        version = "5.1.0"
+        version = "5.1.1"
     )
 
     pom {

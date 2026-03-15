@@ -2,7 +2,7 @@ package com.stoyanvuchev.squircleshape.app
 
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
-import com.stoyanvuchev.squircleshape.demo.presentation.UIEntryPoint
+import com.stoyanvuchev.squircleshape.demo.presentation.DemoApp
 
 fun main() = application {
 
@@ -11,7 +11,7 @@ fun main() = application {
         title = "Squircle Shape Demo"
     ) {
 
-        UIEntryPoint()
+        DemoApp()
 
     }
 

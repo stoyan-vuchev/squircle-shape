@@ -534,6 +534,18 @@
         </PersistentDeviceSelectionData>
         <PersistentDeviceSelectionData>
           <option name="api" value="35" />
+          <option name="brand" value="motorola" />
+          <option name="codename" value="cuscoi" />
+          <option name="id" value="cuscoi" />
+          <option name="labId" value="google" />
+          <option name="manufacturer" value="Motorola" />
+          <option name="name" value="edge 50 fusion" />
+          <option name="screenDensity" value="400" />
+          <option name="screenX" value="1080" />
+          <option name="screenY" value="2400" />
+        </PersistentDeviceSelectionData>
+        <PersistentDeviceSelectionData>
+          <option name="api" value="35" />
           <option name="brand" value="samsung" />
           <option name="codename" value="dm1q" />
           <option name="id" value="dm1q" />
@@ -775,6 +787,18 @@
         <PersistentDeviceSelectionData>
           <option name="api" value="34" />
           <option name="brand" value="motorola" />
+          <option name="codename" value="fogorow" />
+          <option name="id" value="fogorow" />
+          <option name="labId" value="google" />
+          <option name="manufacturer" value="Motorola" />
+          <option name="name" value="moto g24" />
+          <option name="screenDensity" value="280" />
+          <option name="screenX" value="720" />
+          <option name="screenY" value="1612" />
+        </PersistentDeviceSelectionData>
+        <PersistentDeviceSelectionData>
+          <option name="api" value="34" />
+          <option name="brand" value="motorola" />
           <option name="codename" value="fogos" />
           <option name="id" value="fogos" />
           <option name="labId" value="google" />
@@ -819,6 +843,18 @@
           <option name="screenDensity" value="450" />
           <option name="screenX" value="1080" />
           <option name="screenY" value="2340" />
+        </PersistentDeviceSelectionData>
+        <PersistentDeviceSelectionData>
+          <option name="api" value="33" />
+          <option name="brand" value="motorola" />
+          <option name="codename" value="gnevan" />
+          <option name="id" value="gnevan" />
+          <option name="labId" value="google" />
+          <option name="manufacturer" value="Motorola" />
+          <option name="name" value="moto g stylus (2023)" />
+          <option name="screenDensity" value="280" />
+          <option name="screenX" value="720" />
+          <option name="screenY" value="1600" />
         </PersistentDeviceSelectionData>
         <PersistentDeviceSelectionData>
           <option name="api" value="34" />
@@ -1205,6 +1241,18 @@
           <option name="screenDensity" value="420" />
           <option name="screenX" value="1856" />
           <option name="screenY" value="2160" />
+        </PersistentDeviceSelectionData>
+        <PersistentDeviceSelectionData>
+          <option name="api" value="36" />
+          <option name="brand" value="samsung" />
+          <option name="codename" value="r0qcsx" />
+          <option name="id" value="r0qcsx" />
+          <option name="labId" value="google" />
+          <option name="manufacturer" value="Samsung" />
+          <option name="name" value="S22" />
+          <option name="screenDensity" value="480" />
+          <option name="screenX" value="1080" />
+          <option name="screenY" value="2340" />
         </PersistentDeviceSelectionData>
         <PersistentDeviceSelectionData>
           <option name="api" value="30" />

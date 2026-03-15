@@ -1,17 +1,24 @@
 /*
- * Copyright 2026 Assertive UI (assertiveui.com)
+ * MIT License
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Copyright (c) 2026 Stoyan Vuchev
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
 package com.stoyanvuchev.squircleshape.demo.core.ui.component.bottombar
@@ -23,6 +30,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.WindowInsets
@@ -41,90 +50,142 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.innerShadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.graphics.shadow.Shadow
 import androidx.compose.ui.layout.onSizeChanged
+import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
+import com.stoyanvuchev.squircleshape.demo.core.ui.LocalHazeState
 import com.stoyanvuchev.squircleshape.demo.core.ui.Theme
-import com.stoyanvuchev.squircleshape.demo.core.ui.component.bottombar.BottomBarUtils.bottomBarBlurModifier
-import com.stoyanvuchev.squircleshape.demo.core.ui.component.layout.spacer.HorizontalSpacer
+import com.stoyanvuchev.squircleshape.demo.core.ui.floatingComponentHazeEffect
+import com.stoyanvuchev.squircleshape.demo.core.util.Platform
+import com.stoyanvuchev.squircleshape.demo.core.util.getPlatform
+import dev.chrisbanes.haze.HazeProgressive
+import dev.chrisbanes.haze.HazeStyle
+import dev.chrisbanes.haze.HazeTint
+import dev.chrisbanes.haze.hazeEffect
 
 @Composable
 fun BottomBar(
     modifier: Modifier = Modifier,
-    selectedItemIndex: () -> Int,
-    itemsCount: () -> Int,
+    selectedItemIndex: Int,
+    itemsCount: Int,
     insets: WindowInsets = BottomBarUtils.windowInsets(),
     action: @Composable (RowScope.() -> Unit)? = null,
+    navList: @Composable (ColumnScope.() -> Unit)? = null,
     items: @Composable RowScope.() -> Unit
 ) {
 
-    Row(
+    val bottomPadding = remember {
+        if (getPlatform() == Platform.IOS) 0.dp else 20.dp
+    }
+
+    Column(
         modifier = Modifier
             .fillMaxWidth()
-            .height(BottomBarUtils.containerHeight())
-            .windowInsetsPadding(insets)
+            .hazeEffect(
+                state = LocalHazeState.current,
+                style = HazeStyle(
+                    backgroundColor = Theme.colorScheme.surface,
+                    tint = HazeTint(
+                        color = Theme.colorScheme.surface.copy(.8f)
+                    ),
+                    blurRadius = 12.dp,
+                    noiseFactor = 0f
+                )
+            ) {
+                progressive = HazeProgressive.verticalGradient(
+                    startIntensity = 0f,
+                    endIntensity = 1f
+                )
+            }
             .padding(horizontal = 40.dp)
-            .padding(bottom = 20.dp)
-            .then(modifier),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.Center
+            .padding(
+                top = 64.dp,
+                bottom = bottomPadding
+            )
+            .windowInsetsPadding(insets)
+            .then(modifier)
     ) {
 
-        Box(
+        navList?.let { navList() }
+
+        Row(
             modifier = Modifier
-                .fillMaxHeight()
-                .weight(1f)
-                .bottomBarBlurModifier()
+                .fillMaxWidth()
+                .height(BottomBarUtils.containerHeight),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center
         ) {
-
-            var maxWidth by remember { mutableIntStateOf(0) }
-            val targetItem by remember {
-                derivedStateOf {
-                    (maxWidth / itemsCount()) * selectedItemIndex()
-                }
-            }
-
-            val offsetX by animateIntAsState(
-                targetValue = targetItem,
-                animationSpec = spring(
-                    dampingRatio = Spring.DampingRatioLowBouncy,
-                    stiffness = Spring.StiffnessMediumLow
-                )
-            )
 
             Box(
                 modifier = Modifier
-                    .graphicsLayer { this.translationX = offsetX.toFloat() }
                     .fillMaxHeight()
-                    .fillMaxWidth(1f / itemsCount())
-                    .padding(4.dp)
-                    .clip(shape = Theme.universalShape)
-                    .background(color = Theme.colorScheme.primary.copy(alpha = .16f))
-                    .border(
-                        width = 1.dp,
-                        brush = Brush.verticalGradient(
-                            colors = listOf(
-                                Theme.colorScheme.outline,
-                                Theme.colorScheme.outline.copy(0f)
-                            )
-                        ),
-                        shape = Theme.universalShape
+                    .weight(1f)
+                    .floatingComponentHazeEffect(Theme.shapes.medium)
+            ) {
+
+                var maxWidth by remember { mutableIntStateOf(0) }
+                val targetItem by remember(itemsCount, selectedItemIndex) {
+                    derivedStateOf {
+                        (maxWidth / itemsCount) * selectedItemIndex
+                    }
+                }
+
+                val offsetX by animateIntAsState(
+                    targetValue = targetItem,
+                    animationSpec = spring(
+                        dampingRatio = Spring.DampingRatioLowBouncy,
+                        stiffness = Spring.StiffnessMediumLow
                     )
-            )
+                )
 
-            Row(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .onSizeChanged { maxWidth = it.width },
-                content = items
-            )
+                Box(
+                    modifier = Modifier
+                        .graphicsLayer { this.translationX = offsetX.toFloat() }
+                        .fillMaxHeight()
+                        .fillMaxWidth(1f / itemsCount)
+                        .padding(4.dp)
+                        .clip(shape = Theme.shapes.small)
+                        .background(color = Theme.colorScheme.primary.copy(alpha = .16f))
+                        .innerShadow(
+                            shape = Theme.shapes.small,
+                            shadow = Shadow(
+                                radius = 16.dp,
+                                brush = Brush.verticalGradient(
+                                    colors = listOf(
+                                        Theme.colorScheme.primary.copy(.0f),
+                                        Theme.colorScheme.primary.copy(.1f)
+                                    )
+                                ),
+                                offset = DpOffset(x = 0.dp, y = (-2).dp)
+                            )
+                        )
+                        .border(
+                            width = 1.dp,
+                            brush = Brush.verticalGradient(
+                                colors = listOf(
+                                    Theme.colorScheme.primary.copy(.1f),
+                                    Theme.colorScheme.accent.copy(.0f)
+                                )
+                            ),
+                            shape = Theme.shapes.small
+                        )
+                )
 
-        }
+                Row(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .onSizeChanged { maxWidth = it.width },
+                    content = items
+                )
 
-        action?.let {
-            HorizontalSpacer(width = 16.dp)
-            action()
+            }
+
+            action?.let { action() }
+
         }
 
     }

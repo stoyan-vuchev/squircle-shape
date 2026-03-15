@@ -1,4 +1,6 @@
 /*
+ * MIT License
+ *
  * Copyright (c) 2026 Stoyan Vuchev
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -56,6 +58,20 @@ object TypographyTokens {
             lineHeight = 20.sp
         )
 
+    val label: TextStyle
+        get() = DefaultTextStyle.copy(
+            fontFamily = DefaultFontFamily,
+            fontSize = 14.sp,
+            lineHeight = 20.sp
+        )
+
+    val code: TextStyle
+        get() = DefaultTextStyle.copy(
+            fontFamily = CodeFontFamily,
+            fontSize = 14.sp,
+            lineHeight = 20.sp
+        )
+
 }
 
 internal val DefaultLineHeightStyle
@@ -72,3 +88,6 @@ internal val DefaultTextStyle
 
 internal val DefaultFontFamily
     get() = FontFamily.SansSerif
+
+internal val CodeFontFamily
+    get() = FontFamily.Monospace

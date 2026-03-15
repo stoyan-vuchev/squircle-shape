@@ -1,4 +1,6 @@
 /*
+ * MIT License
+ *
  * Copyright (c) 2026 Stoyan Vuchev
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,7 +34,9 @@ val LocalThemeMode = compositionLocalOf { ThemeMode.SYSTEM }
 
 @Composable
 @ReadOnlyComposable
-fun isInDarkThemeMode(themeMode: ThemeMode) = when (themeMode) {
+fun isInDarkThemeMode(
+    themeMode: ThemeMode = LocalThemeMode.current
+) = when (themeMode) {
     ThemeMode.SYSTEM -> isSystemInDarkTheme()
     ThemeMode.LIGHT -> false
     ThemeMode.DARK -> true

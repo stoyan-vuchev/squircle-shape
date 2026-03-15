@@ -1,17 +1,24 @@
 /*
- * Copyright 2026 Assertive UI (assertiveui.com)
+ * MIT License
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Copyright (c) 2026 Stoyan Vuchev
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
 package com.stoyanvuchev.squircleshape.demo.core.ui.component.topbar.action
@@ -19,8 +26,6 @@ package com.stoyanvuchev.squircleshape.demo.core.ui.component.topbar.action
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.spring
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -35,10 +40,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.dropShadow
 import androidx.compose.ui.draw.innerShadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.shadow.Shadow
 import androidx.compose.ui.input.pointer.PointerIcon
 import androidx.compose.ui.input.pointer.pointerHoverIcon
@@ -97,19 +102,27 @@ object TopBarActionUtils {
                     indication = rememberRipple()
                 )
                 .padding(contentPadding)
-                .clip(clickableContainerShape)
+                .dropShadow(
+                    shape = Theme.shapes.small,
+                    shadow = Shadow(
+                        radius = 24.dp,
+                        color = Theme.colorScheme.shadow,
+                        offset = DpOffset(x = 0.dp, y = 4.dp)
+                    )
+                )
+                .clip(Theme.shapes.small)
                 .hazeEffect(
                     state = LocalHazeState.current,
                     style = HazeStyle(
-                        backgroundColor = Theme.colorScheme.surface,
+                        backgroundColor = clickableContainerColor,
                         tint = HazeTint(
-                            color = clickableContainerColor.copy(.5f)
+                            color = Theme.colorScheme.surfaceElevationMedium.copy(.75f)
                         ),
                         blurRadius = 12.dp
                     )
                 )
                 .innerShadow(
-                    shape = clickableContainerShape,
+                    shape = Theme.shapes.small,
                     shadow = Shadow(
                         radius = 16.dp,
                         brush = Brush.verticalGradient(
@@ -122,7 +135,7 @@ object TopBarActionUtils {
                     )
                 )
                 .innerShadow(
-                    shape = clickableContainerShape,
+                    shape = Theme.shapes.small,
                     shadow = Shadow(
                         radius = 16.dp,
                         brush = Brush.verticalGradient(
@@ -142,24 +155,19 @@ object TopBarActionUtils {
                             borderColor.copy(0f)
                         )
                     ),
-                    shape = clickableContainerShape
+                    shape = Theme.shapes.small
                 )
 
         }
     }
 
     private val clickableContainerSize: DpSize
-        get() = DpSize(48.dp, 48.dp)
-
-    private val clickableContainerShape: Shape
-        @Composable
-        @ReadOnlyComposable
-        get() = Theme.universalShape
+        get() = DpSize(56.dp, 56.dp)
 
     private val clickableContainerColor: Color
         @Composable
         @ReadOnlyComposable
-        get() = Theme.colorScheme.surfaceElevationHigh
+        get() = Theme.colorScheme.surface
 
     // Icon
 

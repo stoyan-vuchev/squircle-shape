@@ -1,4 +1,6 @@
 /*
+ * MIT License
+ *
  * Copyright (c) 2026 Stoyan Vuchev
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -41,7 +43,8 @@ data class ColorScheme(
     val onSurfaceElevationMedium: Color,
     val surfaceElevationHigh: Color,
     val onSurfaceElevationHigh: Color,
-    val outline: Color
+    val outline: Color,
+    val shadow: Color
 )
 
 fun colorSchemeFromTokens(tokens: ColorSchemeTokens) = ColorScheme(
@@ -59,7 +62,8 @@ fun colorSchemeFromTokens(tokens: ColorSchemeTokens) = ColorScheme(
     onSurfaceElevationMedium = tokens.onSurfaceElevationMedium,
     surfaceElevationHigh = tokens.surfaceElevationHigh,
     onSurfaceElevationHigh = tokens.onSurfaceElevationHigh,
-    outline = tokens.outline
+    outline = tokens.outline,
+    shadow = tokens.shadow
 )
 
 /**

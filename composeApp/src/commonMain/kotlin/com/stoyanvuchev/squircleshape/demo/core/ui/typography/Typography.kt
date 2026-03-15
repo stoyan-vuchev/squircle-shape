@@ -1,4 +1,6 @@
 /*
+ * MIT License
+ *
  * Copyright (c) 2026 Stoyan Vuchev
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -35,6 +37,7 @@ import androidx.compose.ui.text.font.FontVariation
 import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.resources.Font
 import squircleshape.composeapp.generated.resources.Res
+import squircleshape.composeapp.generated.resources.google_sans_code
 import squircleshape.composeapp.generated.resources.roboto_flex
 
 @Stable
@@ -52,40 +55,60 @@ fun defaultTypography(): Typography {
                     ),
                     fontSize = 32.sp,
                     lineHeight = 40.sp,
-                    letterSpacing = (-0.1).sp
+                    letterSpacing = .2.sp
                 ),
                 titleSmall = titleSmall.copy(
                     fontFamily = FontFamily(
                         robotoFlexStyle(
-                            weight = 500,
+                            weight = 400,
                             width = 150f
                         )
                     ),
-                    fontSize = 16.sp,
-                    lineHeight = 24.sp,
-                    letterSpacing = 0.sp
+                    fontSize = 18.sp,
+                    lineHeight = 28.sp,
+                    letterSpacing = .25.sp
                 ),
                 bodyLarge = bodyLarge.copy(
                     fontFamily = FontFamily(
                         robotoFlexStyle(
-                            weight = 500,
-                            width = 128f
+                            weight = 360,
+                            width = 110f
                         )
                     ),
-                    fontSize = 14.sp,
-                    lineHeight = 20.sp
+                    fontSize = 16.sp,
+                    lineHeight = 24.sp,
+                    letterSpacing = .33.sp
                 ),
                 bodySmall = bodySmall.copy(
                     fontFamily = FontFamily(
                         robotoFlexStyle(
+                            weight = 360,
+                            width = 110f
+                        )
+                    ),
+                    fontSize = 15.sp,
+                    lineHeight = 20.sp,
+                    letterSpacing = .33.sp
+                ),
+                label = label.copy(
+                    fontFamily = FontFamily(
+                        robotoFlexStyle(
                             weight = 400,
-                            width = 100f,
-                            grade = 25f   // subtle optical boost for small text
+                            width = 110f
                         )
                     ),
                     fontSize = 14.sp,
-                    lineHeight = 20.sp
+                    lineHeight = 20.sp,
+                    letterSpacing = .33.sp
                 ),
+                code = code.copy(
+                    fontFamily = FontFamily(
+                        googleSansCodeStyle()
+                    ),
+                    fontSize = 14.sp,
+                    lineHeight = 20.sp,
+                    letterSpacing = .25.sp
+                )
             )
         }
     )
@@ -110,12 +133,26 @@ private fun robotoFlexStyle(
     )
 }
 
+@Composable
+private fun googleSansCodeStyle(
+    weight: Int = 400
+): Font {
+    return Font(
+        Res.font.google_sans_code,
+        variationSettings = FontVariation.Settings(
+            FontVariation.weight(weight)
+        )
+    )
+}
+
 @Immutable
 data class Typography(
     val titleLarge: TextStyle = TypographyTokens.titleLarge,
     val titleSmall: TextStyle = TypographyTokens.titleSmall,
     val bodyLarge: TextStyle = TypographyTokens.bodyLarge,
-    val bodySmall: TextStyle = TypographyTokens.bodySmall
+    val bodySmall: TextStyle = TypographyTokens.bodySmall,
+    val label: TextStyle = TypographyTokens.label,
+    val code: TextStyle = TypographyTokens.code
 )
 
 val LocalTypography = staticCompositionLocalOf { Typography() }

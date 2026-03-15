@@ -1,21 +1,31 @@
 /*
- * Copyright 2026 Assertive UI (assertiveui.com)
+ * MIT License
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Copyright (c) 2026 Stoyan Vuchev
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
 package com.stoyanvuchev.squircleshape.demo.core.ui.component.topbar
 
+import androidx.compose.animation.core.EaseInOutCubic
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.gestures.animateScrollBy
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.grid.LazyGridScope
@@ -23,12 +33,19 @@ import androidx.compose.foundation.lazy.grid.LazyGridState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.Stable
+import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.snapshotFlow
-import androidx.compose.ui.platform.LocalDensity
-import com.stoyanvuchev.squircleshape.demo.core.ui.component.layout.ScaffoldLayout
+import com.stoyanvuchev.squircleshape.demo.core.ui.component.layout.scaffold.ScaffoldLayout
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.layout.spacer.VerticalSpacer
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.launch
+import kotlin.math.abs
+import kotlin.math.roundToInt
 
 /**
  * Adds a sticky header entry to a [LazyListScope] that drives the
@@ -44,15 +61,27 @@ import kotlinx.coroutines.flow.collectLatest
  * The actual [TopBar] composable is rendered in [ScaffoldLayout].
  */
 fun LazyListScope.topBarStickyHeader(
-    lazyListState: LazyListState
+    lazyListState: () -> LazyListState
 ) = stickyHeader(
     key = TOP_BAR_STICKY_HEADER_KEY,
     contentType = TOP_BAR_STICKY_HEADER_CONTENT_TYPE,
     content = {
 
+        val scope = rememberCoroutineScope()
+
         TopBarScrollEffect(
             scrollState = remember(lazyListState) {
-                LazyListTopBarScrollState(lazyListState)
+                LazyListTopBarScrollState(lazyListState())
+            },
+            onSnap = { scrollOffset ->
+                scope.launch {
+                    lazyListState().animateScrollBy(
+                        value = scrollOffset,
+                        animationSpec = tween(
+                            easing = EaseInOutCubic
+                        )
+                    )
+                }
             }
         )
 
@@ -65,15 +94,27 @@ fun LazyListScope.topBarStickyHeader(
  * Uses the same scroll-collapse logic but adapts to [LazyGridState].
  */
 fun LazyGridScope.topBarStickyHeader(
-    lazyGridState: LazyGridState
+    lazyGridState: () -> LazyGridState
 ) = stickyHeader(
     key = TOP_BAR_STICKY_HEADER_KEY,
     contentType = TOP_BAR_STICKY_HEADER_CONTENT_TYPE,
     content = {
 
+        val scope = rememberCoroutineScope()
+
         TopBarScrollEffect(
             scrollState = remember(lazyGridState) {
-                LazyGridTopBarScrollState(lazyGridState)
+                LazyGridTopBarScrollState(lazyGridState())
+            },
+            onSnap = { scrollOffset ->
+                scope.launch {
+                    lazyGridState().animateScrollBy(
+                        value = scrollOffset,
+                        animationSpec = tween(
+                            easing = EaseInOutCubic
+                        )
+                    )
+                }
             }
         )
 
@@ -94,17 +135,17 @@ fun LazyGridScope.topBarStickyHeader(
  */
 @Composable
 private fun TopBarScrollEffect(
-    scrollState: TopBarScrollState
+    scrollState: TopBarScrollState,
+    onSnap: (Float) -> Unit
 ) {
 
+    // The state of the top bar.
     val topBarState = LocalTopBarState.current
-    val density = LocalDensity.current
 
-    // Maximum expanded height of the top bar
-    val maxHeight = TopBarUtils.largeContainerHeight()
-
-    // Minimum (pinned) height of the top bar
-    val pinnedHeight = TopBarUtils.smallContainerHeight()
+    // Total collapsible range
+    val collapseRange by remember {
+        derivedStateOf { topBarState.heightOffsetLimit }
+    }
 
     // Memoized setter to avoid unnecessary allocations during collection
     val onApplyOffset = remember<(Float) -> Unit>(topBarState) {
@@ -114,39 +155,78 @@ private fun TopBarScrollEffect(
     // Reacts to scroll position updates.
     // [snapshotFlow] converts state reads into a cold flow,
     // emitting only when values change.
-    LaunchedEffect(scrollState, density) {
+    LaunchedEffect(scrollState, collapseRange) {
         snapshotFlow { scrollState.indexAndOffset }
+            .distinctUntilChanged()
             .collectLatest { (index, offset) ->
-
-                // Convert Dp heights to pixels
-                val maxHeightPx = with(density) { maxHeight.toPx() }
-                val pinnedHeightPx = with(density) { pinnedHeight.toPx() }
-
-                // Total collapsible range
-                val collapseRange = maxHeightPx - pinnedHeightPx
 
                 /**
                  * If the first visible item is not the sticky header anymore,
                  * the top bar must be fully collapsed.
                  *
-                 * Otherwise collapse proportionally to scroll offset.
+                 * Otherwise, collapse proportionally to scroll offset.
                  */
                 val newOffset = when {
                     index > 0 -> collapseRange
-                    else -> offset
-                        .coerceIn(0, collapseRange.toInt())
-                        .toFloat()
+                    else -> {
+                        val raw = offset.toFloat()
+                        if (abs(raw - topBarState.heightOffset) < 2f) topBarState.heightOffset // ignore micro changes
+                        else raw.coerceIn(0f, collapseRange)
+                    }
                 }
 
                 // Ensure offset stays within valid range
-                onApplyOffset(newOffset.coerceIn(0f, collapseRange))
+                onApplyOffset(newOffset)
 
             }
     }
 
-    // Spacer that reserves the expanded height inside the lazy container.
-    // This keeps scroll math correct while the actual TopBar is rendered separately.
-    VerticalSpacer(height = maxHeight)
+    LaunchedEffect(scrollState, collapseRange, topBarState) {
+        snapshotFlow { scrollState.indexOffsetAndScrollProgress }
+            .distinctUntilChanged()
+            .collectLatest { (currentIndex, currentOffset, isScrolling) ->
+
+                // Scroll has just stopped → debounce + check if snap needed
+                delay(100L)
+                if (!isScrolling) {
+
+                    // Only consider snapping if we're at the top item and offset is meaningful
+                    val collapseRangePx = collapseRange.roundToInt()
+                    val minSnapDistancePx = 12
+                    if (currentIndex != 0 ||
+                        currentOffset == 0 ||
+                        currentOffset == collapseRangePx ||
+                        abs(currentOffset - collapseRangePx) < minSnapDistancePx ||
+                        abs(currentOffset) < minSnapDistancePx
+                    ) return@collectLatest
+
+                    // Only snap if partially collapsed (index 0, offset not at boundary).
+                    if (
+                        currentIndex == 0
+                        && currentOffset != 0
+                        && currentOffset != collapseRange.roundToInt()
+                    ) {
+
+                        val fraction = topBarState.collapsedFraction
+                        val targetOffset = if (fraction > .5f) {
+                            collapseRange / 2 // Snap to collapsed
+                        } else -collapseRange // Snap to expanded
+
+                        // Animate scroll to target (drives heightOffset smoothly).
+                        if (fraction != 1f && fraction != 0f) {
+                            onSnap(targetOffset)
+                        }
+
+                    }
+
+                }
+
+            }
+    }
+
+    VerticalSpacer(
+        height = TopBarUtils.largeContainerHeight()
+    )
 
 }
 
@@ -163,6 +243,7 @@ private const val TOP_BAR_STICKY_HEADER_CONTENT_TYPE = "top_bar_sticky_header"
 private interface TopBarScrollState {
     val firstVisibleItemIndex: Int
     val firstVisibleItemScrollOffset: Int
+    val isScrollInProgress: Boolean
 }
 
 /**
@@ -177,6 +258,9 @@ private class LazyListTopBarScrollState(
 
     override val firstVisibleItemScrollOffset: Int
         get() = state.firstVisibleItemScrollOffset
+
+    override val isScrollInProgress: Boolean
+        get() = state.isScrollInProgress
 
 }
 
@@ -193,6 +277,9 @@ private class LazyGridTopBarScrollState(
     override val firstVisibleItemScrollOffset: Int
         get() = state.firstVisibleItemScrollOffset
 
+    override val isScrollInProgress: Boolean
+        get() = state.isScrollInProgress
+
 }
 
 /**
@@ -200,3 +287,9 @@ private class LazyGridTopBarScrollState(
  */
 private val TopBarScrollState.indexAndOffset: Pair<Int, Int>
     get() = firstVisibleItemIndex to firstVisibleItemScrollOffset
+
+/**
+ * Convenience extension for reading scroll index + offset + isScrollInProgress together.
+ */
+private val TopBarScrollState.indexOffsetAndScrollProgress: Triple<Int, Int, Boolean>
+    get() = Triple(firstVisibleItemIndex, firstVisibleItemScrollOffset, isScrollInProgress)

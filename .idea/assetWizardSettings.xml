@@ -24,7 +24,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="C:\Users\stfir\AppData\Local\Temp\ic_android_black_24dp.xml" />
+                                                <entry key="imagePath" value="/private/var/folders/15/0bmg_pv96bvfkclzdtxbrx940000gn/T/ic_android_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -67,7 +67,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="imagePath" value="C:\Users\stfir\OneDrive\Squircle\app_icon_background.png" />
+                                                <entry key="imagePath" value="$USER_HOME$" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -78,7 +78,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="imagePath" value="C:\Users\stfir\AppData\Local\Temp\ic_android_black_24dp.xml" />
+                                                <entry key="imagePath" value="/private/var/folders/15/0bmg_pv96bvfkclzdtxbrx940000gn/T/ic_android_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -90,7 +90,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="C:\Users\stfir\OneDrive\Squircle\app_icon_foreground.png" />
+                                                <entry key="imagePath" value="$USER_HOME$/Library/CloudStorage/OneDrive-Personal(2)/Squircle/App/icon/app_icon_foreground.png" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -118,10 +118,57 @@
                                           </PersistentState>
                                         </value>
                                       </entry>
+                                      <entry key="monochromeClipArt">
+                                        <value>
+                                          <PersistentState>
+                                            <option name="values">
+                                              <map>
+                                                <entry key="imagePath" value="/private/var/folders/15/0bmg_pv96bvfkclzdtxbrx940000gn/T/ic_android_black_24dp.xml" />
+                                              </map>
+                                            </option>
+                                          </PersistentState>
+                                        </value>
+                                      </entry>
+                                      <entry key="monochromeImage">
+                                        <value>
+                                          <PersistentState>
+                                            <option name="values">
+                                              <map>
+                                                <entry key="color" value="000000" />
+                                                <entry key="imagePath" value="$USER_HOME$/Library/CloudStorage/OneDrive-Personal(2)/Squircle/App/icon/app_icon_foreground.png" />
+                                              </map>
+                                            </option>
+                                          </PersistentState>
+                                        </value>
+                                      </entry>
+                                      <entry key="monochromeText">
+                                        <value>
+                                          <PersistentState>
+                                            <option name="values">
+                                              <map>
+                                                <entry key="color" value="000000" />
+                                              </map>
+                                            </option>
+                                          </PersistentState>
+                                        </value>
+                                      </entry>
+                                      <entry key="monochromeTextAsset">
+                                        <value>
+                                          <PersistentState>
+                                            <option name="values">
+                                              <map>
+                                                <entry key="color" value="000000" />
+                                              </map>
+                                            </option>
+                                          </PersistentState>
+                                        </value>
+                                      </entry>
                                     </map>
                                   </option>
                                   <option name="values">
                                     <map>
+                                      <entry key="backgroundAssetType" value="COLOR" />
+                                      <entry key="backgroundColor" value="007aa3" />
                                       <entry key="showSafeZone" value="false" />
                                     </map>
                                   </option>
@@ -139,7 +186,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="C:\Users\stfir\AppData\Local\Temp\ic_android_black_24dp.xml" />
+                                                <entry key="imagePath" value="/private/var/folders/15/0bmg_pv96bvfkclzdtxbrx940000gn/T/ic_android_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -183,7 +230,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="C:\Users\stfir\AppData\Local\Temp\ic_android_black_24dp.xml" />
+                                                <entry key="imagePath" value="/private/var/folders/15/0bmg_pv96bvfkclzdtxbrx940000gn/T/ic_android_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -247,7 +294,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="imagePath" value="C:\Users\stfir\AppData\Local\Temp\ic_android_black_24dp.xml" />
+                                                <entry key="imagePath" value="/private/var/folders/15/0bmg_pv96bvfkclzdtxbrx940000gn/T/ic_android_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -317,8 +364,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="home" />
-                            <entry key="sourceFile" value="$USER_HOME$/Library/CloudStorage/OneDrive-Personal(2)/Iconography/Outlined/Home Outlined.svg" />
+                            <entry key="outputName" value="checkmark_outlined" />
+                            <entry key="sourceFile" value="$USER_HOME$/Library/CloudStorage/OneDrive-Personal(2)/Iconography/Outlined/Checkmark Outlined.svg" />
                           </map>
                         </option>
                       </PersistentState>

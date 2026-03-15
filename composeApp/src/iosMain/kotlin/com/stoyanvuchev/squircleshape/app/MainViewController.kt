@@ -1,6 +1,6 @@
 package com.stoyanvuchev.squircleshape.app
 
 import androidx.compose.ui.window.ComposeUIViewController
-import com.stoyanvuchev.squircleshape.demo.presentation.UIEntryPoint
+import com.stoyanvuchev.squircleshape.demo.presentation.DemoApp
 
-fun MainViewController() = ComposeUIViewController { UIEntryPoint() }
+fun MainViewController() = ComposeUIViewController { DemoApp() }
