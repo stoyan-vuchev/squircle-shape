@@ -78,27 +78,22 @@ fun squircleShapePath(
         cornerSize = bottomRightCorner
     )
 
-    val smoothingFactor = 1f - convertIntBasedSmoothingToFloat(smoothing)
+    val smoothingFactor = 1 - convertIntBasedSmoothingToFloat(smoothing)
+    val width = size.width
+    val height = size.height
+
     return Path().apply {
 
-        // Factor to control edge pinch (adjust between 0.1–0.3 for subtle effect).
-        val edgePinch = .2f
-        val width = size.width
-        val height = size.height
-
-        moveTo(x = topLeft, y = 0f)
-
-        // Top edge
-        cubicTo(
-            x1 = width * edgePinch,
-            y1 = 0f,
-            x2 = width - topRight * (1 - edgePinch),
-            y2 = 0f,
-            x3 = width - topRight,
-            y3 = 0f
+        moveTo(
+            x = topLeft,
+            y = 0f
         )
 
-        // Top-right corner
+        lineTo(
+            x = width - topRight,
+            y = 0f
+        )
+
         cubicTo(
             x1 = width - topRight * smoothingFactor,
             y1 = 0f,
@@ -108,17 +103,11 @@ fun squircleShapePath(
             y3 = topRight
         )
 
-        // Right edge
-        cubicTo(
-            x1 = width,
-            y1 = height * edgePinch,
-            x2 = width,
-            y2 = height - bottomRight * (1 - edgePinch),
-            x3 = width,
-            y3 = height - bottomRight
+        lineTo(
+            x = width,
+            y = height - bottomRight
         )
 
-        // Bottom-right corner
         cubicTo(
             x1 = width,
             y1 = height - bottomRight * smoothingFactor,
@@ -128,17 +117,11 @@ fun squircleShapePath(
             y3 = height
         )
 
-        // Bottom edge
-        cubicTo(
-            x1 = width * (1 - edgePinch),
-            y1 = height,
-            x2 = bottomLeft * (1 - edgePinch),
-            y2 = height,
-            x3 = bottomLeft,
-            y3 = height
+        lineTo(
+            x = bottomLeft,
+            y = height
         )
 
-        // Bottom-left corner
         cubicTo(
             x1 = bottomLeft * smoothingFactor,
             y1 = height,
@@ -148,17 +131,11 @@ fun squircleShapePath(
             y3 = height - bottomLeft
         )
 
-        // Left edge
-        cubicTo(
-            x1 = 0f,
-            y1 = height * (1 - edgePinch),
-            x2 = 0f,
-            y2 = topLeft * (1 - edgePinch),
-            x3 = 0f,
-            y3 = topLeft
+        lineTo(
+            x = 0f,
+            y = topLeft
         )
 
-        // Top-left corner
         cubicTo(
             x1 = 0f,
             y1 = topLeft * smoothingFactor,
