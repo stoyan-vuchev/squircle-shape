@@ -17,7 +17,7 @@ This project maintains two long-lived branches:
 ### 🟢 [`stable`](https://github.com/stoyan-vuchev/squircle-shape/tree/stable)
 - Built with the latest **stable** Compose Multiplatform / Jetpack Compose versions.
 - Recommended for **production apps**.
-- Published versions follow semantic versioning (e.g. `5.1.1`).
+- Published versions follow semantic versioning (e.g. `5.2.0`).
 
 ### 🧪 [`experimental`](https://github.com/stoyan-vuchev/squircle-shape/tree/experimental)
 - Built with **alpha / beta / RC** Compose versions.

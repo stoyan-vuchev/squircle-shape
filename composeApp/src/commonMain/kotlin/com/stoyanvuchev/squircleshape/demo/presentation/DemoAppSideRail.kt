@@ -66,6 +66,7 @@ fun DemoAppSideRail(
                     is DemoAppNavigation.Usage -> 1
                     is DemoAppNavigation.FAQ -> 2
                     is DemoAppNavigation.About -> 3
+                    is DemoAppNavigation.Osl -> 3
                 }
             )
 
@@ -106,7 +107,7 @@ fun DemoAppSideRail(
                     NavigationListItem(
                         label = "About",
                         icon = Res.drawable.info_outlined,
-                        selected = { selectedItem() == DemoAppNavigation.About },
+                        selected = { selectedListItemIndex == 3 },
                         onSelected = remember { { onSelected(DemoAppNavigation.About) } }
                     )
 

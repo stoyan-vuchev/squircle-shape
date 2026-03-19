@@ -26,17 +26,15 @@ package com.stoyanvuchev.squircleshape.demo.presentation
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
-import androidx.compose.runtime.retain.retain
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.stoyanvuchev.squircleshape.demo.di.appModule
 import com.stoyanvuchev.squircleshape.demo.core.ui.UIThemeWrapper
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.layout.scaffold.ScaffoldLayout
+import com.stoyanvuchev.squircleshape.demo.di.appModule
 import org.koin.compose.KoinApplication
 import org.koin.compose.viewmodel.koinViewModel
 import org.koin.dsl.KoinAppDeclaration
@@ -57,18 +55,14 @@ fun DemoApp(
 
     CompositionLocalProvider(LocalLatestRelease provides latestRelease) {
 
-        val backStack = retain {
-            mutableStateListOf<DemoAppNavigation>(
-                DemoAppNavigation.Demo
-            )
-        }
+        val backStack = rememberDemoAppNavigationBackStack()
 
         var isListVisible by remember { mutableStateOf(false) }
         val onIsListVisible = remember(isListVisible) {
             { isListVisible = !isListVisible }
         }
 
-        val selectedItem by rememberUpdatedState(backStack.last())
+        val selectedItem by rememberUpdatedState(backStack.last() as DemoAppNavigation)
         val onSelected = remember<(DemoAppNavigation) -> Unit>(selectedItem) {
             { item ->
                 if (item != selectedItem) {
@@ -102,7 +96,7 @@ fun DemoApp(
                 content = {
 
                     DemoAppNavigation(
-                        backStack = backStack
+                        backStack = { backStack }
                     )
 
                 }

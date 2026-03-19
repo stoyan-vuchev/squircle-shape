@@ -62,19 +62,43 @@ sealed interface ContentPiece {
     data class Author(
         val name: String,
         val avatarRes: DrawableResource,
-        val links: List<Link> = emptyList()
+        val links: List<LinkPiece> = emptyList()
     ) : ContentPiece
 
     data class LinksSection(
-        val links: List<Link>,
+        val links: List<LinkPiece>,
         val title: String
     ) : ContentPiece
 
-    data class Link(
-        val label: String,
-        val url: String,
-        val iconRes: DrawableResource,
-        val iconPaddingDp: Dp = 0.dp
-    )
+    @Immutable
+    sealed class LinkPiece(
+        open val label: String,
+        open val iconRes: DrawableResource,
+        open val iconPaddingDp: Dp = 0.dp
+    ) {
+
+        data class Link(
+            override val label: String,
+            val url: String,
+            override val iconRes: DrawableResource,
+            override val iconPaddingDp: Dp = 0.dp
+        ) : LinkPiece(
+            label = label,
+            iconRes = iconRes,
+            iconPaddingDp = iconPaddingDp
+        )
+
+        data class LinkWithAction(
+            override val label: String,
+            val onAction: () -> Unit,
+            override val iconRes: DrawableResource,
+            override val iconPaddingDp: Dp = 0.dp
+        ) : LinkPiece(
+            label = label,
+            iconRes = iconRes,
+            iconPaddingDp = iconPaddingDp
+        )
+
+    }
 
 }
