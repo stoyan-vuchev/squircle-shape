@@ -28,20 +28,21 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.retain.retain
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.layout.scaffold.NestedScaffoldLayout
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.topbar.TopBar
+import com.stoyanvuchev.squircleshape.demo.presentation.content.screenContent
 import com.stoyanvuchev.squircleshape.demo.presentation.defaults.DefaultBackgroundDecoration
 import com.stoyanvuchev.squircleshape.demo.presentation.defaults.DefaultLazyVerticalGrid
-import com.stoyanvuchev.squircleshape.demo.presentation.content.screenContent
 import com.stoyanvuchev.squircleshape.demo.presentation.defaults.DefaultTopBarAction
 import squircleshape.composeapp.generated.resources.Res
 import squircleshape.composeapp.generated.resources.info_outlined
 
 @Composable
 fun AboutScreen(
-    onNavigateUp: () -> Unit
+    onNavigateUp: () -> Unit,
+    onOsl: () -> Unit
 ) {
 
     val lazyGridState = rememberLazyGridState()
-    val screenContent = retain { aboutScreenContent }
+    val screenContent = retain { aboutScreenContent(onOsl) }
 
     NestedScaffoldLayout(
         topBar = {
