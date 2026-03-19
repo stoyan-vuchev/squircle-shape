@@ -30,6 +30,7 @@ import androidx.compose.foundation.lazy.grid.LazyGridScope
 import androidx.compose.foundation.lazy.grid.LazyGridState
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -44,7 +45,7 @@ fun DefaultLazyVerticalGrid(
     modifier = Modifier.fillMaxSize(),
     state = lazyGridState,
     contentPadding = LocalScaffoldLayoutPadding.current,
-    verticalArrangement = Arrangement.spacedBy(20.dp),
+    verticalArrangement = Arrangement.spacedBy(20.dp, Alignment.Top),
     horizontalArrangement = Arrangement.spacedBy(20.dp),
     columns = GridCells.Adaptive(minSize = minGridCellSize),
     content = content

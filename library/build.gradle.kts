@@ -65,13 +65,13 @@ mavenPublishing {
     coordinates(
         groupId = "com.stoyanvuchev",
         artifactId = "squircle-shape",
-        version = "5.2.0"
+        version = libs.versions.squircleShape.get().toString()
     )
 
     pom {
 
-        name.set(rootProject.name)
-        description.set("A Compose Multiplatform library providing customizable Squircle shapes for UI components.")
+        name.set("Squircle Shape")
+        description.set("Squircle Shape is a Compose Multiplatform library providing customizable Squircle shapes for modern UI components.")
         inceptionYear.set("2023-2026")
         url.set("https://github.com/stoyan-vuchev/squircle-shape")
 

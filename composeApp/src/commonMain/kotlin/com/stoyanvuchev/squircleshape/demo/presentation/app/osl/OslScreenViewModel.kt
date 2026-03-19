@@ -21,16 +21,31 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.stoyanvuchev.squircleshape.demo.di
+package com.stoyanvuchev.squircleshape.demo.presentation.app.osl
 
-import com.stoyanvuchev.squircleshape.demo.data.remote.RemoteDataSource
-import com.stoyanvuchev.squircleshape.demo.presentation.DemoAppViewModel
-import com.stoyanvuchev.squircleshape.demo.presentation.app.osl.OslScreenViewModel
-import org.koin.core.module.dsl.viewModelOf
-import org.koin.dsl.module
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.mikepenz.aboutlibraries.Libs
+import com.stoyanvuchev.squircleshape.demo.presentation.app.osl.aboutLibraries.AboutLibrariesExt
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 
-val appModule = module {
-    single { RemoteDataSource }
-    viewModelOf(::DemoAppViewModel)
-    viewModelOf(::OslScreenViewModel)
+class OslScreenViewModel : ViewModel() {
+
+    private val _libs = MutableStateFlow<Libs?>(null)
+    val libs = _libs.asStateFlow()
+
+    private fun loadLibs() {
+        viewModelScope.launch {
+            val loadedLibs = AboutLibrariesExt.loadLibraries()
+            _libs.update { loadedLibs }
+        }
+    }
+
+    init {
+        loadLibs()
+    }
+
 }

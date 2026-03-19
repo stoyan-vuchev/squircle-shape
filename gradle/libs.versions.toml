@@ -1,15 +1,18 @@
 [versions]
 
+# Library
+squircleShape = "5.2.0"
+
 # Plugins
 composePlugin = "1.10.2"
 composeAndroid = "1.10.5"
 agp = "9.1.0"
-kotlin = "2.3.10"
+kotlin = "2.3.20"
 vanniktechMavenPublish = "0.36.0"
 
 # Core Dependencies
 coreKtx = "1.18.0"
-lifecycle = "2.9.6"
+lifecycle = "2.10.0"
 
 # Compose Dependencies
 activityCompose = "1.13.0"
@@ -30,6 +33,7 @@ material = "1.13.0"
 landscapist = "2.9.5"
 serializatonJson = "1.10.0"
 ktor = "3.4.1"
+aboutLibraries = "14.0.0-b03"
 
 # =================================================================================================
 
@@ -42,7 +46,8 @@ lifecycle-runtime-ktx = { group = "org.jetbrains.androidx.lifecycle", name = "li
 lifecycle-runtime-compose = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycle" }
 lifecycle-viewmodel-compose = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycle" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
-navigation3-compose = { module = "org.jetbrains.androidx.navigation3:navigation3-ui", version.ref = "navigation3Compose" }
+navigation3-ui = { module = "org.jetbrains.androidx.navigation3:navigation3-ui", version.ref = "navigation3Compose" }
+navigation3-viewmodel = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-navigation3", version.ref = "lifecycle" }
 material3 = { module = "org.jetbrains.compose.material3:material3", version.ref = "material3ComposeMultiplatform" }
 material3-windowsizeclass = { module = "org.jetbrains.compose.material3:material3-window-size-class", version.ref = "material3ComposeMultiplatform" }
 runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "composePlugin" }
@@ -75,7 +80,8 @@ ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negoti
 ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
-ktor-client-wasm = { module = "io.ktor:ktor-client-js-wasm-js", version.ref = "ktor"}
+ktor-client-wasm = { module = "io.ktor:ktor-client-js-wasm-js", version.ref = "ktor" }
+aboutlibraries-core = { module = "com.mikepenz:aboutlibraries-core", version.ref = "aboutLibraries" }
 
 # =================================================================================================
 
@@ -88,3 +94,4 @@ composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "k
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 vanniktechMavenPublish = { id = "com.vanniktech.maven.publish", version.ref = "vanniktechMavenPublish" }
+aboutLibraries = { id = "com.mikepenz.aboutlibraries.plugin", version.ref = "aboutLibraries" }

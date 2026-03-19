@@ -21,16 +21,23 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.stoyanvuchev.squircleshape.demo.di
+package com.stoyanvuchev.squircleshape.demo.presentation.app.osl.aboutLibraries
 
-import com.stoyanvuchev.squircleshape.demo.data.remote.RemoteDataSource
-import com.stoyanvuchev.squircleshape.demo.presentation.DemoAppViewModel
-import com.stoyanvuchev.squircleshape.demo.presentation.app.osl.OslScreenViewModel
-import org.koin.core.module.dsl.viewModelOf
-import org.koin.dsl.module
+import com.mikepenz.aboutlibraries.Libs
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import org.jetbrains.compose.resources.InternalResourceApi
+import org.jetbrains.compose.resources.readResourceBytes
 
-val appModule = module {
-    single { RemoteDataSource }
-    viewModelOf(::DemoAppViewModel)
-    viewModelOf(::OslScreenViewModel)
+object AboutLibrariesExt {
+
+    @OptIn(InternalResourceApi::class)
+    suspend fun loadLibraries(): Libs {
+        return withContext(Dispatchers.Default) {
+            val bytes = readResourceBytes("aboutlibraries.json")
+            val json = bytes.decodeToString()
+            Libs.Builder().withJson(json).build()
+        }
+    }
+
 }

@@ -26,70 +26,150 @@ package com.stoyanvuchev.squircleshape.demo.presentation
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
-import androidx.compose.runtime.snapshots.SnapshotStateList
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.navigation3.runtime.NavEntry
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.navigation3.rememberViewModelStoreNavEntryDecorator
+import androidx.navigation3.runtime.NavBackStack
+import androidx.navigation3.runtime.NavKey
+import androidx.navigation3.runtime.entryProvider
+import androidx.navigation3.runtime.rememberNavBackStack
+import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
+import androidx.savedstate.serialization.SavedStateConfiguration
 import com.stoyanvuchev.squircleshape.demo.core.ui.util.transitions.defaultPredictivePopTransitionSpec
 import com.stoyanvuchev.squircleshape.demo.presentation.app.about.AboutScreen
 import com.stoyanvuchev.squircleshape.demo.presentation.app.demo.DemoScreen
 import com.stoyanvuchev.squircleshape.demo.presentation.app.faq.FAQScreen
+import com.stoyanvuchev.squircleshape.demo.presentation.app.osl.OslScreen
+import com.stoyanvuchev.squircleshape.demo.presentation.app.osl.OslScreenViewModel
 import com.stoyanvuchev.squircleshape.demo.presentation.app.setup.SetupScreen
 import com.stoyanvuchev.squircleshape.demo.presentation.app.usage.UsageScreen
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.modules.SerializersModule
+import kotlinx.serialization.modules.polymorphic
+import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun DemoAppNavigation(
-    backStack: SnapshotStateList<DemoAppNavigation>
+    backStack: () -> NavBackStack<NavKey>
 ) = NavDisplay(
     modifier = Modifier.fillMaxSize(),
-    backStack = backStack,
-    onBack = { backStack.removeLastOrNull() },
+    backStack = backStack(),
+    onBack = { backStack().removeLastOrNull() ?: backStack().add(DemoAppNavigation.Demo) },
     predictivePopTransitionSpec = defaultPredictivePopTransitionSpec(),
-    entryProvider = { key ->
-        when (key) {
+    entryDecorators = listOf(
+        rememberSaveableStateHolderNavEntryDecorator(),
+        rememberViewModelStoreNavEntryDecorator()
+    ),
+    entryProvider = entryProvider {
 
-            is DemoAppNavigation.Demo -> NavEntry(key) {
-                DemoScreen(
-                    onGetStarted = { backStack.add(DemoAppNavigation.Setup) }
-                )
-            }
+        entry<DemoAppNavigation.Demo> {
+            DemoScreen(
+                onGetStarted = { backStack() += DemoAppNavigation.Setup }
+            )
+        }
 
-            is DemoAppNavigation.Setup -> NavEntry(key) {
-                SetupScreen(
-                    onNavigateUp = { backStack.removeLastOrNull() },
-                    onExploreUsage = { backStack.add(DemoAppNavigation.Usage) }
-                )
-            }
+        entry<DemoAppNavigation.Setup> {
+            SetupScreen(
+                onNavigateUp = { backStack() -= DemoAppNavigation.Setup },
+                onExploreUsage = { backStack() += DemoAppNavigation.Usage }
+            )
+        }
 
-            is DemoAppNavigation.Usage -> NavEntry(key) {
-                UsageScreen(
-                    onNavigateUp = { backStack.removeLastOrNull() },
-                    onFAQ = { backStack.add(DemoAppNavigation.FAQ) }
-                )
-            }
+        entry<DemoAppNavigation.Usage> {
+            UsageScreen(
+                onNavigateUp = { backStack() -= DemoAppNavigation.Usage },
+                onFAQ = { backStack() += DemoAppNavigation.FAQ }
+            )
+        }
 
-            is DemoAppNavigation.FAQ -> NavEntry(key) {
-                FAQScreen(
-                    onNavigateUp = { backStack.removeLastOrNull() },
-                    onGoToAbout = { backStack.add(DemoAppNavigation.About) }
-                )
-            }
+        entry<DemoAppNavigation.FAQ> {
+            FAQScreen(
+                onNavigateUp = { backStack() -= DemoAppNavigation.FAQ },
+                onGoToAbout = { backStack() += DemoAppNavigation.About }
+            )
+        }
 
-            is DemoAppNavigation.About -> NavEntry(key) {
-                AboutScreen(
-                    onNavigateUp = { backStack.removeLastOrNull() }
-                )
-            }
+        entry<DemoAppNavigation.About> {
+            AboutScreen(
+                onNavigateUp = { backStack() -= DemoAppNavigation.About },
+                onOsl = { backStack() += DemoAppNavigation.Osl }
+            )
+        }
+
+        entry<DemoAppNavigation.Osl> {
+
+            val viewModel = koinViewModel<OslScreenViewModel>()
+            val libs by viewModel.libs.collectAsStateWithLifecycle()
+
+            OslScreen(
+                libs = { libs },
+                onNavigateUp = { backStack() -= DemoAppNavigation.Osl }
+            )
 
         }
+
     }
 )
 
+@Composable
+fun rememberDemoAppNavigationBackStack(): NavBackStack<NavKey> {
+    return rememberNavBackStack(
+        configuration = SavedStateConfiguration {
+            serializersModule = SerializersModule {
+                polymorphic(NavKey::class) {
+                    subclass(
+                        DemoAppNavigation.Demo::class,
+                        DemoAppNavigation.Demo.serializer()
+                    )
+                    subclass(
+                        DemoAppNavigation.Setup::class,
+                        DemoAppNavigation.Setup.serializer()
+                    )
+                    subclass(
+                        DemoAppNavigation.Usage::class,
+                        DemoAppNavigation.Usage.serializer()
+                    )
+                    subclass(
+                        DemoAppNavigation.FAQ::class,
+                        DemoAppNavigation.FAQ.serializer()
+                    )
+                    subclass(
+                        DemoAppNavigation.About::class,
+                        DemoAppNavigation.About.serializer()
+                    )
+                    subclass(
+                        DemoAppNavigation.Osl::class,
+                        DemoAppNavigation.Osl.serializer()
+                    )
+                }
+            }
+        },
+        DemoAppNavigation.Demo
+    )
+}
+
 @Immutable
-sealed interface DemoAppNavigation {
-    data object Demo : DemoAppNavigation
-    data object Setup : DemoAppNavigation
-    data object Usage : DemoAppNavigation
-    data object FAQ : DemoAppNavigation
-    data object About : DemoAppNavigation
+@Serializable
+sealed interface DemoAppNavigation : NavKey {
+
+    @Serializable
+    data object Demo : DemoAppNavigation, NavKey
+
+    @Serializable
+    data object Setup : DemoAppNavigation, NavKey
+
+    @Serializable
+    data object Usage : DemoAppNavigation, NavKey
+
+    @Serializable
+    data object FAQ : DemoAppNavigation, NavKey
+
+    @Serializable
+    data object About : DemoAppNavigation, NavKey
+
+    @Serializable
+    data object Osl : DemoAppNavigation, NavKey
+
 }
