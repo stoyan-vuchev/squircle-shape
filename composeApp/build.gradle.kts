@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.aboutLibraries)
 }
 
 kotlin {
@@ -54,30 +55,36 @@ kotlin {
             implementation(libs.kotlinx.coroutines.android)
         }
 
-        commonMain.dependencies {
-            implementation(libs.runtime)
-            implementation(libs.foundation)
-            implementation(libs.material3)
-            implementation(libs.material3.windowsizeclass)
-            implementation(libs.ui)
-            implementation(libs.components.resources)
-            implementation(libs.ui.tooling.preview)
-            implementation(libs.lifecycle.runtime.ktx)
-            implementation(libs.lifecycle.runtime.compose)
-            implementation(libs.lifecycle.viewmodel.compose)
-            implementation(libs.navigation3.compose)
-            implementation(libs.koin.core)
-            implementation(libs.koin.compose)
-            implementation(libs.koin.compose.viewmodel)
-            implementation(libs.haze)
-            implementation(libs.landscapist.core)
-            implementation(libs.landscapist.image)
-            implementation(libs.serialization.json)
-            implementation(libs.ktor.client.core)
-            implementation(libs.ktor.client.content.negotiation)
-            implementation(libs.ktor.serialization.kotlinx.json)
-            implementation(libs.kotlinx.coroutines.core)
-            implementation(projects.library)
+        commonMain {
+            resources.srcDir("srcDir")
+            dependencies {
+                implementation(libs.runtime)
+                implementation(libs.foundation)
+                implementation(libs.material3)
+                implementation(libs.material3.windowsizeclass)
+                implementation(libs.ui)
+                implementation(libs.components.resources)
+                implementation(libs.ui.tooling.preview)
+                implementation(libs.lifecycle.runtime.ktx)
+                implementation(libs.lifecycle.runtime.compose)
+                implementation(libs.lifecycle.viewmodel.compose)
+                implementation(libs.navigation3.ui)
+                implementation(libs.navigation3.viewmodel)
+                implementation(libs.koin.core)
+                implementation(libs.koin.compose)
+                implementation(libs.koin.compose.viewmodel)
+                implementation(libs.haze)
+                implementation(libs.landscapist.core)
+                implementation(libs.landscapist.image)
+                implementation(libs.serialization.json)
+                implementation(libs.ktor.client.core)
+                implementation(libs.ktor.client.content.negotiation)
+                implementation(libs.ktor.serialization.kotlinx.json)
+                implementation(libs.kotlinx.coroutines.core)
+                implementation(libs.aboutlibraries.core)
+                implementation(libs.components.resources)
+                implementation(projects.library)
+            }
         }
 
         val desktopMain by getting {

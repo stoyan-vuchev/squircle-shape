@@ -16,8 +16,7 @@
       </BuildActionEntries>
    </BuildAction>
    <LaunchAction
-      useCustomWorkingDirectory = "YES"
-      customWorkingDirectory = "/Users/stoyan/StudioProjects/squircle-shape/iosApp"
+      useCustomWorkingDirectory = "NO"
       buildConfiguration = "Debug"
       allowLocationSimulation = "YES">
       <BuildableProductRunnable>

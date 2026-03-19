@@ -165,7 +165,12 @@ fun AuthorContent(
     author: ContentPiece.Author
 ) = Column(
     modifier = Modifier.padding(vertical = 10.dp),
+    verticalArrangement = Arrangement.Top,
     content = {
+
+        SectionTitle(title = "Created by")
+
+        VerticalSpacer(height = 20.dp)
 
         Row(
             modifier = Modifier.padding(horizontal = 8.dp),
@@ -208,6 +213,7 @@ fun LinksContent(
     section: ContentPiece.LinksSection
 ) = Column(
     modifier = Modifier.padding(vertical = 10.dp),
+    verticalArrangement = Arrangement.Top,
     content = {
 
         SectionTitle(title = section.title)
@@ -224,13 +230,21 @@ fun LinksContent(
 
 @Composable
 private fun LinkButton(
-    link: ContentPiece.Link
+    link: ContentPiece.LinkPiece
 ) {
 
     val uriHandler = LocalUriHandler.current
+    val onClick = remember(link, uriHandler) {
+        {
+            when (link) {
+                is ContentPiece.LinkPiece.Link -> uriHandler.openUri(link.url)
+                is ContentPiece.LinkPiece.LinkWithAction -> link.onAction()
+            }
+        }
+    }
 
     Button(
-        onClick = remember { { uriHandler.openUri(link.url) } },
+        onClick = onClick,
         backgroundColor = Theme.colorScheme.surfaceElevationMedium,
         contentColor = Theme.colorScheme.onSurfaceElevationMedium,
         paddingValues = PaddingValues(horizontal = 16.dp, vertical = 10.dp)

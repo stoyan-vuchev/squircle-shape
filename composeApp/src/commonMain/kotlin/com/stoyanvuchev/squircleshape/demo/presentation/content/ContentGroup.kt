@@ -122,7 +122,7 @@ class GroupBuilder(
         avatarRes: DrawableResource,
         block: AuthorBuilder.() -> Unit
     ) {
-        val links = mutableListOf<ContentPiece.Link>()
+        val links = mutableListOf<ContentPiece.LinkPiece>()
         AuthorBuilder(links).apply(block)
         pieces.add(
             ContentPiece.Author(
@@ -137,7 +137,7 @@ class GroupBuilder(
         title: String,
         block: LinksBuilder.() -> Unit
     ) {
-        val links = mutableListOf<ContentPiece.Link>()
+        val links = mutableListOf<ContentPiece.LinkPiece>()
         LinksBuilder(links).apply(block)
         pieces.add(
             ContentPiece.LinksSection(
@@ -150,7 +150,7 @@ class GroupBuilder(
 }
 
 class AuthorBuilder(
-    private val links: MutableList<ContentPiece.Link>
+    private val links: MutableList<ContentPiece.LinkPiece>
 ) {
 
     fun github(
@@ -158,7 +158,7 @@ class AuthorBuilder(
         label: String = "GitHub Profile"
     ) {
         links.add(
-            ContentPiece.Link(
+            ContentPiece.LinkPiece.Link(
                 label = label,
                 url = url,
                 iconRes = Res.drawable.github_icon
@@ -171,7 +171,7 @@ class AuthorBuilder(
         label: String = "LinkedIn Profile"
     ) {
         links.add(
-            ContentPiece.Link(
+            ContentPiece.LinkPiece.Link(
                 label = label,
                 url = url,
                 iconRes = Res.drawable.linkedin_square_icon
@@ -182,7 +182,7 @@ class AuthorBuilder(
 }
 
 class LinksBuilder(
-    private val links: MutableList<ContentPiece.Link>
+    private val links: MutableList<ContentPiece.LinkPiece>
 ) {
 
     fun item(
@@ -192,9 +192,25 @@ class LinksBuilder(
         iconPaddingDp: Dp = 0.dp
     ) {
         links.add(
-            ContentPiece.Link(
+            ContentPiece.LinkPiece.Link(
                 label = label,
                 url = url,
+                iconRes = icon,
+                iconPaddingDp = iconPaddingDp
+            )
+        )
+    }
+
+    fun itemWithAction(
+        label: String,
+        onAction: () -> Unit,
+        icon: DrawableResource,
+        iconPaddingDp: Dp = 0.dp
+    ) {
+        links.add(
+            ContentPiece.LinkPiece.LinkWithAction(
+                label = label,
+                onAction = onAction,
                 iconRes = icon,
                 iconPaddingDp = iconPaddingDp
             )
