@@ -57,7 +57,7 @@ fun AboutScreen(
 
             DefaultBackgroundDecoration(
                 safePadding = safePadding,
-                icon = Res.drawable.info_outlined
+                icon = { Res.drawable.info_outlined }
             )
 
         },

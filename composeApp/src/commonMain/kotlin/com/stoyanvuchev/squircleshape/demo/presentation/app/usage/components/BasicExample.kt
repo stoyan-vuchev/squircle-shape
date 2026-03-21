@@ -23,7 +23,6 @@
 
 package com.stoyanvuchev.squircleshape.demo.presentation.app.usage.components
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.size
@@ -31,9 +30,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
-import org.jetbrains.compose.resources.painterResource
+import com.stoyanvuchev.squircleshape.demo.core.ui.component.icon.AsyncIcon
 import squircleshape.composeapp.generated.resources.Res
 import squircleshape.composeapp.generated.resources.flowers
 import sv.lib.squircleshape.SquircleShape
@@ -46,13 +46,15 @@ fun BasicExample() = Box(
     contentAlignment = Alignment.Center
 ) {
 
-    Image(
+    AsyncIcon(
+        icon = { Res.drawable.flowers },
         modifier = Modifier
             .size(256.dp)
             .clip(shape = SquircleShape()),
-        painter = painterResource(Res.drawable.flowers),
-        contentDescription = "Sunflowers image clipped to a Squircle Shape.",
-        contentScale = ContentScale.Crop
+        contentDescription = "Sunflowers image clipped to animated Squircle Shape.",
+        contentScale = ContentScale.Crop,
+        tint = Color.Unspecified,
+        size = null
     )
 
 }

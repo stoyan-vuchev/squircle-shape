@@ -23,7 +23,6 @@
 
 package com.stoyanvuchev.squircleshape.demo.presentation.app.demo.components
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -42,16 +41,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.stoyanvuchev.squircleshape.demo.core.ui.Theme
+import com.stoyanvuchev.squircleshape.demo.core.ui.component.icon.AsyncIcon
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.layout.spacer.HorizontalSpacer
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.layout.spacer.VerticalSpacer
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.text.Text
 import com.stoyanvuchev.squircleshape.demo.core.ui.shape.LocalShapeData
 import com.stoyanvuchev.squircleshape.demo.core.ui.util.window.LocalWindowState
-import org.jetbrains.compose.resources.painterResource
 import squircleshape.composeapp.generated.resources.Res
 import squircleshape.composeapp.generated.resources.flowers
 import sv.lib.squircleshape.SquircleShape
@@ -83,7 +83,8 @@ private fun LargeDemoSquircle() = Row(
         }
     }
 
-    Image(
+    AsyncIcon(
+        icon = { Res.drawable.flowers },
         modifier = Modifier
             .padding(vertical = 20.dp)
             .fillMaxWidth(.25f)
@@ -99,9 +100,9 @@ private fun LargeDemoSquircle() = Row(
                     )
                 )
             ),
-        painter = painterResource(Res.drawable.flowers),
-        contentDescription = null,
-        contentScale = ContentScale.Crop
+        tint = Color.Unspecified,
+        contentScale = ContentScale.Crop,
+        size = null
     )
 
     HorizontalSpacer(width = 64.dp)
@@ -129,7 +130,8 @@ private fun MediumDemoSquircle() = Row(
         }
     }
 
-    Image(
+    AsyncIcon(
+        icon = { Res.drawable.flowers },
         modifier = Modifier
             .padding(vertical = 20.dp)
             .weight(.5f)
@@ -145,9 +147,9 @@ private fun MediumDemoSquircle() = Row(
                     )
                 )
             ),
-        painter = painterResource(Res.drawable.flowers),
-        contentDescription = null,
-        contentScale = ContentScale.Crop
+        tint = Color.Unspecified,
+        contentScale = ContentScale.Crop,
+        size = null
     )
 
     HorizontalSpacer(width = 20.dp)
@@ -182,7 +184,8 @@ private fun CompactDemoSquircle() = Column(
             }
         }
 
-        Image(
+        AsyncIcon(
+            icon = { Res.drawable.flowers },
             modifier = Modifier
                 .fillMaxWidth(.67f)
                 .aspectRatio(1f)
@@ -197,9 +200,9 @@ private fun CompactDemoSquircle() = Column(
                         )
                     )
                 ),
-            painter = painterResource(Res.drawable.flowers),
-            contentDescription = null,
-            contentScale = ContentScale.Crop
+            tint = Color.Unspecified,
+            contentScale = ContentScale.Crop,
+            size = null
         )
 
     }
