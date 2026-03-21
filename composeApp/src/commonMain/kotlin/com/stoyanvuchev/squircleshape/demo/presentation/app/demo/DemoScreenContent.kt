@@ -41,9 +41,9 @@ fun demoScreenContent(
 
         text(
             text = if (isLargeWidth) "A production-ready squircle for Compose Multiplatform.\n" +
-                    "Designed for expressive UI systems with zero overhead."
+                    "Designed for expressive UI with zero overhead."
             else "A production-ready squircle for Compose Multiplatform. " +
-                    "Designed for expressive UI systems with zero overhead."
+                    "Designed for expressive UI with zero overhead."
         )
 
         composable(
@@ -60,13 +60,13 @@ fun demoScreenContent(
         card(
             icon = Res.drawable.squircle_icon_bold,
             label = "Composability",
-            text = "Works with MaterialTheme and other custom UIs."
+            text = "Works with Material Theme and other custom UIs."
         )
 
         card(
             icon = Res.drawable.compose_multiplatform,
             label = "Multiplatform",
-            text = "Android, iOS, Desktop (JVM), WasmJS supported."
+            text = "Android, iOS, Desktop (JVM) & Web (WasmJS) supported."
         )
 
     },

@@ -29,7 +29,6 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.animation.scaleIn
 import androidx.compose.animation.scaleOut
 import androidx.compose.animation.togetherWith
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Box
@@ -49,12 +48,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.platform.LocalClipboard
 import androidx.compose.ui.unit.dp
 import com.stoyanvuchev.squircleshape.demo.core.clipboard.clipEntryOf
 import com.stoyanvuchev.squircleshape.demo.core.ui.Theme
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.codeBackgroundModifier
+import com.stoyanvuchev.squircleshape.demo.core.ui.component.icon.AsyncIcon
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.outlinedButtonBackgroundModifier
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.text.Text
 import kotlinx.coroutines.FlowPreview
@@ -62,7 +61,6 @@ import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.launch
-import org.jetbrains.compose.resources.painterResource
 import squircleshape.composeapp.generated.resources.Res
 import squircleshape.composeapp.generated.resources.checkmark_outlined
 import squircleshape.composeapp.generated.resources.copy_outlined
@@ -141,11 +139,9 @@ fun CodeBlock(
                 contentAlignment = Alignment.Center
             ) {
 
-                Image(
-                    modifier = Modifier.size(24.dp),
-                    painter = painterResource(Res.drawable.copy_outlined),
-                    contentDescription = null,
-                    colorFilter = ColorFilter.tint(Theme.colorScheme.onSurface)
+                AsyncIcon(
+                    icon = { Res.drawable.copy_outlined },
+                    tint = Theme.colorScheme.onSurface
                 )
 
             }
@@ -159,11 +155,9 @@ fun CodeBlock(
                 contentAlignment = Alignment.Center
             ) {
 
-                Image(
-                    modifier = Modifier.size(24.dp),
-                    painter = painterResource(Res.drawable.checkmark_outlined),
-                    contentDescription = null,
-                    colorFilter = ColorFilter.tint(Theme.colorScheme.onSurface)
+                AsyncIcon(
+                    icon = { Res.drawable.checkmark_outlined },
+                    tint = Theme.colorScheme.onSurface
                 )
 
             }

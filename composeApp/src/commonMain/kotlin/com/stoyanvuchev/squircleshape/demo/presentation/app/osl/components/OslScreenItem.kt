@@ -23,7 +23,6 @@
 
 package com.stoyanvuchev.squircleshape.demo.presentation.app.osl.components
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
@@ -33,23 +32,21 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.mikepenz.aboutlibraries.entity.Library
 import com.stoyanvuchev.squircleshape.demo.core.ui.Theme
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.cardBackgroundModifier
+import com.stoyanvuchev.squircleshape.demo.core.ui.component.icon.AsyncIcon
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.interaction.rememberRipple
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.layout.spacer.HorizontalSpacer
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.layout.spacer.VerticalSpacer
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.text.Text
-import org.jetbrains.compose.resources.painterResource
 import squircleshape.composeapp.generated.resources.Res
 import squircleshape.composeapp.generated.resources.open
 
@@ -62,14 +59,14 @@ fun OslScreenItem(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .cardBackgroundModifier()
+            .cardBackgroundModifier(shape = Theme.shapes.small)
             .then(modifier)
     ) {
 
         Row(
             modifier = Modifier
                 .padding(horizontal = 20.dp)
-                .padding(top = 14.dp)
+                .padding(top = 16.dp)
                 .fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(10.dp)
@@ -163,13 +160,9 @@ fun OslScreenItem(
                     contentAlignment = Alignment.Center
                 ) {
 
-                    Image(
-                        modifier = Modifier.size(24.dp),
-                        painter = painterResource(Res.drawable.open),
-                        contentDescription = null,
-                        colorFilter = ColorFilter.tint(
-                            color = Theme.colorScheme.primary
-                        )
+                    AsyncIcon(
+                        icon = { Res.drawable.open },
+                        tint = Theme.colorScheme.primary
                     )
 
                 }

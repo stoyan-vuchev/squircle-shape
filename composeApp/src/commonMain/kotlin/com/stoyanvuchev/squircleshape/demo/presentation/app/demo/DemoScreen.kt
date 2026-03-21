@@ -55,7 +55,7 @@ fun DemoScreen(
 
             DefaultBackgroundDecoration(
                 safePadding = safePadding,
-                icon = Res.drawable.squircle_icon_outlined
+                icon = { Res.drawable.squircle_icon_outlined }
             )
 
         }

@@ -57,7 +57,7 @@ fun UsageScreen(
 
             DefaultBackgroundDecoration(
                 safePadding = safePadding,
-                icon = Res.drawable.explore_outlined
+                icon = { Res.drawable.explore_outlined }
             )
 
         },

@@ -27,7 +27,6 @@ import androidx.compose.animation.animateColor
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.updateTransition
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
@@ -35,7 +34,6 @@ import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -43,14 +41,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.input.pointer.PointerIcon
 import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.stoyanvuchev.squircleshape.demo.core.ui.Theme
+import com.stoyanvuchev.squircleshape.demo.core.ui.component.icon.AsyncIcon
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.interaction.rememberRipple
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.text.Text
 import com.stoyanvuchev.squircleshape.demo.core.ui.util.window.LocalWindowState
@@ -58,7 +55,7 @@ import com.stoyanvuchev.squircleshape.demo.core.ui.util.window.LocalWindowState
 @Composable
 fun SideRailItem(
     modifier: Modifier = Modifier,
-    icon: @Composable () -> Painter,
+    icon: () -> Any?,
     label: String? = null,
     selected: () -> Boolean,
     onSelected: () -> Unit
@@ -68,20 +65,6 @@ fun SideRailItem(
     val isLabelVisible = remember(windowState) { windowState.isLargeWidth }
     val horizontalPadding by rememberUpdatedState(
         if (isLabelVisible) 12.dp else 0.dp
-    )
-
-    val transition = updateTransition(targetState = selected)
-    val contentColor by transition.animateColor(
-        targetValueByState = { isSelected ->
-            if (isSelected()) Theme.colorScheme.primary
-            else Theme.colorScheme.onSurface
-        },
-        transitionSpec = {
-            spring(
-                dampingRatio = Spring.DampingRatioNoBouncy,
-                stiffness = Spring.StiffnessMediumLow
-            )
-        }
     )
 
     Row(
@@ -102,11 +85,23 @@ fun SideRailItem(
         horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally)
     ) {
 
-        Image(
-            modifier = Modifier.size(24.dp),
-            painter = icon(),
-            colorFilter = ColorFilter.tint(color = contentColor),
-            contentDescription = null
+        val transition = updateTransition(targetState = selected)
+        val contentColor by transition.animateColor(
+            targetValueByState = { isSelected ->
+                if (isSelected()) Theme.colorScheme.primary
+                else Theme.colorScheme.onSurface
+            },
+            transitionSpec = {
+                spring(
+                    dampingRatio = Spring.DampingRatioNoBouncy,
+                    stiffness = Spring.StiffnessMediumLow
+                )
+            }
+        )
+
+        AsyncIcon(
+            icon = icon,
+            tint = contentColor
         )
 
         if (isLabelVisible) {
