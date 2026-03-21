@@ -25,44 +25,37 @@ package com.stoyanvuchev.squircleshape.demo.core.ui.component.navigation.navlist
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.spring
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.input.pointer.PointerIcon
 import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import com.stoyanvuchev.squircleshape.demo.core.ui.Theme
+import com.stoyanvuchev.squircleshape.demo.core.ui.component.icon.AsyncIcon
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.interaction.rememberRipple
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.text.Text
-import org.jetbrains.compose.resources.DrawableResource
-import org.jetbrains.compose.resources.painterResource
 
 @Composable
 fun NavigationListItem(
     modifier: Modifier = Modifier,
     label: String,
-    icon: DrawableResource? = null,
+    icon: () -> Any? = { null },
     selected: () -> Boolean,
     onSelected: () -> Unit
 ) = Row(
     modifier = Modifier
         .then(modifier)
         .pointerHoverIcon(icon = PointerIcon.Hand)
-        //.width(IntrinsicSize.Max)
         .defaultMinSize(minWidth = 88.dp, minHeight = 56.dp)
         .clickable(
             interactionSource = remember { MutableInteractionSource() },
@@ -81,12 +74,10 @@ fun NavigationListItem(
             animationSpec = spring()
         )
 
-        icon?.let {
-            Image(
-                modifier = Modifier.size(24.dp),
-                painter = painterResource(icon),
-                contentDescription = null,
-                colorFilter = ColorFilter.tint(color)
+        icon()?.let {
+            AsyncIcon(
+                icon = icon,
+                tint = color
             )
         }
 

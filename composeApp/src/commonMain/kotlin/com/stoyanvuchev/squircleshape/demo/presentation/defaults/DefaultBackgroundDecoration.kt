@@ -23,14 +23,12 @@
 
 package com.stoyanvuchev.squircleshape.demo.presentation.defaults
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.systemBars
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
@@ -43,21 +41,18 @@ import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.BlurEffect
 import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import com.stoyanvuchev.squircleshape.demo.core.ui.Theme
+import com.stoyanvuchev.squircleshape.demo.core.ui.component.icon.AsyncIcon
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.topbar.LocalTopBarState
 import com.stoyanvuchev.squircleshape.demo.core.ui.isInDarkThemeMode
-import org.jetbrains.compose.resources.DrawableResource
-import org.jetbrains.compose.resources.painterResource
 
 @Composable
 fun DefaultBackgroundDecoration(
     safePadding: PaddingValues,
-    icon: DrawableResource
+    icon: () -> Any?
 ) {
 
     val topBarState = LocalTopBarState.current
@@ -135,19 +130,17 @@ fun DefaultBackgroundDecoration(
                 derivedStateOf { insets.getTop(density).toFloat() }
             }
 
-            Image(
+            AsyncIcon(
+                icon = icon,
                 modifier = Modifier
                     .graphicsLayer {
                         this.translationY = translationY
                         this.scaleX = scale
                         this.scaleY = scale
                     }
-                    .size(100.dp)
                     .padding(8.dp),
-                painter = painterResource(icon),
-                contentDescription = null,
-                contentScale = ContentScale.Crop,
-                colorFilter = ColorFilter.tint(iconTint)
+                tint = iconTint,
+                size = 100.dp
             )
 
         }

@@ -23,23 +23,20 @@
 
 package com.stoyanvuchev.squircleshape.demo.presentation.content
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -47,13 +44,12 @@ import com.stoyanvuchev.squircleshape.demo.core.ui.Theme
 import com.stoyanvuchev.squircleshape.demo.core.ui.color.LocalContentColor
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.button.Button
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.cardBackgroundModifier
+import com.stoyanvuchev.squircleshape.demo.core.ui.component.icon.AsyncIcon
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.layout.spacer.HorizontalSpacer
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.layout.spacer.VerticalSpacer
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.text.Text
-import org.jetbrains.compose.resources.painterResource
 import squircleshape.composeapp.generated.resources.Res
 import squircleshape.composeapp.generated.resources.arrow_back
-import sv.lib.squircleshape.SquircleShape
 
 @Composable
 fun SectionTitle(
@@ -89,11 +85,10 @@ fun Card(
         verticalAlignment = Alignment.CenterVertically
     ) {
 
-        Image(
-            modifier = Modifier.size(28.dp),
-            painter = painterResource(card.icon),
-            contentDescription = null,
-            colorFilter = ColorFilter.tint(color = Theme.colorScheme.primary)
+        AsyncIcon(
+            icon = { card.icon },
+            tint = Theme.colorScheme.primary,
+            size = 28.dp
         )
 
         HorizontalSpacer(width = 20.dp)
@@ -147,13 +142,10 @@ fun CTA(
 
         HorizontalSpacer(width = 12.dp)
 
-        Image(
-            modifier = Modifier
-                .graphicsLayer { rotationZ = 180f }
-                .size(24.dp),
-            painter = painterResource(Res.drawable.arrow_back),
-            contentDescription = null,
-            colorFilter = ColorFilter.tint(LocalContentColor.current)
+        AsyncIcon(
+            icon = { Res.drawable.arrow_back },
+            modifier = Modifier.graphicsLayer { rotationZ = 180f },
+            tint = LocalContentColor.current
         )
 
     }
@@ -177,13 +169,11 @@ fun AuthorContent(
             verticalAlignment = Alignment.CenterVertically
         ) {
 
-            Image(
-                modifier = Modifier
-                    .size(48.dp)
-                    .clip(SquircleShape()),
-                painter = painterResource(author.avatarRes),
-                contentDescription = "Avatar of ${author.name}",
-                contentScale = ContentScale.Crop
+            AsyncIcon(
+                icon = { author.avatarRes },
+                modifier = Modifier.clip(Theme.shapes.large),
+                tint = Color.Unspecified,
+                size = 48.dp
             )
 
             Text(
@@ -254,13 +244,10 @@ private fun LinkButton(
             verticalAlignment = Alignment.CenterVertically
         ) {
 
-            Image(
-                modifier = Modifier
-                    .size(24.dp)
-                    .padding(link.iconPaddingDp),
-                painter = painterResource(link.iconRes),
-                contentDescription = null,
-                colorFilter = ColorFilter.tint(LocalContentColor.current)
+            AsyncIcon(
+                icon = { link.iconRes },
+                modifier = Modifier.padding(link.iconPaddingDp),
+                tint = LocalContentColor.current
             )
 
             HorizontalSpacer(width = 12.dp)
