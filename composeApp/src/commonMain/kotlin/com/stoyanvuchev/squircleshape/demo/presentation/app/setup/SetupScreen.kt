@@ -64,7 +64,7 @@ fun SetupScreen(
 
             DefaultBackgroundDecoration(
                 safePadding = safePadding,
-                icon = Res.drawable.settings_outlined
+                icon = { Res.drawable.settings_outlined }
             )
 
         },

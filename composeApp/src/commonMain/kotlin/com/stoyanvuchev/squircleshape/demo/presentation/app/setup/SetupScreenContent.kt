@@ -23,27 +23,27 @@
 
 package com.stoyanvuchev.squircleshape.demo.presentation.app.setup
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.input.pointer.PointerIcon
+import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.unit.dp
 import com.stoyanvuchev.squircleshape.demo.core.ui.Theme
+import com.stoyanvuchev.squircleshape.demo.core.ui.component.icon.AsyncIcon
+import com.stoyanvuchev.squircleshape.demo.core.ui.component.interaction.rememberRipple
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.layout.spacer.HorizontalSpacer
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.text.Text
 import com.stoyanvuchev.squircleshape.demo.domain.model.LatestRelease
 import com.stoyanvuchev.squircleshape.demo.presentation.content.ContentGroup
 import com.stoyanvuchev.squircleshape.demo.presentation.content.group
-import org.jetbrains.compose.resources.painterResource
 import squircleshape.composeapp.generated.resources.Res
 import squircleshape.composeapp.generated.resources.github_icon
 
@@ -89,7 +89,7 @@ fun setupScreenContent(
                                 ),
                             text = latestRelease.version,
                             style = Theme.typography.code,
-                            color = Theme.colorScheme.primary
+                            color = Theme.colorScheme.accent
                         )
                     }
 
@@ -97,17 +97,17 @@ fun setupScreenContent(
 
                     val uriHandler = LocalUriHandler.current
 
-                    Image(
+                    AsyncIcon(
+                        icon = { Res.drawable.github_icon },
                         modifier = Modifier
-                            .size(18.dp)
+                            .pointerHoverIcon(PointerIcon.Hand)
                             .clickable(
                                 interactionSource = remember { MutableInteractionSource() },
-                                indication = null,
+                                indication = rememberRipple(),
                                 onClick = { uriHandler.openUri(latestRelease.url) }
                             ),
-                        painter = painterResource(Res.drawable.github_icon),
-                        contentDescription = null,
-                        colorFilter = ColorFilter.tint(color = Theme.colorScheme.primary)
+                        tint = Theme.colorScheme.accent,
+                        size = 18.dp
                     )
 
                 }
@@ -207,7 +207,7 @@ fun setupScreenContent(
                                 ),
                             text = latestRelease.version,
                             style = Theme.typography.code,
-                            color = Theme.colorScheme.primary
+                            color = Theme.colorScheme.accent
                         )
                     }
 
@@ -215,17 +215,17 @@ fun setupScreenContent(
 
                     val uriHandler = LocalUriHandler.current
 
-                    Image(
+                    AsyncIcon(
+                        icon = { Res.drawable.github_icon },
                         modifier = Modifier
-                            .size(18.dp)
+                            .pointerHoverIcon(PointerIcon.Hand)
                             .clickable(
                                 interactionSource = remember { MutableInteractionSource() },
-                                indication = null,
+                                indication = rememberRipple(),
                                 onClick = { uriHandler.openUri(latestRelease.url) }
                             ),
-                        painter = painterResource(Res.drawable.github_icon),
-                        contentDescription = null,
-                        colorFilter = ColorFilter.tint(color = Theme.colorScheme.primary)
+                        tint = Theme.colorScheme.accent,
+                        size = 18.dp
                     )
 
                 }

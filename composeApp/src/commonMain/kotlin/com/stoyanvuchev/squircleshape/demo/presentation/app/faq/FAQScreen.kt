@@ -57,7 +57,7 @@ fun FAQScreen(
 
             DefaultBackgroundDecoration(
                 safePadding = safePadding,
-                icon = Res.drawable.faq_outlined
+                icon = { Res.drawable.faq_outlined }
             )
 
         },

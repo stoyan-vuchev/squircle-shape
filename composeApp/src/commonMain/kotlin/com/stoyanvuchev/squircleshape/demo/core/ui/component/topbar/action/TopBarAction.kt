@@ -25,14 +25,14 @@ package com.stoyanvuchev.squircleshape.demo.core.ui.component.topbar.action
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.RowScope
-import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
+import com.stoyanvuchev.squircleshape.demo.core.ui.component.icon.AsyncIcon
+import com.stoyanvuchev.squircleshape.demo.core.ui.component.topbar.TopBar
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.topbar.action.TopBarActionUtils.topBarActionContainerModifier
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.topbar.action.TopBarActionUtils.topBarActionIconModifier
-import com.stoyanvuchev.squircleshape.demo.core.ui.component.topbar.TopBar
 
 /**
  *
@@ -81,7 +81,7 @@ import com.stoyanvuchev.squircleshape.demo.core.ui.component.topbar.TopBar
  */
 @Composable
 fun TopBarAction(
-    icon: @Composable () -> Painter,
+    icon: () -> Any?,
     onClick: () -> Unit,
     contentDescription: String?
 ) = Box(
@@ -89,9 +89,9 @@ fun TopBarAction(
     contentAlignment = Alignment.Center,
     content = {
 
-        Icon(
+        AsyncIcon(
+            icon = icon,
             modifier = Modifier.topBarActionIconModifier(),
-            painter = icon(),
             contentDescription = contentDescription,
             tint = TopBarActionUtils.iconColor
         )
