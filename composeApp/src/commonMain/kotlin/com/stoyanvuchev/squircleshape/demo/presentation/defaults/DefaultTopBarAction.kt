@@ -25,7 +25,6 @@ package com.stoyanvuchev.squircleshape.demo.presentation.defaults
 
 import androidx.compose.runtime.Composable
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.topbar.action.TopBarAction
-import org.jetbrains.compose.resources.painterResource
 import squircleshape.composeapp.generated.resources.Res
 import squircleshape.composeapp.generated.resources.arrow_back
 
@@ -33,7 +32,7 @@ import squircleshape.composeapp.generated.resources.arrow_back
 fun DefaultTopBarAction(
     onNavigateUp: () -> Unit
 ) = TopBarAction(
-    icon = { painterResource(Res.drawable.arrow_back) },
+    icon = { Res.drawable.arrow_back },
     onClick = onNavigateUp,
     contentDescription = "Navigate Up."
 )

@@ -130,28 +130,28 @@ fun DemoAppBottomBar(
 
                         NavigationListItem(
                             label = "Setup",
-                            icon = Res.drawable.settings_outlined,
+                            icon = { Res.drawable.settings_outlined },
                             selected = { selectedItem() == DemoAppNavigation.Setup },
                             onSelected = remember { { onSelected(DemoAppNavigation.Setup) } }
                         )
 
                         NavigationListItem(
                             label = "Usage",
-                            icon = Res.drawable.explore_outlined,
+                            icon = { Res.drawable.explore_outlined },
                             selected = { selectedItem() == DemoAppNavigation.Usage },
                             onSelected = remember { { onSelected(DemoAppNavigation.Usage) } }
                         )
 
                         NavigationListItem(
                             label = "FAQ",
-                            icon = Res.drawable.faq_outlined,
+                            icon = { Res.drawable.faq_outlined },
                             selected = { selectedItem() == DemoAppNavigation.FAQ },
                             onSelected = remember { { onSelected(DemoAppNavigation.FAQ) } }
                         )
 
                         NavigationListItem(
                             label = "About",
-                            icon = Res.drawable.info_outlined,
+                            icon = { Res.drawable.info_outlined },
                             selected = { selectedListItemIndex == 3 },
                             onSelected = remember { { onSelected(DemoAppNavigation.About) } }
                         )
@@ -166,14 +166,14 @@ fun DemoAppBottomBar(
     ) {
 
         BottomBarItem(
-            icon = { painterResource(Res.drawable.squircle_icon_outlined) },
+            icon = { Res.drawable.squircle_icon_outlined },
             label = "Demo",
             selected = selectedItem() == DemoAppNavigation.Demo,
             onSelected = remember { { onSelected(DemoAppNavigation.Demo) } }
         )
 
         BottomBarItem(
-            icon = { painterResource(Res.drawable.documentation) },
+            icon = { Res.drawable.documentation },
             label = "Docs",
             selected = selectedItem() != DemoAppNavigation.Demo,
             onSelected = remember { { onSelected(DemoAppNavigation.Setup) } }

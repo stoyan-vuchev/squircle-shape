@@ -28,7 +28,6 @@ import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.keyframes
 import androidx.compose.animation.core.rememberInfiniteTransition
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.size
@@ -38,8 +37,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
+import com.stoyanvuchev.squircleshape.demo.core.ui.component.icon.AsyncIcon
 import com.stoyanvuchev.squircleshape.demo.presentation.app.faq.components.CornerRadiusComparison
 import com.stoyanvuchev.squircleshape.demo.presentation.app.faq.components.SquircleToRoundedCornerShapeComparison
 import com.stoyanvuchev.squircleshape.demo.presentation.app.usage.components.BasicExample
@@ -47,7 +48,6 @@ import com.stoyanvuchev.squircleshape.demo.presentation.app.usage.components.Can
 import com.stoyanvuchev.squircleshape.demo.presentation.app.usage.components.MaterialThemeExample
 import com.stoyanvuchev.squircleshape.demo.presentation.content.ContentGroup
 import com.stoyanvuchev.squircleshape.demo.presentation.content.group
-import org.jetbrains.compose.resources.painterResource
 import squircleshape.composeapp.generated.resources.Res
 import squircleshape.composeapp.generated.resources.flowers
 import sv.lib.squircleshape.SquircleShape
@@ -378,7 +378,8 @@ fun faqScreenContent(onGoToAbout: () -> Unit): List<ContentGroup> = listOf(
                         derivedStateOf { (100 * animatedFraction).roundToInt() }
                     }
 
-                    Image(
+                    AsyncIcon(
+                        icon = { Res.drawable.flowers },
                         modifier = Modifier
                             .size(256.dp)
                             .clip(
@@ -387,9 +388,10 @@ fun faqScreenContent(onGoToAbout: () -> Unit): List<ContentGroup> = listOf(
                                     smoothing = animatedSmoothing
                                 )
                             ),
-                        painter = painterResource(Res.drawable.flowers),
                         contentDescription = "Sunflowers image clipped to animated Squircle Shape.",
-                        contentScale = ContentScale.Crop
+                        contentScale = ContentScale.Crop,
+                        tint = Color.Unspecified,
+                        size = null
                     )
 
                 }

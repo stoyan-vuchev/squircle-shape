@@ -23,20 +23,20 @@
 
 package com.stoyanvuchev.squircleshape.demo.presentation.app.faq.components
 
-import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.CornerRadius
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.unit.dp
 import com.stoyanvuchev.squircleshape.demo.core.ui.Theme
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.layout.spacer.HorizontalSpacer
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.text.Text
-import sv.lib.squircleshape.SquircleShape
+import sv.lib.squircleshape.drawSquircle
 
 @Composable
 fun SquircleToRoundedCornerShapeComparison() = Row(
@@ -45,15 +45,27 @@ fun SquircleToRoundedCornerShapeComparison() = Row(
     verticalAlignment = Alignment.CenterVertically
 ) {
 
-    Box(
+    val squareColor = Theme.colorScheme.accent
+
+    Canvas(
         modifier = Modifier
+            .padding(4.dp)
             .size(80.dp)
-            .border(
-                width = 4.dp,
-                color = Theme.colorScheme.accent,
-                shape = RoundedCornerShape(percent = 35)
-            )
-    )
+    ) {
+
+        val cornerRadius = size.minDimension / 2.67f
+
+        drawRoundRect(
+            color = squareColor,
+            size = size,
+            cornerRadius = CornerRadius(
+                x = cornerRadius,
+                y = cornerRadius
+            ),
+            style = Stroke(width = 4.dp.toPx())
+        )
+
+    }
 
     HorizontalSpacer(width = 20.dp)
 
@@ -64,14 +76,27 @@ fun SquircleToRoundedCornerShapeComparison() = Row(
 
     HorizontalSpacer(width = 20.dp)
 
-    Box(
+    val squircleColor = Theme.colorScheme.primary
+
+    Canvas(
         modifier = Modifier
+            .padding(4.dp)
             .size(80.dp)
-            .border(
-                width = 4.dp,
-                color = Theme.colorScheme.primary,
-                shape = SquircleShape(percent = 50, smoothing = 50)
-            )
-    )
+    ) {
+
+        val cornerRadius = size.minDimension / 2
+
+        drawSquircle(
+            color = squircleColor,
+            size = this.size,
+            topLeftCorner = cornerRadius,
+            topRightCorner = cornerRadius,
+            bottomRightCorner = cornerRadius,
+            bottomLeftCorner = cornerRadius,
+            smoothing = 50,
+            style = Stroke(width = 4.dp.toPx())
+        )
+
+    }
 
 }

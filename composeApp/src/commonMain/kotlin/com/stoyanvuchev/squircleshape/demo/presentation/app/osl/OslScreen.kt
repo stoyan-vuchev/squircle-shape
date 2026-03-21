@@ -77,7 +77,7 @@ fun OslScreen(
 
             DefaultBackgroundDecoration(
                 safePadding = safePadding,
-                icon = Res.drawable.license_outlined
+                icon = { Res.drawable.license_outlined }
             )
 
         },

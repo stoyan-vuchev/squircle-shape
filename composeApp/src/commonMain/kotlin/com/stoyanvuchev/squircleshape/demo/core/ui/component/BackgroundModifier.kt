@@ -25,6 +25,8 @@ package com.stoyanvuchev.squircleshape.demo.core.ui.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.shape.CornerBasedShape
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.draw.clip
@@ -32,13 +34,16 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.unit.dp
 import com.stoyanvuchev.squircleshape.demo.core.ui.Theme
 
-fun Modifier.cardBackgroundModifier(): Modifier {
+@Composable
+fun Modifier.cardBackgroundModifier(
+    shape: CornerBasedShape = Theme.shapes.large
+): Modifier {
     return composed {
         this@composed
-            .clip(shape = Theme.shapes.large)
+            .clip(shape = shape)
             .background(color = Theme.colorScheme.surfaceElevationLow)
             .border(
-                shape = Theme.shapes.large,
+                shape = shape,
                 width = 1.dp,
                 brush = Brush.verticalGradient(
                     colors = listOf(
