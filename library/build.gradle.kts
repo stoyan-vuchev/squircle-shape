@@ -15,7 +15,7 @@ kotlin {
     wasmJs { browser() }
 
     android {
-        compileSdk = 36
+        compileSdk = 37
         minSdk = 23
         namespace = "sv.lib.squircleshape"
         experimentalProperties["android.experimental.kmp.enableAndroidResources"] = true
@@ -65,7 +65,7 @@ mavenPublishing {
     coordinates(
         groupId = "com.stoyanvuchev",
         artifactId = "squircle-shape",
-        version = libs.versions.squircleShape.get().toString()
+        version = libs.versions.squircleShape.get()
     )
 
     pom {
@@ -109,4 +109,6 @@ mavenPublishing {
 
 }
 
-tasks.register("testClasses") {}
+tasks.register("testClasses") {
+    description = "Test classes task."
+}

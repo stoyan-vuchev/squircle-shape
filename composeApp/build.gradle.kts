@@ -28,7 +28,7 @@ kotlin {
     }
 
     android {
-        compileSdk = 36
+        compileSdk = 37
         minSdk = 23
         namespace = "com.stoyanvuchev.squircleshape.app"
         experimentalProperties["android.experimental.kmp.enableAndroidResources"] = true
@@ -74,6 +74,7 @@ kotlin {
                 implementation(libs.koin.compose)
                 implementation(libs.koin.compose.viewmodel)
                 implementation(libs.haze)
+                implementation(libs.haze.blur)
                 implementation(libs.landscapist.core)
                 implementation(libs.landscapist.image)
                 implementation(libs.serialization.json)

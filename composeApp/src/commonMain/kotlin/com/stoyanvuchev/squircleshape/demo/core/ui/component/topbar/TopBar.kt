@@ -23,6 +23,7 @@
 
 package com.stoyanvuchev.squircleshape.demo.core.ui.component.topbar
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
@@ -46,9 +47,9 @@ import com.stoyanvuchev.squircleshape.demo.core.ui.Theme
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.layout.spacer.HorizontalSpacer
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.text.Text
 import com.stoyanvuchev.squircleshape.demo.core.util.transformFraction
-import dev.chrisbanes.haze.HazeProgressive
-import dev.chrisbanes.haze.HazeStyle
-import dev.chrisbanes.haze.HazeTint
+import dev.chrisbanes.haze.blur.HazeColorEffect
+import dev.chrisbanes.haze.blur.HazeProgressive
+import dev.chrisbanes.haze.blur.blurEffect
 import dev.chrisbanes.haze.hazeEffect
 
 /**
@@ -89,27 +90,35 @@ fun TopBar(
         derivedStateOf { if (collapsedFraction == 1f) 1f else 0f }
     }
 
+    val blurEnabled by remember {
+        derivedStateOf { collapsedFraction == 1f }
+    }
+
+    val backgroundColor = Theme.colorScheme.surface
+    val adaptiveBackgroundColor by remember {
+        derivedStateOf { backgroundColor.copy(alpha = if (blurEnabled) 1f else 0f) }
+    }
+
     Box(
         modifier = Modifier
             .graphicsLayer {
                 this.translationY = translationY
             }
             .fillMaxWidth()
-            .hazeEffect(
-                state = LocalHazeState.current,
-                style = HazeStyle(
-                    backgroundColor = Theme.colorScheme.surface,
-                    tint = HazeTint(
-                        color = Theme.colorScheme.surface.copy(.8f)
-                    ),
-                    blurRadius = 12.dp,
+            .background(adaptiveBackgroundColor)
+            .hazeEffect(state = LocalHazeState.current) {
+                blurEffect {
+                    this.blurEnabled = blurEnabled
+                    blurRadius = 12.dp
                     noiseFactor = 0f
-                )
-            ) {
-                progressive = HazeProgressive.verticalGradient(
-                    startIntensity = startIntensity,
-                    endIntensity = 0f
-                )
+                    colorEffects = listOf(
+                        HazeColorEffect.tint(color = backgroundColor.copy(.8f))
+                    )
+                    progressive = HazeProgressive.verticalGradient(
+                        startIntensity = startIntensity,
+                        endIntensity = 0f
+                    )
+                }
             },
         contentAlignment = Alignment.BottomStart
     ) {

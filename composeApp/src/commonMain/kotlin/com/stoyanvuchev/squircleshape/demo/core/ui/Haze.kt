@@ -36,8 +36,8 @@ import androidx.compose.ui.graphics.shadow.Shadow
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import dev.chrisbanes.haze.HazeState
-import dev.chrisbanes.haze.HazeStyle
-import dev.chrisbanes.haze.HazeTint
+import dev.chrisbanes.haze.blur.HazeColorEffect
+import dev.chrisbanes.haze.blur.blurEffect
 import dev.chrisbanes.haze.hazeEffect
 
 val LocalHazeState = compositionLocalOf { HazeState() }
@@ -45,6 +45,7 @@ val LocalHazeState = compositionLocalOf { HazeState() }
 fun Modifier.floatingComponentHazeEffect(
     shape: CornerBasedShape
 ): Modifier = composed {
+    val bgBlurColor = Theme.colorScheme.surfaceElevationMedium.copy(.75f)
     this
         .dropShadow(
             shape = shape,
@@ -55,16 +56,13 @@ fun Modifier.floatingComponentHazeEffect(
             )
         )
         .clip(shape)
-        .hazeEffect(
-            state = LocalHazeState.current,
-            style = HazeStyle(
-                backgroundColor = Theme.colorScheme.surface,
-                tint = HazeTint(
-                    color = Theme.colorScheme.surfaceElevationMedium.copy(.75f)
-                ),
+        .hazeEffect(state = LocalHazeState.current) {
+            blurEffect {
                 blurRadius = 12.dp
-            )
-        )
+                colorEffects = listOf(HazeColorEffect.tint(bgBlurColor))
+                noiseFactor = 0.15f
+            }
+        }
         .innerShadow(
             shape = shape,
             shadow = Shadow(
