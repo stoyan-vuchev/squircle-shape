@@ -36,8 +36,8 @@ jobs:
       - name: Build WasmJS production distribution
         run: ./gradlew :composeApp:wasmJsBrowserDistribution --no-daemon --no-parallel -Dkotlin.incremental=false
         env:
-          ORG_GRADLE_JVMARGS: "-Xmx3g -Xms1g -XX:MaxMetaspaceSize=512m"
-          KOTLIN_DAEMON_JVMARGS: "-Xmx2500m -Xms512m"
+          ORG_GRADLE_JVMARGS: "-Xmx5g -Xms1g -XX:MaxMetaspaceSize=512m"
+          KOTLIN_DAEMON_JVMARGS: "-Xmx5000m -Xms512m"
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
