@@ -53,8 +53,8 @@ import androidx.compose.ui.unit.dp
 import com.stoyanvuchev.squircleshape.demo.core.ui.LocalHazeState
 import com.stoyanvuchev.squircleshape.demo.core.ui.Theme
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.interaction.rememberRipple
-import dev.chrisbanes.haze.HazeStyle
-import dev.chrisbanes.haze.HazeTint
+import dev.chrisbanes.haze.blur.HazeColorEffect
+import dev.chrisbanes.haze.blur.blurEffect
 import dev.chrisbanes.haze.hazeEffect
 
 object TopBarActionUtils {
@@ -91,6 +91,8 @@ object TopBarActionUtils {
                 animationSpec = spring()
             )
 
+            val bgBlurColor = Theme.colorScheme.surfaceElevationMedium.copy(.75f)
+
             Modifier
                 .size(clickableContainerSize)
                 .pointerHoverIcon(
@@ -111,16 +113,12 @@ object TopBarActionUtils {
                     )
                 )
                 .clip(Theme.shapes.small)
-                .hazeEffect(
-                    state = LocalHazeState.current,
-                    style = HazeStyle(
-                        backgroundColor = clickableContainerColor,
-                        tint = HazeTint(
-                            color = Theme.colorScheme.surfaceElevationMedium.copy(.75f)
-                        ),
+                .hazeEffect(state = LocalHazeState.current) {
+                    blurEffect {
                         blurRadius = 12.dp
-                    )
-                )
+                        colorEffects = listOf(HazeColorEffect.tint(color = bgBlurColor))
+                    }
+                }
                 .innerShadow(
                     shape = Theme.shapes.small,
                     shadow = Shadow(

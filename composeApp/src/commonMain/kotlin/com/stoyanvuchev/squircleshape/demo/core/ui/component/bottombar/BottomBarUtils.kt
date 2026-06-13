@@ -55,8 +55,8 @@ import androidx.compose.ui.unit.dp
 import com.stoyanvuchev.squircleshape.demo.core.ui.LocalHazeState
 import com.stoyanvuchev.squircleshape.demo.core.ui.Theme
 import com.stoyanvuchev.squircleshape.demo.core.ui.component.interaction.rememberRipple
-import dev.chrisbanes.haze.HazeStyle
-import dev.chrisbanes.haze.HazeTint
+import dev.chrisbanes.haze.blur.HazeColorEffect
+import dev.chrisbanes.haze.blur.blurEffect
 import dev.chrisbanes.haze.hazeEffect
 
 /**
@@ -114,6 +114,8 @@ object BottomBarUtils {
                 animationSpec = remember { spring() }
             )
 
+            val bgBlurColor = Theme.colorScheme.surfaceElevationHigh.copy(.75f)
+
             Modifier
                 .pointerHoverIcon(
                     icon = PointerIcon.Hand
@@ -133,16 +135,12 @@ object BottomBarUtils {
                     )
                 )
                 .clip(Theme.shapes.medium)
-                .hazeEffect(
-                    state = LocalHazeState.current,
-                    style = HazeStyle(
-                        backgroundColor = Theme.colorScheme.surface,
-                        tint = HazeTint(
-                            color = Theme.colorScheme.surfaceElevationHigh.copy(.75f)
-                        ),
+                .hazeEffect(state = LocalHazeState.current) {
+                    blurEffect {
                         blurRadius = 12.dp
-                    )
-                )
+                        colorEffects = listOf(HazeColorEffect.tint(bgBlurColor))
+                    }
+                }
                 .innerShadow(
                     shape = Theme.shapes.medium,
                     shadow = Shadow(

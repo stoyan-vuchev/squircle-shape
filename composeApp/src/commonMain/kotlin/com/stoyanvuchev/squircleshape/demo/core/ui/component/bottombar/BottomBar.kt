@@ -62,9 +62,9 @@ import com.stoyanvuchev.squircleshape.demo.core.ui.Theme
 import com.stoyanvuchev.squircleshape.demo.core.ui.floatingComponentHazeEffect
 import com.stoyanvuchev.squircleshape.demo.core.util.Platform
 import com.stoyanvuchev.squircleshape.demo.core.util.getPlatform
-import dev.chrisbanes.haze.HazeProgressive
-import dev.chrisbanes.haze.HazeStyle
-import dev.chrisbanes.haze.HazeTint
+import dev.chrisbanes.haze.blur.HazeColorEffect
+import dev.chrisbanes.haze.blur.HazeProgressive
+import dev.chrisbanes.haze.blur.blurEffect
 import dev.chrisbanes.haze.hazeEffect
 
 @Composable
@@ -78,6 +78,7 @@ fun BottomBar(
     items: @Composable RowScope.() -> Unit
 ) {
 
+    val backgroundColor = Theme.colorScheme.surface
     val bottomPadding = remember {
         if (getPlatform() == Platform.IOS) 0.dp else 20.dp
     }
@@ -85,21 +86,18 @@ fun BottomBar(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .hazeEffect(
-                state = LocalHazeState.current,
-                style = HazeStyle(
-                    backgroundColor = Theme.colorScheme.surface,
-                    tint = HazeTint(
-                        color = Theme.colorScheme.surface.copy(.8f)
-                    ),
-                    blurRadius = 12.dp,
+            .hazeEffect(state = LocalHazeState.current) {
+                blurEffect {
+                    blurRadius = 12.dp
                     noiseFactor = 0f
-                )
-            ) {
-                progressive = HazeProgressive.verticalGradient(
-                    startIntensity = 0f,
-                    endIntensity = 1f
-                )
+                    colorEffects = listOf(
+                        HazeColorEffect.tint(color = backgroundColor.copy(.8f))
+                    )
+                    progressive = HazeProgressive.verticalGradient(
+                        startIntensity = 0f,
+                        endIntensity = 1f
+                    )
+                }
             }
             .padding(horizontal = 40.dp)
             .padding(
