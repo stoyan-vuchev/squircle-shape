@@ -38,16 +38,19 @@ import com.stoyanvuchev.squircleshape.demo.di.appModule
 import org.koin.compose.KoinApplication
 import org.koin.compose.viewmodel.koinViewModel
 import org.koin.dsl.KoinAppDeclaration
+import org.koin.dsl.koinConfiguration
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun DemoApp(
     koinAppDeclaration: KoinAppDeclaration? = null
 ) = KoinApplication(
-    application = {
-        koinAppDeclaration?.invoke(this)
-        modules(appModule)
-    }
+    configuration = koinConfiguration(
+        declaration = {
+            koinAppDeclaration?.invoke(this)
+            modules(appModule)
+        }
+    )
 ) {
 
     val viewModel = koinViewModel<DemoAppViewModel>()
