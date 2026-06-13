@@ -30,14 +30,10 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
 
-      - name: Stop unnecessary daemons
-        run: ./gradlew --stop || true
-
       - name: Build WasmJS production distribution
-        run: ./gradlew :composeApp:wasmJsBrowserDistribution --no-daemon --no-parallel -Dkotlin.incremental=false
+        run: ./gradlew :composeApp:wasmJsBrowserDistribution --no-daemon
         env:
-          ORG_GRADLE_JVMARGS: "-Xmx5g -Xms1g -XX:MaxMetaspaceSize=512m"
-          KOTLIN_DAEMON_JVMARGS: "-Xmx5000m -Xms512m"
+          GRADLE_OPTS: -Dkotlin.daemon.jvm.options="-Xmx5g -Xms4g"
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
