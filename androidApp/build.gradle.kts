@@ -7,12 +7,12 @@ plugins {
 android {
 
     namespace = "com.stoyanvuchev.squircleshape.demo"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "com.stoyanvuchev.squircleshape.demo"
         minSdk = 23
-        targetSdk = 36
+        targetSdk = 37
         versionCode = 1
         versionName = "1.0.0"
     }
