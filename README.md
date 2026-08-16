@@ -17,7 +17,7 @@ This project maintains two long-lived branches:
 ### 🟢 [`stable`](https://github.com/stoyan-vuchev/squircle-shape/tree/stable)
 - Built with the latest **stable** Compose Multiplatform / Jetpack Compose versions.
 - Recommended for **production apps**.
-- Published versions follow semantic versioning (e.g. `5.3.0`).
+- Published versions follow semantic versioning (e.g. `5.4.0`).
 
 ### 🧪 [`experimental`](https://github.com/stoyan-vuchev/squircle-shape/tree/experimental)
 - Built with **alpha / beta / RC** Compose versions.
@@ -33,7 +33,7 @@ If you're building a production app, use the latest stable release from Maven Ce
 - **Customizable Squircle Shapes** — Smooth transition between squares and circles.
 - **MaterialTheme Integration** — Use directly inside `MaterialTheme.shapes`.
 - **Corner Smoothing Control** — Fine-tune curvature for precise design language.
-- **Compose Multiplatform Support** — Android, iOS, Desktop (JVM), Web (WasmJS).
+- **Compose Multiplatform Support** — Android, iOS, Desktop (JVM), Web (JS & WasmJS).
 - **Canvas Support** — Draw squircles using `drawSquircle()`.
 
 ---
