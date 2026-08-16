@@ -11,6 +11,8 @@ plugins {
 
 kotlin {
 
+    js { browser() }
+
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs { browser() }
 
@@ -47,9 +49,7 @@ kotlin {
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
         val iosMain by creating {
-            dependsOn(commonMain.get())
-            iosArm64Main.dependsOn(this)
-            iosSimulatorArm64Main.dependsOn(this)
+            dependencies { /* Leave empty for now. */ }
         }
 
         val desktopMain by getting {

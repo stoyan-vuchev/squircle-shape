@@ -20,7 +20,7 @@ kotlin {
             commonWebpackConfig {
                 outputFileName = "SquircleShapeApp.js"
                 devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
-                    static(directory = project.rootDir.path + project.projectDir.path)
+                    static(directory = project.projectDir.path)
                 }
             }
         }
@@ -100,9 +100,6 @@ kotlin {
         val iosSimulatorArm64Main by getting
         val iosMain by creating {
             dependencies { implementation(libs.ktor.client.darwin) }
-            dependsOn(commonMain.get())
-            iosArm64Main.dependsOn(this)
-            iosSimulatorArm64Main.dependsOn(this)
         }
 
         wasmJsMain.dependencies {
